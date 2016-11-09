@@ -10,7 +10,7 @@
   (package-initialize)
   (setq gc-cons-threshold 20000000)
   (setq initial-scratch-message nil)
-
+  
   (prefer-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   (set-terminal-coding-system 'utf-8)
@@ -173,6 +173,7 @@
    '(org-level-4 ((t (:foreground "plum" :weight normal))))
    '(org-link ((t (:foreground "SkyBlue1" :underline t))))
    '(org-warning ((t (:foreground "red" :underline t))))
+   '(font-lock-variable-name-face ((t (:foreground "RosyBrown1"))))
    '(powerline-inactive1 ((t (:background "dim gray"
 					  :foreground "orange red"))))
    '(powerline-inactive2 ((t (:background "#4a4a4a"
@@ -285,12 +286,14 @@
   (add-hook 'css-mode-hook '(lambda () (interactive) (column-marker-1 80)))
   (add-hook 'org-mode-hook 'org-cd)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (add-hook 'web-mode-hook 'web-mode)
   ;;-------------------------------HOOKS--------------
 
   ;;-------------------------------KeY-Maps--------------
   (evil-ex-define-cmd "b[utterfly]" 'butterfly)
   (evil-ex-define-cmd "sh[ell]" 'shell)
   (evil-ex-define-cmd "k[ill-this-buffer]" 'kill-this-buffer)
+  (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
   (global-set-key [(meta up)]  'move-line-up)
   (global-set-key [(meta down)]  'move-line-down)
   (define-key evil-normal-state-map "n" 'scroll-up)
