@@ -173,7 +173,7 @@
    '(org-level-4 ((t (:foreground "plum" :weight normal))))
    '(org-link ((t (:foreground "SkyBlue1" :underline t))))
    '(org-warning ((t (:foreground "red" :underline t))))
-   '(font-lock-variable-name-face ((t (:foreground "RosyBrown1"))))
+   ;;'(font-lock-variable-name-face ((t (:foreground "#89976C"))))
    '(powerline-inactive1 ((t (:background "dim gray"
 					  :foreground "orange red"))))
    '(powerline-inactive2 ((t (:background "#4a4a4a"
@@ -233,14 +233,17 @@
   ;;-------------------------WEB-mode--------------
   (require 'web-mode)
   ;;(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.php?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+
+  (setq-default web-mode-markup-indent-offset tab-width)
+  (setq-default web-mode-php-indent-offset tab-width)
   ;;------------------------------------------------
 
   (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
