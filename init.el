@@ -185,6 +185,7 @@
   ;; make electric-pair-mode work on more brackets
   (setq electric-pair-pairs '(
 			      (?\{ . ?\})
+			      (?\< . ?\>)
 			      ) )
 
   ;;------------------------ORG-mode-----------------------------------------
