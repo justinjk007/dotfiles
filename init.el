@@ -252,9 +252,6 @@
   (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
   (require 'htmlize)
 
-  (require 'aggressive-indent)
-  (aggressive-indent-global-mode 1)
-
   ;;---------------JAVA Migration-------------- Kinda regret this thou.
   (add-to-list 'load-path "~/.emacs.d/elpa/jdee")
   (require 'jdee)
@@ -272,9 +269,9 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
   (add-hook 'js-mode-hook 'flyspell-prog-mode)
-  (add-hook 'java-mode-hook 'flyspell-prog-mode)
-  (add-hook 'java-mode-hook 'evilAndJdee)
-  (add-hook 'java-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'jdee-mode-hook 'flyspell-prog-mode)
+  (add-hook 'jdee-mode-hook 'evilAndJdee)
+  (add-hook 'jdee-mode-hook 'rainbow-delimiters-mode)
   (add-hook 'prog-mode-hook 'highlight-numbers-mode) ;Highlight-numbers-mode
   (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode) ;;enabling rainbow in lisp
