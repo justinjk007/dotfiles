@@ -173,7 +173,7 @@
    '(org-level-4 ((t (:foreground "plum" :weight normal))))
    '(org-link ((t (:foreground "SkyBlue1" :underline t))))
    '(org-warning ((t (:foreground "red" :underline t))))
-   ;;'(font-lock-variable-name-face ((t (:foreground "#89976C"))))
+   '(font-lock-variable-name-face ((t (:foreground "#89976C"))))
    '(powerline-inactive1 ((t (:background "dim gray"
 					  :foreground "orange red"))))
    '(powerline-inactive2 ((t (:background "#4a4a4a"
