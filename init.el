@@ -169,7 +169,7 @@
 			   :slant normal :weight normal :height 98
 			   :width normal :foundry "outline"
 			   :family "Hack"))))
-   '(cursor ((t (:background "#e8e8ae"))))
+   '(cursor ((t (:background "#448aff"))))
    '(error ((t (:foreground "indian red" :weight bold))))
    '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
    '(column-marker-1 ((t (:background "light green"))))
