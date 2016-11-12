@@ -183,7 +183,7 @@
    '(font-lock-variable-name-face ((t (:foreground "#89976C"))))
    '(web-mode-folded-face ((t (:foreground "SystemMenuHilight"))))
    '(web-mode-html-tag-face ((t (:foreground "#50fa7b"))))
-   '(web-mode-html-attr-name-face ((t (:foreground "#FF69B4"))))
+   '(web-mode-html-attr-name-face ((t (:foreground "#ff79c6"))))
    '(web-mode-html-attr-value-face ((t (:foreground "#e8e8ae"))))
    '(powerline-inactive1 ((t (:background "dim gray"
 					  :foreground "white"))))
