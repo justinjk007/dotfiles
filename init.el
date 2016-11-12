@@ -52,6 +52,13 @@
     (transpose-lines 1)
     (forward-line -1)
     (indent-according-to-mode))
+  (defun my-web-mode-hook ()
+    (setq web-mode-markup-indent-offset 2)
+    (setq web-mode-css-indent-offset 2)
+    (setq web-mode-code-indent-offset 2)
+    (setq web-mode-indent-style 4)
+    (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold)
+    )
   ;;Put backup files neatly away-- SAVED Me many times
   (let ((backup-dir "~/Desktop/code/emacs/backups")
 	(auto-saves-dir "~/Desktop/code/emacs/autosavedir"))
@@ -174,10 +181,14 @@
    '(org-link ((t (:foreground "SkyBlue1" :underline t))))
    '(org-warning ((t (:foreground "red" :underline t))))
    '(font-lock-variable-name-face ((t (:foreground "#89976C"))))
+   '(web-mode-folded-face ((t (:foreground "SystemMenuHilight"))))
+   '(web-mode-html-tag-face ((t (:foreground "#50fa7b"))))
+   '(web-mode-html-attr-name-face ((t (:foreground "#FF69B4"))))
+   '(web-mode-html-attr-value-face ((t (:foreground "#e8e8ae"))))
    '(powerline-inactive1 ((t (:background "dim gray"
-					  :foreground "orange red"))))
+					  :foreground "white"))))
    '(powerline-inactive2 ((t (:background "#4a4a4a"
-					  :foreground "lawn green")))))
+					  :foreground "pink")))))
   ;;Selection Colors OR Visaul Block colors
   (set-face-attribute 'region nil :foreground "#f9d6f8" :background "#4f5368")
 
@@ -233,7 +244,7 @@
 
   ;;-------------------------WEB-mode--------------
   (require 'web-mode)
-  ;;(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -252,6 +263,10 @@
 
   (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
   (require 'htmlize)
+
+  (add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
+  (require 'aggressive-indent)
+  (aggressive-indent-global-mode t)
 
   ;;---------------JAVA Migration-------------- Kinda regret this thou.
   (add-to-list 'load-path "~/.emacs.d/elpa/jdee")
@@ -288,6 +303,8 @@
   (add-hook 'org-mode-hook 'org-cd)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (add-hook 'web-mode-hook 'web-mode)
+  (add-hook 'web-mode-hook  'my-web-mode-hook)
+
   ;;-------------------------------HOOKS--------------
 
   ;;-------------------------------KeY-Maps--------------
