@@ -302,7 +302,6 @@
   (add-hook 'css-mode-hook '(lambda () (interactive) (column-marker-1 80)))
   (add-hook 'org-mode-hook 'org-cd)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  (add-hook 'web-mode-hook 'web-mode)
   (add-hook 'web-mode-hook  'my-web-mode-hook)
 
   ;;-------------------------------HOOKS--------------
