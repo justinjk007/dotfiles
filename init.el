@@ -1,5 +1,5 @@
 ;;; package --- init-file
-;;; Author:Justin
+;;; Author:Justin Kaipada
 ;;; Date:01110100 01101111 01101101 01101101 01101111 01110010 01101111 01110111
 ;;; Commentary:
 
