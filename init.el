@@ -1,5 +1,5 @@
 ;;; package --- init-file
-;;; Author:Justin Kaipada
+;;; Author:Justin
 ;;; Date:01110100 01101111 01101101 01101101 01101111 01110010 01101111 01110111
 ;;; Commentary:
 
@@ -169,7 +169,7 @@
 			   :slant normal :weight normal :height 98
 			   :width normal :foundry "outline"
 			   :family "Hack"))))
-   '(cursor ((t (:background "#448aff"))))
+   '(cursor ((t (:background "#448AFF"))))
    '(error ((t (:foreground "indian red" :weight bold))))
    '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
    '(column-marker-1 ((t (:background "light green"))))
