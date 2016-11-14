@@ -172,7 +172,7 @@
    '(cursor ((t (:background "#448AFF"))))
    '(error ((t (:foreground "indian red" :weight bold))))
    '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
-   '(column-marker-1 ((t (:background "light green"))))
+   '(column-marker-1 ((t (:background "#4a4a4a"))))
    '(lazy-highlight ((t (:background "gray17" :foreground "red"))))
    '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
    '(org-level-2 ((t (:foreground "pink" :weight normal))))
@@ -324,6 +324,7 @@
   (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
   (global-set-key (kbd "C-x g") 'magit-status)
   (global-set-key (kbd "M-z") 'shell-command)
+  (global-set-key (kbd "C-a") 'my-indent)
   (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
   (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
   (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
