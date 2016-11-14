@@ -199,6 +199,10 @@
 			      (?\< . ?\>)
 			      ) )
 
+  (setq mail-host-address "gmail.com")
+  (setq user-full-name "Justin Kaipada")
+  (setq user-mail-address "justinjoseph0007@gmail.com")
+
   ;;------------------------ORG-mode-----------------------------------------
   (add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
   (require 'org)
