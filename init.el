@@ -345,5 +345,4 @@
   ) ;; !IMPORTANT for closing the file name handler, see begining of file
 
 (provide 'init.el)
-;;; init.el ends here.
-;;; test
+;;; init.el ends here
