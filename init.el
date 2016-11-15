@@ -129,6 +129,7 @@
    '(org-agenda-todo-ignore-schedules nil)
    '(org-hide-leading-stars t)
    '(org-startup-indented t)
+   '(send-mail-function (quote mailclient-send-it))
    '(package-archives
      (quote
       (("melpa" . "https://stable.melpa.org/packages/")
@@ -198,10 +199,6 @@
 			      (?\{ . ?\})
 			      (?\< . ?\>)
 			      ) )
-
-  (setq mail-host-address "gmail.com")
-  (setq user-full-name "Justin Kaipada")
-  (setq user-mail-address "justinjoseph0007@gmail.com")
 
   ;;------------------------ORG-mode-----------------------------------------
   (add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
