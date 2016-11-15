@@ -59,6 +59,17 @@
     (setq web-mode-indent-style 4)
     (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold)
     )
+  (defun org-cd ()
+    (cd "~/.emacs.d/org-files") ; changes the working directory
+    )
+  (defun my-org-archive-done-tasks ()
+    (interactive)
+    (org-map-entries 'org-archive-subtree "/DONE" 'file))
+  (defun evilAndJdee ()
+    (evil-ex-define-cmd "jc[ompile]" 'jdee-compile)
+    (evil-ex-define-cmd "jr[un]" 'jdee-run)
+    )
+
   ;;Put backup files neatly away-- SAVED Me many times
   (let ((backup-dir "~/Desktop/code/emacs/backups")
 	(auto-saves-dir "~/Desktop/code/emacs/autosavedir"))
@@ -75,16 +86,7 @@
 	version-control t      ; Use version numbers on backups,
 	kept-new-versions 3    ; keep some new versions
 	kept-old-versions 2)   ; and some old ones, too
-  (defun org-cd ()
-    (cd "~/.emacs.d/org-files") ; changes the working directory
-    )
-  (defun my-org-archive-done-tasks ()
-    (interactive)
-    (org-map-entries 'org-archive-subtree "/DONE" 'file))
-  (defun evilAndJdee ()
-    (evil-ex-define-cmd "jc[ompile]" 'jdee-compile)
-    (evil-ex-define-cmd "jr[un]" 'jdee-run)
-    )
+
   ;;-------------------------------------All-Funtions---------------
 
   (custom-set-variables
@@ -124,6 +126,7 @@
    '(menu-bar-mode nil)
    '(neo-smart-open t)
    '(neo-theme (quote classic))
+   '(magit-ellipsis 8631)
    '(org-agenda-files (quote ("~/.emacs.d/org-files/todo")))
    '(org-agenda-todo-ignore-deadlines nil)
    '(org-agenda-todo-ignore-schedules nil)
