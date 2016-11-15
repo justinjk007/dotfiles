@@ -180,6 +180,7 @@
    '(org-level-3 ((t (:foreground "pink" :weight bold))))
    '(org-level-4 ((t (:foreground "MistyRose1" :weight normal))))
    '(org-link ((t (:foreground "SkyBlue1" :underline t))))
+   '(org-verbatim ((t (:foreground "tomato"))))
    '(org-warning ((t (:foreground "red" :underline t))))
    '(font-lock-variable-name-face ((t (:foreground "#89976C"))))
    '(web-mode-folded-face ((t (:foreground "SystemMenuHilight"))))
