@@ -214,7 +214,7 @@
   ;;Make org-mode work with files ending in .org
   (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
   (require 'org-bullets)
-  (setq org-ellipsis "↷");Change the ... org mode to this arrow #Neat
+  (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
   ;;------------------------ORG-mode-----------------------------------------
 
   (add-to-list 'load-path "~/.emacs.d/elpa/neotree/emacs-neotree")
@@ -269,7 +269,7 @@
 
   ;;------------------Engine-mode---------------------------
   (require 'engine-mode)
-  (engine/set-keymap-prefix (kbd "Q"))
+  (engine/set-keymap-prefix (kbd "C-q"))
   (defengine duckduckgo
     "https://duckduckgo.com/?q=%s"
     :keybinding "d")
@@ -278,7 +278,7 @@
     :keybinding "g")
   (defengine google
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-    :keybinding "w")
+    :keybinding "q")
   (defengine rfcs
     "http://pretty-rfc.herokuapp.com/search?q=%s"
     :keybinding "g")
@@ -287,7 +287,7 @@
     :keybinding "s")
   (defengine wikipedia
     "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
-    :keybinding "W")
+    :keybinding "w")
   (engine-mode t)
   ;;------------------Engine-mode---------------------------
 
