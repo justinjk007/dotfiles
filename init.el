@@ -69,6 +69,10 @@
     (evil-ex-define-cmd "jc[ompile]" 'jdee-compile)
     (evil-ex-define-cmd "jr[un]" 'jdee-run)
     )
+  (defun magit-keys()
+    (define-key evil-emacs-state-map (kbd "j") 'next-line)
+    (define-key evil-emacs-state-map (kbd "k") 'previous-line)
+    )
 
   ;;Put backup files neatly away-- SAVED Me many times
   (let ((backup-dir "~/Desktop/code/emacs/backups")
@@ -308,6 +312,10 @@
   (add-hook 'org-mode-hook 'org-cd)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (add-hook 'web-mode-hook  'my-web-mode-hook)
+  (add-hook 'magit-status-mode-hook 'magit-keys)
+  (add-hook 'magit-log-mode-hook 'magit-keys)
+  (add-hook 'magit-diff-mode-hook 'magit-keys)
+  (add-hook 'magit-staged-section-mode-hook 'magit-keys)
 
   ;;-------------------------------HOOKS--------------
 
