@@ -267,6 +267,30 @@
   (setq-default web-mode-php-indent-offset tab-width)
   ;;------------------------------------------------
 
+  ;;------------------Engine-mode---------------------------
+  (require 'engine-mode)
+  (engine/set-keymap-prefix (kbd "Q"))
+  (defengine duckduckgo
+    "https://duckduckgo.com/?q=%s"
+    :keybinding "d")
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "g")
+  (defengine google
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    :keybinding "w")
+  (defengine rfcs
+    "http://pretty-rfc.herokuapp.com/search?q=%s"
+    :keybinding "g")
+  (defengine stack-overflow
+    "https://stackoverflow.com/search?q=%s"
+    :keybinding "s")
+  (defengine wikipedia
+    "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+    :keybinding "W")
+  (engine-mode t)
+  ;;------------------Engine-mode---------------------------
+
   (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
   (require 'column-marker)
 
