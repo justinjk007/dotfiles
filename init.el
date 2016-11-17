@@ -177,7 +177,7 @@
 			   :slant normal :weight normal :height 98
 			   :width normal :foundry "outline"
 			   :family "Hack"))))
-   '(cursor ((t (:background "#448AFF"))))
+   '(cursor ((t (:background "#FF7D9E"))))
    '(error ((t (:foreground "indian red" :weight bold))))
    '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
    '(column-marker-1 ((t (:background "#4a4a4a"))))
@@ -215,19 +215,22 @@
   (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
   (require 'org-bullets)
   (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+
   ;;------------------------ORG-mode-----------------------------------------
 
   (add-to-list 'load-path "~/.emacs.d/elpa/neotree/emacs-neotree")
   (require 'neotree)
 
   ;;------------------------------------POWER-LINE-----------------------
-  (setq airline-utf-glyph-separator-left      #x2161
-	airline-utf-glyph-separator-right     #x21c1
-	airline-utf-glyph-subseparator-left   #x21c5
-	airline-utf-glyph-subseparator-right  #x21c5
-	airline-utf-glyph-branch              #xE0A0 ;#x3bb
-	airline-utf-glyph-readonly            #x2194
-	airline-utf-glyph-linenumber          #x2191)
+
+  (setq airline-utf-glyph-separator-left      #xe0b0
+	airline-utf-glyph-separator-right     #xe0b2
+	airline-utf-glyph-subseparator-left   #xe0b1
+	airline-utf-glyph-subseparator-right  #xe0b3
+	airline-utf-glyph-branch              #xE0A0
+	airline-utf-glyph-readonly            #xe0a2
+	airline-utf-glyph-linenumber          #xe0a1 )
+
   ;;source --> https://github.com/milkypostman/powerline
   (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
   (require 'powerline)
@@ -269,7 +272,6 @@
 
   ;;------------------Engine-mode---------------------------
   (require 'engine-mode)
-  (engine/set-keymap-prefix (kbd "C-q"))
   (defengine duckduckgo
     "https://duckduckgo.com/?q=%s"
     :keybinding "d")
@@ -278,7 +280,7 @@
     :keybinding "g")
   (defengine google
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-    :keybinding "q")
+    :keybinding "a")
   (defengine rfcs
     "http://pretty-rfc.herokuapp.com/search?q=%s"
     :keybinding "g")
@@ -344,6 +346,7 @@
   ;;-------------------------------HOOKS--------------
 
   ;;-------------------------------KeY-Maps--------------
+  (engine/set-keymap-prefix (kbd "C-a"))
   (evil-ex-define-cmd "b[utterfly]" 'butterfly)
   (evil-ex-define-cmd "sh[ell]" 'shell)
   (evil-ex-define-cmd "k[ill-this-buffer]" 'kill-this-buffer)
