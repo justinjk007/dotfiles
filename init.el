@@ -7,10 +7,13 @@
 
 ;;; Code:
 (let ((file-name-handler-alist nil))
+
   (package-initialize)
   (setq gc-cons-threshold 20000000)
   (setq initial-scratch-message nil)
-  
+
+  (setq solarized-use-more-italic t)
+
   (prefer-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   (set-terminal-coding-system 'utf-8)
@@ -104,39 +107,40 @@
      [default default default italic underline success warning error])
    '(ansi-color-names-vector
      ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
+   '(company-idle-delay 0)
    '(cursor-type (quote (bar . 3)))
-   '(custom-enabled-themes (quote (dracula)))
+   '(custom-enabled-themes (quote (solarized-dark)))
+   ;;https://github.com/bbatsov/solarized-emacs
    '(custom-safe-themes
      (quote
-      ("f6bec3705ed4656c1081fae7a9fa2b63f20885db235370fd232b8bf83eea0835"
-       "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223"
-       "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa"
-       "1e90834a232ff3b63c41b00e484754293a5c38d73080ddc6f77db72feb0b2f98"
-       "b97a01622103266c1a26a032567e02d920b2c697ff69d40b7d9956821ab666cc"
-       default)))
-   '(flyspell-abbrev-p t)
+      ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
+       "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
+       "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
+   '(custom-theme-load-path
+     (quote
+      ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
+   '(electric-pair-mode t)
    '(flycheck-indication-mode (quote right-fringe))
-   '(frame-background-mode nil)
+   '(flyspell-abbrev-p t)
+   '(frame-background-mode (quote dark))
    '(global-flycheck-mode t)
-   '(company-idle-delay 0)
    '(global-hl-line-mode t)
    '(global-linum-mode t)
-   '(lazy-highlight-cleanup nil)
    '(inhibit-startup-screen t)
    '(jdee-compiler (quote ("javac")))
    '(jdee-jdk-registry
      (quote
       (("1.8.0101" . "C:/Program Files (x86)/Java/jdk1.8.0_101"))))
+   '(lazy-highlight-cleanup nil)
+   '(magit-ellipsis 8631)
    '(menu-bar-mode nil)
    '(neo-smart-open t)
    '(neo-theme (quote classic))
-   '(magit-ellipsis 8631)
    '(org-agenda-files (quote ("~/.emacs.d/org-files/todo")))
    '(org-agenda-todo-ignore-deadlines nil)
    '(org-agenda-todo-ignore-schedules nil)
    '(org-hide-leading-stars t)
    '(org-startup-indented t)
-   '(send-mail-function (quote mailclient-send-it))
    '(package-archives
      (quote
       (("melpa" . "https://stable.melpa.org/packages/")
@@ -145,24 +149,11 @@
    '(package-enable-at-startup t)
    '(package-selected-packages
      (quote
-      (org flyspell-popup
-	   flyspell-correct
-	   workgroups
-	   evil
-	   flycheck
-	   minimap
-	   rainbow-mode
-	   yasnippet
-	   neotree
-	   dracula-theme
-	   emmet-mode       )))
-
+      (org flyspell-popup flyspell-correct workgroups evil flycheck minimap rainbow-mode yasnippet neotree solarized-theme emmet-mode)))
    '(powerline-height nil)
    '(ring-bell-function (quote ignore) t)
+   '(send-mail-function (quote mailclient-send-it))
    '(show-paren-mode t)
-   '(electric-pair-mode t)
-   '(sml/mode-width (quote full))
-   '(sml/theme (quote dark))
    '(standard-indent 2)
    '(tool-bar-mode nil)
    '(visible-bell t))
@@ -172,15 +163,11 @@
    ;; If you edit it by hand, you could mess it up, so be careful.
    ;; Your init file should contain only one such instance.
    ;; If there is more than one, they won't work right.
-   '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
-			   :strike-through nil :overline nil :underline nil
-			   :slant normal :weight normal :height 98
-			   :width normal :foundry "outline"
-			   :family "Hack"))))
+   '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline" :family "Hack"))))
+   '(column-marker-1 ((t (:background "dim grey"))))
    '(cursor ((t (:background "#FF7D9E"))))
    '(error ((t (:foreground "indian red" :weight bold))))
    '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
-   '(column-marker-1 ((t (:background "#4a4a4a"))))
    '(lazy-highlight ((t (:background "gray17" :foreground "red"))))
    '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
    '(org-level-2 ((t (:foreground "plum" :weight normal))))
@@ -189,15 +176,12 @@
    '(org-link ((t (:foreground "SkyBlue1" :underline t))))
    '(org-verbatim ((t (:foreground "tomato"))))
    '(org-warning ((t (:foreground "red" :underline t))))
-   '(font-lock-variable-name-face ((t (:foreground "#89976C"))))
+   '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
+   '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
    '(web-mode-folded-face ((t (:foreground "SystemMenuHilight"))))
-   '(web-mode-html-tag-face ((t (:foreground "#50fa7b"))))
    '(web-mode-html-attr-name-face ((t (:foreground "#ff79c6"))))
    '(web-mode-html-attr-value-face ((t (:foreground "#e8e8ae"))))
-   '(powerline-inactive1 ((t (:background "dim gray"
-					  :foreground "white"))))
-   '(powerline-inactive2 ((t (:background "#4a4a4a"
-					  :foreground "pink")))))
+   '(web-mode-html-tag-face ((t (:foreground "#50fa7b")))))
   ;;Selection Colors OR Visaul Block colors
   (set-face-attribute 'region nil :foreground "#f9d6f8" :background "#4f5368")
 
@@ -218,10 +202,16 @@
 
   ;;------------------------ORG-mode-----------------------------------------
 
-  (add-to-list 'load-path "~/.emacs.d/elpa/neotree/emacs-neotree")
-  (require 'neotree)
-
   ;;------------------------------------POWER-LINE-----------------------
+
+  ;;source --> https://github.com/milkypostman/powerline
+  (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
+  (require 'powerline)
+
+  ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
+  (ignore-errors(add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
+		(require 'airline-themes)
+		(load-theme 'airline-solarized-alternate-gui t))
 
   (setq airline-utf-glyph-separator-left      #xe0b0
 	airline-utf-glyph-separator-right     #xe0b2
@@ -230,45 +220,7 @@
 	airline-utf-glyph-branch              #xE0A0
 	airline-utf-glyph-readonly            #xe0a2
 	airline-utf-glyph-linenumber          #xe0a1 )
-
-  ;;source --> https://github.com/milkypostman/powerline
-  (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
-  (require 'powerline)
-  ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
-  (ignore-errors(add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
-		(require 'airline-themes)
-		(load-theme 'airline-kolor t))
   ;;------------------------------------POWER-LINE-----------------------
-
-  ;;----------------------------------EMMET MODE--------------------------
-  (add-to-list 'load-path "~/.emacs.d/elpa/emmet-mode")
-  (require 'emmet-mode)
-  ;;----------------------------------EMMET MODE--------------------------
-
-  ;;----------------------------------Yas-snippets-------------
-  (add-to-list 'load-path "~/.emacs.d/elpa/snippets")
-  (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
-  (require 'yasnippet)
-  (yas-global-mode 1)
-  ;;----------------------------------Yas-snippets-------------
-
-  (require 'flycheck)
-
-  ;;-------------------------WEB-mode--------------
-  (require 'web-mode)
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
-  (setq-default web-mode-markup-indent-offset tab-width)
-  (setq-default web-mode-php-indent-offset tab-width)
-  ;;------------------------------------------------
 
   ;;------------------Engine-mode---------------------------
   (require 'engine-mode)
@@ -292,6 +244,36 @@
     :keybinding "w")
   (engine-mode t)
   ;;------------------Engine-mode---------------------------
+
+  ;;-------------------------WEB-mode--------------
+  (require 'web-mode)
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+
+  (setq-default web-mode-markup-indent-offset tab-width)
+  (setq-default web-mode-php-indent-offset tab-width)
+  ;;------------------------------------------------
+
+  ;;----------------------------------EMMET MODE--------------------------
+  (add-to-list 'load-path "~/.emacs.d/elpa/emmet-mode")
+  (require 'emmet-mode)
+  ;;----------------------------------EMMET MODE--------------------------
+
+  ;;----------------------------------Yas-snippets-------------
+  (add-to-list 'load-path "~/.emacs.d/elpa/snippets")
+  (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
+  (require 'yasnippet)
+  (yas-global-mode 1)
+  ;;----------------------------------Yas-snippets-------------
+
+  (require 'flycheck)
 
   (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
   (require 'column-marker)
@@ -338,6 +320,7 @@
   (add-hook 'org-mode-hook 'org-cd)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (add-hook 'web-mode-hook  'my-web-mode-hook)
+  (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
   (add-hook 'magit-status-mode-hook 'magit-keys)
   (add-hook 'magit-log-mode-hook 'magit-keys)
   (add-hook 'magit-diff-mode-hook 'magit-keys)
