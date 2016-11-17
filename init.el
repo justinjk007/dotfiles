@@ -141,6 +141,7 @@
    '(org-agenda-todo-ignore-schedules nil)
    '(org-hide-leading-stars t)
    '(org-startup-indented t)
+   '(send-mail-funtion (quote mailclient-send-it))
    '(package-archives
      (quote
       (("melpa" . "https://stable.melpa.org/packages/")
