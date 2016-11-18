@@ -11,14 +11,12 @@
   (setq gc-cons-threshold 20000000)
   (setq initial-scratch-message nil)
 
-  (setq solarized-use-more-italic t)
-  (setq solarized-use-less-bold t)
-
   (prefer-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
   (set-terminal-coding-system 'utf-8)
   (set-keyboard-coding-system 'utf-8)
   (set-language-environment 'utf-8)
+  (blink-cursor-mode 0)
 
   (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
   (setq default-directory "~/Desktop/" )
@@ -345,7 +343,7 @@
   (engine/set-keymap-prefix (kbd "C-a"))
   (evil-ex-define-cmd "b[utterfly]" 'butterfly)
   (evil-ex-define-cmd "sh[ell]" 'shell)
-  (evil-ex-define-cmd "k[ill-this-buffer]" 'kill-this-buffer)
+  ;;(evil-ex-define-cmd "k[ill-this-buffer]" 'kill-this-buffer)
   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
   (global-set-key [(meta up)]  'move-line-up)
   (global-set-key [(meta down)]  'move-line-down)
@@ -361,8 +359,8 @@
   (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
   (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
-  (define-key modalka-mode-map (kbd "c w") #'kill-word-then-insert-mode)
-  (define-key modalka-mode-map (kbd "c l") #'kill-line-then-insert-mode) 
+  ;;(define-key modalka-mode-map (kbd "c w") #'kill-word-then-insert-mode)
+  ;;(define-key modalka-mode-map (kbd "c l") #'kill-line-then-insert-mode) 
 
   ;;This section uses the key-chord minor mode
   (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
