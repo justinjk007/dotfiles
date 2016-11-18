@@ -2,8 +2,7 @@
 ;;; Author:Justin Kaipada
 ;;; Date:01110100 01101111 01101101 01101101 01101111 01110010 01101111 01110111
 ;;; Commentary:
-
-;;; "Thou shalt not cross 80 columns in thy file"
+"Thou shalt not cross 80 columns in thy file"
 
 ;;; Code:
 (let ((file-name-handler-alist nil))
@@ -13,6 +12,7 @@
   (setq initial-scratch-message nil)
 
   (setq solarized-use-more-italic t)
+  (setq solarized-use-less-bold t)
 
   (prefer-coding-system 'utf-8)
   (set-default-coding-systems 'utf-8)
@@ -60,22 +60,31 @@
     (setq web-mode-css-indent-offset 2)
     (setq web-mode-code-indent-offset 2)
     (setq web-mode-indent-style 4)
-    (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold)
-    )
+    (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
   (defun org-cd ()
-    (cd "~/.emacs.d/org-files") ; changes the working directory
-    )
+    "Changes the working directory"
+    (cd "~/.emacs.d/org-files"))
   (defun my-org-archive-done-tasks ()
+    "Move all done tasks in the current buffer to archive file"
     (interactive)
     (org-map-entries 'org-archive-subtree "/DONE" 'file))
   (defun evilAndJdee ()
     (evil-ex-define-cmd "jc[ompile]" 'jdee-compile)
-    (evil-ex-define-cmd "jr[un]" 'jdee-run)
-    )
+    (evil-ex-define-cmd "jr[un]" 'jdee-run))
   (defun magit-keys()
+    "Change emacs evil mode n and p to j and k repectively"
     (define-key evil-emacs-state-map (kbd "j") 'next-line)
-    (define-key evil-emacs-state-map (kbd "k") 'previous-line)
-    )
+    (define-key evil-emacs-state-map (kbd "k") 'previous-line))
+  (defun kill-word-then-insert-mode (arg)
+    "Kill ARG words at point, then exit `modalka-mode'."
+    (interactive "p")
+    (kill-word arg)
+    (modalka-mode -1))
+  (defun kill-line-then-insert-mode (arg)
+    "Kill line, then exit `modalka-mode'."
+    (interactive "p")
+    (kill-line arg)
+    (modalka-mode -1))
 
   ;;Put backup files neatly away-- SAVED Me many times
   (let ((backup-dir "~/Desktop/code/emacs/backups")
@@ -141,7 +150,6 @@
    '(org-agenda-todo-ignore-schedules nil)
    '(org-hide-leading-stars t)
    '(org-startup-indented t)
-   '(send-mail-funtion (quote mailclient-send-it))
    '(package-archives
      (quote
       (("melpa" . "https://stable.melpa.org/packages/")
@@ -276,6 +284,8 @@
 
   (require 'flycheck)
 
+  (require 'modalka)
+
   (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
   (require 'column-marker)
 
@@ -322,11 +332,13 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (add-hook 'web-mode-hook  'my-web-mode-hook)
   (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
+  (add-hook 'web-mode-hook  'emmet-mode)
   (add-hook 'magit-status-mode-hook 'magit-keys)
   (add-hook 'magit-log-mode-hook 'magit-keys)
   (add-hook 'magit-diff-mode-hook 'magit-keys)
   (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-
+  (add-hook 'prog-mode-hook 'modalka-mode)
+  (add-hook 'text-mode-hook 'modalka-mode)
   ;;-------------------------------HOOKS--------------
 
   ;;-------------------------------KeY-Maps--------------
@@ -349,15 +361,19 @@
   (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
   (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
+  (define-key modalka-mode-map (kbd "c w") #'kill-word-then-insert-mode)
+  (define-key modalka-mode-map (kbd "c l") #'kill-line-then-insert-mode) 
 
   ;;This section uses the key-chord minor mode
   (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
+
   ;;Exit insert mode by pressing j and then j quickly
   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
   (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
   (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
   (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
   (key-chord-define evil-normal-state-map "zz" 'org-mode); Toggling org mode
+  (key-chord-define evil-normal-state-map "VV" 'kill-whole-line)
   (key-chord-mode 1)
   ;;-------------------------------KeY-Maps--------------
 
