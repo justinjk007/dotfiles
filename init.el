@@ -73,16 +73,6 @@
     "Change emacs evil mode n and p to j and k repectively"
     (define-key evil-emacs-state-map (kbd "j") 'next-line)
     (define-key evil-emacs-state-map (kbd "k") 'previous-line))
-  (defun kill-word-then-insert-mode (arg)
-    "Kill ARG words at point, then exit `modalka-mode'."
-    (interactive "p")
-    (kill-word arg)
-    (modalka-mode -1))
-  (defun kill-line-then-insert-mode (arg)
-    "Kill line, then exit `modalka-mode'."
-    (interactive "p")
-    (kill-line arg)
-    (modalka-mode -1))
 
   ;;Put backup files neatly away-- SAVED Me many times
   (let ((backup-dir "~/Desktop/code/emacs/backups")
@@ -282,8 +272,6 @@
 
   (require 'flycheck)
 
-  (require 'modalka)
-
   (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
   (require 'column-marker)
 
@@ -335,15 +323,13 @@
   (add-hook 'magit-log-mode-hook 'magit-keys)
   (add-hook 'magit-diff-mode-hook 'magit-keys)
   (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-  (add-hook 'prog-mode-hook 'modalka-mode)
-  (add-hook 'text-mode-hook 'modalka-mode)
+  (add-hook 'org-agenda-mode-hook 'magit-keys)
   ;;-------------------------------HOOKS--------------
 
   ;;-------------------------------KeY-Maps--------------
-  (engine/set-keymap-prefix (kbd "C-a"))
+  (engine/set-keymap-prefix (kbd "M-a"))
   (evil-ex-define-cmd "b[utterfly]" 'butterfly)
   (evil-ex-define-cmd "sh[ell]" 'shell)
-  ;;(evil-ex-define-cmd "k[ill-this-buffer]" 'kill-this-buffer)
   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
   (global-set-key [(meta up)]  'move-line-up)
   (global-set-key [(meta down)]  'move-line-down)
@@ -359,8 +345,6 @@
   (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
   (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
   (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
-  ;;(define-key modalka-mode-map (kbd "c w") #'kill-word-then-insert-mode)
-  ;;(define-key modalka-mode-map (kbd "c l") #'kill-line-then-insert-mode) 
 
   ;;This section uses the key-chord minor mode
   (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
