@@ -27,6 +27,18 @@
   ;;(setq initial-frame-alist '((left . 550) (top . 135)))
   (setq browse-url-browser-function 'browse-url-default-windows-browser)
 
+  ;;-------------------------------------Server------------------
+  (require 'server)
+  ;; Start a server if (server-running-p) does not return t (e.g. if it
+  ;; returns nil or :other)
+  (or (eq (server-running-p) t)
+      (server-start))
+
+  (when (equal window-system 'w32)
+    (setq server-use-tcp t))
+
+  ;;-------------------------------------Server------------------
+
   ;;-------------------------------------EVIL------------------
   (add-to-list 'load-path "~/.emacs.d/elpa/evil")
   (require 'evil)
@@ -205,10 +217,12 @@
   (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
   (require 'powerline)
 
-  ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
-  (ignore-errors(add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
-		(require 'airline-themes)
-		(load-theme 'airline-solarized-alternate-gui t))
+  (defun loading-airline ()
+    ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
+    (ignore-errors(add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
+		  (require 'airline-themes)
+		  (load-theme 'airline-solarized-alternate-gui t))
+    )
 
   (setq airline-utf-glyph-separator-left      #xe0b0
 	airline-utf-glyph-separator-right     #xe0b2
@@ -295,6 +309,7 @@
   ;;----------------------------------ASPEL-DICTIONARY-------------
 
   ;;-------------------------------HOOKS--------------
+  (add-hook 'after-init-hook 'loading-airline)
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
