@@ -217,11 +217,17 @@
   (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
   (require 'powerline)
 
-  (defun loading-airline ()
-    ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
-    (ignore-errors(add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
-		  (require 'airline-themes)
-		  (load-theme 'airline-solarized-alternate-gui t))
+  ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
+  (ignore-errors
+    (add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
+    (require 'airline-themes)
+    (if (daemonp)
+	(add-hook 'after-make-frame-functions
+		  (lambda (frame)
+		    (select-frame frame)
+		    (load-theme 'airline-solarized-alternate-gui t)))
+      (load-theme 'airline-solarized-alternate-gui t))
+    ;;(load-theme 'airline-solarized-alternate-gui t)
     )
 
   (setq airline-utf-glyph-separator-left      #xe0b0
@@ -309,7 +315,6 @@
   ;;----------------------------------ASPEL-DICTIONARY-------------
 
   ;;-------------------------------HOOKS--------------
-  (add-hook 'after-init-hook 'loading-airline)
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
