@@ -1,4 +1,4 @@
-;;; package --- init-file
+﻿;;; package --- init-file
 ;;; Author:Justin Kaipada
 ;;; Date:01110100 01101111 01101101 01101101 01101111 01110010 01101111 01110111
 ;;; Commentary:
@@ -73,6 +73,9 @@
 (defun org-cd ()
   "Changes the working directory"
   (cd "~/.emacs.d/org-files"))
+(defun desktop-cd ()
+  "Changes the working directory"
+  (cd "~/Desktop"))
 (defun my-org-archive-done-tasks ()
   "Move all done tasks in the current buffer to archive file"
   (interactive)
@@ -118,15 +121,12 @@
  '(company-idle-delay 0)
  '(cursor-type (quote (bar . 3)))
  '(custom-enabled-themes (quote (solarized-dark)))
- ;;https://github.com/bbatsov/solarized-emacs
  '(custom-safe-themes
    (quote
-    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
-     "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
-     "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
+    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
+    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)) t)
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -159,9 +159,10 @@
    (quote
     (org flyspell-popup flyspell-correct workgroups evil flycheck minimap rainbow-mode yasnippet neotree solarized-theme emmet-mode)))
  '(powerline-height nil)
- '(ring-bell-function (quote ignore) t)
+ '(ring-bell-function (quote ignore))
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
+ '(solarized-distinct-doc-face nil)
  '(standard-indent 2)
  '(tool-bar-mode nil)
  '(visible-bell t))
@@ -291,6 +292,9 @@
 
 (require 'flycheck)
 
+;;(add-to-list 'load-path "~/.emacs.d/elpa/eimp")
+;;(require 'eimp)
+
 (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
 (require 'column-marker)
 
@@ -316,6 +320,8 @@
 ;;-------------------------------HOOKS--------------
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 (add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'org-agenda-mode-hook 'magit-keys)
+;;(add-hook 'image-mode-hook 'eimp-mode)
 (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
 (add-hook 'js-mode-hook 'flyspell-prog-mode)
 (add-hook 'jdee-mode-hook 'flyspell-prog-mode)
@@ -342,7 +348,6 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-(add-hook 'org-agenda-mode-hook 'magit-keys)
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
@@ -374,6 +379,7 @@
 (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
 (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
 (key-chord-define evil-normal-state-map "zz" 'org-mode); Toggling org mode
+(key-chord-define evil-normal-state-map "ZZ" 'desktop-cd); changes working Dir
 (key-chord-define evil-normal-state-map "VV" 'kill-whole-line)
 (key-chord-mode 1)
 ;;-------------------------------KeY-Maps--------------
