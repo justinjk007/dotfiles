@@ -10,22 +10,24 @@
 (package-initialize)
 (setq gc-cons-threshold 20000000)
 (setq initial-scratch-message nil)
-
+(fset 'yes-or-no-p 'y-or-n-p); Change yes/no to y/n
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-language-environment 'utf-8)
+(set-fill-column 80)
 (blink-cursor-mode 0)
+(put 'upcase-region 'disabled nil)
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
+(setq browse-url-browser-function 'browse-url-default-windows-browser)
 (setq default-directory "~/Desktop/" )
 (setq-default frame-title-format '("%f")) ;;Set file name as the frame title
-(add-to-list 'default-frame-alist '(width  . 83))
+(add-to-list 'default-frame-alist '(width  . 150))
+(add-to-list 'default-frame-alist '(height . 45))
+;;(setq initial-frame-alist '((left . 570) (top . 135)))
 (scroll-bar-mode -1)
-;;(add-to-list 'default-frame-alist '(height . 40))
-;;(setq initial-frame-alist '((left . 550) (top . 135)))
-(setq browse-url-browser-function 'browse-url-default-windows-browser)
 
 ;;-------------------------------------Server------------------
 (require 'server)
@@ -65,40 +67,65 @@
   (forward-line -1)
   (indent-according-to-mode))
 (defun my-web-mode-hook ()
+  "Change when using web mode."
   (setq web-mode-markup-indent-offset 2)
   (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-indent-style 4)
   (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
 (defun org-cd ()
-  "Changes the working directory"
+  "Change the working directory."
   (cd "~/.emacs.d/org-files"))
 (defun desktop-cd ()
-  "Changes the working directory"
-  (cd "~/Desktop"))
+  "Change the working directory."
+  (cd "~/desktop"))
 (defun my-org-archive-done-tasks ()
-  "Move all done tasks in the current buffer to archive file"
+  "Move all done tasks in the current buffer to archive file."
   (interactive)
   (org-map-entries 'org-archive-subtree "/DONE" 'file))
 (defun evilAndJdee ()
+  "Set keybindings for java editing."
   (evil-ex-define-cmd "jc[ompile]" 'jdee-compile)
   (evil-ex-define-cmd "jr[un]" 'jdee-run))
 (defun magit-keys()
   "Change emacs evil mode n and p to j and k repectively"
   (define-key evil-emacs-state-map (kbd "j") 'next-line)
   (define-key evil-emacs-state-map (kbd "k") 'previous-line))
+(defun insert-date (prefix)
+  "Insert the current date with as PREFIX."
+  (interactive "P")
+  (let ((format (cond
+		 ((not prefix) "%d-%m-%Y")
+		 ((equal prefix '(4)) "%Y-%m-%d")
+		 ((equal prefix '(16)) "%A, %d. %B %Y")))
+	(system-time-locale "de_DE"))
+    (insert (format-time-string format))))
+(defun my-window-split-h (prefix)
+  (interactive "p")
+  (split-window-right)
+  (other-window 1 nil)
+  (if (- prefix 1) (switch-to-next-buffer)))
+(defun my-window-split-v (prefix)
+  (interactive "p")
+  (split-window-below)
+  (other-window 1 nil)
+  (if (- prefix 1) (switch-to-next-buffer)))
 
-;;Put backup files neatly away-- SAVED Me many times
+;;Put backup files neatly away -- saved me many times
 (let ((backup-dir "~/Desktop/code/emacs/backups")
-      (auto-saves-dir "~/Desktop/code/emacs/autosavedir"))
+      (auto-saves-dir "~/Desktop/code/emacs/autosavedir")
+      )
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
-      (make-directory dir t)))
+      (make-directory dir t))
+    )
   (setq backup-directory-alist `(("." . ,backup-dir))
-	auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
+	auto-save-file-name-transforms `((".*" ,auto-saves-dir))
 	auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
 	tramp-backup-directory-alist `((".*" . ,backup-dir))
-	tramp-auto-save-directory auto-saves-dir))
+	tramp-auto-save-directory auto-saves-dir
+	)
+  )
 (setq backup-by-copying t    ; Don't delink hardlinks
       delete-old-versions t  ; Clean up the backups
       version-control t      ; Use version numbers on backups,
@@ -198,7 +225,6 @@
 ;; make electric-pair-mode work on more brackets
 (setq electric-pair-pairs '(
 			    (?\{ . ?\})
-			    (?\< . ?\>)
 			    ) )
 
 ;;------------------------ORG-mode-----------------------------------------
@@ -265,6 +291,7 @@
 ;;-------------------------WEB-mode--------------
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -335,15 +362,13 @@
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'sgml-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'js-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'css-mode-hook 'emmet-mode)
-(add-hook 'css-mode-hook 'rainbow-mode)
-(add-hook 'css-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'css-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-(add-hook 'org-mode-hook 'org-cd)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(add-hook 'org-mode-hook 'org-cd)
+(add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
 (add-hook 'web-mode-hook  'emmet-mode)
+(add-hook 'web-mode-hook  'highlight-numbers-mode)
 (add-hook 'magit-status-mode-hook 'magit-keys)
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
@@ -364,15 +389,18 @@
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-z") 'shell-command)
+(global-set-key (kbd "C-x 2") 'my-window-split-v)
+(global-set-key (kbd "C-x 3") 'my-window-split-h)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
+(define-key evil-visual-state-map (kbd "L") 'end-of-line)
+(define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
 
 ;;This section uses the key-chord minor mode
 (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
-
 ;;Exit insert mode by pressing j and then j quickly
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
