@@ -110,6 +110,13 @@
   (split-window-below)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
+(defun my-terminal-visible-bell ()
+  "A friendlier visual bell effect."
+  (invert-face 'mode-line)
+  (run-with-timer 0.1 nil 'invert-face 'mode-line))
+
+(setq visible-bell nil
+      ring-bell-function 'my-terminal-visible-bell)
 
 ;;Put backup files neatly away -- saved me many times
 (let ((backup-dir "~/Desktop/code/emacs/backups")
@@ -156,7 +163,8 @@
      default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2"
+    ("~/.emacs.d/elpa/airline-themes/"
+     "~/.emacs.d/elpa/solarized-theme-1.2.2"
      custom-theme-directory t)) t)
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
@@ -165,6 +173,7 @@
  '(global-flycheck-mode t)
  '(global-hl-line-mode t)
  '(global-linum-mode t)
+ '(helm-mode t)
  '(inhibit-startup-screen t)
  '(jdee-compiler (quote ("javac")))
  '(jdee-jdk-registry
@@ -188,33 +197,38 @@
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
-    (org flyspell-popup
-	 flyspell-correct evil flycheck
-	 rainbow-mode yasnippet
-	 solarized-theme emmet-mode)))
+    (helm org flyspell-popup flyspell-correct
+	  evil flycheck rainbow-mode
+	  yasnippet solarized-theme
+	  emmet-mode)))
  '(powerline-height nil)
  '(ring-bell-function (quote ignore))
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
  '(solarized-distinct-doc-face nil)
+ '(solarized-use-variable-pitch nil)
  '(standard-indent 2)
  '(tool-bar-mode nil)
- '(visible-bell t))
+ )
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
-			 :strike-through nil :overline nil :underline nil
-			 :slant normal :weight normal :height 98
-			 :width normal :foundry "outline" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil
+			 :inverse-video nil :box nil
+			 :strike-through nil :overline nil
+			 :underline nil :slant normal
+			 :weight normal :height 98
+			 :width normal :foundry
+			 "outline" :family "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
  '(cursor ((t (:background "#FF7D9E"))))
  '(error ((t (:foreground "indian red" :weight bold))))
  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
  '(lazy-highlight ((t (:background "gray17" :foreground "red"))))
+ '(org-default ((t (:family "Hack"))))
  '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
  '(org-level-2 ((t (:foreground "plum" :weight normal))))
  '(org-level-3 ((t (:foreground "pink" :weight bold))))
@@ -243,6 +257,9 @@
 (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
 
 ;;------------------------ORG-mode-----------------------------------------
+
+(require 'helm-config)
+(helm-mode 1)
 
 ;;------------------------------------POWER-LINE-----------------------
 
@@ -387,6 +404,7 @@
 (evil-ex-define-cmd "b[utterfly]" 'butterfly)
 (evil-ex-define-cmd "sh[ell]" 'shell)
 (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
+(evil-ex-define-cmd "ev[al-buffer]" 'eval-buffer)
 (global-set-key [(meta up)]  'move-line-up)
 (global-set-key [(meta down)]  'move-line-down)
 (define-key evil-normal-state-map "n" 'scroll-up)
