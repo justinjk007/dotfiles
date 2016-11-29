@@ -150,10 +150,14 @@
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
+    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
+     "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
+     "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8"
+     default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)) t)
+    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2"
+     custom-theme-directory t)) t)
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -184,7 +188,10 @@
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
-    (org flyspell-popup flyspell-correct workgroups evil flycheck minimap rainbow-mode yasnippet neotree solarized-theme emmet-mode)))
+    (org flyspell-popup
+	 flyspell-correct evil flycheck
+	 rainbow-mode yasnippet
+	 solarized-theme emmet-mode)))
  '(powerline-height nil)
  '(ring-bell-function (quote ignore))
  '(send-mail-function (quote mailclient-send-it))
@@ -199,7 +206,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "outline" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
+			 :strike-through nil :overline nil :underline nil
+			 :slant normal :weight normal :height 98
+			 :width normal :foundry "outline" :family "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
  '(cursor ((t (:background "#FF7D9E"))))
  '(error ((t (:foreground "indian red" :weight bold))))
@@ -214,12 +224,9 @@
  '(org-warning ((t (:foreground "red" :underline t))))
  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
- '(web-mode-folded-face ((t (:foreground "SystemMenuHilight"))))
- '(web-mode-html-attr-name-face ((t (:foreground "#ff79c6"))))
- '(web-mode-html-attr-value-face ((t (:foreground "#e8e8ae"))))
- '(web-mode-html-tag-face ((t (:foreground "#50fa7b")))))
+ '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
+(set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
 ;;Selection Colors OR Visaul Block colors
-(set-face-attribute 'region nil :foreground "#f9d6f8" :background "#4f5368")
 
 
 ;; make electric-pair-mode work on more brackets
