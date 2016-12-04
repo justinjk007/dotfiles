@@ -6,7 +6,6 @@
 
 ;;; Code:
 ;;(let ((file-name-handler-alist nil))
-
 (package-initialize)
 (setq gc-cons-threshold 20000000)
 (setq initial-scratch-message nil)
@@ -19,6 +18,16 @@
 (set-fill-column 80)
 (blink-cursor-mode 0)
 (put 'upcase-region 'disabled nil)
+(setq org-hide-emphasis-markers t)
+
+(add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
+(setq browse-url-browser-function 'browse-url-default-windows-browser)
+(setq default-directory "~/Desktop/" )
+(setq-default frame-title-format '("%f")) ;;Set file name as the frame title
+(add-to-list 'default-frame-alist '(width  . 110))
+(add-to-list 'default-frame-alist '(height . 37))
+;;(setq initial-frame-alist '((left . 570) (top . 135)))
+(scroll-bar-mode -1)
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
