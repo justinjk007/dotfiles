@@ -6,6 +6,7 @@
 
 ;;; Code:
 ;;(let ((file-name-handler-alist nil))
+
 (package-initialize)
 (setq gc-cons-threshold 20000000)
 (setq initial-scratch-message nil)
@@ -22,19 +23,10 @@
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
-(setq default-directory "~/Desktop/" )
+(setq default-directory "~/Dropbox/Code" )
 (setq-default frame-title-format '("%f")) ;;Set file name as the frame title
 (add-to-list 'default-frame-alist '(width  . 110))
 (add-to-list 'default-frame-alist '(height . 37))
-;;(setq initial-frame-alist '((left . 570) (top . 135)))
-(scroll-bar-mode -1)
-
-(add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
-(setq browse-url-browser-function 'browse-url-default-windows-browser)
-(setq default-directory "~/Desktop/" )
-(setq-default frame-title-format '("%f")) ;;Set file name as the frame title
-(add-to-list 'default-frame-alist '(width  . 150))
-(add-to-list 'default-frame-alist '(height . 45))
 ;;(setq initial-frame-alist '((left . 570) (top . 135)))
 (scroll-bar-mode -1)
 
@@ -44,9 +36,6 @@
 ;; returns nil or :other)
 (or (eq (server-running-p) t)
     (server-start))
-
-(when (equal window-system 'w32)
-  (setq server-use-tcp t))
 ;;-------------------------------------Server------------------
 
 ;;-------------------------------------EVIL------------------
@@ -63,7 +52,7 @@
   (interactive)
   (revert-buffer :ignore-auto :noconfirm))
 (defun move-line-up ()
-  "Move up the current line."
+  "Move up the currnt line."
   (interactive)
   (transpose-lines 1)
   (forward-line -2)
@@ -84,10 +73,10 @@
   (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
 (defun org-cd ()
   "Change the working directory."
-  (cd "~/.emacs.d/org-files"))
+  (cd "~/Dropbox/org-files"))
 (defun desktop-cd ()
   "Change the working directory."
-  (cd "~/desktop"))
+  (cd "~/Dropbox/Code"))
 (defun my-org-archive-done-tasks ()
   "Move all done tasks in the current buffer to archive file."
   (interactive)
@@ -128,8 +117,8 @@
       ring-bell-function 'my-terminal-visible-bell)
 
 ;;Put backup files neatly away -- saved me many times
-(let ((backup-dir "~/Desktop/code/emacs/backups")
-      (auto-saves-dir "~/Desktop/code/emacs/autosavedir")
+(let ((backup-dir "~/Desktop/Code/Emacs/backups")
+      (auto-saves-dir "~/Desktop/Code/Emacs/autosavedir")
       )
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
@@ -166,15 +155,10 @@
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
-     "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
-     "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8"
-     default)))
+    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes/"
-     "~/.emacs.d/elpa/solarized-theme-1.2.2"
-     custom-theme-directory t)) t)
+    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)) t)
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -206,10 +190,7 @@
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
-    (helm org flyspell-popup flyspell-correct
-	  evil flycheck rainbow-mode
-	  yasnippet solarized-theme
-	  emmet-mode)))
+    (org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet solarized-theme emmet-mode)))
  '(powerline-height nil)
  '(ring-bell-function (quote ignore))
  '(send-mail-function (quote mailclient-send-it))
@@ -217,26 +198,21 @@
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
  '(standard-indent 2)
- '(tool-bar-mode nil)
- )
+ '(tool-bar-mode nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil
-			 :inverse-video nil :box nil
-			 :strike-through nil :overline nil
-			 :underline nil :slant normal
-			 :weight normal :height 98
-			 :width normal :foundry
-			 "outline" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "outline" :family "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
+ '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#FF7D9E"))))
  '(error ((t (:foreground "indian red" :weight bold))))
  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
- '(lazy-highlight ((t (:background "gray17" :foreground "red"))))
+ '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
+ '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
  '(org-default ((t (:family "Hack"))))
  '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
  '(org-level-2 ((t (:foreground "plum" :weight normal))))
@@ -267,9 +243,6 @@
 
 ;;------------------------ORG-mode-----------------------------------------
 
-(require 'helm-config)
-(helm-mode 1)
-
 ;;------------------------------------POWER-LINE-----------------------
 
 ;;source --> https://github.com/milkypostman/powerline
@@ -298,7 +271,8 @@
       airline-utf-glyph-linenumber          #xe0a1 )
 ;;------------------------------------POWER-LINE-----------------------
 
-;;------------------Engine-mode---------------------------
+
+;;-----------------------------------Engine-mode-----------------------
 (require 'engine-mode)
 (defengine duckduckgo
   "https://duckduckgo.com/?q=%s"
@@ -319,7 +293,7 @@
   "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
   :keybinding "w")
 (engine-mode t)
-;;------------------Engine-mode---------------------------
+;;-----------------------------------Engine-mode-----------------------
 
 ;;-------------------------WEB-mode--------------
 (require 'web-mode)
@@ -358,6 +332,9 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
 (require 'column-marker)
 
+(add-to-list 'load-path "~/.emacs.d/elpa/speed-type")
+(require 'speed-type)
+
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
 
@@ -371,9 +348,9 @@
 ;;---------------JAVA Migration-------------- Kinda regret this thou.
 
 ;;----------------------------------ASPEL-DICTIONARY-------------
-(add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
-(setq ispell-program-name "aspell")
-(setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+;; (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
+;; (setq ispell-program-name "aspell")
+;; (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
 (require 'ispell)
 ;;----------------------------------ASPEL-DICTIONARY-------------
 
@@ -422,6 +399,7 @@
 (global-set-key [f6] 'rainbow-mode)
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-x z") 'compile)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
@@ -444,7 +422,7 @@
 (key-chord-define evil-normal-state-map "ZZ" 'desktop-cd); changes working Dir
 (key-chord-define evil-normal-state-map "VV" 'kill-whole-line)
 (key-chord-mode 1)
-;;-------------------------------KeY-Maps--------------
+;; -------------------------------KeY-Maps--------------
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 
