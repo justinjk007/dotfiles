@@ -22,7 +22,10 @@
 (setq org-hide-emphasis-markers t)
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
-(setq browse-url-browser-function 'browse-url-default-windows-browser)
+;; (setq browse-url-browser-function 'browse-url-default-windows-browser)
+;; (setq browse-url-browser-function
+;;       'browse-url-generic
+;;       browse-url-generic-program "google-chrome") ;linux
 (setq default-directory "~/Dropbox/Code" )
 (setq-default frame-title-format '("%f")) ;;Set file name as the frame title
 (add-to-list 'default-frame-alist '(width  . 110))
@@ -112,6 +115,13 @@
   "A friendlier visual bell effect."
   (invert-face 'mode-line)
   (run-with-timer 0.1 nil 'invert-face 'mode-line))
+(defun move-file ()
+  "Write this file to a new location, and delete the old one."
+  (interactive)
+  (let ((old-location (buffer-file-name)))
+    (call-interactively #'write-file)
+    (when old-location
+      (delete-file old-location))))
 
 (setq visible-bell nil
       ring-bell-function 'my-terminal-visible-bell)
@@ -410,6 +420,7 @@
 (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
 (define-key evil-visual-state-map (kbd "L") 'end-of-line)
 (define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
+(global-set-key (kbd "C-x C-m") 'move-file)
 
 ;;This section uses the key-chord minor mode
 (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
@@ -426,5 +437,6 @@
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 
+(dired ".") ;Starts dired when emacs starts
 (provide 'init.el)
 ;;; init.el ends here
