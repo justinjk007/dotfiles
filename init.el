@@ -23,10 +23,7 @@
 (setq org-hide-emphasis-markers t)
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
-;; (setq browse-url-browser-function 'browse-url-default-windows-browser)
-;; (setq browse-url-browser-function
-;;       'browse-url-generic
-;;       browse-url-generic-program "google-chrome") ;linux
+(setq browse-url-browser-function 'browse-url-default-windows-browser)
 (setq default-directory "~/Dropbox/Code" )
 (setq-default frame-title-format '("%f")) ;;Set file name as the frame title
 (add-to-list 'default-frame-alist '(width  . 110))
@@ -216,7 +213,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width normal :foundry "outline" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#FF7D9E"))))
@@ -359,9 +356,9 @@
 ;;---------------JAVA Migration-------------- Kinda regret this thou.
 
 ;;----------------------------------ASPEL-DICTIONARY-------------
-;; (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
-;; (setq ispell-program-name "aspell")
-;; (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+(add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
+(setq ispell-program-name "aspell")
+(setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
 (require 'ispell)
 ;;----------------------------------ASPEL-DICTIONARY-------------
 
@@ -438,6 +435,5 @@
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 
-(dired ".") ;Starts dired when emacs starts
 (provide 'init.el)
 ;;; init.el ends here
