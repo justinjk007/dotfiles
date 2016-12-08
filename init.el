@@ -23,10 +23,7 @@
 (setq org-hide-emphasis-markers t)
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
-;; (setq browse-url-browser-function 'browse-url-default-windows-browser)
-;; (setq browse-url-browser-function
-;;       'browse-url-generic
-;;       browse-url-generic-program "google-chrome") ;linux
+(setq browse-url-browser-function 'browse-url-default-windows-browser)
 (setq default-directory "~/Dropbox/Code" )
 (setq-default frame-title-format '("%f")) ;;Set file name as the frame title
 (add-to-list 'default-frame-alist '(width  . 110))
