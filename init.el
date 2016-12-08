@@ -438,6 +438,5 @@
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 
-(dired ".") ;Starts dired when emacs starts
 (provide 'init.el)
 ;;; init.el ends here
