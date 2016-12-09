@@ -71,7 +71,6 @@
 (defun my-web-mode-hook ()
   "Change when using web mode."
   (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-indent-style 4)
   (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
@@ -309,7 +308,6 @@
 ;;-------------------------WEB-mode--------------
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -390,6 +388,10 @@
 (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
 (add-hook 'web-mode-hook  'emmet-mode)
 (add-hook 'web-mode-hook  'highlight-numbers-mode)
+(add-hook 'css-mode-hook 'highlight-numbers-mode)
+(add-hook 'css-mode-hook 'rainbow-mode)
+(add-hook 'css-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'css-mode-hook 'emmet-mode)
 (add-hook 'magit-status-mode-hook 'magit-keys)
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
