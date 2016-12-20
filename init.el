@@ -422,6 +422,7 @@
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
 (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
+(define-key evil-normal-state-map (kbd "Z") 'org-insert-link)
 (define-key evil-visual-state-map (kbd "L") 'end-of-line)
 (define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
 (global-set-key (kbd "C-x C-m") 'move-file)
