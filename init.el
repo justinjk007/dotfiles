@@ -392,6 +392,7 @@
 (add-hook 'css-mode-hook 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
+(add-hook 'lisp-interaction-mode-hook 'desktop-cd)
 (add-hook 'magit-status-mode-hook 'magit-keys)
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
@@ -435,7 +436,7 @@
 (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
 (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
 (key-chord-define evil-normal-state-map "zz" 'org-mode); Toggling org mode
-(key-chord-define evil-normal-state-map "ZZ" 'desktop-cd); changes working Dir
+(key-chord-define evil-normal-state-map "ZZ" 'lisp-interaction-mode)
 (key-chord-define evil-normal-state-map "VV" 'kill-whole-line)
 (key-chord-mode 1)
 ;; -------------------------------KeY-Maps--------------
