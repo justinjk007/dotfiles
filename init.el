@@ -124,8 +124,9 @@
       ring-bell-function 'my-terminal-visible-bell)
 
 ;;Put backup files neatly away -- saved me many times
-(let ((backup-dir "~/Desktop/Code/Emacs/backups")
-      (auto-saves-dir "~/Desktop/Code/Emacs/autosavedir")
+
+(let ((backup-dir "~/Dropbox/Code/Emacs/backups")
+      (auto-saves-dir "~/Dropbox/Code/Emacs/autosavedir")
       )
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
