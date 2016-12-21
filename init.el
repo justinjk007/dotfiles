@@ -103,11 +103,13 @@
     (insert (format-time-string format))))
 (defun my-window-split-h (prefix)
   (interactive "p")
+  "Splits window right in a better way"
   (split-window-right)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
 (defun my-window-split-v (prefix)
   (interactive "p")
+  "Splits window below in a better way"
   (split-window-below)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
