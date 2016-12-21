@@ -127,10 +127,6 @@
       ring-bell-function 'my-terminal-visible-bell)
 
 ;;Put backup files neatly away -- saved me many times
-<<<<<<< HEAD
-=======
-
->>>>>>> b1fabff... Changed backup directories
 (let ((backup-dir "~/Dropbox/Code/Emacs/backups")
       (auto-saves-dir "~/Dropbox/Code/Emacs/autosavedir")
       )
@@ -444,7 +440,7 @@
 (key-chord-define evil-normal-state-map "ZZ" 'lisp-interaction-mode)
 (key-chord-define evil-normal-state-map "VV" 'kill-whole-line)
 (key-chord-mode 1)
-;; -------------------------------KeY-Maps--------------
+r; -------------------------------KeY-Maps--------------
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 
