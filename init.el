@@ -127,6 +127,10 @@
       ring-bell-function 'my-terminal-visible-bell)
 
 ;;Put backup files neatly away -- saved me many times
+<<<<<<< HEAD
+=======
+
+>>>>>>> b1fabff... Changed backup directories
 (let ((backup-dir "~/Dropbox/Code/Emacs/backups")
       (auto-saves-dir "~/Dropbox/Code/Emacs/autosavedir")
       )
