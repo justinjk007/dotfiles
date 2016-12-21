@@ -418,7 +418,6 @@
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
-(global-set-key (kbd "C-x k") 'kill-this-buffer)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
@@ -427,6 +426,7 @@
 (define-key evil-normal-state-map (kbd "Z") 'org-insert-link)
 (define-key evil-visual-state-map (kbd "L") 'end-of-line)
 (define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
+(define-key evil-visual-state-map (kbd "q") 'kill-this-buffer)
 (global-set-key (kbd "C-x C-m") 'move-file)
 
 ;;This section uses the key-chord minor mode
