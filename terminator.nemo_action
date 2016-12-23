@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Open Terminator
+Comment=Opens terminator
+Selection=none
+Extensions=any;
+Exec=terminator --working-directory=%P
+Active=true
+Icon-Name=terminator
