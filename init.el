@@ -353,6 +353,10 @@
 (require 'aggressive-indent)
 (aggressive-indent-global-mode t)
 
+(add-to-list 'load-path "~/.emacs.d/elpa/highlight-indent-guides")
+(require 'highlight-indent-guides)
+(setq highlight-indent-guides-method 'character)
+
 ;;---------------JAVA Migration-------------- Kinda regret this thou.
 (add-to-list 'load-path "~/.emacs.d/elpa/jdee")
 (require 'jdee)
@@ -399,6 +403,7 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
