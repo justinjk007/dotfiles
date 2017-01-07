@@ -84,10 +84,6 @@
   "Move all done tasks in the current buffer to archive file."
   (interactive)
   (org-map-entries 'org-archive-subtree "/DONE" 'file))
-(defun evilAndJdee ()
-  "Set keybindings for java editing."
-  (evil-ex-define-cmd "jc[ompile]" 'jdee-compile)
-  (evil-ex-define-cmd "jr[un]" 'jdee-run))
 (defun magit-keys()
   "Change emacs evil mode n and p to j and k repectively"
   (define-key evil-emacs-state-map (kbd "j") 'next-line)
@@ -180,10 +176,6 @@
  '(global-linum-mode t)
  '(helm-mode t)
  '(inhibit-startup-screen t)
- '(jdee-compiler (quote ("javac")))
- '(jdee-jdk-registry
-   (quote
-    (("1.8.0101" . "C:/Program Files (x86)/Java/jdk1.8.0_101"))))
  '(lazy-highlight-cleanup nil)
  '(magit-ellipsis 8631)
  '(menu-bar-mode nil)
@@ -357,11 +349,6 @@
 (require 'highlight-indent-guides)
 (setq highlight-indent-guides-method 'character)
 
-;;---------------JAVA Migration-------------- Kinda regret this thou.
-(add-to-list 'load-path "~/.emacs.d/elpa/jdee")
-(require 'jdee)
-;;---------------JAVA Migration-------------- Kinda regret this thou.
-
 ;;----------------------------------ASPEL-DICTIONARY-------------
 ;; (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 ;; (setq ispell-program-name "aspell")
@@ -376,9 +363,6 @@
 ;;(add-hook 'image-mode-hook 'eimp-mode)
 (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
 (add-hook 'js-mode-hook 'flyspell-prog-mode)
-(add-hook 'jdee-mode-hook 'flyspell-prog-mode)
-(add-hook 'jdee-mode-hook 'evilAndJdee)
-(add-hook 'jdee-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode) ;Highlight-numbers-mode
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'emacs-lisp-mode-hook 'rainbow-mode) ;;enabling rainbow in lisp
