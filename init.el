@@ -392,10 +392,7 @@
 
 ;;-------------------------------KeY-Maps--------------
 (engine/set-keymap-prefix (kbd "M-a"))
-(evil-ex-define-cmd "b[utterfly]" 'butterfly)
-(evil-ex-define-cmd "sh[ell]" 'shell)
 (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
-(evil-ex-define-cmd "ev[al-buffer]" 'eval-buffer)
 (global-set-key [(meta up)]  'move-line-up)
 (global-set-key [(meta down)]  'move-line-down)
 (define-key evil-normal-state-map "n" 'scroll-up)
@@ -409,6 +406,7 @@
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
+(global-set-key (kbd "C-x t") 'ansi-term)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
@@ -431,7 +429,7 @@
 (key-chord-define evil-normal-state-map "ZZ" 'lisp-interaction-mode)
 (key-chord-define evil-normal-state-map "VV" 'kill-whole-line)
 (key-chord-mode 1)
-r; -------------------------------KeY-Maps--------------
+;; -------------------------------KeY-Maps--------------
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 
