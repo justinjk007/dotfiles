@@ -230,7 +230,9 @@
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
 ;;Selection Colors OR Visaul Block colors
-
+(setq solarized-scale-org-headlines nil)
+(set-face-attribute 'fixed-pitch nil :font "Hack")
+(set-face-attribute 'variable-pitch nil :font "Hack")
 
 ;; make electric-pair-mode work on more brackets
 (setq electric-pair-pairs '(
@@ -263,7 +265,6 @@
 		  (select-frame frame)
 		  (load-theme 'airline-solarized-alternate-gui t)))
     (load-theme 'airline-solarized-alternate-gui t))
-  ;;(load-theme 'airline-solarized-alternate-gui t)
   )
 
 (setq airline-utf-glyph-separator-left      #xe0b0
