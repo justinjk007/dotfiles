@@ -202,6 +202,7 @@
  '(standard-indent 2)
  '(tool-bar-mode nil))
 
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -227,10 +228,11 @@
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
-;;Selection Colors OR Visaul Block colors
-(setq solarized-scale-org-headlines nil)
-(set-face-attribute 'fixed-pitch nil :font "Hack")
-(set-face-attribute 'variable-pitch nil :font "Hack")
+;;(setq solarized-scale-org-headlines nil)
+
+;; (set-face-attribute 'default nil :font "Hack")
+;; (set-face-attribute 'fixed-pitch nil :font "Hack")
+;; (set-face-attribute 'variable-pitch nil :font "Hack")
 
 ;; make electric-pair-mode work on more brackets
 (setq electric-pair-pairs '(
