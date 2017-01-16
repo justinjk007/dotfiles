@@ -161,7 +161,9 @@
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
    (quote
-    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
+    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
+     "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
+     "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
     ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)) t)
@@ -245,7 +247,7 @@
 ;;Make org-mode work with files ending in .org
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (require 'org-bullets)
-(setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
 
 ;;------------------------ORG-mode-----------------------------------------
 
