@@ -331,6 +331,7 @@
 ;;----------------------------------Yas-snippets-------------
 
 (require 'flycheck)
+(global-flycheck-mode t)
 
 ;;(add-to-list 'load-path "~/.emacs.d/elpa/eimp")
 ;;(require 'eimp)
