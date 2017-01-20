@@ -178,7 +178,7 @@
  '(inhibit-startup-screen t)
  '(lazy-highlight-cleanup nil)
  '(magit-ellipsis 8631)
- '(menu-bar-mode nil)
+ ;; '(menu-bar-mode nil)
  '(neo-smart-open t)
  '(neo-theme (quote classic))
  '(org-agenda-files (quote ("~/.emacs.d/org-files/todo")))
@@ -202,7 +202,8 @@
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
  '(standard-indent 2)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ )
 
 
 (custom-set-faces
@@ -233,8 +234,8 @@
 ;;(setq solarized-scale-org-headlines nil)
 
 ;; (set-face-attribute 'default nil :font "Hack")
-;; (set-face-attribute 'fixed-pitch nil :font "Hack")
-;; (set-face-attribute 'variable-pitch nil :font "Hack")
+;; (set-face-attribute 'fixed-pitch nil :font "Anaheim")
+;; (set-face-attribute 'variable-pitch nil :font "Anaheim")
 
 ;; make electric-pair-mode work on more brackets
 (setq electric-pair-pairs '(
