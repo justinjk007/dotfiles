@@ -158,10 +158,12 @@
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(company-idle-delay 0)
  '(cursor-type (quote (bar . 3)))
- '(custom-enabled-themes (quote (solarized-dark)))
+ '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes
    (quote
-    ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879"
+     "4d5ce1a2a9c608a48f0489971bf2ebededdef436107fb4278278043e37062f79"
+     "6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
      "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
      "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
@@ -181,7 +183,9 @@
  '(menu-bar-mode nil)
  '(neo-smart-open t)
  '(neo-theme (quote classic))
- '(org-agenda-files (quote ("~/.emacs.d/org-files/todo")))
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/org-files/pc" "~/.emacs.d/org-files/todo")))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
@@ -213,7 +217,7 @@
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
- '(cursor ((t (:background "#FF7D9E"))))
+ '(cursor ((t (:background "#F73A54"))))
  '(error ((t (:foreground "indian red" :weight bold))))
  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
@@ -229,7 +233,7 @@
  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
-(set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
+(set-face-attribute 'region nil :foreground "#2aa198" :background "#586e75")
 ;;(setq solarized-scale-org-headlines nil)
 
 ;; (set-face-attribute 'default nil :font "Hack")
