@@ -92,10 +92,10 @@
   "Insert the current date with as PREFIX."
   (interactive "P")
   (let ((format (cond
-		 ((not prefix) "%d-%m-%Y")
-		 ((equal prefix '(4)) "%Y-%m-%d")
-		 ((equal prefix '(16)) "%A, %d. %B %Y")))
-	(system-time-locale "de_DE"))
+                 ((not prefix) "%d-%m-%Y")
+                 ((equal prefix '(4)) "%Y-%m-%d")
+                 ((equal prefix '(16)) "%A, %d. %B %Y")))
+        (system-time-locale "de_DE"))
     (insert (format-time-string format))))
 (defun my-window-split-h (prefix)
   (interactive "p")
@@ -120,6 +120,8 @@
     (call-interactively #'write-file)
     (when old-location
       (delete-file old-location))))
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
 
 (setq visible-bell nil
       ring-bell-function 'my-terminal-visible-bell)
@@ -133,11 +135,11 @@
       (make-directory dir t))
     )
   (setq backup-directory-alist `(("." . ,backup-dir))
-	auto-save-file-name-transforms `((".*" ,auto-saves-dir))
-	auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
-	tramp-backup-directory-alist `((".*" . ,backup-dir))
-	tramp-auto-save-directory auto-saves-dir
-	)
+        auto-save-file-name-transforms `((".*" ,auto-saves-dir))
+        auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
+        tramp-backup-directory-alist `((".*" . ,backup-dir))
+        tramp-auto-save-directory auto-saves-dir
+        )
   )
 (setq backup-by-copying t    ; Don't delink hardlinks
       delete-old-versions t  ; Clean up the backups
@@ -239,8 +241,8 @@
 
 ;; make electric-pair-mode work on more brackets
 (setq electric-pair-pairs '(
-			    (?\{ . ?\})
-			    ) )
+                            (?\{ . ?\})
+                            ) )
 
 ;;------------------------ORG-mode-----------------------------------------
 (add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
@@ -264,9 +266,9 @@
   (require 'airline-themes)
   (if (daemonp)
       (add-hook 'after-make-frame-functions
-		(lambda (frame)
-		  (select-frame frame)
-		  (load-theme 'airline-solarized-alternate-gui t)))
+                (lambda (frame)
+                  (select-frame frame)
+                  (load-theme 'airline-solarized-alternate-gui t)))
     (load-theme 'airline-solarized-alternate-gui t))
   )
 
@@ -318,6 +320,13 @@
 (setq-default web-mode-markup-indent-offset tab-width)
 (setq-default web-mode-php-indent-offset tab-width)
 ;;------------------------------------------------
+
+
+;;---------------------Python---------------------------
+(setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
+(setq default-tab-width 4)
+
+;;---------------------Python---------------------------
 
 ;;----------------------------------EMMET MODE--------------------------
 (add-to-list 'load-path "~/.emacs.d/elpa/emmet-mode")
@@ -393,6 +402,7 @@
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
