@@ -1,4 +1,4 @@
-﻿;;; package --- init-file
+﻿;; package --- init-file
 ;;; Author:Justin Kaipada
 ;;; Branch:linux
 ;;; Date:01110100 01101111 01101101 01101101 01101111 01110010 01101111 01110111
@@ -358,10 +358,6 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
 (require 'aggressive-indent)
 (aggressive-indent-global-mode t)
-
-(add-to-list 'load-path "~/.emacs.d/elpa/highlight-indent-guides")
-(require 'highlight-indent-guides)
-(setq highlight-indent-guides-method 'character)
 
 ;;----------------------------------ASPEL-DICTIONARY-------------
 ;; (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
