@@ -24,7 +24,7 @@
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
-(setq default-directory "~/Dropbox/Code" )
+(setq default-directory "D:/Dropbox/Code" )
 (setq-default frame-title-format '("%f")) ;;Set file name as the frame title
 (add-to-list 'default-frame-alist '(width  . 110))
 (add-to-list 'default-frame-alist '(height . 37))
@@ -47,7 +47,7 @@
 
 ;;-------------------------------------All-Funtions---------------
 
-;;This funtions are mapped to Key-Bindings at the end of the file
+;;This funtions are mapped o Key-Bindings at the end of the file
 (defun revert-buffer-no-confirm ()
   "Revert(Reload/Refresh) buffer without confirmation."
   (interactive)
@@ -73,10 +73,10 @@
   (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
 (defun org-cd ()
   "Change the working directory."
-  (cd "~/Dropbox/org-files"))
+  (cd "D:/Dropbox/org-files"))
 (defun desktop-cd ()
   "Change the working directory."
-  (cd "~/Dropbox/Code"))
+  (cd "D:/Dropbox/Code"))
 (defun my-org-archive-done-tasks ()
   "Move all done tasks in the current buffer to archive file."
   (interactive)
@@ -89,10 +89,10 @@
   "Insert the current date with as PREFIX."
   (interactive "P")
   (let ((format (cond
-		 ((not prefix) "%d-%m-%Y")
-		 ((equal prefix '(4)) "%Y-%m-%d")
-		 ((equal prefix '(16)) "%A, %d. %B %Y")))
-	(system-time-locale "de_DE"))
+                 ((not prefix) "%d-%m-%Y")
+                 ((equal prefix '(4)) "%Y-%m-%d")
+                 ((equal prefix '(16)) "%A, %d. %B %Y")))
+        (system-time-locale "de_DE"))
     (insert (format-time-string format))))
 (defun my-window-split-h (prefix)
   (interactive "p")
@@ -117,6 +117,8 @@
     (call-interactively #'write-file)
     (when old-location
       (delete-file old-location))))
+;; (defun my/python-mode-hook ()
+;;   (add-to-list 'company-backends 'company-jedi))
 
 (setq visible-bell nil
       ring-bell-function 'my-terminal-visible-bell)
@@ -131,11 +133,11 @@
       (make-directory dir t))
     )
   (setq backup-directory-alist `(("." . ,backup-dir))
-	auto-save-file-name-transforms `((".*" ,auto-saves-dir))
-	auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
-	tramp-backup-directory-alist `((".*" . ,backup-dir))
-	tramp-auto-save-directory auto-saves-dir
-	)
+        auto-save-file-name-transforms `((".*" ,auto-saves-dir))
+        auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
+        tramp-backup-directory-alist `((".*" . ,backup-dir))
+        tramp-auto-save-directory auto-saves-dir
+        )
   )
 (setq backup-by-copying t    ; Don't delink hardlinks
       delete-old-versions t  ; Clean up the backups
@@ -161,11 +163,7 @@
  '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes
    (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879"
-     "4d5ce1a2a9c608a48f0489971bf2ebededdef436107fb4278278043e37062f79"
-     "6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
-     "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
-     "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
+    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "4d5ce1a2a9c608a48f0489971bf2ebededdef436107fb4278278043e37062f79" "6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
     ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)) t)
@@ -200,6 +198,9 @@
    (quote
     (org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet solarized-theme emmet-mode)))
  '(powerline-height nil)
+ '(python-shell-exec-path (quote ("C:/Python27")))
+ '(python-shell-prompt-detect-failure-warning t)
+ '(python-shell-virtualenv-root nil)
  '(ring-bell-function (quote ignore))
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
@@ -242,8 +243,8 @@
 
 ;; make electric-pair-mode work on more brackets
 (setq electric-pair-pairs '(
-			    (?\{ . ?\})
-			    ) )
+                            (?\{ . ?\})
+                            ) )
 
 ;;------------------------ORG-mode-----------------------------------------
 (add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
@@ -267,9 +268,9 @@
   (require 'airline-themes)
   (if (daemonp)
       (add-hook 'after-make-frame-functions
-		(lambda (frame)
-		  (select-frame frame)
-		  (load-theme 'airline-solarized-alternate-gui t)))
+                (lambda (frame)
+                  (select-frame frame)
+                  (load-theme 'airline-solarized-alternate-gui t)))
     (load-theme 'airline-solarized-alternate-gui t))
   )
 
@@ -352,10 +353,6 @@
 (require 'aggressive-indent)
 (aggressive-indent-global-mode t)
 
-(add-to-list 'load-path "~/.emacs.d/elpa/highlight-indent-guides")
-(require 'highlight-indent-guides)
-(setq highlight-indent-guides-method 'character)
-
 ;;----------------------------------ASPEL-DICTIONARY-------------
 (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
 (setq ispell-program-name "aspell")
@@ -394,7 +391,8 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+;; (add-hook 'python-mode-hook 'my/python-mode-hook)
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
@@ -408,12 +406,12 @@
 (global-set-key [f6] 'rainbow-mode)
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x z") 'compile)
+(global-set-key (kbd "C-x z") 'recompile)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
-(global-set-key (kbd "C-x t") 'ansi-term)
+(global-set-key (kbd "C-x t") 'eshell)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
