@@ -36,9 +36,7 @@
 
 ;;-------------------------------------Server------------------
 (require 'server)
-;; Start a server if (server-running-p) does not return t (e.g. if it
-;; returns nil or :other)
-(or (eq (server-running-p) t)
+(or (server-running-p)
     (server-start))
 ;;-------------------------------------Server------------------
 
@@ -168,7 +166,7 @@
     ("6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)) t)
+    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -180,7 +178,7 @@
  '(inhibit-startup-screen t)
  '(lazy-highlight-cleanup nil)
  '(magit-ellipsis 8631)
- ;; '(menu-bar-mode nil)
+ '(menu-bar-mode nil)
  '(neo-smart-open t)
  '(neo-theme (quote classic))
  '(org-agenda-files (quote ("~/.emacs.d/org-files/todo")))
@@ -198,14 +196,16 @@
    (quote
     (org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet solarized-theme emmet-mode)))
  '(powerline-height nil)
- '(ring-bell-function (quote ignore))
+ '(ring-bell-function (quote ignore) t)
+ '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
+ '(smooth-scroll-margin 15)
+ '(smooth-scrolling-mode t)
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
  '(standard-indent 2)
- '(tool-bar-mode nil)
- )
+ '(tool-bar-mode nil))
 
 
 (custom-set-faces
@@ -355,6 +355,8 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
 
+(require 'smooth-scrolling)
+
 (add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
 (require 'aggressive-indent)
 (aggressive-indent-global-mode t)
@@ -397,7 +399,7 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+;;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 ;;-------------------------------HOOKS--------------
 
@@ -412,12 +414,13 @@
 (global-set-key [f6] 'rainbow-mode)
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x z") 'compile)
+(global-set-key (kbd "C-x z") 'recompile)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
 (global-set-key (kbd "C-x t") 'ansi-term)
+(global-set-key (kbd "S-SPC") 'recompile)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
