@@ -33,9 +33,7 @@
 
 ;;-------------------------------------Server------------------
 (require 'server)
-;; Start a server if (server-running-p) does not return t (e.g. if it
-;; returns nil or :other)
-(or (eq (server-running-p) t)
+(or (server-running-p)
     (server-start))
 ;;-------------------------------------Server------------------
 
@@ -166,7 +164,7 @@
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "4d5ce1a2a9c608a48f0489971bf2ebededdef436107fb4278278043e37062f79" "6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)) t)
+    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -198,12 +196,19 @@
    (quote
     (org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet solarized-theme emmet-mode)))
  '(powerline-height nil)
+<<<<<<< HEAD
  '(python-shell-exec-path (quote ("C:/Python27")))
  '(python-shell-prompt-detect-failure-warning t)
  '(python-shell-virtualenv-root nil)
  '(ring-bell-function (quote ignore))
+=======
+ '(ring-bell-function (quote ignore) t)
+ '(scroll-restore-mode t)
+>>>>>>> 467ab7c... Added smooth scrolling mode
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
+ '(smooth-scroll-margin 15)
+ '(smooth-scrolling-mode t)
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
  '(standard-indent 2)
@@ -349,6 +354,8 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
 
+(require 'smooth-scrolling)
+
 (add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
 (require 'aggressive-indent)
 (aggressive-indent-global-mode t)
@@ -391,8 +398,13 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
+<<<<<<< HEAD
 ;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 ;; (add-hook 'python-mode-hook 'my/python-mode-hook)
+=======
+;;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+>>>>>>> 467ab7c... Added smooth scrolling mode
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
@@ -411,7 +423,12 @@
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
+<<<<<<< HEAD
 (global-set-key (kbd "C-x t") 'eshell)
+=======
+(global-set-key (kbd "C-x t") 'ansi-term)
+(global-set-key (kbd "S-SPC") 'recompile)
+>>>>>>> 467ab7c... Added smooth scrolling mode
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
