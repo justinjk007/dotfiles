@@ -196,18 +196,15 @@
    (quote
     (org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet solarized-theme emmet-mode)))
  '(powerline-height nil)
-<<<<<<< HEAD
  '(python-shell-exec-path (quote ("C:/Python27")))
  '(python-shell-prompt-detect-failure-warning t)
  '(python-shell-virtualenv-root nil)
  '(ring-bell-function (quote ignore))
-=======
  '(ring-bell-function (quote ignore) t)
  '(scroll-restore-mode t)
->>>>>>> 467ab7c... Added smooth scrolling mode
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
- '(smooth-scroll-margin 15)
+ '(smooth-scroll-margin 20)
  '(smooth-scrolling-mode t)
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
@@ -398,13 +395,10 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-<<<<<<< HEAD
 ;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 ;; (add-hook 'python-mode-hook 'my/python-mode-hook)
-=======
 ;;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (add-hook 'python-mode-hook 'my/python-mode-hook)
->>>>>>> 467ab7c... Added smooth scrolling mode
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
@@ -423,12 +417,9 @@
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
-<<<<<<< HEAD
 (global-set-key (kbd "C-x t") 'eshell)
-=======
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
->>>>>>> 467ab7c... Added smooth scrolling mode
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
 (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
 (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
