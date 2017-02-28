@@ -384,7 +384,6 @@
 (add-hook 'sgml-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'js-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-(add-hook 'org-mode-hook 'org-cd)
 (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
@@ -439,7 +438,6 @@
 (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
 (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
 (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
-(key-chord-define evil-normal-state-map "zz" 'org-mode); Toggling org mode
 (key-chord-define evil-normal-state-map "ZZ" 'lisp-interaction-mode)
 (key-chord-define evil-normal-state-map "VV" 'kill-whole-line)
 (key-chord-mode 1)
