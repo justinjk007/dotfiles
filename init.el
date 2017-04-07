@@ -192,8 +192,6 @@
  '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
- '(smooth-scroll-margin 15)
- '(smooth-scrolling-mode t)
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
  '(standard-indent 2)
