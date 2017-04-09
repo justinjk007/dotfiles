@@ -370,7 +370,6 @@
 (add-hook 'css-mode-hook 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
-(add-hook 'lisp-interaction-mode-hook 'desktop-cd)
 (add-hook 'magit-status-mode-hook 'magit-keys)
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
