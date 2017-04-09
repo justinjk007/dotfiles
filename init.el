@@ -7,7 +7,7 @@
 
 ;;; Code:
 ;;(let ((file-name-handler-alist nil))
-
+;;File handler should be enabled at the bottom as well
 (package-initialize)
 (setq gc-cons-threshold 20000000)
 (setq initial-scratch-message nil)
@@ -20,7 +20,7 @@
 (set-fill-column 80)
 (blink-cursor-mode 0)
 (put 'upcase-region 'disabled nil)
-(setq org-hide-emphasis-markers t)
+(defvar org-hide-emphasis-markers t)
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
@@ -28,7 +28,6 @@
 (setq-default frame-title-format '("%f")) ;;Set file name as the frame title
 (add-to-list 'default-frame-alist '(width  . 110))
 (add-to-list 'default-frame-alist '(height . 37))
-;;(setq initial-frame-alist '((left . 570) (top . 135)))
 (scroll-bar-mode -1)
 
 ;;-------------------------------------Server------------------
@@ -69,12 +68,6 @@
   (setq web-mode-code-indent-offset 2)
   (setq web-mode-indent-style 4)
   (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
-(defun org-cd ()
-  "Change the working directory."
-  (cd "D:/Dropbox/org-files"))
-(defun desktop-cd ()
-  "Change the working directory."
-  (cd "D:/Dropbox/Code"))
 (defun my-org-archive-done-tasks ()
   "Move all done tasks in the current buffer to archive file."
   (interactive)
@@ -94,20 +87,16 @@
     (insert (format-time-string format))))
 (defun my-window-split-h (prefix)
   (interactive "p")
-  "Splits window right in a better way"
+  "Splits window right with older window open"
   (split-window-right)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
 (defun my-window-split-v (prefix)
   (interactive "p")
-  "Splits window below in a better way"
+  "Splits window below with older window open"
   (split-window-below)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
-(defun my-terminal-visible-bell ()
-  "A friendlier visual bell effect."
-  (invert-face 'mode-line)
-  (run-with-timer 0.1 nil 'invert-face 'mode-line))
 (defun move-file ()
   "Write this file to a new location, and delete the old one."
   (interactive)
@@ -115,14 +104,11 @@
     (call-interactively #'write-file)
     (when old-location
       (delete-file old-location))))
-;; (defun my/python-mode-hook ()
-;;   (add-to-list 'company-backends 'company-jedi))
 
 (setq visible-bell nil
       ring-bell-function 'my-terminal-visible-bell)
 
 ;;Put backup files neatly away -- saved me many times
-
 (let ((backup-dir "~/Dropbox/Code/Emacs/backups")
       (auto-saves-dir "~/Dropbox/Code/Emacs/autosavedir")
       )
@@ -164,7 +150,8 @@
     ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "4d5ce1a2a9c608a48f0489971bf2ebededdef436107fb4278278043e37062f79" "6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes/" "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
+    ("~/.emacs.d/elpa/airline-themes/"
+     "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -174,11 +161,8 @@
  '(global-linum-mode t)
  '(helm-mode t)
  '(inhibit-startup-screen t)
- '(lazy-highlight-cleanup nil)
  '(magit-ellipsis 8631)
  '(menu-bar-mode nil)
- '(neo-smart-open t)
- '(neo-theme (quote classic))
  '(org-agenda-files
    (quote
     ("~/Dropbox/org-files/pc" "~/.emacs.d/org-files/todo")))
@@ -194,7 +178,15 @@
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
-    (org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet solarized-theme emmet-mode)))
+    (org
+     flyspell-popup
+     flyspell-correct
+     evil
+     flycheck
+     rainbow-mode
+     yasnippet
+     solarized-theme
+     emmet-mode)))
  '(powerline-height nil)
  '(python-shell-exec-path (quote ("C:/Python27")))
  '(python-shell-prompt-detect-failure-warning t)
@@ -204,8 +196,6 @@
  '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
- '(smooth-scroll-margin 20)
- '(smooth-scrolling-mode t)
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
  '(standard-indent 2)
@@ -217,7 +207,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
+                         :strike-through nil :overline nil :underline nil
+                         :slant normal :weight normal :height 100
+                         :width normal :foundry "outline" :family "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#F73A54"))))
@@ -237,11 +230,6 @@
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#586e75")
-;;(setq solarized-scale-org-headlines nil)
-
-;; (set-face-attribute 'default nil :font "Hack")
-;; (set-face-attribute 'fixed-pitch nil :font "Hack")
-;; (set-face-attribute 'variable-pitch nil :font "Hack")
 
 ;; make electric-pair-mode work on more brackets
 (setq electric-pair-pairs '(
@@ -259,7 +247,6 @@
 ;;------------------------ORG-mode-----------------------------------------
 
 ;;------------------------------------POWER-LINE-----------------------
-
 ;;source --> https://github.com/milkypostman/powerline
 (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
 (require 'powerline)
@@ -284,7 +271,6 @@
       airline-utf-glyph-readonly            #xe0a2
       airline-utf-glyph-linenumber          #xe0a1 )
 ;;------------------------------------POWER-LINE-----------------------
-
 
 ;;-----------------------------------Engine-mode-----------------------
 (require 'engine-mode)
@@ -339,9 +325,6 @@
 
 (require 'flycheck)
 
-;;(add-to-list 'load-path "~/.emacs.d/elpa/eimp")
-;;(require 'eimp)
-
 (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
 (require 'column-marker)
 
@@ -350,8 +333,6 @@
 
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
-
-(require 'smooth-scrolling)
 
 (add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
 (require 'aggressive-indent)
@@ -368,9 +349,9 @@
 (add-hook 'org-mode-hook 'turn-on-font-lock)
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'org-agenda-mode-hook 'magit-keys)
-;;(add-hook 'image-mode-hook 'eimp-mode)
 (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
 (add-hook 'js-mode-hook 'flyspell-prog-mode)
+;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode) ;Highlight-numbers-mode
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'emacs-lisp-mode-hook 'rainbow-mode) ;;enabling rainbow in lisp
@@ -394,10 +375,6 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-;; (add-hook 'python-mode-hook 'my/python-mode-hook)
-;;(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
-(add-hook 'python-mode-hook 'my/python-mode-hook)
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
@@ -407,16 +384,12 @@
 (global-set-key [(meta down)]  'move-line-down)
 (define-key evil-normal-state-map "n" 'scroll-up)
 (define-key evil-normal-state-map "N" 'scroll-down)
-(global-set-key [f5] 'neotree-toggle)
-(global-set-key [f6] 'rainbow-mode)
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-x z") 'recompile)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
-(global-set-key (kbd "C-x t") 'eshell)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
 (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
@@ -432,17 +405,13 @@
 
 ;;This section uses the key-chord minor mode
 (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
-;;Exit insert mode by pressing j and then j quickly
 (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
 (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
 (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
 (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
-(key-chord-define evil-normal-state-map "ZZ" 'lisp-interaction-mode)
-(key-chord-define evil-normal-state-map "VV" 'kill-whole-line)
 (key-chord-mode 1)
 ;; -------------------------------KeY-Maps--------------
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
-
 (provide 'init.el)
 ;;; init.el ends here
