@@ -214,7 +214,7 @@
  '(error ((t (:foreground "indian red" :weight bold))))
  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
- '(linum ((t (:background "#fdf6e3" :distant-foreground "black" :foreground "#93a1a1" :box nil :strike-through nil :underline nil :weight thin :height 100 :width normal :family "Hack"))))
+ '(linum ((t (:background "#fdf6e3" :distant-foreground "black" :foreground "#93a1a1" :box nil :strike-through nil :underline nil :weight thin :height 100 :width normal :family "Raleway Medium"))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
  '(org-default ((t (:family "Hack"))))
  '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
