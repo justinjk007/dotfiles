@@ -207,16 +207,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
-                         :strike-through nil :overline nil :underline nil
-                         :slant normal :weight normal :height 100
-                         :width normal :foundry "outline" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#F73A54"))))
  '(error ((t (:foreground "indian red" :weight bold))))
  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
+ '(linum ((t (:background "#fdf6e3" :distant-foreground "black" :foreground "#93a1a1" :box nil :strike-through nil :underline nil :weight thin :height 100 :width normal :family "Hack"))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
  '(org-default ((t (:family "Hack"))))
  '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
