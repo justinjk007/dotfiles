@@ -1,4 +1,4 @@
-﻿;; package --- init-file
+﻿;;; package --- init-file
 ;;; Author:Justin Kaipada
 ;;; Branch:linux
 ;;; Date:01110100 01101111 01101101 01101101 01101111 01110010 01101111 01110111
