@@ -379,8 +379,8 @@
 ;;-------------------------------KeY-Maps--------------
 (engine/set-keymap-prefix (kbd "M-a"))
 (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
-(global-set-key [(meta up)]  'move-line-up)
-(global-set-key [(meta down)]  'move-line-down)
+(global-set-key  (kbd "M-C-j")  'move-line-down)
+(global-set-key (kbd "M-C-k")  'move-line-up)
 (define-key evil-normal-state-map "n" 'scroll-up)
 (define-key evil-normal-state-map "N" 'scroll-down)
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
