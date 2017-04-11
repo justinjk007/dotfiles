@@ -220,7 +220,7 @@
  '(org-level-4 ((t (:foreground "MistyRose1" :weight normal))))
  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
  '(org-verbatim ((t (:foreground "tomato"))))
- '(linum ((t (:distant-foreground "black" :box nil :strike-through nil :underline nil :weight thin :height 110 :width normal :family "Hack"))))
+ '(linum ((t (:distant-foreground "black" :box nil :strike-through nil :underline nil :weight thin :height 110 :width normal :family "Raleway Medium"))))
  '(org-warning ((t (:foreground "red" :underline t))))
  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
