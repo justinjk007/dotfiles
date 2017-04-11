@@ -397,7 +397,6 @@
 (define-key evil-normal-state-map (kbd "Z") 'org-insert-link)
 (define-key evil-visual-state-map (kbd "L") 'end-of-line)
 (define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
-(define-key evil-visual-state-map (kbd "q") 'kill-this-buffer)
 (global-set-key (kbd "C-x C-m") 'move-file)
 
 ;;This section uses the key-chord minor mode
