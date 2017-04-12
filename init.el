@@ -379,7 +379,6 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-(add-hook 'python-mode-hook 'my/python-mode-hook)
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
