@@ -332,6 +332,8 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
 
+(require 'ox-twbs)
+
 (add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
 (require 'aggressive-indent)
 (aggressive-indent-global-mode t)
