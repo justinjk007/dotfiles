@@ -21,6 +21,12 @@
 (blink-cursor-mode 0)
 (put 'upcase-region 'disabled nil)
 (defvar org-hide-emphasis-markers t)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
 
 (add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
