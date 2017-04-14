@@ -92,14 +92,14 @@
         (system-time-locale "de_DE"))
     (insert (format-time-string format))))
 (defun my-window-split-h (prefix)
+  "Splits window right with older window open, with PREFIX arg."
   (interactive "p")
-  "Splits window right with older window open"
   (split-window-right)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
 (defun my-window-split-v (prefix)
+  "Splits window below with older window open, with PREFIX arg."
   (interactive "p")
-  "Splits window below with older window open"
   (split-window-below)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
