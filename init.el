@@ -232,11 +232,6 @@
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
-;;(setq solarized-scale-org-headlines nil)
-
-;; (set-face-attribute 'default nil :font "Hack")
-;; (set-face-attribute 'fixed-pitch nil :font "Anaheim")
-;; (set-face-attribute 'variable-pitch nil :font "Anaheim")
 
 ;; make electric-pair-mode work on more brackets
 (defvar electric-pair-pairs '(
