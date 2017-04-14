@@ -70,9 +70,9 @@
   (indent-according-to-mode))
 (defun my-web-mode-hook ()
   "Change when using web mode."
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-indent-style 4)
+  (defvar web-mode-markup-indent-offset 2)
+  (defvar web-mode-code-indent-offset 2)
+  (defvar web-mode-indent-style 4)
   (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
 (defun my-org-archive-done-tasks ()
   "Move all done tasks in the current buffer to archive file."
