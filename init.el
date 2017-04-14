@@ -21,10 +21,10 @@
 (blink-cursor-mode 0)
 (put 'upcase-region 'disabled nil)
 (defvar org-hide-emphasis-markers t)
+
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
 (eval-when-compile
   (require 'use-package))
 
@@ -236,9 +236,9 @@
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#586e75")
 
 ;; make electric-pair-mode work on more brackets
-(setq electric-pair-pairs '(
-                            (?\{ . ?\})
-                            ) )
+(defvar electric-pair-pairs '(
+                              (?\{ . ?\})
+                              ) )
 
 ;;------------------------ORG-mode-----------------------------------------
 (add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
