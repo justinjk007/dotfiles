@@ -70,9 +70,9 @@
   (indent-according-to-mode))
 (defun my-web-mode-hook ()
   "Change when using web mode."
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-indent-style 4)
+  (defvar web-mode-markup-indent-offset 2)
+  (defvar web-mode-code-indent-offset 2)
+  (defvar web-mode-indent-style 4)
   (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
 (defun my-org-archive-done-tasks ()
   "Move all done tasks in the current buffer to archive file."
@@ -92,14 +92,14 @@
         (system-time-locale "de_DE"))
     (insert (format-time-string format))))
 (defun my-window-split-h (prefix)
+  "Splits window right with older window open, with PREFIX arg."
   (interactive "p")
-  "Splits window right with older window open"
   (split-window-right)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
 (defun my-window-split-v (prefix)
+  "Splits window below with the older window open, with PREFIX arg."
   (interactive "p")
-  "Splits window below with the older window open"
   (split-window-below)
   (other-window 1 nil)
   (if (- prefix 1) (switch-to-next-buffer)))
@@ -239,9 +239,9 @@
 ;; (set-face-attribute 'variable-pitch nil :font "Anaheim")
 
 ;; make electric-pair-mode work on more brackets
-(setq electric-pair-pairs '(
-                            (?\{ . ?\})
-                            ) )
+(defvar electric-pair-pairs '(
+                              (?\{ . ?\})
+                              ) )
 
 ;;------------------------ORG-mode-----------------------------------------
 (add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
