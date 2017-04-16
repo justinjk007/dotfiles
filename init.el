@@ -385,6 +385,8 @@
 (add-hook 'magit-log-mode-hook 'magit-keys)
 (add-hook 'magit-diff-mode-hook 'magit-keys)
 (add-hook 'magit-staged-section-mode-hook 'magit-keys)
+(add-hook 'term-mode-hook (lambda()
+                            (setq yas-dont-activate t)))
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
