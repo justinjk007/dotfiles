@@ -18,9 +18,9 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (set-language-environment 'utf-8)
-(set-fill-column 80)
+(set-fill-column 81)
 (blink-cursor-mode 0)
-(put 'upcase-region 'disabled nil)
+(setq disabled-command-function nil)
 (defvar org-hide-emphasis-markers t)
 
 (unless (package-installed-p 'use-package)
@@ -29,9 +29,8 @@
 (eval-when-compile
   (require 'use-package))
 
-(add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
 (setq default-directory "~/Dropbox/Code" )
-(setq-default frame-title-format '("%f")) ;;Set file name as the frame title
+(setq-default frame-title-format '("%f [%m%*mode]"))
 (add-to-list 'default-frame-alist '(width  . 110))
 (add-to-list 'default-frame-alist '(height . 37))
 (scroll-bar-mode -1)
