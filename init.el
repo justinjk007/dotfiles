@@ -42,11 +42,16 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-;;-------------------------------------EVIL------------------
-(add-to-list 'load-path "~/.emacs.d/elpa/evil")
-(require 'evil)
-(evil-mode 1)
-;;-------------------------------------EVIL------------------
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode 1))
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode))
+(use-package magit
+  :ensure t)
 
 ;;-------------------------------------All-Funtions---------------
 
