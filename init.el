@@ -116,7 +116,7 @@
 
 ;;Put backup files neatly away -- saved me many times
 (let ((backup-dir "~/Dropbox/Code/Emacs/backups")
-      (auto-saves-dir "~/Dropbox/Code/Emacs/autosavedir")
+      (auto-saves-dir "~/Dropbox/Code/Emacs/autosavedir/")
       )
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
