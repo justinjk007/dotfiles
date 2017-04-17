@@ -34,6 +34,8 @@
 (setq-default frame-title-format '("%f [%m%*mode]"))
 (add-to-list 'default-frame-alist '(width  . 110))
 (add-to-list 'default-frame-alist '(height . 37))
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 (scroll-bar-mode -1)
 
 ;;-------------------------------------Server------------------
@@ -51,6 +53,8 @@
   :config
   (global-company-mode))
 (use-package magit
+  :ensure t)
+(use-package all-the-icons
   :ensure t)
 
 ;;-------------------------------------All-Funtions---------------
@@ -177,7 +181,6 @@
  '(helm-mode t)
  '(inhibit-startup-screen t)
  '(magit-ellipsis 8631)
- '(menu-bar-mode nil)
  '(org-agenda-files
    (quote
     ("~/Dropbox/org-files/pc" "~/.emacs.d/org-files/todo")))
@@ -213,36 +216,34 @@
  '(show-paren-mode t)
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
- '(standard-indent 2)
- '(tool-bar-mode nil))
+ '(standard-indent 2))
 
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
- '(column-marker-1 ((t (:background "dim grey"))))
- '(comint-highlight-prompt ((t (:foreground "orange red"))))
- '(cursor ((t (:background "#F73A54"))))
- '(error ((t (:foreground "indian red" :weight bold))))
- '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
- '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
- '(font-lock-reference-face ((t (:foreground "firebrick1"))))
- '(linum ((t (:background "#fdf6e3" :foreground "black" :distant-foreground "black" :foreground "#93a1a1" :box nil :strike-through nil :underline nil :weight thin :height 100 :width normal :family "Raleway Medium"))))
- '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
- '(org-default ((t (:family "Hack"))))
- '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
- '(org-level-2 ((t (:foreground "plum" :weight normal))))
- '(org-level-3 ((t (:foreground "pink" :weight bold))))
- '(org-level-4 ((t (:foreground "MistyRose1" :weight normal))))
- '(org-link ((t (:foreground "SkyBlue1" :underline t))))
- '(org-verbatim ((t (:foreground "tomato"))))
- '(org-warning ((t (:foreground "red" :underline t))))
- '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
- '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
- '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
+ (custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
+  '(column-marker-1 ((t (:background "dim grey"))))
+  '(comint-highlight-prompt ((t (:foreground "orange red"))))
+  '(cursor ((t (:background "#F73A54"))))
+  '(error ((t (:foreground "indian red" :weight bold))))
+  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
+  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
+  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
+  '(linum ((t (:background "#fdf6e3" :foreground "black" :distant-foreground "black" :foreground "#93a1a1" :box nil :strike-through nil :underline nil :weight thin :height 100 :width normal :family "Raleway Medium"))))
+  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
+  '(org-default ((t (:family "Hack"))))
+  '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
+  '(org-level-2 ((t (:foreground "plum" :weight normal))))
+  '(org-level-3 ((t (:foreground "pink" :weight bold))))
+  '(org-level-4 ((t (:foreground "MistyRose1" :weight normal))))
+  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
+  '(org-verbatim ((t (:foreground "tomato"))))
+  '(org-warning ((t (:foreground "red" :underline t))))
+  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
+  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
+  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#586e75")
 
 ;; make electric-pair-mode work on more brackets
