@@ -350,6 +350,11 @@
 
 (require 'ox-twbs)
 
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
 (add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
 (require 'aggressive-indent)
 (aggressive-indent-global-mode t)
