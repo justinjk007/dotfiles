@@ -59,11 +59,6 @@
 (use-package magit
   :ensure t)
 
-(add-to-list 'load-path "/home/justin/.emacs.d/elpa/font-lock+/")
-(require 'font-lock+)
-(use-package all-the-icons
-  :ensure t
-  )
 ;;-------------------------------------All-Funtions---------------
 
 ;;This funtions are mapped to Key-Bindings at the end of the file
