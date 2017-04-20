@@ -210,7 +210,7 @@
  '(show-paren-mode t)
  '(solarized-distinct-doc-face nil)
  '(solarized-use-variable-pitch nil)
- '(standard-indent 2) 
+ '(standard-indent 2))
 
  (custom-set-faces
   ;; custom-set-faces was added by Custom.
