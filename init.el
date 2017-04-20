@@ -54,8 +54,6 @@
   (global-company-mode))
 (use-package magit
   :ensure t)
-(use-package all-the-icons
-  :ensure t)
 
 ;;-------------------------------------All-Funtions---------------
 
