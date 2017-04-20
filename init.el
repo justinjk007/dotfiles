@@ -212,228 +212,228 @@
  '(solarized-use-variable-pitch nil)
  '(standard-indent 2))
 
- (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
-                          :strike-through nil :overline nil :underline nil :slant normal
-                          :weight normal :height 110 :width normal :foundry "outline" :family
-                          "Hack"))))
-  '(column-marker-1 ((t (:background "dim grey"))))
-  '(comint-highlight-prompt ((t (:foreground "orange red"))))
-  '(cursor ((t (:background "#FF7D9E"))))
-  '(error ((t (:foreground "indian red" :weight bold))))
-  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
-  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
-  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
-  '(org-default ((t (:family "Hack"))))
-  '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
-  '(org-level-2 ((t (:foreground "plum" :weight normal))))
-  '(org-level-3 ((t (:foreground "pink" :weight bold))))
-  '(org-level-4 ((t (:foreground "MistyRose1" :weight normal))))
-  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
-  '(org-verbatim ((t (:foreground "tomato"))))
-  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
-  '(linum ((t (:foreground "grey68" :distant-foreground "black" :box nil :strike-through nil :underline nil :weight thin :height 110 :width normal :family "Raleway Medium"))))
-  '(org-warning ((t (:foreground "red" :underline t))))
-  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
-  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
-  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
- (set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
+                         :strike-through nil :overline nil :underline nil :slant normal
+                         :weight normal :height 110 :width normal :foundry "outline" :family
+                         "Hack"))))
+ '(column-marker-1 ((t (:background "dim grey"))))
+ '(comint-highlight-prompt ((t (:foreground "orange red"))))
+ '(cursor ((t (:background "#FF7D9E"))))
+ '(error ((t (:foreground "indian red" :weight bold))))
+ '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
+ '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
+ '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
+ '(org-default ((t (:family "Hack"))))
+ '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
+ '(org-level-2 ((t (:foreground "plum" :weight normal))))
+ '(org-level-3 ((t (:foreground "pink" :weight bold))))
+ '(org-level-4 ((t (:foreground "MistyRose1" :weight normal))))
+ '(org-link ((t (:foreground "SkyBlue1" :underline t))))
+ '(org-verbatim ((t (:foreground "tomato"))))
+ '(font-lock-reference-face ((t (:foreground "firebrick1"))))
+ '(linum ((t (:foreground "grey68" :distant-foreground "black" :box nil :strike-through nil :underline nil :weight thin :height 110 :width normal :family "Raleway Medium"))))
+ '(org-warning ((t (:foreground "red" :underline t))))
+ '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
+ '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
+ '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
+(set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
 
- ;; make electric-pair-mode work on more brackets
- (defvar electric-pair-pairs '(
-                               (?\{ . ?\})
-                               ) )
+;; make electric-pair-mode work on more brackets
+(defvar electric-pair-pairs '(
+                              (?\{ . ?\})
+                              ) )
 
- ;;------------------------ORG-mode-----------------------------------------
- (add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
- (require 'org)
- ;;Make org-mode work with files ending in .org
- (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
- (require 'org-bullets)
- (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+;;------------------------ORG-mode-----------------------------------------
+(add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
+(require 'org)
+;;Make org-mode work with files ending in .org
+(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+(require 'org-bullets)
+(setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
 
- ;;------------------------ORG-mode-----------------------------------------
+;;------------------------ORG-mode-----------------------------------------
 
- ;;------------------------------------POWER-LINE-----------------------
+;;------------------------------------POWER-LINE-----------------------
 
- ;;source --> https://github.com/milkypostman/powerline
- (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
- (require 'powerline)
+;;source --> https://github.com/milkypostman/powerline
+(add-to-list 'load-path "~/.emacs.d/elpa/powerline")
+(require 'powerline)
 
- ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
- (ignore-errors
-   (add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
-   (require 'airline-themes)
-   (if (daemonp)
-       (add-hook 'after-make-frame-functions
-                 (lambda (frame)
-                   (select-frame frame)
-                   (load-theme 'airline-solarized-alternate-gui t)))
-     (load-theme 'airline-solarized-alternate-gui t))
-   )
- (setq airline-utf-glyph-separator-left      #xe0b0
-       airline-utf-glyph-separator-right     #xe0b2
-       airline-utf-glyph-subseparator-left   #xe0b1
-       airline-utf-glyph-subseparator-right  #xe0b3
-       airline-utf-glyph-branch              #xE0A0
-       airline-utf-glyph-readonly            #xe0a2
-       airline-utf-glyph-linenumber          #xe0a1 )
- ;;------------------------------------POWER-LINE-----------------------
+;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
+(ignore-errors
+  (add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
+  (require 'airline-themes)
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (select-frame frame)
+                  (load-theme 'airline-solarized-alternate-gui t)))
+    (load-theme 'airline-solarized-alternate-gui t))
+  )
+(setq airline-utf-glyph-separator-left      #xe0b0
+      airline-utf-glyph-separator-right     #xe0b2
+      airline-utf-glyph-subseparator-left   #xe0b1
+      airline-utf-glyph-subseparator-right  #xe0b3
+      airline-utf-glyph-branch              #xE0A0
+      airline-utf-glyph-readonly            #xe0a2
+      airline-utf-glyph-linenumber          #xe0a1 )
+;;------------------------------------POWER-LINE-----------------------
 
 
- ;;-----------------------------------Engine-mode-----------------------
- (require 'engine-mode)
- (defengine duckduckgo
-   "https://duckduckgo.com/?q=%s"
-   :keybinding "d")
- (defengine github
-   "https://github.com/search?ref=simplesearch&q=%s"
-   :keybinding "g")
- (defengine google
-   "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-   :keybinding "a")
- (defengine rfcs
-   "http://pretty-rfc.herokuapp.com/search?q=%s"
-   :keybinding "g")
- (defengine stack-overflow
-   "https://stackoverflow.com/search?q=%s"
-   :keybinding "s")
- (defengine wikipedia
-   "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
-   :keybinding "w")
- (engine-mode t)
- ;;-----------------------------------Engine-mode-----------------------
+;;-----------------------------------Engine-mode-----------------------
+(require 'engine-mode)
+(defengine duckduckgo
+  "https://duckduckgo.com/?q=%s"
+  :keybinding "d")
+(defengine github
+  "https://github.com/search?ref=simplesearch&q=%s"
+  :keybinding "g")
+(defengine google
+  "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+  :keybinding "a")
+(defengine rfcs
+  "http://pretty-rfc.herokuapp.com/search?q=%s"
+  :keybinding "g")
+(defengine stack-overflow
+  "https://stackoverflow.com/search?q=%s"
+  :keybinding "s")
+(defengine wikipedia
+  "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+  :keybinding "w")
+(engine-mode t)
+;;-----------------------------------Engine-mode-----------------------
 
- ;;-------------------------WEB-mode--------------
- (require 'web-mode)
- (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
- (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
- (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
- (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
- (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
- (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
- (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
- (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
- (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
- (setq-default web-mode-markup-indent-offset tab-width)
- (setq-default web-mode-php-indent-offset tab-width)
- ;;------------------------------------------------
+;;-------------------------WEB-mode--------------
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(setq-default web-mode-markup-indent-offset tab-width)
+(setq-default web-mode-php-indent-offset tab-width)
+;;------------------------------------------------
 
- ;;---------------------Python---------------------------
- (setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
- (setq default-tab-width 4)
- ;;---------------------Python---------------------------
+;;---------------------Python---------------------------
+(setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
+(setq default-tab-width 4)
+;;---------------------Python---------------------------
 
- ;;----------------------------------EMMET MODE--------------------------
- (add-to-list 'load-path "~/.emacs.d/elpa/emmet-mode")
- (require 'emmet-mode)
- ;;----------------------------------EMMET MODE--------------------------
+;;----------------------------------EMMET MODE--------------------------
+(add-to-list 'load-path "~/.emacs.d/elpa/emmet-mode")
+(require 'emmet-mode)
+;;----------------------------------EMMET MODE--------------------------
 
- ;;----------------------------------Yas-snippets-------------
- (add-to-list 'load-path "~/.emacs.d/elpa/snippets")
- (add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
- (require 'yasnippet)
- (yas-global-mode 1)
- ;;----------------------------------Yas-snippets-------------
+;;----------------------------------Yas-snippets-------------
+(add-to-list 'load-path "~/.emacs.d/elpa/snippets")
+(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
+(require 'yasnippet)
+(yas-global-mode 1)
+;;----------------------------------Yas-snippets-------------
 
- (require 'flycheck)
- (global-flycheck-mode t)
+(require 'flycheck)
+(global-flycheck-mode t)
 
- (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
- (require 'column-marker)
+(add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
+(require 'column-marker)
 
- (add-to-list 'load-path "~/.emacs.d/elpa/speed-type")
- (require 'speed-type)
+(add-to-list 'load-path "~/.emacs.d/elpa/speed-type")
+(require 'speed-type)
 
- (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
- (require 'htmlize)
+(add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
+(require 'htmlize)
 
- (require 'ox-twbs)
+(require 'ox-twbs)
 
- (use-package which-key
-   :ensure t
-   :diminish which-key-mode
-   :config
-   (which-key-mode))
+(use-package which-key
+  :ensure t
+  :diminish which-key-mode
+  :config
+  (which-key-mode))
 
- (add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
- (require 'aggressive-indent)
- (aggressive-indent-global-mode t)
+(add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
+(require 'aggressive-indent)
+(aggressive-indent-global-mode t)
 
- ;;----------------------------------ASPEL-DICTIONARY-------------
- (require 'ispell)
- ;;----------------------------------ASPEL-DICTIONARY-------------
+;;----------------------------------ASPEL-DICTIONARY-------------
+(require 'ispell)
+;;----------------------------------ASPEL-DICTIONARY-------------
 
- ;;-------------------------------HOOKS--------------
- (add-hook 'org-mode-hook 'turn-on-font-lock)
- (add-hook 'org-mode-hook 'flyspell-mode)
- (add-hook 'org-agenda-mode-hook 'magit-keys)
- (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
- (add-hook 'js-mode-hook 'flyspell-prog-mode)
- (add-hook 'prog-mode-hook 'highlight-numbers-mode) ;Highlight-numbers-mode
- (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
- (add-hook 'emacs-lisp-mode-hook 'rainbow-mode) ;;enabling rainbow in lisp
- (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
- (add-hook 'after-init-hook #'global-flycheck-mode)
- (add-hook 'sgml-mode-hook 'emmet-mode)
- (add-hook 'sgml-mode-hook 'rainbow-delimiters-mode)
- (add-hook 'js-mode-hook 'rainbow-delimiters-mode)
- (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
- (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
- (add-hook 'web-mode-hook  'my-web-mode-hook)
- (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
- (add-hook 'web-mode-hook  'emmet-mode)
- (add-hook 'web-mode-hook  'highlight-numbers-mode)
- (add-hook 'css-mode-hook 'highlight-numbers-mode)
- (add-hook 'css-mode-hook 'rainbow-mode)
- (add-hook 'css-mode-hook 'rainbow-delimiters-mode)
- (add-hook 'css-mode-hook 'emmet-mode)
- (add-hook 'magit-status-mode-hook 'magit-keys)
- (add-hook 'magit-log-mode-hook 'magit-keys)
- (add-hook 'magit-diff-mode-hook 'magit-keys)
- (add-hook 'magit-staged-section-mode-hook 'magit-keys)
- (add-hook 'term-mode-hook (lambda()
-                             (setq yas-dont-activate t)))
- ;;-------------------------------HOOKS--------------
+;;-------------------------------HOOKS--------------
+(add-hook 'org-mode-hook 'turn-on-font-lock)
+(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'org-agenda-mode-hook 'magit-keys)
+(add-hook 'sgml-mode-hook 'flyspell-prog-mode)
+(add-hook 'js-mode-hook 'flyspell-prog-mode)
+(add-hook 'prog-mode-hook 'highlight-numbers-mode) ;Highlight-numbers-mode
+(add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
+(add-hook 'emacs-lisp-mode-hook 'rainbow-mode) ;;enabling rainbow in lisp
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode)
+(add-hook 'sgml-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'js-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+(add-hook 'web-mode-hook  'rainbow-delimiters-mode)
+(add-hook 'web-mode-hook  'emmet-mode)
+(add-hook 'web-mode-hook  'highlight-numbers-mode)
+(add-hook 'css-mode-hook 'highlight-numbers-mode)
+(add-hook 'css-mode-hook 'rainbow-mode)
+(add-hook 'css-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'css-mode-hook 'emmet-mode)
+(add-hook 'magit-status-mode-hook 'magit-keys)
+(add-hook 'magit-log-mode-hook 'magit-keys)
+(add-hook 'magit-diff-mode-hook 'magit-keys)
+(add-hook 'magit-staged-section-mode-hook 'magit-keys)
+(add-hook 'term-mode-hook (lambda()
+                            (setq yas-dont-activate t)))
+;;-------------------------------HOOKS--------------
 
- ;;-------------------------------KeY-Maps--------------
- (engine/set-keymap-prefix (kbd "M-a"))
- (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
- (global-set-key  (kbd "M-C-j")  'move-line-down)
- (global-set-key (kbd "M-C-k")  'move-line-up)
- (define-key evil-normal-state-map "n" 'scroll-up)
- (define-key evil-normal-state-map "N" 'scroll-down)
- (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
- (global-set-key (kbd "C-x g") 'magit-status)
- (global-set-key (kbd "M-z") 'shell-command)
- (global-set-key (kbd "C-x 2") 'my-window-split-v)
- (global-set-key (kbd "C-x 3") 'my-window-split-h)
- (global-set-key (kbd "C-x d") 'dired-jump)
- (global-set-key (kbd "C-x t") 'ansi-term)
- (global-set-key (kbd "S-SPC") 'recompile)
- (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
- (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
- (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
- (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
- (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
- (define-key evil-normal-state-map (kbd "Z") 'org-insert-link)
- (define-key evil-visual-state-map (kbd "L") 'end-of-line)
- (define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
- (global-set-key (kbd "C-x C-m") 'move-file)
+;;-------------------------------KeY-Maps--------------
+(engine/set-keymap-prefix (kbd "M-a"))
+(evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
+(global-set-key  (kbd "M-C-j")  'move-line-down)
+(global-set-key (kbd "M-C-k")  'move-line-up)
+(define-key evil-normal-state-map "n" 'scroll-up)
+(define-key evil-normal-state-map "N" 'scroll-down)
+(global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "M-z") 'shell-command)
+(global-set-key (kbd "C-x 2") 'my-window-split-v)
+(global-set-key (kbd "C-x 3") 'my-window-split-h)
+(global-set-key (kbd "C-x d") 'dired-jump)
+(global-set-key (kbd "C-x t") 'ansi-term)
+(global-set-key (kbd "S-SPC") 'recompile)
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+(define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
+(define-key evil-normal-state-map (kbd "Z") 'org-insert-link)
+(define-key evil-visual-state-map (kbd "L") 'end-of-line)
+(define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
+(global-set-key (kbd "C-x C-m") 'move-file)
 
- ;;This section uses the key-chord minor mode
- (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
- (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
- (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
- (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
- (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
- (key-chord-mode 1)
- ;; -------------------------------KeY-Maps--------------
+;;This section uses the key-chord minor mode
+(setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
+(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+(key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
+(key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
+(key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
+(key-chord-mode 1)
+;; -------------------------------KeY-Maps--------------
 
- ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
- (provide 'init.el)
+;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
+(provide 'init.el)
 ;;; init.el ends here
