@@ -340,19 +340,25 @@
 ;;---------------------Python---------------------------
 
 ;;----------------------------------EMMET MODE--------------------------
-(add-to-list 'load-path "~/.emacs.d/elpa/emmet-mode")
-(require 'emmet-mode)
+(use-package emmet-mode
+  :ensure t
+  )
 ;;----------------------------------EMMET MODE--------------------------
 
 ;;----------------------------------Yas-snippets-------------
-(add-to-list 'load-path "~/.emacs.d/elpa/snippets")
-(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
+(use-package yasnippet
+  :ensure t
+  :init
+  (add-to-list 'load-path "~/.emacs.d/elpa/snippets")
+  :config
+  (yas-global-mode 1)
+  )
 ;;----------------------------------Yas-snippets-------------
-
-(require 'flycheck)
-(global-flycheck-mode t)
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode t)
+  )
 
 (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
 (require 'column-marker)
@@ -363,7 +369,8 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
 
-(require 'ox-twbs)
+(use-package ox-twbs
+  :ensure t)
 
 (use-package which-key
   :ensure t
@@ -376,7 +383,8 @@
 (aggressive-indent-global-mode t)
 
 ;;----------------------------------ASPEL-DICTIONARY-------------
-(require 'ispell)
+(use-package ispell
+  :ensure t)
 ;;----------------------------------ASPEL-DICTIONARY-------------
 
 ;;-------------------------------HOOKS--------------
