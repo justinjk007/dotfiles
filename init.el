@@ -57,6 +57,7 @@
   :config
   (global-company-mode))
 (use-package magit
+  :bind ("C-x g" . magit-status)
   :ensure t)
 
 ;;-------------------------------------All-Funtions---------------
@@ -249,13 +250,18 @@
                               ) )
 
 ;;------------------------ORG-mode-----------------------------------------
-(add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
-(require 'org)
-;;Make org-mode work with files ending in .org
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(require 'org-bullets)
-(setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
 
+(use-package org
+  :ensure t
+  :pin manual
+  :config
+  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode)))
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+  )
 ;;------------------------ORG-mode-----------------------------------------
 
 ;;------------------------------------POWER-LINE-----------------------
@@ -286,41 +292,47 @@
 
 
 ;;-----------------------------------Engine-mode-----------------------
-(require 'engine-mode)
-(defengine duckduckgo
-  "https://duckduckgo.com/?q=%s"
-  :keybinding "d")
-(defengine github
-  "https://github.com/search?ref=simplesearch&q=%s"
-  :keybinding "g")
-(defengine google
-  "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-  :keybinding "a")
-(defengine rfcs
-  "http://pretty-rfc.herokuapp.com/search?q=%s"
-  :keybinding "g")
-(defengine stack-overflow
-  "https://stackoverflow.com/search?q=%s"
-  :keybinding "s")
-(defengine wikipedia
-  "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
-  :keybinding "w")
-(engine-mode t)
+(use-package engine-mode
+  :ensure t
+  :config
+  (engine-mode t)
+  (defengine duckduckgo
+    "https://duckduckgo.com/?q=%s"
+    :keybinding "d")
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "g")
+  (defengine google
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    :keybinding "a")
+  (defengine rfcs
+    "http://pretty-rfc.herokuapp.com/search?q=%s"
+    :keybinding "g")
+  (defengine stack-overflow
+    "https://stackoverflow.com/search?q=%s"
+    :keybinding "s")
+  (defengine wikipedia
+    "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+    :keybinding "w")
+  )
 ;;-----------------------------------Engine-mode-----------------------
 
 ;;-------------------------WEB-mode--------------
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(setq-default web-mode-markup-indent-offset tab-width)
-(setq-default web-mode-php-indent-offset tab-width)
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  (setq-default web-mode-markup-indent-offset tab-width)
+  (setq-default web-mode-php-indent-offset tab-width)
+  )
 ;;------------------------------------------------
 
 ;;---------------------Python---------------------------
@@ -408,7 +420,6 @@
 (define-key evil-normal-state-map "n" 'scroll-up)
 (define-key evil-normal-state-map "N" 'scroll-down)
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
-(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
