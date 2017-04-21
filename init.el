@@ -271,16 +271,15 @@
 (require 'powerline)
 
 ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
-(ignore-errors
-  (add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
-  (require 'airline-themes)
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (select-frame frame)
-                  (load-theme 'airline-solarized-alternate-gui t)))
-    (load-theme 'airline-solarized-alternate-gui t))
-  )
+(add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
+(require 'airline-themes)
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (select-frame frame)
+                (load-theme 'airline-solarized-alternate-gui t)))
+  (load-theme 'airline-solarized-alternate-gui t))
+
 (setq airline-utf-glyph-separator-left      #xe0b0
       airline-utf-glyph-separator-right     #xe0b2
       airline-utf-glyph-subseparator-left   #xe0b1
