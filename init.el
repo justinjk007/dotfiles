@@ -50,6 +50,7 @@
   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks))
 (use-package company
   :ensure t
+  :diminish company-mode
   :config
   (global-company-mode))
 (use-package magit
