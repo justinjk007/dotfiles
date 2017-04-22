@@ -46,13 +46,21 @@
 (use-package evil
   :ensure t
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks))
 (use-package company
   :ensure t
   :config
   (global-company-mode))
 (use-package magit
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'magit-status-mode-hook 'magit-keys)
+  (add-hook 'magit-log-mode-hook 'magit-keys)
+  (add-hook 'magit-diff-mode-hook 'magit-keys)
+  (add-hook 'magit-staged-section-mode-hook 'magit-keys)
+  :bind ("C-x g" . magit-status)
+  )
 
 ;;-------------------------------------All-Funtions---------------
 
@@ -253,11 +261,15 @@
   :ensure t
   :pin manual
   :config
+  (add-hook 'org-mode-hook 'turn-on-font-lock)
+  (add-hook 'org-mode-hook 'flyspell-mode)
+  (add-hook 'org-agenda-mode-hook 'magit-keys)
   (add-to-list 'auto-mode-alist '("\\.org$" . org-mode)))
 
 (use-package org-bullets
   :ensure t
   :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
   )
 
@@ -294,6 +306,7 @@
   :ensure t
   :config
   (engine-mode t)
+  (engine/set-keymap-prefix (kbd "M-a"))
   (defengine duckduckgo
     "https://duckduckgo.com/?q=%s"
     :keybinding "d")
@@ -388,9 +401,6 @@
 ;;----------------------------------ASPEL-DICTIONARY-------------
 
 ;;-------------------------------HOOKS--------------
-(add-hook 'org-mode-hook 'turn-on-font-lock)
-(add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'org-agenda-mode-hook 'magit-keys)
 (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
 (add-hook 'js-mode-hook 'flyspell-prog-mode)
 ;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
@@ -402,7 +412,6 @@
 (add-hook 'sgml-mode-hook 'emmet-mode)
 (add-hook 'sgml-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'js-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
@@ -412,23 +421,16 @@
 (add-hook 'css-mode-hook 'rainbow-mode)
 (add-hook 'css-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'css-mode-hook 'emmet-mode)
-(add-hook 'magit-status-mode-hook 'magit-keys)
-(add-hook 'magit-log-mode-hook 'magit-keys)
-(add-hook 'magit-diff-mode-hook 'magit-keys)
-(add-hook 'magit-staged-section-mode-hook 'magit-keys)
 (add-hook 'term-mode-hook (lambda()
                             (setq yas-dont-activate t)))
 ;;-------------------------------HOOKS--------------
 
 ;;-------------------------------KeY-Maps--------------
-(engine/set-keymap-prefix (kbd "M-a"))
-(evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
 (global-set-key  (kbd "M-C-j")  'move-line-down)
 (global-set-key (kbd "M-C-k")  'move-line-up)
 (define-key evil-normal-state-map "n" 'scroll-up)
 (define-key evil-normal-state-map "N" 'scroll-down)
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
-(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
