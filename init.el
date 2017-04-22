@@ -28,7 +28,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(add-hook 'after-init-hook 'global-company-mode);Reccomended to be on the Top
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
 (setq default-directory "D:/Dropbox/Code" )
 (setq-default frame-title-format '("%f [%m%*mode]"))
@@ -250,12 +249,17 @@
                               ) )
 
 ;;------------------------ORG-mode-----------------------------------------
-(add-to-list 'load-path "~/.emacs.d/elpa/org-mode")
-(require 'org)
-;;Make org-mode work with files ending in .org
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(require 'org-bullets)
-;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+(use-package org
+  :ensure t
+  :pin manual
+  :config
+  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode)))
+
+(use-package org-bullets
+  :ensure t
+  :config
+  ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+  )
 
 ;;------------------------ORG-mode-----------------------------------------
 
@@ -286,57 +290,70 @@
 ;;------------------------------------POWER-LINE-----------------------
 
 ;;-----------------------------------Engine-mode-----------------------
-(require 'engine-mode)
-(defengine duckduckgo
-  "https://duckduckgo.com/?q=%s"
-  :keybinding "d")
-(defengine github
-  "https://github.com/search?ref=simplesearch&q=%s"
-  :keybinding "g")
-(defengine google
-  "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-  :keybinding "a")
-(defengine rfcs
-  "http://pretty-rfc.herokuapp.com/search?q=%s"
-  :keybinding "g")
-(defengine stack-overflow
-  "https://stackoverflow.com/search?q=%s"
-  :keybinding "s")
-(defengine wikipedia
-  "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
-  :keybinding "w")
-(engine-mode t)
+(use-package engine-mode
+  :ensure t
+  :config
+  (engine-mode t)
+  (defengine duckduckgo
+    "https://duckduckgo.com/?q=%s"
+    :keybinding "d")
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "g")
+  (defengine google
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    :keybinding "a")
+  (defengine rfcs
+    "http://pretty-rfc.herokuapp.com/search?q=%s"
+    :keybinding "g")
+  (defengine stack-overflow
+    "https://stackoverflow.com/search?q=%s"
+    :keybinding "s")
+  (defengine wikipedia
+    "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+    :keybinding "w")
+  )
 ;;-----------------------------------Engine-mode-----------------------
 
 ;;-------------------------WEB-mode--------------
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
-(setq-default web-mode-markup-indent-offset tab-width)
-(setq-default web-mode-php-indent-offset tab-width)
+(use-package web-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  (setq-default web-mode-markup-indent-offset tab-width)
+  (setq-default web-mode-php-indent-offset tab-width)
+  )
 ;;------------------------------------------------
 
 ;;----------------------------------EMMET MODE--------------------------
-(add-to-list 'load-path "~/.emacs.d/elpa/emmet-mode")
-(require 'emmet-mode)
+(use-package emmet-mode
+  :ensure t
+  )
 ;;----------------------------------EMMET MODE--------------------------
 
 ;;----------------------------------Yas-snippets-------------
-(add-to-list 'load-path "~/.emacs.d/elpa/snippets")
-(add-to-list 'load-path "~/.emacs.d/elpa/yasnippet")
-(require 'yasnippet)
-(yas-global-mode 1)
+(use-package yasnippet
+  :ensure t
+  :init
+  (add-to-list 'load-path "~/.emacs.d/elpa/snippets")
+  :config
+  (yas-global-mode 1)
+  )
 ;;----------------------------------Yas-snippets-------------
 
-(require 'flycheck)
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode t)
+  )
 
 (add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
 (require 'column-marker)
@@ -347,10 +364,12 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
 
-(require 'ox-twbs)
+(use-package ox-twbs
+  :ensure t)
 
 (use-package which-key
   :ensure t
+  :diminish which-key-mode
   :config
   (which-key-mode))
 
@@ -359,10 +378,13 @@
 (aggressive-indent-global-mode t)
 
 ;;----------------------------------ASPEL-DICTIONARY-------------
-(add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
-(setq ispell-program-name "aspell")
-(setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
-(require 'ispell)
+(use-package ispell
+  :init
+  (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
+  (setq ispell-program-name "aspell")
+  (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+  :ensure t
+  )
 ;;----------------------------------ASPEL-DICTIONARY-------------
 
 ;;-------------------------------HOOKS--------------
