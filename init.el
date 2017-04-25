@@ -216,13 +216,8 @@
 (use-package org-bullets
   :ensure t
   :config
-  <<<<<<< HEAD
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
-  =======
-  (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  >>>>>>> f685aaa... Moved 98% of the hooks and key-bindings to use-package
   )
 
 ;;------------------------ORG-mode-----------------------------------------
@@ -383,48 +378,12 @@
   )
 ;;----------------------------------ASPEL-DICTIONARY-------------
 (use-package ispell
-  <<<<<<< HEAD
   :init
   (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
   (setq ispell-program-name "aspell")
   (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
   :ensure t
   )
-;;----------------------------------ASPEL-DICTIONARY-------------
-
-;;-------------------------------HOOKS--------------
-(add-hook 'sgml-mode-hook 'flyspell-prog-mode)
-(add-hook 'js-mode-hook 'flyspell-prog-mode)
-;; (add-hook 'prog-mode-hook 'flyspell-prog-mode)
-(add-hook 'prog-mode-hook 'highlight-numbers-mode) ;Highlight-numbers-mode
-(add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-(add-hook 'emacs-lisp-mode-hook 'rainbow-mode) ;;enabling rainbow in lisp
-(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(add-hook 'sgml-mode-hook 'emmet-mode)
-(add-hook 'sgml-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'js-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-(add-hook 'web-mode-hook  'my-web-mode-hook)
-(add-hook 'web-mode-hook  'rainbow-delimiters-mode)
-(add-hook 'web-mode-hook  'emmet-mode)
-(add-hook 'web-mode-hook  'highlight-numbers-mode)
-(add-hook 'css-mode-hook 'highlight-numbers-mode)
-(add-hook 'css-mode-hook 'rainbow-mode)
-(add-hook 'css-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'css-mode-hook 'emmet-mode)
-(add-hook 'term-mode-hook (lambda()
-                            (setq yas-dont-activate t)))
-;;-------------------------------HOOKS--------------
-
-;;-------------------------------KeY-Maps--------------
-(global-set-key  (kbd "M-C-j")  'move-line-down)
-(global-set-key (kbd "M-C-k")  'move-line-up)
-(define-key evil-normal-state-map "n" 'scroll-up)
-(define-key evil-normal-state-map "N" 'scroll-down)
-(global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
-=======
-:ensure t)
 
 (use-package flyspell-correct
   :ensure t
@@ -438,7 +397,6 @@
 (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
 
->>>>>>> f685aaa... Moved 98% of the hooks and key-bindings to use-package
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
