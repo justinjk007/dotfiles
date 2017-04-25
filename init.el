@@ -6,9 +6,14 @@
 "Thou shalt not cross 80 columns in thy file"
 
 ;;; Code:
-;; (let ((file-name-handler-alist nil))
-;; File handler, should be enabled at the bottom
-
+;;(let ((file-name-handler-alist nil))
+;;File handler should be enabled at the bottom as well
+(require 'package)
+(setq package-archives '(("melpa" . "http://melpa.org/packages/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")
+			 ("melpa-s" . "http://stable.melpa.org/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ))
 (package-initialize)
 (setq gc-cons-threshold 20000000)
 (setq user-full-name "Justin Kaipada")
@@ -123,12 +128,6 @@
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
  '(org-startup-indented t)
- '(package-archives
-   (quote
-    (("melpa-stable" . "http://stable.melpa.org/packages/")
-     ("melpa" . "http://melpa.org/packages")
-     ("gnu" . "http://elpa.gnu.org/packages/")
-     ("marmalade" . "http://marmalade-repo.org/packages/"))))
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
