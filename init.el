@@ -256,16 +256,17 @@
 ;;-------------------------WEB-mode--------------
 (use-package web-mode
   :ensure t
+  :mode (("\\.djhtml\\'" . web-mode)
+         ("\\.phtml\\'" . web-mode)
+         ("\\.erb\\'" . web-mode)
+         ("\\.php\\'" . web-mode)
+         ("\\.as[cp]x\\'" . web-mode)
+         ("\\.[agj]sp\\'" . web-mode)
+         ("\\.tpl\\.php\\'" . web-mode)
+         ("\\.mustache\\'" . web-mode)
+         ("\\.html?\\'" . web-mode)
+         )
   :config
-  (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (setq-default web-mode-markup-indent-offset tab-width)
   (setq-default web-mode-php-indent-offset tab-width)
   )
@@ -315,9 +316,11 @@
   :config
   (which-key-mode))
 
-(add-to-list 'load-path "~/.emacs.d/elpa/aggressive-indent")
-(require 'aggressive-indent)
-(aggressive-indent-global-mode t)
+(use-package aggressive-indent
+  :ensure t
+  :config
+  (aggressive-indent-global-mode t)
+  )
 
 ;;----------------------------------ASPEL-DICTIONARY-------------
 (use-package ispell
