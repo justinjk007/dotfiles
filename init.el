@@ -57,14 +57,16 @@
   :config
   (evil-mode 1)
   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks))
+
 (use-package company
   :ensure t
   :diminish company-mode
   :config
   (global-company-mode))
+
 (use-package magit
-  :bind ("C-x g" . magit-status)
   :ensure t
+  :bind ("C-x g" . magit-status)
   :config
   (add-hook 'magit-status-mode-hook 'magit-keys)
   (add-hook 'magit-log-mode-hook 'magit-keys)
@@ -192,8 +194,6 @@
                               (?\{ . ?\})
                               ) )
 
-;;------------------------ORG-mode-----------------------------------------
-
 (use-package org
   :ensure t
   :pin manual
@@ -204,21 +204,18 @@
   :mode
   ("\\.org$" . org-mode)
   )
-
 (use-package org-bullets
   :ensure t
   :config
   (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   )
-;;------------------------ORG-mode-----------------------------------------
-
-;;------------------------------------POWER-LINE-----------------------
+(use-package ox-twbs
+  :ensure t)
 
 ;;source --> https://github.com/milkypostman/powerline
 (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
 (require 'powerline)
-
 ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
 (add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
 (require 'airline-themes)
@@ -236,10 +233,7 @@
       airline-utf-glyph-branch              #xE0A0
       airline-utf-glyph-readonly            #xe0a2
       airline-utf-glyph-linenumber          #xe0a1 )
-;;------------------------------------POWER-LINE-----------------------
 
-
-;;-----------------------------------Engine-mode-----------------------
 (use-package engine-mode
   :ensure t
   :config
@@ -264,9 +258,7 @@
     :keybinding "w")
   (engine/set-keymap-prefix (kbd "M-a"))
   )
-;;-----------------------------------Engine-mode-----------------------
 
-;;-------------------------WEB-mode--------------
 (use-package web-mode
   :ensure t
   :mode (("\\.djhtml\\'" . web-mode)
@@ -288,30 +280,26 @@
   (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
   (add-hook 'web-mode-hook  'highlight-numbers-mode)
   )
-;;------------------------------------------------
 
 ;;---------------------Python---------------------------
 (setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
 (setq default-tab-width 4)
 ;;---------------------Python---------------------------
 
-;;----------------------------------EMMET MODE--------------------------
 (use-package emmet-mode
   :ensure t
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode)
   )
-;;----------------------------------EMMET MODE--------------------------
 
-;;----------------------------------Yas-snippets-------------
 (use-package yasnippet
   :ensure t
   :load-path "~/.emacs.d/elpa/snippets"
   :config
   (yas-global-mode 1)
   )
-;;----------------------------------Yas-snippets-------------
+
 (use-package flycheck
   :ensure t
   :config
@@ -327,9 +315,6 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
 
-(use-package ox-twbs
-  :ensure t)
-
 (use-package which-key
   :ensure t
   :diminish which-key-mode
@@ -341,6 +326,7 @@
   :config
   (aggressive-indent-global-mode t)
   )
+
 (use-package key-chord
   :ensure t
   :config
@@ -351,12 +337,14 @@
   (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
   (key-chord-mode 1)
   )
+
 (use-package highlight-numbers
   :ensure t
   :config
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'css-mode-hook 'highlight-numbers-mode)
   )
+
 (use-package rainbow-delimiters
   :ensure t
   :config
@@ -370,17 +358,16 @@
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
   )
-;;----------------------------------ASPEL-DICTIONARY-------------
-(use-package ispell
-  :ensure t)
 
+(use-package ispell
+  :ensure t
+  )
 (use-package flyspell-correct
   :ensure t
   :config
   (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
   (add-hook 'js-mode-hook 'flyspell-prog-mode)
   )
-;;----------------------------------ASPEL-DICTIONARY-------------
 
 
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
