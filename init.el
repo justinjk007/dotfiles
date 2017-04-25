@@ -8,6 +8,12 @@
 ;;; Code:
 ;;(let ((file-name-handler-alist nil))
 ;;File handler should be enabled at the bottom as well
+(require 'package)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+			 ("marmalade" . "https://marmalade-repo.org/packages/")
+			 ("melpa-s" . "https://stable.melpa.org/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ))
 (package-initialize)
 (setq gc-cons-threshold 20000000)
 (setq initial-scratch-message nil)
@@ -131,11 +137,6 @@
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
  '(org-startup-indented t)
- '(package-archives
-   (quote
-    (("melpa" . "https://stable.melpa.org/packages/")
-     ("marmalade" . "https://marmalade-repo.org/packages/")
-     ("gnu" . "http://elpa.gnu.org/packages/"))))
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
