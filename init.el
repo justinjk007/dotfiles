@@ -49,29 +49,6 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-;; (use-package evil
-;;   :ensure t
-;;   :pin melpa
-;;   :config
-;;   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
-;;   (evil-mode 1)
-;;   :bind(("M-C-j" . move-line-down)
-;;         ("M-C-k" . move-line-up)
-;;         ("C-x C-m" . move-file))
-;;   :bind(:map evil-normal-state-map
-;;              ("n" . scroll-up)
-;;              ("N" . scroll-down)
-;;              ("C-h" . evil-window-left)
-;;              ("C-h" . evil-window-left)
-;;              ("C-j" . evil-window-down)
-;;              ("C-k" . evil-window-up)
-;;              ("C-l" . evil-window-right)
-;;              ("z" . org-open-at-point)
-;;              ("Z" . org-insert-link))
-;;   :bind(:map evil-visual-state-map
-;;              ("L" . end-of-line)
-;;              ("H" . beginning-of-line))
-;;   )
 (use-package evil
   :ensure t
   :config
@@ -420,7 +397,19 @@
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
-
+(define-key evil-normal-state-map "n" 'scroll-up)
+(define-key evil-normal-state-map "N" 'scroll-down)
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+(define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
+(define-key evil-normal-state-map (kbd "Z") 'org-insert-link)
+(define-key evil-visual-state-map (kbd "L") 'end-of-line)
+(define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
+(global-set-key  (kbd "M-C-j")  'move-line-down)
+(global-set-key (kbd "M-C-k")  'move-line-up)
+(global-set-key (kbd "C-x C-m") 'move-file)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
