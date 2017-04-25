@@ -55,7 +55,26 @@
 (use-package evil
   :ensure t
   :config
-  (evil-mode 1))
+  (evil-mode 1)
+  (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
+  :bind
+  ("M-C-j" . move-line-down)
+  ("M-C-k" . move-line-up)
+  ("C-x C-m" . move-file)
+  :map evil-normal-state-map
+  ("n" . scroll-up)
+  ("N" . scroll-down)
+  ("C-h" . evil-window-left)
+  ("C-h" . evil-window-left)
+  ("C-j" . evil-window-down)
+  ("C-k" . evil-window-up)
+  ("C-l" . evil-window-right)
+  ("z" . org-open-at-point)
+  ("Z" . org-insert-link)
+  :map evil-visual-state-map
+  ("L" . end-of-line)
+  ("H" . beginning-of-line)
+  )
 (use-package company
   :ensure t
   :diminish company-mode
@@ -63,7 +82,13 @@
   (global-company-mode))
 (use-package magit
   :bind ("C-x g" . magit-status)
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'magit-status-mode-hook 'magit-keys)
+  (add-hook 'magit-log-mode-hook 'magit-keys)
+  (add-hook 'magit-diff-mode-hook 'magit-keys)
+  (add-hook 'magit-staged-section-mode-hook 'magit-keys)
+  )
 
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
 
@@ -202,6 +227,7 @@
   :ensure t
   :config
   (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   )
 ;;------------------------ORG-mode-----------------------------------------
 
@@ -254,6 +280,7 @@
   (defengine wikipedia
     "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
     :keybinding "w")
+  (engine/set-keymap-prefix (kbd "M-a"))
   )
 ;;-----------------------------------Engine-mode-----------------------
 
@@ -273,6 +300,11 @@
   :config
   (setq-default web-mode-markup-indent-offset tab-width)
   (setq-default web-mode-php-indent-offset tab-width)
+  (add-hook 'web-mode-hook  'my-web-mode-hook)
+  (add-hook 'web-mode-hook  'emmet-mode)
+  (add-hook 'web-mode-hook 'rainbow-mode)
+  (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
+  (add-hook 'web-mode-hook  'highlight-numbers-mode)
   )
 ;;------------------------------------------------
 
@@ -284,6 +316,9 @@
 ;;----------------------------------EMMET MODE--------------------------
 (use-package emmet-mode
   :ensure t
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode)
   )
 ;;----------------------------------EMMET MODE--------------------------
 
@@ -326,82 +361,55 @@
   )
 (use-package key-chord
   :ensure t
+  :config
+  (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
+  (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+  (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
+  (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
+  (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
+  (key-chord-mode 1)
   )
 (use-package highlight-numbers
   :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
+  (add-hook 'css-mode-hook 'highlight-numbers-mode)
   )
 (use-package rainbow-delimiters
   :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'css-mode-hook 'rainbow-delimiters-mode)
+  )
+
+(use-package rainbow-mode
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
+  (add-hook 'css-mode-hook 'rainbow-mode)
   )
 ;;----------------------------------ASPEL-DICTIONARY-------------
 (use-package ispell
   :ensure t)
+
+(use-package flyspell-correct
+  :ensure t
+  :config
+  (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
+  (add-hook 'js-mode-hook 'flyspell-prog-mode)
+  )
 ;;----------------------------------ASPEL-DICTIONARY-------------
 
-;;-------------------------------HOOKS--------------
-(add-hook 'org-mode-hook 'turn-on-font-lock)
-(add-hook 'org-mode-hook 'flyspell-mode)
-(add-hook 'org-agenda-mode-hook 'magit-keys)
-(add-hook 'sgml-mode-hook 'flyspell-prog-mode)
-(add-hook 'js-mode-hook 'flyspell-prog-mode)
-(add-hook 'prog-mode-hook 'highlight-numbers-mode) ;Highlight-numbers-mode
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-(add-hook 'emacs-lisp-mode-hook 'rainbow-mode) ;;enabling rainbow in lisp
-(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(add-hook 'sgml-mode-hook 'emmet-mode)
-(add-hook 'sgml-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'js-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
 (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-(add-hook 'web-mode-hook  'my-web-mode-hook)
-(add-hook 'web-mode-hook  'rainbow-delimiters-mode)
-(add-hook 'web-mode-hook  'emmet-mode)
-(add-hook 'web-mode-hook  'highlight-numbers-mode)
-(add-hook 'css-mode-hook 'highlight-numbers-mode)
-(add-hook 'css-mode-hook 'rainbow-mode)
-(add-hook 'css-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'css-mode-hook 'emmet-mode)
-(add-hook 'magit-status-mode-hook 'magit-keys)
-(add-hook 'magit-log-mode-hook 'magit-keys)
-(add-hook 'magit-diff-mode-hook 'magit-keys)
-(add-hook 'magit-staged-section-mode-hook 'magit-keys)
-(add-hook 'term-mode-hook (lambda()
-                            (setq yas-dont-activate t)))
-;;-------------------------------HOOKS--------------
+(add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
 
-;;-------------------------------KeY-Maps--------------
-(engine/set-keymap-prefix (kbd "M-a"))
-(evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
-(global-set-key  (kbd "M-C-j")  'move-line-down)
-(global-set-key (kbd "M-C-k")  'move-line-up)
-(define-key evil-normal-state-map "n" 'scroll-up)
-(define-key evil-normal-state-map "N" 'scroll-down)
-(global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
-(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-(define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
-(define-key evil-normal-state-map (kbd "Z") 'org-insert-link)
-(define-key evil-visual-state-map (kbd "L") 'end-of-line)
-(define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
-(global-set-key (kbd "C-x C-m") 'move-file)
-
-;;This section uses the key-chord minor mode
-(setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
-(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
-(key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
-(key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
-(key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
-(key-chord-mode 1)
-;; -------------------------------KeY-Maps--------------
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 (provide 'init.el)
