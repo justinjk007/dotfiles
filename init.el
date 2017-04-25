@@ -67,6 +67,12 @@
   (add-hook 'magit-diff-mode-hook 'magit-keys)
   (add-hook 'magit-staged-section-mode-hook 'magit-keys)
   :bind ("C-x g" . magit-status)
+  :ensure t
+  :config
+  (add-hook 'magit-status-mode-hook 'magit-keys)
+  (add-hook 'magit-log-mode-hook 'magit-keys)
+  (add-hook 'magit-diff-mode-hook 'magit-keys)
+  (add-hook 'magit-staged-section-mode-hook 'magit-keys)
   )
 
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
@@ -210,8 +216,13 @@
 (use-package org-bullets
   :ensure t
   :config
+  <<<<<<< HEAD
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+  =======
+  (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  >>>>>>> f685aaa... Moved 98% of the hooks and key-bindings to use-package
   )
 
 ;;------------------------ORG-mode-----------------------------------------
@@ -266,6 +277,7 @@
   (defengine wikipedia
     "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
     :keybinding "w")
+  (engine/set-keymap-prefix (kbd "M-a"))
   )
 ;;-----------------------------------Engine-mode-----------------------
 
@@ -285,12 +297,20 @@
   :config
   (setq-default web-mode-markup-indent-offset tab-width)
   (setq-default web-mode-php-indent-offset tab-width)
+  (add-hook 'web-mode-hook  'my-web-mode-hook)
+  (add-hook 'web-mode-hook  'emmet-mode)
+  (add-hook 'web-mode-hook 'rainbow-mode)
+  (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
+  (add-hook 'web-mode-hook  'highlight-numbers-mode)
   )
 ;;------------------------------------------------
 
 ;;----------------------------------EMMET MODE--------------------------
 (use-package emmet-mode
   :ensure t
+  :config
+  (add-hook 'sgml-mode-hook 'emmet-mode)
+  (add-hook 'css-mode-hook 'emmet-mode)
   )
 ;;----------------------------------EMMET MODE--------------------------
 
@@ -334,15 +354,36 @@
   )
 (use-package key-chord
   :ensure t
+  :config
+  (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
+  (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+  (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
+  (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
+  (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
+  (key-chord-mode 1)
   )
 (use-package highlight-numbers
   :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'highlight-numbers-mode)
+  (add-hook 'css-mode-hook 'highlight-numbers-mode)
   )
 (use-package rainbow-delimiters
   :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  (add-hook 'css-mode-hook 'rainbow-delimiters-mode)
+  )
+
+(use-package rainbow-mode
+  :ensure t
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
+  (add-hook 'css-mode-hook 'rainbow-mode)
   )
 ;;----------------------------------ASPEL-DICTIONARY-------------
 (use-package ispell
+  <<<<<<< HEAD
   :init
   (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
   (setq ispell-program-name "aspell")
@@ -382,30 +423,28 @@
 (define-key evil-normal-state-map "n" 'scroll-up)
 (define-key evil-normal-state-map "N" 'scroll-down)
 (global-set-key (kbd "<f7>") 'flyspell-mode) ;Activates the spell-checker
+=======
+:ensure t)
+
+(use-package flyspell-correct
+  :ensure t
+  :config
+  (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
+  (add-hook 'js-mode-hook 'flyspell-prog-mode)
+  )
+;;----------------------------------ASPEL-DICTIONARY-------------
+
+(add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
+(add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
+(add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
+
+>>>>>>> f685aaa... Moved 98% of the hooks and key-bindings to use-package
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
-(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-(define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
-(define-key evil-normal-state-map (kbd "Z") 'org-insert-link)
-(define-key evil-visual-state-map (kbd "L") 'end-of-line)
-(define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
-(global-set-key (kbd "C-x C-m") 'move-file)
-
-;;This section uses the key-chord minor mode
-(setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
-(key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
-(key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
-(key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
-(key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
-(key-chord-mode 1)
-;; -------------------------------KeY-Maps--------------
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 (provide 'init.el)
