@@ -54,26 +54,26 @@
 
 (use-package evil
   :ensure t
+  :pin melpa
   :config
-  (evil-mode 1)
   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
-  :bind
-  ("M-C-j" . move-line-down)
-  ("M-C-k" . move-line-up)
-  ("C-x C-m" . move-file)
-  :map evil-normal-state-map
-  ("n" . scroll-up)
-  ("N" . scroll-down)
-  ("C-h" . evil-window-left)
-  ("C-h" . evil-window-left)
-  ("C-j" . evil-window-down)
-  ("C-k" . evil-window-up)
-  ("C-l" . evil-window-right)
-  ("z" . org-open-at-point)
-  ("Z" . org-insert-link)
-  :map evil-visual-state-map
-  ("L" . end-of-line)
-  ("H" . beginning-of-line)
+  (evil-mode 1)
+  :bind(("M-C-j" . move-line-down)
+        ("M-C-k" . move-line-up)
+        ("C-x C-m" . move-file))
+  :bind(:map evil-normal-state-map
+             ("n" . scroll-up)
+             ("N" . scroll-down)
+             ("C-h" . evil-window-left)
+             ("C-h" . evil-window-left)
+             ("C-j" . evil-window-down)
+             ("C-k" . evil-window-up)
+             ("C-l" . evil-window-right)
+             ("z" . org-open-at-point)
+             ("Z" . org-insert-link))
+  :bind(:map evil-visual-state-map
+             ("L" . end-of-line)
+             ("H" . beginning-of-line))
   )
 (use-package company
   :ensure t
@@ -399,6 +399,7 @@
   (add-hook 'js-mode-hook 'flyspell-prog-mode)
   )
 ;;----------------------------------ASPEL-DICTIONARY-------------
+
 
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
