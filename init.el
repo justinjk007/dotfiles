@@ -192,7 +192,12 @@
   :ensure t
   :pin manual
   :config
-  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode)))
+  (add-hook 'org-mode-hook 'turn-on-font-lock)
+  (add-hook 'org-mode-hook 'flyspell-mode)
+  (add-hook 'org-agenda-mode-hook 'magit-keys)
+  :mode
+  ("\\.org$" . org-mode)
+  )
 
 (use-package org-bullets
   :ensure t
@@ -286,8 +291,7 @@
 ;;----------------------------------Yas-snippets-------------
 (use-package yasnippet
   :ensure t
-  :init
-  (add-to-list 'load-path "~/.emacs.d/elpa/snippets")
+  :load-path "~/.emacs.d/elpa/snippets"
   :config
   (yas-global-mode 1)
   )
@@ -321,7 +325,15 @@
   :config
   (aggressive-indent-global-mode t)
   )
-
+(use-package key-chord
+  :ensure t
+  )
+(use-package highlight-numbers
+  :ensure t
+  )
+(use-package rainbow-delimiters
+  :ensure t
+  )
 ;;----------------------------------ASPEL-DICTIONARY-------------
 (use-package ispell
   :ensure t)
