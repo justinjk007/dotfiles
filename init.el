@@ -63,68 +63,7 @@
   :bind ("C-x g" . magit-status)
   )
 
-;;-------------------------------------All-Funtions---------------
-
-;;This funtions are mapped o Key-Bindings at the end of the file
-(defun revert-buffer-no-confirm ()
-  "Revert(Reload/Refresh) buffer without confirmation."
-  (interactive)
-  (revert-buffer :ignore-auto :noconfirm))
-(defun move-line-up ()
-  "Move up the currnt line."
-  (interactive)
-  (transpose-lines 1)
-  (forward-line -2)
-  (indent-according-to-mode))
-(defun move-line-down ()
-  "Move down the current line."
-  (interactive)
-  (forward-line 1)
-  (transpose-lines 1)
-  (forward-line -1)
-  (indent-according-to-mode))
-(defun my-web-mode-hook ()
-  "Change when using web mode."
-  (defvar web-mode-markup-indent-offset 2)
-  (defvar web-mode-code-indent-offset 2)
-  (defvar web-mode-indent-style 4)
-  (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
-(defun my-org-archive-done-tasks ()
-  "Move all done tasks in the current buffer to archive file."
-  (interactive)
-  (org-map-entries 'org-archive-subtree "/DONE" 'file))
-(defun magit-keys()
-  "Change emacs evil mode n and p to j and k repectively"
-  (define-key evil-emacs-state-map (kbd "j") 'next-line)
-  (define-key evil-emacs-state-map (kbd "k") 'previous-line))
-(defun insert-date (prefix)
-  "Insert the current date with as PREFIX."
-  (interactive "P")
-  (let ((format (cond
-                 ((not prefix) "%d-%m-%Y")
-                 ((equal prefix '(4)) "%Y-%m-%d")
-                 ((equal prefix '(16)) "%A, %d. %B %Y")))
-        (system-time-locale "de_DE"))
-    (insert (format-time-string format))))
-(defun my-window-split-h (prefix)
-  "Splits window right with older window open, with PREFIX arg."
-  (interactive "p")
-  (split-window-right)
-  (other-window 1 nil)
-  (if (- prefix 1) (switch-to-next-buffer)))
-(defun my-window-split-v (prefix)
-  "Splits window below with older window open, with PREFIX arg."
-  (interactive "p")
-  (split-window-below)
-  (other-window 1 nil)
-  (if (- prefix 1) (switch-to-next-buffer)))
-(defun move-file ()
-  "Write this file to a new location, and delete the old one."
-  (interactive)
-  (let ((old-location (buffer-file-name)))
-    (call-interactively #'write-file)
-    (when old-location
-      (delete-file old-location))))
+(load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
 
 (setq visible-bell nil
       ring-bell-function 'my-terminal-visible-bell)
@@ -149,8 +88,6 @@
       version-control t      ; Use version numbers on backups,
       kept-new-versions 3    ; keep some new versions
       kept-old-versions 2)   ; and some old ones, too
-
-;;-------------------------------------All-Funtions---------------
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -224,32 +161,32 @@
  '(solarized-use-variable-pitch nil)
  '(standard-indent 2))
 
- (custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
-  '(column-marker-1 ((t (:background "dim grey"))))
-  '(comint-highlight-prompt ((t (:foreground "orange red"))))
-  '(cursor ((t (:background "#F73A54"))))
-  '(error ((t (:foreground "indian red" :weight bold))))
-  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
-  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
-  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
-  '(linum ((t (:background "#fdf6e3" :foreground "black" :distant-foreground "black" :foreground "#93a1a1" :box nil :strike-through nil :underline nil :weight thin :height 100 :width normal :family "Raleway Medium"))))
-  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
-  '(org-default ((t (:family "Hack"))))
-  '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
-  '(org-level-2 ((t (:foreground "plum" :weight normal))))
-  '(org-level-3 ((t (:foreground "pink" :weight bold))))
-  '(org-level-4 ((t (:foreground "MistyRose1" :weight normal))))
-  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
-  '(org-verbatim ((t (:foreground "tomato"))))
-  '(org-warning ((t (:foreground "red" :underline t))))
-  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
-  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
-  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
+ '(column-marker-1 ((t (:background "dim grey"))))
+ '(comint-highlight-prompt ((t (:foreground "orange red"))))
+ '(cursor ((t (:background "#F73A54"))))
+ '(error ((t (:foreground "indian red" :weight bold))))
+ '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
+ '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
+ '(font-lock-reference-face ((t (:foreground "firebrick1"))))
+ '(linum ((t (:background "#fdf6e3" :foreground "black" :distant-foreground "black" :foreground "#93a1a1" :box nil :strike-through nil :underline nil :weight thin :height 100 :width normal :family "Raleway Medium"))))
+ '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
+ '(org-default ((t (:family "Hack"))))
+ '(org-level-1 ((t (:foreground "#7c91ea" :weight light :height 1.1))))
+ '(org-level-2 ((t (:foreground "plum" :weight normal))))
+ '(org-level-3 ((t (:foreground "pink" :weight bold))))
+ '(org-level-4 ((t (:foreground "MistyRose1" :weight normal))))
+ '(org-link ((t (:foreground "SkyBlue1" :underline t))))
+ '(org-verbatim ((t (:foreground "tomato"))))
+ '(org-warning ((t (:foreground "red" :underline t))))
+ '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
+ '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
+ '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#586e75")
 
 ;; make electric-pair-mode work on more brackets
