@@ -54,11 +54,13 @@
   :config
   (evil-mode 1)
   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks))
+
 (use-package company
   :ensure t
   :diminish company-mode
   :config
   (global-company-mode))
+
 (use-package magit
   :ensure t
   :config
@@ -67,12 +69,6 @@
   (add-hook 'magit-diff-mode-hook 'magit-keys)
   (add-hook 'magit-staged-section-mode-hook 'magit-keys)
   :bind ("C-x g" . magit-status)
-  :ensure t
-  :config
-  (add-hook 'magit-status-mode-hook 'magit-keys)
-  (add-hook 'magit-log-mode-hook 'magit-keys)
-  (add-hook 'magit-diff-mode-hook 'magit-keys)
-  (add-hook 'magit-staged-section-mode-hook 'magit-keys)
   )
 
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
@@ -201,7 +197,6 @@
                               (?\{ . ?\})
                               ) )
 
-;;------------------------ORG-mode-----------------------------------------
 (use-package org
   :ensure t
   :pin manual
@@ -212,21 +207,18 @@
   :mode
   ("\\.org$" . org-mode)
   )
-
 (use-package org-bullets
   :ensure t
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
   )
+(use-package ox-twbs
+  :ensure t)
 
-;;------------------------ORG-mode-----------------------------------------
-
-;;------------------------------------POWER-LINE-----------------------
 ;;source --> https://github.com/milkypostman/powerline
 (add-to-list 'load-path "~/.emacs.d/elpa/powerline")
 (require 'powerline)
-
 ;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
 (ignore-errors
   (add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
@@ -238,7 +230,6 @@
                   (load-theme 'airline-solarized-alternate-gui t)))
     (load-theme 'airline-solarized-alternate-gui t))
   )
-
 (setq airline-utf-glyph-separator-left      #xe0b0
       airline-utf-glyph-separator-right     #xe0b2
       airline-utf-glyph-subseparator-left   #xe0b1
@@ -246,9 +237,7 @@
       airline-utf-glyph-branch              #xE0A0
       airline-utf-glyph-readonly            #xe0a2
       airline-utf-glyph-linenumber          #xe0a1 )
-;;------------------------------------POWER-LINE-----------------------
 
-;;-----------------------------------Engine-mode-----------------------
 (use-package engine-mode
   :ensure t
   :config
@@ -274,9 +263,7 @@
     :keybinding "w")
   (engine/set-keymap-prefix (kbd "M-a"))
   )
-;;-----------------------------------Engine-mode-----------------------
 
-;;-------------------------WEB-mode--------------
 (use-package web-mode
   :ensure t
   :mode (("\\.djhtml\\'" . web-mode)
@@ -298,25 +285,20 @@
   (add-hook 'web-mode-hook  'rainbow-delimiters-mode)
   (add-hook 'web-mode-hook  'highlight-numbers-mode)
   )
-;;------------------------------------------------
 
-;;----------------------------------EMMET MODE--------------------------
 (use-package emmet-mode
   :ensure t
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode)
   )
-;;----------------------------------EMMET MODE--------------------------
 
-;;----------------------------------Yas-snippets-------------
 (use-package yasnippet
   :ensure t
   :load-path "~/.emacs.d/elpa/snippets"
   :config
   (yas-global-mode 1)
   )
-;;----------------------------------Yas-snippets-------------
 
 (use-package flycheck
   :ensure t
@@ -333,9 +315,6 @@
 (add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
 (require 'htmlize)
 
-(use-package ox-twbs
-  :ensure t)
-
 (use-package which-key
   :ensure t
   :diminish which-key-mode
@@ -347,6 +326,7 @@
   :config
   (aggressive-indent-global-mode t)
   )
+
 (use-package key-chord
   :ensure t
   :config
@@ -357,12 +337,14 @@
   (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
   (key-chord-mode 1)
   )
+
 (use-package highlight-numbers
   :ensure t
   :config
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'css-mode-hook 'highlight-numbers-mode)
   )
+
 (use-package rainbow-delimiters
   :ensure t
   :config
@@ -376,7 +358,7 @@
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
   )
-;;----------------------------------ASPEL-DICTIONARY-------------
+
 (use-package ispell
   :init
   (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
@@ -384,14 +366,12 @@
   (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
   :ensure t
   )
-
 (use-package flyspell-correct
   :ensure t
   :config
   (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
   (add-hook 'js-mode-hook 'flyspell-prog-mode)
   )
-;;----------------------------------ASPEL-DICTIONARY-------------
 
 
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
