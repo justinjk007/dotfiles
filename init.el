@@ -312,6 +312,7 @@
   :load-path "~/.emacs.d/elpa/snippets"
   :config
   (yas-global-mode 1)
+  (add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
   )
 
 (use-package flycheck
@@ -386,7 +387,6 @@
 
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-(add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
