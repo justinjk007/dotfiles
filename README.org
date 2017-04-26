@@ -15,3 +15,4 @@
 #+CAPTION: This is what the Emacs will look like
 #+NAME: Emacs
      [[./img/emacs.png]]
+*PS: Please take a look at my windows branch if you are a windows user*
