@@ -1,0 +1,6 @@
+* This is a repository for my config files
+ Here you can find my
+- Emacs configuration
+- Custom functions I have written and collected for emacs
+- My zsh shell config
+- My shell aliases 
