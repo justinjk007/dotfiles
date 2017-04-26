@@ -5,6 +5,13 @@
 - My zsh shell config
 - My shell aliases
 
+
+** This is what the shell will look like
 #+CAPTION: This is what the shell will look like
 #+NAME: shell
      [[./img/shell.png]]
+
+** This is what Emacs will look like after customizing
+#+CAPTION: This is what the Emacs will look like
+#+NAME: Emacs
+     [[./img/emacs.png]]
