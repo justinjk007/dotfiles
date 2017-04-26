@@ -186,7 +186,7 @@
  '(cursor ((t (:background "#FF7D9E"))))
  '(error ((t (:foreground "indian red" :weight bold))))
  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
- '(ivy-minibuffer-match-face-2 ((t (:background "light steel blue" :weight bold))))
+ '(ivy-minibuffer-match-face-2 ((t (:background "lightskyblue" :foreground:black :weight bold))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
  '(org-default ((t (:family "Hack"))))
