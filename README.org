@@ -3,4 +3,8 @@
 - Emacs configuration
 - Custom functions I have written and collected for emacs
 - My zsh shell config
-- My shell aliases 
+- My shell aliases
+
+#+CAPTION: This is what the shell will look like
+#+NAME: shell
+     [[./img/shell.png]]
