@@ -417,6 +417,16 @@
   (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
   )
 
+(use-package all-the-icons
+  :ensure t
+  )
+
+(use-package all-the-icons-dired
+  :ensure t
+  :config
+  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+  )
+
 
 (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
