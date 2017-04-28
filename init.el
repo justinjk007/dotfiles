@@ -79,12 +79,13 @@
 
 (use-package magit
   :ensure t
+  :bind ("C-x g" . magit-status)
+  :defer t
   :config
   (add-hook 'magit-status-mode-hook 'magit-keys)
   (add-hook 'magit-log-mode-hook 'magit-keys)
   (add-hook 'magit-diff-mode-hook 'magit-keys)
   (add-hook 'magit-staged-section-mode-hook 'magit-keys)
-  :bind ("C-x g" . magit-status)
   )
 
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
@@ -219,6 +220,9 @@
 
 (use-package org
   :ensure t
+  :defer t
+  :mode
+  ("\\.org$" . org-mode)
   :pin manual
   :config
   (add-hook 'org-mode-hook 'turn-on-font-lock)
@@ -226,14 +230,15 @@
   (add-hook 'org-agenda-mode-hook 'magit-keys)
   (use-package org-bullets
     :ensure t
-    :config
+    :defer t
+    :init
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
     ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
     )
   (use-package ox-twbs
-    :ensure t)
-  :mode
-  ("\\.org$" . org-mode)
+    :ensure t
+    :defer t
+    )
   )
 
 (use-package powerline
@@ -280,7 +285,6 @@
   (defengine wikipedia
     "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
     :keybinding "w")
-  (engine/set-keymap-prefix (kbd "M-a"))
   )
 
 (use-package web-mode
@@ -310,7 +314,7 @@
   :ensure t
   :defer t
   :diminish emmet-mode
-  :config
+  :init
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode)
   )
@@ -318,6 +322,7 @@
 (use-package yasnippet
   :ensure t
   :diminish yas-minor-mode
+  :diminish auto-revert-mode
   :diminish undo-tree-mode
   :load-path "~/.emacs.d/elpa/snippets"
   :config
@@ -333,7 +338,8 @@
 
 (use-package column-marker
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
   (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
   )
@@ -356,8 +362,9 @@
 
 (use-package aggressive-indent
   :ensure t
+  :defer t
   :diminish aggressive-indent-mode
-  :config
+  :init
   (aggressive-indent-global-mode t)
   )
 
@@ -374,7 +381,8 @@
 
 (use-package highlight-numbers
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'css-mode-hook 'highlight-numbers-mode)
   )
@@ -405,7 +413,8 @@
   :config
   (use-package flyspell-correct
     :ensure t
-    :config
+    :defer t
+    :init
     (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
     (add-hook 'js-mode-hook 'flyspell-prog-mode)
     ))
@@ -449,8 +458,9 @@
   :config
   (use-package all-the-icons-dired
     :ensure t
+    :defer t
     :diminish all-the-icons-dired-mode
-    :config
+    :init
     (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
     ))
 
