@@ -223,17 +223,17 @@
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-agenda-mode-hook 'magit-keys)
+  (use-package org-bullets
+    :ensure t
+    :config
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+    ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+    )
+  (use-package ox-twbs
+    :ensure t)
   :mode
   ("\\.org$" . org-mode)
   )
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
-  )
-(use-package ox-twbs
-  :ensure t)
 
 (use-package powerline
   :ensure t
@@ -272,7 +272,7 @@
     :keybinding "a")
   (defengine rfcs
     "http://pretty-rfc.herokuapp.com/search?q=%s"
-    :keybinding "g")
+    :keybinding "r")
   (defengine stack-overflow
     "https://stackoverflow.com/search?q=%s"
     :keybinding "s")
@@ -308,6 +308,7 @@
 (use-package emmet-mode
   :ensure t
   :defer t
+  :diminish emmet-mode
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode)
@@ -384,6 +385,7 @@
 (use-package rainbow-mode
   :ensure t
   :defer t
+  :diminish rainbow-mode
   :config
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
@@ -395,13 +397,13 @@
   (setq ispell-program-name "aspell")
   (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
   :ensure t
-  )
-(use-package flyspell-correct
-  :ensure t
   :config
-  (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
-  (add-hook 'js-mode-hook 'flyspell-prog-mode)
-  )
+  (use-package flyspell-correct
+    :ensure t
+    :config
+    (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
+    (add-hook 'js-mode-hook 'flyspell-prog-mode)
+    ))
 
 (use-package ivy
   :ensure t
@@ -412,12 +414,14 @@
   (global-set-key (kbd "C-c C-r") 'ivy-resume)
   (global-set-key (kbd "<f6>") 'ivy-resume)
   )
+
 (use-package swiper
   :ensure t
   :config
   (global-set-key "\C-s" 'swiper)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
   )
+
 (use-package counsel
   :ensure t
   :config
@@ -437,13 +441,12 @@
 
 (use-package all-the-icons
   :ensure t
-  )
-
-(use-package all-the-icons-dired
-  :ensure t
   :config
-  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-  )
+  (use-package all-the-icons-dired
+    :ensure t
+    :config
+    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+    ))
 
 
 (global-set-key (kbd "M-z") 'shell-command)
