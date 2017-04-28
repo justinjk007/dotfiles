@@ -26,6 +26,8 @@
 (set-fill-column 81)
 (blink-cursor-mode 0)
 (setq disabled-command-function nil)
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 2) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
 (defvar org-hide-emphasis-markers t)
 
 (unless (package-installed-p 'use-package)
@@ -185,6 +187,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
+ '(airline-emacs-inner ((t (:foreground "orange red"))))
+ '(airline-normal-inner ((t (:foreground "orange red"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#F73A54"))))
  '(error ((t (:foreground "indian red" :weight bold))))
@@ -231,27 +235,26 @@
 (use-package ox-twbs
   :ensure t)
 
-;;source --> https://github.com/milkypostman/powerline
-(add-to-list 'load-path "~/.emacs.d/elpa/powerline")
-(require 'powerline)
-;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
-(ignore-errors
-  (add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
-  (require 'airline-themes)
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (select-frame frame)
-                  (load-theme 'airline-solarized-alternate-gui t)))
-    (load-theme 'airline-solarized-alternate-gui t))
+(use-package powerline
+  :ensure t
+  :config
+  (use-package airline-themes
+    :ensure t
+    :config
+    (if (daemonp)
+        (add-hook 'after-make-frame-functions
+                  (lambda (frame)
+                    (select-frame frame)
+                    (load-theme 'airline-solarized-alternate-gui t)))
+      (load-theme 'airline-solarized-alternate-gui t))
+    (setq airline-utf-glyph-separator-left      #xe0b0
+          airline-utf-glyph-separator-right     #xe0b2
+          airline-utf-glyph-subseparator-left   #xe0b1
+          airline-utf-glyph-subseparator-right  #xe0b3
+          airline-utf-glyph-branch              #xE0A0
+          airline-utf-glyph-readonly            #xe0a2
+          airline-utf-glyph-linenumber          #xe0a1 ))
   )
-(setq airline-utf-glyph-separator-left      #xe0b0
-      airline-utf-glyph-separator-right     #xe0b2
-      airline-utf-glyph-subseparator-left   #xe0b1
-      airline-utf-glyph-subseparator-right  #xe0b3
-      airline-utf-glyph-branch              #xE0A0
-      airline-utf-glyph-readonly            #xe0a2
-      airline-utf-glyph-linenumber          #xe0a1 )
 
 (use-package engine-mode
   :ensure t
@@ -322,14 +325,22 @@
   (global-flycheck-mode t)
   )
 
-(add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
-(require 'column-marker)
+(use-package column-marker
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
+  (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
+  )
 
-(add-to-list 'load-path "~/.emacs.d/elpa/speed-type")
-(require 'speed-type)
+(use-package speed-type
+  :ensure t
+  :defer t
+  )
 
-(add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
-(require 'htmlize)
+(use-package htmlize
+  :defer t
+  :ensure t
+  )
 
 (use-package which-key
   :ensure t
@@ -432,8 +443,6 @@
   )
 
 
-(add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-(add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
