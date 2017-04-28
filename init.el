@@ -333,8 +333,10 @@
   (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
   )
 
-(add-to-list 'load-path "~/.emacs.d/elpa/speed-type")
-(require 'speed-type)
+(use-package speed-type
+  :ensure t
+  :defer t
+  )
 
 (use-package htmlize
   :defer t
