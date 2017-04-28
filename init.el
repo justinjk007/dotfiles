@@ -316,6 +316,8 @@
 
 (use-package yasnippet
   :ensure t
+  :diminish yas-minor-mode
+  :diminish undo-tree-mode
   :load-path "~/.emacs.d/elpa/snippets"
   :config
   (yas-global-mode 1)
@@ -353,6 +355,7 @@
 
 (use-package aggressive-indent
   :ensure t
+  :diminish aggressive-indent-mode
   :config
   (aggressive-indent-global-mode t)
   )
