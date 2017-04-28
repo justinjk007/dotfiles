@@ -266,7 +266,7 @@
     :keybinding "a")
   (defengine rfcs
     "http://pretty-rfc.herokuapp.com/search?q=%s"
-    :keybinding "g")
+    :keybinding "r")
   (defengine stack-overflow
     "https://stackoverflow.com/search?q=%s"
     :keybinding "s")
