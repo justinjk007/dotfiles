@@ -380,16 +380,17 @@
 
 (use-package rainbow-delimiters
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-  (add-hook 'css-mode-hook 'rainbow-delimiters-mode)
+  (add-hook 'css-mode-hook #'rainbow-delimiters-mode)
   )
 
 (use-package rainbow-mode
   :ensure t
   :defer t
   :diminish rainbow-mode
-  :config
+  :init
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
   )
@@ -452,6 +453,13 @@
     (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
     ))
 
+(use-package beacon
+  :ensure t
+  :diminish beacon-mode
+  :config
+  (beacon-mode 1)
+  (setq beacon-color "#00ff7f")
+  )
 
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
