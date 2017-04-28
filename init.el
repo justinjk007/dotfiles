@@ -218,17 +218,16 @@
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-agenda-mode-hook 'magit-keys)
+  (use-package org-bullets
+    :ensure t
+    :config
+    (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  (use-package ox-twbs
+    :ensure t)
   :mode
   ("\\.org$" . org-mode)
   )
-(use-package org-bullets
-  :ensure t
-  :config
-  (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-  )
-(use-package ox-twbs
-  :ensure t)
 
 (use-package powerline
   :ensure t
@@ -248,33 +247,33 @@
           airline-utf-glyph-subseparator-right  #xe0b3
           airline-utf-glyph-branch              #xE0A0
           airline-utf-glyph-readonly            #xe0a2
-          airline-utf-glyph-linenumber          #xe0a1 )
-    ))
-
-(use-package engine-mode
-  :ensure t
-  :config
-  (engine-mode t)
-  (defengine duckduckgo
-    "https://duckduckgo.com/?q=%s"
-    :keybinding "d")
-  (defengine github
-    "https://github.com/search?ref=simplesearch&q=%s"
-    :keybinding "g")
-  (defengine google
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-    :keybinding "a")
-  (defengine rfcs
-    "http://pretty-rfc.herokuapp.com/search?q=%s"
-    :keybinding "r")
-  (defengine stack-overflow
-    "https://stackoverflow.com/search?q=%s"
-    :keybinding "s")
-  (defengine wikipedia
-    "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
-    :keybinding "w")
-  (engine/set-keymap-prefix (kbd "M-a"))
+          airline-utf-glyph-linenumber          #xe0a1 ))
   )
+
+  (use-package engine-mode
+    :ensure t
+    :config
+    (engine-mode t)
+    (defengine duckduckgo
+      "https://duckduckgo.com/?q=%s"
+      :keybinding "d")
+    (defengine github
+      "https://github.com/search?ref=simplesearch&q=%s"
+      :keybinding "g")
+    (defengine google
+      "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+      :keybinding "a")
+    (defengine rfcs
+      "http://pretty-rfc.herokuapp.com/search?q=%s"
+      :keybinding "r")
+    (defengine stack-overflow
+      "https://stackoverflow.com/search?q=%s"
+      :keybinding "s")
+    (defengine wikipedia
+      "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+      :keybinding "w")
+    (engine/set-keymap-prefix (kbd "M-a"))
+    )
 
 (use-package web-mode
   :ensure t
@@ -305,6 +304,7 @@
 
 (use-package emmet-mode
   :ensure t
+  :diminish emmet-mode
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode)
@@ -325,7 +325,11 @@
   )
 
 (use-package column-marker
-  :ensure t)
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
+  (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
+  )
 
 (add-to-list 'load-path "~/.emacs.d/elpa/speed-type")
 (require 'speed-type)
@@ -373,6 +377,7 @@
 
 (use-package rainbow-mode
   :ensure t
+  :diminish rainbow-mode
   :config
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
@@ -380,13 +385,13 @@
 
 (use-package ispell
   :ensure t
-  )
-(use-package flyspell-correct
-  :ensure t
   :config
-  (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
-  (add-hook 'js-mode-hook 'flyspell-prog-mode)
-  )
+  (use-package flyspell-correct
+    :ensure t
+    :config
+    (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
+    (add-hook 'js-mode-hook 'flyspell-prog-mode)
+    ))
 
 (use-package ivy
   :ensure t
@@ -397,12 +402,14 @@
   (global-set-key (kbd "C-c C-r") 'ivy-resume)
   (global-set-key (kbd "<f6>") 'ivy-resume)
   )
+
 (use-package swiper
   :ensure t
   :config
   (global-set-key "\C-s" 'swiper)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
   )
+
 (use-package counsel
   :ensure t
   :config
@@ -422,17 +429,13 @@
 
 (use-package all-the-icons
   :ensure t
-  )
-
-(use-package all-the-icons-dired
-  :ensure t
   :config
-  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-  )
+  (use-package all-the-icons-dired
+    :ensure t
+    :config
+    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+    ))
 
-
-(add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-(add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
