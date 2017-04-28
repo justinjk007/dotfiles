@@ -34,7 +34,8 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (eval-when-compile
-  (require 'use-package))
+  (require 'use-package)
+  (setq use-package-always-ensure t))
 
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
 (setq default-directory "D:/Dropbox/Code" )
@@ -52,7 +53,6 @@
 ;;-------------------------------------Server------------------
 
 (use-package evil
-  :ensure t
   :config
   (evil-mode 1)
   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
@@ -72,13 +72,11 @@
   )
 
 (use-package company
-  :ensure t
   :diminish company-mode
   :config
   (global-company-mode))
 
 (use-package magit
-  :ensure t
   :bind ("C-x g" . magit-status)
   :defer t
   :config
@@ -219,7 +217,6 @@
                               ) )
 
 (use-package org
-  :ensure t
   :defer t
   :mode
   ("\\.org$" . org-mode)
@@ -229,23 +226,19 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-agenda-mode-hook 'magit-keys)
   (use-package org-bullets
-    :ensure t
     :defer t
     :init
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
     ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
     )
   (use-package ox-twbs
-    :ensure t
     :defer t
     )
   )
 
 (use-package powerline
-  :ensure t
   :config
   (use-package airline-themes
-    :ensure t
     :config
     (if (daemonp)
         (add-hook 'after-make-frame-functions
@@ -263,7 +256,6 @@
   )
 
 (use-package engine-mode
-  :ensure t
   :config
   (engine-mode t)
   (engine/set-keymap-prefix (kbd "M-a"))
@@ -288,7 +280,6 @@
   )
 
 (use-package web-mode
-  :ensure t
   :defer t
   :mode (("\\.djhtml\\'" . web-mode)
          ("\\.phtml\\'" . web-mode)
@@ -311,7 +302,6 @@
   )
 
 (use-package emmet-mode
-  :ensure t
   :defer t
   :diminish emmet-mode
   :init
@@ -320,7 +310,6 @@
   )
 
 (use-package yasnippet
-  :ensure t
   :diminish yas-minor-mode
   :diminish auto-revert-mode
   :diminish undo-tree-mode
@@ -331,13 +320,11 @@
   )
 
 (use-package flycheck
-  :ensure t
   :config
   (global-flycheck-mode t)
   )
 
 (use-package column-marker
-  :ensure t
   :defer t
   :init
   (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
@@ -345,23 +332,19 @@
   )
 
 (use-package speed-type
-  :ensure t
   :defer t
   )
 
 (use-package htmlize
-  :ensure t
   :defer t
   )
 
 (use-package which-key
-  :ensure t
   :diminish which-key-mode
   :config
   (which-key-mode))
 
 (use-package aggressive-indent
-  :ensure t
   :defer t
   :diminish aggressive-indent-mode
   :init
@@ -369,7 +352,6 @@
   )
 
 (use-package key-chord
-  :ensure t
   :config
   (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
@@ -380,7 +362,6 @@
   )
 
 (use-package highlight-numbers
-  :ensure t
   :defer t
   :init
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
@@ -388,7 +369,6 @@
   )
 
 (use-package rainbow-delimiters
-  :ensure t
   :defer t
   :init
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
@@ -396,7 +376,6 @@
   )
 
 (use-package rainbow-mode
-  :ensure t
   :defer t
   :diminish rainbow-mode
   :init
@@ -409,10 +388,8 @@
   (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
   (setq ispell-program-name "aspell")
   (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
-  :ensure t
   :config
   (use-package flyspell-correct
-    :ensure t
     :defer t
     :init
     (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
@@ -420,7 +397,6 @@
     ))
 
 (use-package ivy
-  :ensure t
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
@@ -430,14 +406,12 @@
   )
 
 (use-package swiper
-  :ensure t
   :config
   (global-set-key "\C-s" 'swiper)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
   )
 
 (use-package counsel
-  :ensure t
   :config
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
@@ -454,7 +428,6 @@
   )
 
 (use-package all-the-icons
-  :ensure t
   :config
   (use-package all-the-icons-dired
     :ensure t
@@ -465,7 +438,6 @@
     ))
 
 (use-package beacon
-  :ensure t
   :diminish beacon-mode
   :config
   (beacon-mode 1)
