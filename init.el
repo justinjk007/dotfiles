@@ -277,6 +277,7 @@
 
 (use-package web-mode
   :ensure t
+  :defer t
   :mode (("\\.djhtml\\'" . web-mode)
          ("\\.phtml\\'" . web-mode)
          ("\\.erb\\'" . web-mode)
@@ -304,6 +305,7 @@
 
 (use-package emmet-mode
   :ensure t
+  :defer t
   :diminish emmet-mode
   :config
   (add-hook 'sgml-mode-hook 'emmet-mode)
@@ -335,6 +337,7 @@
 (require 'speed-type)
 
 (use-package htmlize
+  :defer t
   :ensure t
   )
 
@@ -377,6 +380,7 @@
 
 (use-package rainbow-mode
   :ensure t
+  :defer t
   :diminish rainbow-mode
   :config
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
