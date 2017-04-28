@@ -4,6 +4,7 @@
 - Custom functions I have written and collected for emacs
 - My zsh shell config
 - My shell aliases
+- My git configuration
 
 ** This is what Emacs will look like after customizing
 #+CAPTION: This is what the Emacs will look like
