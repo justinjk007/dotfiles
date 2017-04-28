@@ -458,7 +458,7 @@
   :diminish beacon-mode
   :config
   (beacon-mode 1)
-  (setq beacon-color "#00ff7f")
+  (setq beacon-color "#00ff00")
   )
 
 (global-set-key (kbd "M-z") 'shell-command)
