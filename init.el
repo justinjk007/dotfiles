@@ -438,6 +438,7 @@
   :config
   (use-package all-the-icons-dired
     :ensure t
+    :diminish all-the-icons-dired-mode
     :config
     (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
     ))
