@@ -324,14 +324,15 @@
   (global-flycheck-mode t)
   )
 
-(add-to-list 'load-path "~/.emacs.d/elpa/column-marker")
-(require 'column-marker)
+(use-package column-marker
+  :ensure t)
 
 (add-to-list 'load-path "~/.emacs.d/elpa/speed-type")
 (require 'speed-type)
 
-(add-to-list 'load-path "~/.emacs.d/elpa/htmlize")
-(require 'htmlize)
+(use-package htmlize
+  :ensure t
+  )
 
 (use-package which-key
   :ensure t
