@@ -182,6 +182,8 @@
                          :weight normal :height 110 :width normal :foundry "outline" :family
                          "Hack"))))
  '(column-marker-1 ((t (:background "dim grey"))))
+ '(airline-emacs-inner ((t (:background "#002b36" :foreground "orange red"))))
+ '(airline-normal-inner ((t (:background "#002b36" :foreground "orange red"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#FF7D9E"))))
  '(error ((t (:foreground "indian red" :weight bold))))
@@ -228,26 +230,26 @@
 (use-package ox-twbs
   :ensure t)
 
-;;source --> https://github.com/milkypostman/powerline
-(add-to-list 'load-path "~/.emacs.d/elpa/powerline")
-(require 'powerline)
-;;source --> https://github.com/AnthonyDiGirolamo/airline-themes
-(add-to-list 'load-path "~/.emacs.d/elpa/airline-themes")
-(require 'airline-themes)
-(if (daemonp)
-    (add-hook 'after-make-frame-functions
-              (lambda (frame)
-                (select-frame frame)
-                (load-theme 'airline-solarized-alternate-gui t)))
-  (load-theme 'airline-solarized-alternate-gui t))
-
-(setq airline-utf-glyph-separator-left      #xe0b0
-      airline-utf-glyph-separator-right     #xe0b2
-      airline-utf-glyph-subseparator-left   #xe0b1
-      airline-utf-glyph-subseparator-right  #xe0b3
-      airline-utf-glyph-branch              #xE0A0
-      airline-utf-glyph-readonly            #xe0a2
-      airline-utf-glyph-linenumber          #xe0a1 )
+(use-package powerline
+  :ensure t
+  :config
+  (use-package airline-themes
+    :ensure t
+    :config
+    (if (daemonp)
+        (add-hook 'after-make-frame-functions
+                  (lambda (frame)
+                    (select-frame frame)
+                    (load-theme 'airline-solarized-alternate-gui t)))
+      (load-theme 'airline-solarized-alternate-gui t))
+    (setq airline-utf-glyph-separator-left      #xe0b0
+          airline-utf-glyph-separator-right     #xe0b2
+          airline-utf-glyph-subseparator-left   #xe0b1
+          airline-utf-glyph-subseparator-right  #xe0b3
+          airline-utf-glyph-branch              #xE0A0
+          airline-utf-glyph-readonly            #xe0a2
+          airline-utf-glyph-linenumber          #xe0a1 )
+    ))
 
 (use-package engine-mode
   :ensure t
