@@ -81,6 +81,7 @@
 (use-package magit
   :ensure t
   :bind ("C-x g" . magit-status)
+  :defer t
   :config
   (add-hook 'magit-status-mode-hook 'magit-keys)
   (add-hook 'magit-log-mode-hook 'magit-keys)
@@ -213,6 +214,9 @@
 
 (use-package org
   :ensure t
+  :defer t
+  :mode
+  ("\\.org$" . org-mode)
   :pin manual
   :config
   (add-hook 'org-mode-hook 'turn-on-font-lock)
@@ -220,13 +224,14 @@
   (add-hook 'org-agenda-mode-hook 'magit-keys)
   (use-package org-bullets
     :ensure t
-    :config
+    :init
     (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-  (use-package ox-twbs
-    :ensure t)
-  :mode
-  ("\\.org$" . org-mode)
+  :defer t
+  )
+(use-package ox-twbs
+  :ensure t
+  :defer t
   )
 
 (use-package powerline
@@ -250,30 +255,30 @@
           airline-utf-glyph-linenumber          #xe0a1 ))
   )
 
-  (use-package engine-mode
-    :ensure t
-    :config
-    (engine-mode t)
-    (defengine duckduckgo
-      "https://duckduckgo.com/?q=%s"
-      :keybinding "d")
-    (defengine github
-      "https://github.com/search?ref=simplesearch&q=%s"
-      :keybinding "g")
-    (defengine google
-      "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-      :keybinding "a")
-    (defengine rfcs
-      "http://pretty-rfc.herokuapp.com/search?q=%s"
-      :keybinding "r")
-    (defengine stack-overflow
-      "https://stackoverflow.com/search?q=%s"
-      :keybinding "s")
-    (defengine wikipedia
-      "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
-      :keybinding "w")
-    (engine/set-keymap-prefix (kbd "M-a"))
-    )
+(use-package engine-mode
+  :ensure t
+  :config
+  (engine-mode t)
+  (engine/set-keymap-prefix (kbd "M-a"))
+  (defengine duckduckgo
+    "https://duckduckgo.com/?q=%s"
+    :keybinding "d")
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "g")
+  (defengine google
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    :keybinding "a")
+  (defengine rfcs
+    "http://pretty-rfc.herokuapp.com/search?q=%s"
+    :keybinding "r")
+  (defengine stack-overflow
+    "https://stackoverflow.com/search?q=%s"
+    :keybinding "s")
+  (defengine wikipedia
+    "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+    :keybinding "w")
+  )
 
 (use-package web-mode
   :ensure t
@@ -307,7 +312,7 @@
   :ensure t
   :defer t
   :diminish emmet-mode
-  :config
+  :init
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode)
   )
@@ -315,6 +320,7 @@
 (use-package yasnippet
   :ensure t
   :diminish yas-minor-mode
+  :diminish auto-revert-mode
   :diminish undo-tree-mode
   :load-path "~/.emacs.d/elpa/snippets"
   :config
@@ -330,7 +336,8 @@
 
 (use-package column-marker
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
   (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
   )
@@ -353,8 +360,9 @@
 
 (use-package aggressive-indent
   :ensure t
+  :defer t
   :diminish aggressive-indent-mode
-  :config
+  :init
   (aggressive-indent-global-mode t)
   )
 
@@ -371,7 +379,8 @@
 
 (use-package highlight-numbers
   :ensure t
-  :config
+  :defer t
+  :init
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'css-mode-hook 'highlight-numbers-mode)
   )
@@ -398,7 +407,8 @@
   :config
   (use-package flyspell-correct
     :ensure t
-    :config
+    :defer t
+    :init
     (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
     (add-hook 'js-mode-hook 'flyspell-prog-mode)
     ))
@@ -442,8 +452,9 @@
   :config
   (use-package all-the-icons-dired
     :ensure t
+    :defer t
     :diminish all-the-icons-dired-mode
-    :config
+    :init
     (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
     ))
 
