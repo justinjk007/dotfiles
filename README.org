@@ -6,13 +6,4 @@
 - My shell aliases
 - My git configuration
 
-** This is what Emacs will look like after customizing
-#+CAPTION: This is what the Emacs will look like
-#+NAME: Emacs
-     [[./img/emacsl.png]]
-
-** This is what the shell will look like
-#+CAPTION: This is what the shell will look like
-#+NAME: shell
-     [[./img/shell.png]]
-*PS: Please take a look at my windows branch if you are a windows user*
+PS: Please take a look at my *windows* branch if you are a windows user
