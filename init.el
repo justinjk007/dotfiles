@@ -246,18 +246,18 @@
           airline-utf-glyph-branch              #xE0A0
           airline-utf-glyph-readonly            #xe0a2
           airline-utf-glyph-linenumber          #xe0a1 ))
-  (defun powerline-major-mode-icon ()
-    "Find and select an an icon for the current major mode."
-    (let ((icon (all-the-icons-icon-for-buffer)))
-      (unless (symbolp icon) ;; This implies it's the major mode
-	(format " %s"
-		(propertize icon
-			    'face `(:height inherit :family
-					    ,(all-the-icons-icon-family-for-buffer)))))))
-  (setq global-mode-string
-	(append global-mode-string
-		(list
-		 '(:eval (powerline-major-mode-icon)))))
+  ;; (defun powerline-major-mode-icon ()
+  ;;   "Find and select an an icon for the current major mode."
+  ;;   (let ((icon (all-the-icons-icon-for-buffer)))
+  ;;     (unless (symbolp icon) ;; This implies it's the major mode
+  ;;   (format " %s"
+  ;;   	(propertize icon
+  ;;   		    'face `(:height inherit :family
+  ;;   				    ,(all-the-icons-icon-family-for-buffer)))))))
+  ;; (setq global-mode-string
+  ;;   (append global-mode-string
+  ;;   	(list
+  ;;   	 '(:eval (powerline-major-mode-icon)))))
   )
 
 (use-package engine-mode
