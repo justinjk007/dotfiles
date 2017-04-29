@@ -4,8 +4,3 @@
 - Custom functions I have written and collected for emacs
 - My CS:GO autoexec config
 - My git configuration
-
-** This is what Emacs will look like after customizing
-#+CAPTION: This is what the Emacs will look like
-#+NAME: Emacs
-[[./img/emacs.png]]
