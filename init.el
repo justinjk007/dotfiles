@@ -223,10 +223,7 @@
     :init
     (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-  :defer t
-  )
-(use-package ox-twbs
-  :defer t
+  (use-package ox-twbs)
   )
 
 (use-package powerline
@@ -250,14 +247,14 @@
     "Find and select an an icon for the current major mode."
     (let ((icon (all-the-icons-icon-for-buffer)))
       (unless (symbolp icon) ;; This implies it's the major mode
-	(format " %s"
-		(propertize icon
-			    'face `(:height inherit :family
-					    ,(all-the-icons-icon-family-for-buffer)))))))
+        (format " %s"
+                (propertize icon
+                            'face `(:height inherit :family
+                                            ,(all-the-icons-icon-family-for-buffer)))))))
   (setq global-mode-string
-	(append global-mode-string
-		(list
-		 '(:eval (powerline-major-mode-icon)))))
+        (append global-mode-string
+                (list
+                 '(:eval (powerline-major-mode-icon)))))
   )
 
 (use-package engine-mode
