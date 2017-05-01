@@ -1,0 +1,32 @@
+# -*- mode: snippet -*-
+# name:mail 
+# key:mail
+# --
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <style>
+      body{
+ background-color:#FFFFF0;
+      }
+ .xuanlewu{
+    width:80%;
+    margin:auto; 
+    font-family:Comfortaa;
+}
+
+    </style>
+  </head>
+  <body>
+<div class="xuanlewu">
+    <p>
+      hello my name is justin<br/><br/>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore etdolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est <br/><br/>ThankFully waiting for your reply      
+    </p>
+    <div/>
+    
+  </body>
+</html>
