@@ -1,0 +1,11 @@
+# -*- mode:java-mode snippet -*-
+# name:class
+# key: class
+# --
+class $1
+      {
+	public $2 $3()
+	{
+	  $0	
+	}
+      }
