@@ -259,8 +259,8 @@
       (unless (symbolp icon) ;; This implies it's the major mode
         (format " %s"
                 (propertize icon
-                            'face `(:height 200 :family
-                                            ,(all-the-icons-icon-family-for-buffer)))))))
+                            'face `(:height 100 :family
+					    ,(all-the-icons-icon-family-for-buffer)))))))
   (setq global-mode-string
         (append global-mode-string
                 (list
