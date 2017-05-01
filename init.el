@@ -249,7 +249,7 @@
       (unless (symbolp icon) ;; This implies it's the major mode
         (format " %s"
                 (propertize icon
-                            'face `(:height inherit :family
+                            'face `(:height 110 :family
                                             ,(all-the-icons-icon-family-for-buffer)))))))
   (setq global-mode-string
         (append global-mode-string
