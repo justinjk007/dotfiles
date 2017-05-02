@@ -128,7 +128,8 @@
  '(custom-enabled-themes (quote (solarized-light)))
  '(custom-safe-themes
    (quote
-    ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879"
+    ("2b8dff32b9018d88e24044eb60d8f3829bd6bbeab754e70799b78593af1c3aba"
+     "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879"
      "4d5ce1a2a9c608a48f0489971bf2ebededdef436107fb4278278043e37062f79"
      "6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
      "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
@@ -236,36 +237,37 @@
     )
   )
 
-(use-package powerline
+(use-package powerline)
+(use-package airline-themes
+  :after powerline
   :config
-  (use-package airline-themes
-    :config
-    (if (daemonp)
-        (add-hook 'after-make-frame-functions
-                  (lambda (frame)
-                    (select-frame frame)
-                    (load-theme 'airline-solarized-alternate-gui t)))
-      (load-theme 'airline-solarized-alternate-gui t))
-    (setq airline-utf-glyph-separator-left      #xe0b0
-          airline-utf-glyph-separator-right     #xe0b2
-          airline-utf-glyph-subseparator-left   #xe0b1
-          airline-utf-glyph-subseparator-right  #xe0b3
-          airline-utf-glyph-branch              #xE0A0
-          airline-utf-glyph-readonly            #xe0a2
-          airline-utf-glyph-linenumber          #xe0a1 ))
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+		(lambda (frame)
+		  (select-frame frame)
+		  (load-theme 'airline-solarized-alternate-gui)))
+    (load-theme 'airline-solarized-alternate-gui))
+  (setq airline-utf-glyph-separator-left      #xe0b0
+	airline-utf-glyph-separator-right     #xe0b2
+	airline-utf-glyph-subseparator-left   #xe0b1
+	airline-utf-glyph-subseparator-right  #xe0b3
+	airline-utf-glyph-branch              #xE0A0
+	airline-utf-glyph-readonly            #xe0a2
+	airline-utf-glyph-linenumber          #xe0a1 )
   (defun powerline-major-mode-icon ()
     "Find and select an an icon for the current major mode."
     (let ((icon (all-the-icons-icon-for-buffer)))
       (unless (symbolp icon) ;; This implies it's the major mode
-        (format " %s"
-                (propertize icon
-                            'face `(:height 100 :family
+	(format " %s"
+		(propertize icon
+			    'face `(:height 100 :family
 					    ,(all-the-icons-icon-family-for-buffer)))))))
   (setq global-mode-string
-        (append global-mode-string
-                (list
-                 '(:eval (powerline-major-mode-icon)))))
+	(append global-mode-string
+		(list
+		 '(:eval (powerline-major-mode-icon)))))
   )
+
 
 (use-package engine-mode
   :config
