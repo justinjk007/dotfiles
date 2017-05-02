@@ -5,6 +5,6 @@
 - My zsh shell config
 - My shell aliases
 - My git configuration
-- My snippets
+- My snippets - Usable with [[https://github.com/joaotavora/yasnippet][YASnippets]] 
 
 PS: Please take a look at my *windows* branch if you are a windows user
