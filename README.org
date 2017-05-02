@@ -5,3 +5,5 @@
 - My CS:GO autoexec config
 - My git configuration
 - My snippets - Usable with [[https://github.com/joaotavora/yasnippet][YASnippets]] 
+- A small script in vbs to start emacs daemon during startup
+  completely hiding the console window.
