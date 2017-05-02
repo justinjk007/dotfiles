@@ -226,35 +226,35 @@
   (use-package ox-twbs)
   )
 
-(use-package powerline
+(use-package powerline)
+(use-package airline-themes
+  :after powerline
   :config
-  (use-package airline-themes
-    :config
-    (if (daemonp)
-        (add-hook 'after-make-frame-functions
-                  (lambda (frame)
-                    (select-frame frame)
-                    (load-theme 'airline-solarized-alternate-gui t)))
-      (load-theme 'airline-solarized-alternate-gui t))
-    (setq airline-utf-glyph-separator-left      #xe0b0
-          airline-utf-glyph-separator-right     #xe0b2
-          airline-utf-glyph-subseparator-left   #xe0b1
-          airline-utf-glyph-subseparator-right  #xe0b3
-          airline-utf-glyph-branch              #xE0A0
-          airline-utf-glyph-readonly            #xe0a2
-          airline-utf-glyph-linenumber          #xe0a1 ))
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+		(lambda (frame)
+		  (select-frame frame)
+		  (load-theme 'airline-solarized-alternate-gui)))
+    (load-theme 'airline-solarized-alternate-gui))
+  (setq airline-utf-glyph-separator-left      #xe0b0
+	airline-utf-glyph-separator-right     #xe0b2
+	airline-utf-glyph-subseparator-left   #xe0b1
+	airline-utf-glyph-subseparator-right  #xe0b3
+	airline-utf-glyph-branch              #xE0A0
+	airline-utf-glyph-readonly            #xe0a2
+	airline-utf-glyph-linenumber          #xe0a1 )
   (defun powerline-major-mode-icon ()
     "Find and select an an icon for the current major mode."
     (let ((icon (all-the-icons-icon-for-buffer)))
       (unless (symbolp icon) ;; This implies it's the major mode
-        (format " %s"
-                (propertize icon
-                            'face `(:height 110 :family
-                                            ,(all-the-icons-icon-family-for-buffer)))))))
+	(format " %s"
+		(propertize icon
+			    'face `(:height 110 :family
+					    ,(all-the-icons-icon-family-for-buffer)))))))
   (setq global-mode-string
-        (append global-mode-string
-                (list
-                 '(:eval (powerline-major-mode-icon)))))
+	(append global-mode-string
+		(list
+		 '(:eval (powerline-major-mode-icon)))))
   )
 
 (use-package engine-mode
