@@ -132,7 +132,7 @@
      "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes/"
+    ("~/.emacs.d/elpa/airline-themes-20170425.1646"
      "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
