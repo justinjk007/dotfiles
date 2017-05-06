@@ -1,7 +1,6 @@
 ﻿;;; package --- init-file
 ;;; Author:Justin Kaipada
 ;;; Branch:linux
-;;; Date:01110100 01101111 01101101 01101111 01110010 01110010 01101111 01110111
 ;;; Commentary:
 "Thou shalt not cross 80 columns in thy file"
 
@@ -39,7 +38,7 @@
   (require 'use-package)
   (setq use-package-always-ensure t))
 
-(setq default-directory "~/Dropbox/Code" )
+(setq default-directory "~/Repos/" )
 (setq-default frame-title-format '("%f [%m%*mode]"))
 ;; (add-to-list 'default-frame-alist '(width  . 110))
 ;; (add-to-list 'default-frame-alist '(height . 37))
@@ -450,6 +449,7 @@
 (global-set-key (kbd "C-x d") 'dired-jump)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 (provide 'init.el)
