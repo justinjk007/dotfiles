@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: test
+# key: test
+# --
+BOOST_AUTO_TEST_CASE( test1){
+$0
+}
