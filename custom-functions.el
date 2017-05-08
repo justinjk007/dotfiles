@@ -72,5 +72,16 @@
     (when old-location
       (delete-file old-location))))
 
+(defun align-values (start end)
+  "Aligns region based on lengths of the START value of each line to th END.
+Example output:
+foo        bar
+foofoo     bar
+foofoofoo  bar"
+  (interactive "r")
+  (align-regexp start end
+                "\\S-+\\(\\s-+\\)"
+                1 1 nil))
+
 (provide 'custom-functions)
 ;;; custom-functions.el ends here
