@@ -63,6 +63,10 @@
   (global-set-key  (kbd "M-C-j")  'move-line-down)
   (global-set-key (kbd "M-C-k")  'move-line-up)
   (global-set-key (kbd "C-x C-m") 'move-file)
+  (global-set-key (kbd "C-c h")  'windmove-left)
+  (global-set-key (kbd "C-c l") 'windmove-right)
+  (global-set-key (kbd "C-c j")  'windmove-down)
+  (global-set-key (kbd "C-c k") 'windmove-up)
   )
 
 (use-package company
@@ -425,8 +429,6 @@
   (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
   (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
   (global-set-key (kbd "C-c g") 'counsel-git)
-  (global-set-key (kbd "C-c j") 'counsel-git-grep)
-  (global-set-key (kbd "C-c k") 'counsel-ag)
   (global-set-key (kbd "C-x l") 'counsel-locate)
   (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
   )
