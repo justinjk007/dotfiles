@@ -203,6 +203,8 @@
  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
  '(org-verbatim ((t (:foreground "tomato"))))
  '(org-warning ((t (:foreground "red" :underline t))))
+ '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
+ '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#586e75")
 
