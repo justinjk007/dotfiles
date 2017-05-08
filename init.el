@@ -191,6 +191,8 @@
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
  '(linum ((t (:foreground "grey68" :distant-foreground "black" :box nil :strike-through nil :underline nil :weight thin :height 110 :width normal :family "Raleway Medium"))))
  '(org-warning ((t (:foreground "red" :underline t))))
+ '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
+ '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 (set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
 
