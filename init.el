@@ -63,10 +63,10 @@
   (global-set-key  (kbd "M-C-j")  'move-line-down)
   (global-set-key (kbd "M-C-k")  'move-line-up)
   (global-set-key (kbd "C-x C-m") 'move-file)
-  (global-set-key (kbd "C-c h")  'windmove-left)
-  (global-set-key (kbd "C-c l") 'windmove-right)
-  (global-set-key (kbd "C-c j")  'windmove-down)
-  (global-set-key (kbd "C-c k") 'windmove-up)
+  (global-set-key (kbd "C-h")  'windmove-left)
+  (global-set-key (kbd "C-l") 'windmove-right)
+  (global-set-key (kbd "C-j")  'windmove-down)
+  (global-set-key (kbd "C-k") 'windmove-up)
   )
 
 (use-package company
@@ -458,6 +458,7 @@
 (global-set-key (kbd "C-x d") 'dired-jump)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
