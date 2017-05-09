@@ -2,7 +2,7 @@
 # contributor : João Távora
 # name: header
 # --
-#ifndef ${1:`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_H}
+#ifndef ${1:`(upcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`_HPP}
 #define $1
 
 $0
