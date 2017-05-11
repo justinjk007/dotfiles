@@ -264,6 +264,18 @@
 		 '(:eval (powerline-major-mode-icon)))))
   )
 
+;; (setq explicit-shell-file-name "C:/Windows/System32/bash.exe")
+;; (setq shell-file-name "bash")
+;; (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+;; (setenv "SHELL" shell-file-name)
+;; (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+
+(defun bash-shell ()
+  "Run WSL bash in shell mode."
+  (interactive)
+  (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+  (let ((explicit-shell-file-name "C:/Windows/System32/bash"))
+    (call-interactively 'shell)))
 
 (use-package engine-mode
   :config
