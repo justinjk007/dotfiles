@@ -138,7 +138,6 @@
  '(frame-background-mode (quote dark))
  '(global-flycheck-mode t)
  '(global-hl-line-mode t)
- '(global-linum-mode t)
  '(inhibit-startup-screen t)
  '(org-agenda-files (quote ("~/.emacs.d/org-files/todo")))
  '(org-agenda-todo-ignore-deadlines nil)
@@ -449,6 +448,7 @@
 (global-set-key (kbd "S-SPC") 'recompile)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'prog-mode-hook (lambda () (linum-mode 1)))
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 (provide 'init.el)
