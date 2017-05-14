@@ -179,6 +179,7 @@
  '(airline-normal-inner ((t (:background "#002b36" :foreground "orange red"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#FF7D9E"))))
+ '(fic-face ((t (:foreground "#ff6a6a" :box t :slant normal :weight bold))))
  '(error ((t (:foreground "indian red" :weight bold))))
  '(highlight-numbers-number ((t (:inherit nil :foreground "coral1"))))
  '(ivy-minibuffer-match-face-2 ((t (:background "lightskyblue" :foreground:black :weight bold))))
@@ -237,18 +238,6 @@
 	airline-utf-glyph-branch              #xE0A0
 	airline-utf-glyph-readonly            #xe0a2
 	airline-utf-glyph-linenumber          #xe0a1 )
-  (defun powerline-major-mode-icon ()
-    "Find and select an an icon for the current major mode."
-    (let ((icon (all-the-icons-icon-for-buffer)))
-      (unless (symbolp icon) ;; This implies it's the major mode
-	(format " %s"
-		(propertize icon
-			    'face `(:height 110 :family
-					    ,(all-the-icons-icon-family-for-buffer)))))))
-  (setq global-mode-string
-	(append global-mode-string
-		(list
-		 '(:eval (powerline-major-mode-icon)))))
   )
 
 (use-package engine-mode
@@ -438,6 +427,13 @@
   :config
   (beacon-mode 1)
   (setq beacon-color "#00ff7f")
+  )
+
+
+(use-package fic-mode
+  :defer t
+  :init
+  (add-hook 'c++-mode-hook 'fic-mode)
   )
 
 (global-set-key (kbd "M-z") 'shell-command)
