@@ -75,6 +75,12 @@
   :config
   (global-company-mode))
 
+(use-package company-c-headers
+  :defer t
+  :init
+  (add-to-list 'company-backends 'company-c-headers)
+  )
+
 (use-package magit
   :bind ("C-x g" . magit-status)
   :defer t
