@@ -73,7 +73,13 @@
 (use-package company
   :diminish company-mode
   :config
-  (global-company-mode))
+  (global-company-mode)
+  (setq-local company-dabbrev-downcase nil)
+  (setq company-minimum-prefix-length 2
+	company-show-numbers t
+        company-idle-delay 0)
+  (add-to-list 'company-transformers #'company-sort-by-occurrence)
+  )
 
 (use-package company-c-headers
   :defer t
@@ -125,7 +131,6 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
- '(company-idle-delay 0)
  '(cursor-type (quote (bar . 3)))
  '(custom-enabled-themes (quote (solarized-dark)))
  '(custom-safe-themes
