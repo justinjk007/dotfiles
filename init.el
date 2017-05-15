@@ -80,6 +80,30 @@
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
   )
 
+;; (use-package company-ycmd
+;;   :ensure t
+;;   :after ycmd
+;;   :config
+;;   (push '(company-ycmd :with company-yasnippet company-dabbrev-code) company-backends)
+;;   )
+
+;; (setq url-show-status nil)              ; make ycmd more quiet
+
+;; (use-package ycmd
+;;   :defer t
+;;   :init
+;;   (setq ycmd-server-command '("python2" "~/src/ycmd/ycmd/__main__.py")
+;;         ycmd-global-config "~/.emacs.d/.ycm_extra_conf.py")
+;;   (defun my-lower-request-message-level ()
+;;     "Lower `request-message-level' in this buffer only."
+;;     (set (make-variable-buffer-local 'request-message-level) -1))
+;;   (add-hook 'ycmd-mode-hook #'my-lower-request-message-level)
+;;   (add-hook 'c++-mode-hook #'ycmd-mode)
+;;   :config
+;;   (define-key ycmd-mode-map (kbd "M-.") #'ycmd-goto)
+;;   (define-key ycmd-mode-map (kbd "M-,") #'pop-tag-mark)
+;;   )
+
 (use-package company-c-headers
   :defer t
   :init
