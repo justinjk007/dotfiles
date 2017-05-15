@@ -110,6 +110,15 @@
   (add-to-list 'company-backends 'company-c-headers)
   )
 
+(use-package clang-format
+  :defer t
+  :init
+  (global-set-key (kbd "C-c r") 'clang-format-region)
+  (global-set-key (kbd "C-c u") 'clang-format-buffer)
+  :config
+  (setq clang-format-style-option "llvm")
+  )
+
 (use-package magit
   :bind ("C-x g" . magit-status)
   :defer t
