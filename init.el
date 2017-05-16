@@ -456,6 +456,19 @@
   (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
   )
 
+(use-package projectile
+  :defer t
+  :config
+  (projectile-global-mode)
+  (setq projectile-completion-system 'ivy)
+  )
+
+(use-package counsel-projectile
+  :defer t
+  :config
+  (counsel-projectile-on)
+  )
+
 (use-package all-the-icons
   :config
   (use-package all-the-icons-dired
@@ -472,7 +485,6 @@
   (beacon-mode 1)
   (setq beacon-color "#00ff7f")
   )
-
 
 (use-package fic-mode
   :defer t
