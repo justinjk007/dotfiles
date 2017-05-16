@@ -428,6 +428,8 @@
     ))
 
 (use-package ivy
+  :diminish ivy-mode
+  :diminish auto-revert-mode
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
@@ -457,14 +459,12 @@
   )
 
 (use-package projectile
-  :defer t
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
   )
 
 (use-package counsel-projectile
-  :defer t
   :config
   (counsel-projectile-on)
   )
