@@ -459,6 +459,7 @@
   )
 
 (use-package projectile
+  :diminish abbrev-mode
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
