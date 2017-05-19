@@ -495,8 +495,8 @@
 
 (use-package hungry-delete
   ;; deletes all the whitespace when you hit backspace or delete
-  :config
   :diminish hungry-delete-mode
+  :config
   (global-hungry-delete-mode)
   )
 
