@@ -38,7 +38,7 @@
   (require 'use-package)
   (setq use-package-always-ensure t))
 
-(setq default-directory "~/Repos/" )
+(setq default-directory "~/Dropbox/org-files/" )
 (setq-default frame-title-format '("%f [%m%*mode]"))
 ;; (add-to-list 'default-frame-alist '(width  . 110))
 ;; (add-to-list 'default-frame-alist '(height . 37))
