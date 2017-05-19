@@ -488,9 +488,10 @@
   )
 
 (use-package fic-mode
+  ;; Highlight TODO statements in certain modes
   :defer t
   :init
-  (add-hook 'c++-mode-hook 'fic-mode)
+  (add-hook 'prog-mode-hook 'fic-mode)
   )
 
 (global-set-key (kbd "M-z") 'shell-command)
