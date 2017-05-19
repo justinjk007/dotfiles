@@ -519,13 +519,15 @@
 (use-package hungry-delete
   ;; deletes all the whitespace when you hit backspace or delete
   :config
+  :diminish hungry-delete-mode
   (global-hungry-delete-mode)
   )
 
 (use-package expand-region
   ;; expand the marked region in semantic increments
   :config
-  (global-set-key (kbd "C-=") 'er/expand-region)
+  (define-key evil-normal-state-map (kbd "C-v") 'er/expand-region)
+  (define-key evil-visual-state-map (kbd "C-v") 'er/expand-region)
   )
 
 (global-set-key (kbd "M-z") 'shell-command)
