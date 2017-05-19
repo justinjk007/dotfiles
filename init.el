@@ -37,7 +37,7 @@
   (setq use-package-always-ensure t))
 
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
-(setq default-directory "d:/Repos/" )
+(setq default-directory "d:/Dropbox/org-files/" )
 (setq-default frame-title-format '("%f [%m%*mode]"))
 ;; (add-to-list 'default-frame-alist '(width  . 110))
 ;; (add-to-list 'default-frame-alist '(height . 37))
