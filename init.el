@@ -496,7 +496,6 @@
 (use-package all-the-icons
   :config
   (use-package all-the-icons-dired
-    :ensure t
     :defer t
     :diminish all-the-icons-dired-mode
     :init
@@ -515,6 +514,18 @@
   :defer t
   :init
   (add-hook 'prog-mode-hook 'fic-mode)
+  )
+
+(use-package hungry-delete
+  ;; deletes all the whitespace when you hit backspace or delete
+  :config
+  (global-hungry-delete-mode)
+  )
+
+(use-package expand-region
+  ;; expand the marked region in semantic increments
+  :config
+  (global-set-key (kbd "C-=") 'er/expand-region)
   )
 
 (global-set-key (kbd "M-z") 'shell-command)
