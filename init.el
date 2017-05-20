@@ -182,7 +182,7 @@
  '(global-flycheck-mode t)
  '(global-hl-line-mode t)
  '(inhibit-startup-screen t)
- '(org-agenda-files (quote ("~/.emacs.d/org-files/todo")))
+ '(org-agenda-files (quote ("~/Dropbox/org-files/todo")))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
