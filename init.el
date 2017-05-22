@@ -388,7 +388,6 @@
   )
 
 (use-package projectile
-  :diminish abbrev-mode
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
@@ -431,6 +430,7 @@
 
 (use-package expand-region
   ;; expand the marked region in semantic increments
+  :diminish abbrev-mode
   :config
   (define-key evil-normal-state-map (kbd "C-v") 'er/expand-region)
   (define-key evil-visual-state-map (kbd "C-v") 'er/expand-region)
