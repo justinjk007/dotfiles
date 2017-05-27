@@ -418,6 +418,11 @@
   (define-key evil-visual-state-map (kbd "C-v") 'er/expand-region)
   )
 
+(use-package ledger-mode
+  :defer t
+  :mode ("\\.ledger\\'" . ledger-mode)
+  )
+
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
