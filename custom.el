@@ -51,6 +51,7 @@
      solarized-theme
      emmet-mode)))
  '(powerline-height nil)
+ '(projectile-use-git-grep t)
  '(ring-bell-function (quote ignore) t)
  '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
