@@ -424,6 +424,12 @@
   :mode ("\\.ledger\\'" . ledger-mode)
   )
 
+(use-package cmake-mode
+  :defer t
+  :mode (("\\.cmake\\'" . cmake-mode)
+	 ("CMakeLists\\.txt\\'" . cmake-mode))
+  )
+
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
