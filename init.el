@@ -440,6 +440,7 @@
   :defer t
   :diminish auto-fill-mode
   :mode ("\\.ledger\\'" . ledger-mode)
+  :bind ("C-c l c" . ledger-mode-clean-buffer)
   )
 
 (use-package cmake-mode
