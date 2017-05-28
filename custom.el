@@ -53,6 +53,7 @@
      solarized-theme
      emmet-mode)))
  '(powerline-height nil)
+ '(projectile-use-git-grep t)
  '(python-shell-exec-path (quote ("C:/Python27")))
  '(python-shell-prompt-detect-failure-warning t)
  '(python-shell-virtualenv-root nil)

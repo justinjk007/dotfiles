@@ -67,6 +67,7 @@
   (global-set-key (kbd "C-l") 'windmove-right)
   (global-set-key (kbd "C-j")  'windmove-down)
   (global-set-key (kbd "C-k") 'windmove-up)
+  (define-key evil-normal-state-map "/" 'swiper)
   )
 
 (use-package company
@@ -382,15 +383,14 @@
   (global-set-key (kbd "<f1> l") 'counsel-find-library)
   (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
   (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-  (global-set-key (kbd "C-c g") 'counsel-git)
   (global-set-key (kbd "C-x l") 'counsel-locate)
-  (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
   )
 
 (use-package projectile
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
+  (global-set-key (kbd "C-c j") 'projectile-grep)
   )
 
 (use-package counsel-projectile
@@ -438,6 +438,7 @@
 
 (use-package ledger-mode
   :defer t
+  :diminish auto-fill-mode
   :mode ("\\.ledger\\'" . ledger-mode)
   )
 
