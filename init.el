@@ -45,6 +45,23 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; excutable paths (for unix commands from MSYS and git from msysgit)
+;; (setq exec-path (append exec-path
+;; 			'("C:/MinGW/bin/"
+;; 			  "C:/mingw/msys/1.0/bin/"
+;; 			  "C:/mingw/mingw32/bin"
+;; 			  "C:/Program Files/Git/bin")))
+(setenv "PATH"
+	(concat
+	 ;; Change this with your path to MSYS bin directory
+	 "C:\\MinGW\\msys\\1.0\\bin;"
+	 (getenv "PATH")))
+
+(setenv "PATH"
+	(concat
+	 ;; Change this with your path to MSYS bin directory
+	 "c:\\Program Files\\Git\\bin;"
+	 (getenv "PATH")))
 ;;-------------------------------------Server------------------
 (require 'server)
 (or (server-running-p)
@@ -208,12 +225,12 @@
 ;; (setenv "SHELL" shell-file-name)
 ;; (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
 
-(defun bash-shell ()
-  "Run WSL bash in shell mode."
-  (interactive)
-  (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-  (let ((explicit-shell-file-name "C:/Windows/System32/bash"))
-    (call-interactively 'shell)))
+;; (defun bash-shell ()
+;;   "Run WSL bash in shell mode."
+;;   (interactive)
+;;   (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
+;;   (let ((explicit-shell-file-name "C:/Windows/System32/bash"))
+;;     (call-interactively 'shell)))
 
 (use-package engine-mode
   :config
