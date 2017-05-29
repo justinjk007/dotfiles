@@ -84,7 +84,6 @@
  '(ivy-minibuffer-match-face-2 ((t (:background "light steel blue" :weight bold))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
- '(linum ((t (:background "#fdf6e3" :foreground "black" :distant-foreground "black" :foreground "#93a1a1" :box nil :strike-through nil :underline nil :weight thin :height 100 :width normal :family "Raleway Medium"))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
  '(org-default ((t (:family "Hack"))))
  '(org-level-1 ((t (:foreground "#7c91ea" :family "Hack"))))

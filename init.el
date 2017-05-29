@@ -401,6 +401,7 @@
   (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
   (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
   (global-set-key (kbd "C-x l") 'counsel-locate)
+  (global-set-key (kbd "C-x j") 'counsel-grep)
   )
 
 (use-package projectile
@@ -466,6 +467,12 @@
 	 ("CMakeLists\\.txt\\'" . cmake-mode))
   )
 
+(use-package nlinum
+  :defer t
+  :init
+  (add-hook 'prog-mode-hook 'nlinum-mode)
+  )
+
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
@@ -474,7 +481,6 @@
 (global-set-key (kbd "S-SPC") 'recompile)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'prog-mode-hook (lambda () (linum-mode 1)))
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 (provide 'init.el)
