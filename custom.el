@@ -87,7 +87,6 @@
  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
  '(org-verbatim ((t (:foreground "tomato"))))
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
- '(linum ((t (:foreground "grey68" :distant-foreground "black" :box nil :strike-through nil :underline nil :weight thin :height 110 :width normal :family "Raleway Medium"))))
  '(org-warning ((t (:foreground "red" :underline t))))
  '(org-clock-overlay ((t (:background "pale green"))))
  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
