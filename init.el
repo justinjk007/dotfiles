@@ -475,6 +475,8 @@
     (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
   (add-hook 'c-mode-hook 'maybe-cmake-project-hook)
   (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
+  :config
+  (setq cmake-project-default-build-dir-name "build\/")
   )
 
 (use-package nlinum
