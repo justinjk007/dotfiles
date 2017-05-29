@@ -186,6 +186,7 @@
   ("\\.org$" . org-mode)
   :pin manual
   :config
+  (setq org-clock-mode-line-total 'current)
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-agenda-mode-hook 'magit-keys)
