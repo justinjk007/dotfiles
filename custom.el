@@ -51,6 +51,9 @@
      solarized-theme
      emmet-mode)))
  '(powerline-height nil)
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build")))
  '(projectile-use-git-grep t)
  '(ring-bell-function (quote ignore) t)
  '(scroll-restore-mode t)
