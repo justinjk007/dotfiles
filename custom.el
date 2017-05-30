@@ -53,6 +53,9 @@
      solarized-theme
      emmet-mode)))
  '(powerline-height nil)
+ '(projectile-globally-ignored-directories
+   (quote
+    (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build")))
  '(projectile-use-git-grep t)
  '(python-shell-exec-path (quote ("C:/Python27")))
  '(python-shell-prompt-detect-failure-warning t)
