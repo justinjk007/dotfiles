@@ -71,6 +71,9 @@
   (define-key evil-normal-state-map "/" 'swiper)
   )
 
+(use-package solarized-theme
+  :pin melpa)
+
 (use-package company
   :diminish company-mode
   :config
@@ -371,6 +374,7 @@
   )
 
 (use-package projectile
+  :diminish projectile-mode
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
