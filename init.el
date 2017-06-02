@@ -72,7 +72,8 @@
   )
 
 (use-package solarized-theme
-  :pin melpa)
+  :pin melpa
+  )
 
 (use-package company
   :diminish company-mode
@@ -400,6 +401,12 @@
   :config
   (beacon-mode 1)
   (setq beacon-color "#00ff7f")
+  )
+
+(use-package evil-goggles
+  :config
+  (evil-goggles-mode)
+  (evil-goggles-use-diff-faces)
   )
 
 (use-package fic-mode
