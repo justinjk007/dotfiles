@@ -240,6 +240,7 @@
 	 (propertize "└─>" 'face `(:foreground "#778899"))
 	 (propertize (if (= (user-uid) 0) " # " " DOS ") 'face `(:foreground "#778899"))
 	 )))
+(add-hook 'eshell-mode-hook (lambda() (setq yas-dont-activate t)))
 
 ;; (setq explicit-shell-file-name "C:/Windows/System32/bash.exe")
 ;; (setq shell-file-name "bash")
