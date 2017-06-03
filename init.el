@@ -224,6 +224,23 @@
 	airline-utf-glyph-linenumber          #xe0a1 )
   )
 
+;;Fancy E-shell
+(setq eshell-prompt-function
+      (lambda ()
+	(concat
+	 (propertize "┌─[" 'face `(:foreground "#778899"))
+	 (propertize (user-login-name) 'face `(:foreground "#7c91ea"))
+	 (propertize "@" 'face `(:foreground "#778899"))
+	 (propertize (system-name) 'face `(:foreground "blue"))
+	 (propertize "]──[" 'face `(:foreground "#778899"))
+	 (propertize (format-time-string "%H:%M" (current-time)) 'face `(:foreground "#FF7D9E"))
+	 (propertize "]──[" 'face `(:foreground "#778899"))
+	 (propertize (concat (eshell/pwd)) 'face `(:foreground "#586e75"))
+	 (propertize "]\n" 'face `(:foreground "#778899"))
+	 (propertize "└─>" 'face `(:foreground "#778899"))
+	 (propertize (if (= (user-uid) 0) " # " " DOS ") 'face `(:foreground "#778899"))
+	 )))
+
 ;; (setq explicit-shell-file-name "C:/Windows/System32/bash.exe")
 ;; (setq shell-file-name "bash")
 ;; (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
