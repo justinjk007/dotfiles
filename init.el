@@ -216,6 +216,7 @@
 	 (propertize "└─>" 'face `(:foreground "#778899"))
 	 (propertize (if (= (user-uid) 0) " # " " DOS ") 'face `(:foreground "#778899"))
 	 )))
+(add-hook 'eshell-mode-hook (lambda() (setq yas-dont-activate t)))
 
 (use-package engine-mode
   :config
