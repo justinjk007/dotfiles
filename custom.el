@@ -38,6 +38,9 @@
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
  '(org-startup-indented t)
+ '(org-time-clocksum-format
+   (quote
+    (:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t)))
  '(package-enable-at-startup t)
  '(package-selected-packages
    (quote
