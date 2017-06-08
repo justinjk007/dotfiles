@@ -422,6 +422,7 @@
   )
 
 (use-package evil-goggles
+  :diminish evil-goggles-mode
   :config
   (evil-goggles-mode)
   (evil-goggles-use-diff-faces)
@@ -443,7 +444,6 @@
 
 (use-package expand-region
   ;; expand the marked region in semantic increments
-  :diminish abbrev-mode
   :config
   (define-key evil-normal-state-map (kbd "C-v") 'er/expand-region)
   (define-key evil-visual-state-map (kbd "C-v") 'er/expand-region)
@@ -475,6 +475,7 @@
 
 (use-package nlinum
   :defer t
+  :diminish abbrev-mode
   :init
   (add-hook 'prog-mode-hook 'nlinum-mode)
   )
