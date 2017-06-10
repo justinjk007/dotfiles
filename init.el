@@ -13,6 +13,7 @@
 			 ("melpa-s" . "https://stable.melpa.org/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
 			 ))
+
 (package-initialize)
 (setq gc-cons-threshold 20000000)
 (setq initial-scratch-message nil)
@@ -205,24 +206,56 @@
     )
   )
 
-(use-package powerline)
-(use-package airline-themes
-  :after powerline
+(use-package spaceline)
+(use-package spaceline-config
+  :ensure spaceline
   :config
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-		(lambda (frame)
-		  (select-frame frame)
-		  (load-theme 'airline-solarized-alternate-gui)))
-    (load-theme 'airline-solarized-alternate-gui))
-  (setq airline-utf-glyph-separator-left      #xe0b0
-	airline-utf-glyph-separator-right     #xe0b2
-	airline-utf-glyph-subseparator-left   #xe0b1
-	airline-utf-glyph-subseparator-right  #xe0b3
-	airline-utf-glyph-branch              #xE0A0
-	airline-utf-glyph-readonly            #xe0a2
-	airline-utf-glyph-linenumber          #xe0a1 )
+  (spaceline-spacemacs-theme)
+  (spaceline-toggle-evil-state-on)
+  (spaceline-toggle-projectile-root-on)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
+  (setq ns-use-srgb-colorspace nil)
+  (setq-default
+   powerline-height 23
+   powerline-default-separator 'slant
+   spaceline-flycheck-bullet "❖ %s"
+   spaceline-separator-dir-left '(right . right)
+   spaceline-separator-dir-right '(left . left))
+  (set-face-attribute 'mode-line nil :box nil)
+  (spaceline-compile)
   )
+
+;; (use-package spaceline-all-the-icons
+;;   :after spaceline
+;;   :config
+;;   (spaceline-all-the-icons-theme)
+;;   (spaceline-highlight-face-evil-state)
+;;   (spaceline-toggle-all-the-icons-vc-icon-off)
+;;   (spaceline-toggle-all-the-icons-buffer-position-on)
+;;   (spaceline-all-the-icons--setup-git-ahead)
+;;   (setq spaceline-all-the-icons-icon-set-git-ahead (quote commit))
+;;   (setq spaceline-all-the-icons-clock-always-visible nil)
+;;   ;; (setq spaceline-all-the-icons-separator-type (quote wave))
+;;   )
+
+;; (use-package powerline)
+;; (use-package airline-themes
+;;   :after powerline
+;;   :config
+;;   (if (daemonp)
+;;       (add-hook 'after-make-frame-functions
+;; 		(lambda (frame)
+;; 		  (select-frame frame)
+;; 		  (load-theme 'airline-solarized-alternate-gui)))
+;;     (load-theme 'airline-solarized-alternate-gui))
+;;   (setq airline-utf-glyph-separator-left      #xe0b0
+;; 	airline-utf-glyph-separator-right     #xe0b2
+;; 	airline-utf-glyph-subseparator-left   #xe0b1
+;; 	airline-utf-glyph-subseparator-right  #xe0b3
+;; 	airline-utf-glyph-branch              #xE0A0
+;; 	airline-utf-glyph-readonly            #xe0a2
+;; 	airline-utf-glyph-linenumber          #xe0a1 )
+;;   )
 
 ;; ;;Fancy E-shell
 ;; (setq eshell-prompt-function
@@ -320,6 +353,8 @@
   )
 
 (use-package flycheck
+  :diminish flycheck-mode
+  :diminish major-mode-icons-mode
   :config
   (global-flycheck-mode t)
   )
@@ -428,7 +463,6 @@
   )
 
 (use-package projectile
-  :diminish projectile-mode
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
