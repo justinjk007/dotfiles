@@ -77,7 +77,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Hack"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Monaco for powerline"))))
  '(column-marker-1 ((t (:background "dim grey"))))
  '(all-the-icons-dired-dir-face ((t (:foreground "#8b7d7d"))))
  '(airline-emacs-inner ((t (:foreground "orange red"))))
@@ -91,10 +91,10 @@
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
- '(org-default ((t (:family "Hack"))))
- '(org-level-1 ((t (:foreground "#7c91ea" :family "Hack"))))
- '(org-level-2 ((t (:foreground "plum" :family "Hack"))))
- '(org-level-3 ((t (:foreground "pink" :family "Hack"))))
+ '(org-default ((t (:family "Monaco for powerline"))))
+ '(org-level-1 ((t (:foreground "#7c91ea" :family "Monaco for powerline"))))
+ '(org-level-2 ((t (:foreground "plum" :family "Monaco for powerline"))))
+ '(org-level-3 ((t (:foreground "pink" :family "Monaco for powerline"))))
  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
  '(org-verbatim ((t (:foreground "tomato"))))
  '(org-warning ((t (:foreground "red" :underline t))))
