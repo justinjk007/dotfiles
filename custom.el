@@ -74,7 +74,7 @@
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
                          :strike-through nil :overline nil :underline nil :slant normal
                          :weight normal :height 110 :width normal :foundry "outline" :family
-                         "Hack"))))
+                         "Monaco for powerline"))))
  '(column-marker-1 ((t (:background "dim grey"))))
  '(airline-emacs-inner ((t (:background "#002b36" :foreground "orange red"))))
  '(airline-normal-inner ((t (:background "#002b36" :foreground "orange red"))))
@@ -86,10 +86,10 @@
  '(ivy-minibuffer-match-face-2 ((t (:background "lightskyblue" :foreground:black :weight bold))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
- '(org-default ((t (:family "Hack"))))
- '(org-level-1 ((t (:foreground "#7c91ea" :family "Hack"))))
- '(org-level-2 ((t (:foreground "plum" :family "Hack"))))
- '(org-level-3 ((t (:foreground "pink" :family "Hack"))))
+ '(org-default ((t (:family "Monaco for powerline"))))
+ '(org-level-1 ((t (:foreground "#7c91ea" :family "Monaco for powerline"))))
+ '(org-level-2 ((t (:foreground "plum" :family "Monaco for powerline"))))
+ '(org-level-3 ((t (:foreground "pink" :family "Monaco for powerline"))))
  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
  '(org-verbatim ((t (:foreground "tomato"))))
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
