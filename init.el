@@ -412,11 +412,9 @@
 (use-package projectile
   :config
   (projectile-global-mode)
+  (setq projectile-completion-system 'ivy)
   (global-set-key (kbd "C-c j") 'projectile-grep)
-  (setq-default
-   projectile-completion-system 'ivy
-   projectile-mode-line '(:eval (projectile-project-name))
-   )
+  )
 
 (use-package counsel-projectile
   :config
