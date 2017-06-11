@@ -95,8 +95,6 @@
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
  '(org-warning ((t (:foreground "red" :underline t))))
  '(org-clock-overlay ((t (:background "pale green"))))
- '(mode-line ((t ("#eee8d5" nil "#657b83" :background (:line-width 1 :color "#eee8d5" :style unspecified) :foreground "#eee8d5" :box (:color "#cccec4" :style line) :overline))))
- '(mode-line-inactive ((t ("#fdf6e3" nil "#93a1a1" :background (:line-width 1 :color "#fdf6e3" :style unspecified) :foreground "#eee8d5" :box (:color "#cccec4" :style line) :overline))))
  '(evil-goggles-delete-face ((t (:inherit (quote diff-removed) :weight bold ))))
  '(evil-goggles-paste-face ((t (:inherit (quote diff-added) :weight bold ))))
  '(evil-goggles-yank-face ((t (:inherit (quote diff-changed) :weight bold))))

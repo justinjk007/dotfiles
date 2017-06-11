@@ -197,7 +197,7 @@
    spaceline-flycheck-bullet "❖ %s"
    spaceline-separator-dir-left '(right . right)
    spaceline-separator-dir-right '(left . left))
-  (set-face-attribute 'mode-line nil :box nil)
+  (setq x-underline-at-descent-line t)
   (spaceline-compile)
   )
 
