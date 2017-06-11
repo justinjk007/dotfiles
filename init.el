@@ -206,7 +206,9 @@
     )
   )
 
-(use-package spaceline)
+(use-package spaceline
+  :ensure powerline
+  )
 (use-package spaceline-config
   :ensure spaceline
   :config
@@ -216,7 +218,7 @@
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (setq ns-use-srgb-colorspace nil)
   (setq-default
-   powerline-height 23
+   powerline-height 19
    powerline-default-separator 'slant
    spaceline-flycheck-bullet "❖ %s"
    spaceline-separator-dir-left '(right . right)
@@ -238,24 +240,6 @@
 ;;   ;; (setq spaceline-all-the-icons-separator-type (quote wave))
 ;;   )
 
-;; (use-package powerline)
-;; (use-package airline-themes
-;;   :after powerline
-;;   :config
-;;   (if (daemonp)
-;;       (add-hook 'after-make-frame-functions
-;; 		(lambda (frame)
-;; 		  (select-frame frame)
-;; 		  (load-theme 'airline-solarized-alternate-gui)))
-;;     (load-theme 'airline-solarized-alternate-gui))
-;;   (setq airline-utf-glyph-separator-left      #xe0b0
-;; 	airline-utf-glyph-separator-right     #xe0b2
-;; 	airline-utf-glyph-subseparator-left   #xe0b1
-;; 	airline-utf-glyph-subseparator-right  #xe0b3
-;; 	airline-utf-glyph-branch              #xE0A0
-;; 	airline-utf-glyph-readonly            #xe0a2
-;; 	airline-utf-glyph-linenumber          #xe0a1 )
-;;   )
 
 ;; ;;Fancy E-shell
 ;; (setq eshell-prompt-function
