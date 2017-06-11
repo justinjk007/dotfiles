@@ -58,7 +58,6 @@
    (quote
     (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build")))
  '(projectile-use-git-grep t)
- '(:eval (format "⌠%s⌡" (projectile-project-name)))
  '(ring-bell-function (quote ignore) t)
  '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
