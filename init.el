@@ -328,7 +328,6 @@
 
 (use-package yasnippet
   :diminish yas-minor-mode
-  :diminish auto-revert-mode
   :diminish undo-tree-mode
   :load-path "~/.emacs.d/snippets/"
   :config
@@ -417,7 +416,6 @@
 
 (use-package ivy
   :diminish ivy-mode
-  :diminish auto-revert-mode
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
@@ -529,6 +527,7 @@
 (use-package nlinum
   :defer t
   :diminish abbrev-mode
+  :diminish auto-revert-mode
   :init
   (add-hook 'prog-mode-hook 'nlinum-mode)
   )
