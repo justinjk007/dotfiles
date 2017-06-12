@@ -207,6 +207,8 @@
   (setq evil-visual-state-tag "VISUAL")
   (setq evil-emacs-state-tag "EMACS")
   (setq evil-motion-state-tag "MOTION")
+  (diminish 'abbrev-mode)
+  (diminish 'auto-revert-mode)
   (spaceline-compile)
   )
 
@@ -421,6 +423,12 @@
   (projectile-global-mode)
   (setq projectile-completion-system 'ivy)
   (global-set-key (kbd "C-c j") 'projectile-grep)
+  (eval-after-load "projectile"
+    '(setq projectile-mode-line
+	   '(:eval (list " ["
+			 (propertize (projectile-project-name)
+				     'face '(:weight bold :background "#fdf6e3" :foreground "#cd5c5c"))
+			 "]"))))
   )
 
 (use-package counsel-projectile
@@ -498,7 +506,6 @@
 
 (use-package nlinum
   :defer t
-  :diminish abbrev-mode
   :diminish auto-revert-mode
   :init
   (add-hook 'prog-mode-hook 'nlinum-mode)
