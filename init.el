@@ -205,6 +205,7 @@
   (setq evil-normal-state-tag "NORMAL")
   (setq evil-insert-state-tag "INSERT")
   (setq evil-visual-state-tag "VISUAL")
+  (setq evil-emacs-state-tag "EMACS")
   (setq evil-motion-state-tag "MOTION")
   (spaceline-compile)
   )
