@@ -28,6 +28,7 @@
 (setq disabled-command-function nil)
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 2) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
+(setq-default line-spacing 4)
 (defvar org-hide-emphasis-markers t)
 
 (unless (package-installed-p 'use-package)
@@ -156,7 +157,7 @@
 (load custom-file)
 
 (setq visible-bell nil
-      ring-bell-function 'my-terminal-visible-bell)
+      ring-bell-function 'ignore)
 
 ;;Put backup files neatly away -- saved me many times
 (let ((backup-dir "D:/Dropbox/Code/Emacs/backups")
@@ -214,6 +215,7 @@
   :config
   (spaceline-spacemacs-theme)
   (spaceline-toggle-evil-state-on)
+  (spaceline-toggle-org-clock-on)
   (spaceline-toggle-projectile-root-on)
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (setq ns-use-srgb-colorspace nil)
@@ -224,6 +226,10 @@
    spaceline-separator-dir-left '(right . right)
    spaceline-separator-dir-right '(left . left))
   (setq x-underline-at-descent-line t)
+  (setq evil-normal-state-tag "NORMAL")
+  (setq evil-insert-state-tag "INSERT")
+  (setq evil-visual-state-tag "VISUAL")
+  (setq evil-motion-state-tag "MOTION")
   (spaceline-compile)
   )
 
