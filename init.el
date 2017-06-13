@@ -214,6 +214,12 @@
   :ensure spaceline
   :config
   (spaceline-spacemacs-theme)
+  (set-face-attribute 'spaceline-evil-emacs nil :foreground "#fdf6e3" :background "#6c71c4")
+  (set-face-attribute 'spaceline-evil-normal nil :foreground "#fdf6e3" :background "#268bd2")
+  (set-face-attribute 'spaceline-evil-insert nil :foreground "#fdf6e3" :background "#859902")
+  (set-face-attribute 'spaceline-evil-visual nil :foreground "#fdf6e3" :background "#2AA198")
+  (set-face-attribute 'spaceline-evil-motion nil :foreground "#fdf6e3" :background "#268bd2")
+  (set-face-attribute 'spaceline-evil-replace nil :foreground "#fdf6e3" :background "#cd5c5c")
   (spaceline-toggle-evil-state-on)
   (spaceline-toggle-org-clock-on)
   (spaceline-toggle-projectile-root-on)
@@ -229,6 +235,7 @@
   (setq evil-normal-state-tag "NORMAL")
   (setq evil-insert-state-tag "INSERT")
   (setq evil-visual-state-tag "VISUAL")
+  (setq evil-replace-state-tag "REPLACE")
   (setq evil-emacs-state-tag "EMACS")
   (setq evil-motion-state-tag "MOTION")
   (diminish 'abbrev-mode)
