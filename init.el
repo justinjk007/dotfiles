@@ -433,10 +433,10 @@
   (global-set-key (kbd "C-c j") 'projectile-grep)
   (eval-after-load "projectile"
     '(setq projectile-mode-line
-	   '(:eval (list " ["
-			 (propertize (projectile-project-name)
-				     'face '(:weight bold :background "#fdf6e3" :foreground "#cd5c5c"))
-			 "]"))))
+           '(:eval (list " ["
+                         (propertize (projectile-project-name)
+                                     'face '(:weight bold :background "#002b36" :foreground "#ff6a6a"))
+                         "]"))))
   )
 
 (use-package counsel-projectile
