@@ -1,3 +1,8 @@
-#!/bin/bash 
+#!/bin/bash
 cp init.el ~/.emacs.d/
-echo "Finished copying init.el"
+cp custom-functions.el ~/.emacs.d/
+cp custom.el ~/.emacs.d/
+cp .gitconfig ~/
+cp .aliases ~/
+cp .zshrc ~/
+cp -rf snippets ~/.emacs.d/
