@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: exit
+# key: exit
+# --
+std::cout << "\n\n\n";
+exit(1);
