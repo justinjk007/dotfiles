@@ -187,24 +187,33 @@
                               ) )
 
 (use-package org
+  :pin manual
   :defer t
   :mode
   ("\\.org$" . org-mode)
-  :pin manual
   :config
   (setq org-clock-mode-line-total 'current)
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-agenda-mode-hook 'magit-keys)
-  (use-package org-bullets
-    :defer t
-    :init
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-    ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
-    )
   (use-package ox-twbs
     :defer t
     )
+  )
+(use-package org-bullets
+  :defer t
+  :after org
+  :init
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
+  )
+(use-package ox-twbs
+  :after org
+  )
+(use-package ox-reveal
+  :after org
+  :config
+  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/")
   )
 
 (use-package spaceline
@@ -243,51 +252,6 @@
   (diminish 'auto-revert-mode)
   (spaceline-compile)
   )
-
-;; (use-package spaceline-all-the-icons
-;;   :after spaceline
-;;   :config
-;;   (spaceline-all-the-icons-theme)
-;;   (spaceline-highlight-face-evil-state)
-;;   (spaceline-toggle-all-the-icons-vc-icon-off)
-;;   (spaceline-toggle-all-the-icons-buffer-position-on)
-;;   (spaceline-all-the-icons--setup-git-ahead)
-;;   (setq spaceline-all-the-icons-icon-set-git-ahead (quote commit))
-;;   (setq spaceline-all-the-icons-clock-always-visible nil)
-;;   ;; (setq spaceline-all-the-icons-separator-type (quote wave))
-;;   )
-
-
-;; ;;Fancy E-shell
-;; (setq eshell-prompt-function
-;;       (lambda ()
-;; 	(concat
-;; 	 (propertize "┌─[" 'face `(:foreground "#778899"))
-;; 	 (propertize (user-login-name) 'face `(:foreground "#7c91ea"))
-;; 	 (propertize "@" 'face `(:foreground "#778899"))
-;; 	 (propertize (system-name) 'face `(:foreground "blue"))
-;; 	 (propertize "]──[" 'face `(:foreground "#778899"))
-;; 	 (propertize (format-time-string "%H:%M" (current-time)) 'face `(:foreground "#FF7D9E"))
-;; 	 (propertize "]──[" 'face `(:foreground "#778899"))
-;; 	 (propertize (concat (eshell/pwd)) 'face `(:foreground "#586e75"))
-;; 	 (propertize "]\n" 'face `(:foreground "#778899"))
-;; 	 (propertize "└─>" 'face `(:foreground "#778899"))
-;; 	 (propertize (if (= (user-uid) 0) " # " " DOS ") 'face `(:foreground "#778899"))
-;; 	 )))
-;; (add-hook 'eshell-mode-hook (lambda() (setq yas-dont-activate t)))
-
-;; (setq explicit-shell-file-name "C:/Windows/System32/bash.exe")
-;; (setq shell-file-name "bash")
-;; (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-;; (setenv "SHELL" shell-file-name)
-;; (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
-
-;; (defun bash-shell ()
-;;   "Run WSL bash in shell mode."
-;;   (interactive)
-;;   (setq explicit-bash.exe-args '("--noediting" "--login" "-i"))
-;;   (let ((explicit-shell-file-name "C:/Windows/System32/bash"))
-;;     (call-interactively 'shell)))
 
 (use-package engine-mode
   :config
