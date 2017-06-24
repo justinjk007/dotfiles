@@ -9,10 +9,9 @@
 ;;File handler should be enabled at the bottom as well
 (require 'package)
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
-			 ("marmalade" . "http://marmalade-repo.org/packages/")
-			 ("melpa-s" . "http://stable.melpa.org/packages/")
-			 ("gnu" . "http://elpa.gnu.org/packages/")
-			 ))
+                         ("melpa-s" . "http://stable.melpa.org/packages/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")
+                         ))
 
 (package-initialize)
 (setq gc-cons-threshold 20000000)
@@ -167,7 +166,6 @@
                               ) )
 
 (use-package org
-  :pin manual
   :defer t
   :mode
   ("\\.org$" . org-mode)
