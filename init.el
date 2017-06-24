@@ -8,11 +8,10 @@
 ;;(let ((file-name-handler-alist nil))
 ;;File handler should be enabled at the bottom as well
 (require 'package)
-(setq package-archives '(("melpa" . "https://melpa.org/packages/")
-			 ("marmalade" . "https://marmalade-repo.org/packages/")
-			 ("melpa-s" . "https://stable.melpa.org/packages/")
-			 ("gnu" . "http://elpa.gnu.org/packages/")
-			 ))
+(setq package-archives '(("melpa" . "http://melpa.org/packages/")
+                         ("melpa-s" . "http://stable.melpa.org/packages/")
+                         ("gnu" . "http://elpa.gnu.org/packages/")
+                         ))
 
 (package-initialize)
 (setq gc-cons-threshold 20000000)
@@ -54,16 +53,16 @@
 ;; 			  "C:/mingw/mingw32/bin"
 ;; 			  "C:/Program Files/Git/bin")))
 (setenv "PATH"
-	(concat
-	 ;; Change this with your path to MSYS bin directory
-	 "C:\\MinGW\\msys\\1.0\\bin;"
-	 (getenv "PATH")))
+        (concat
+         ;; Change this with your path to MSYS bin directory
+         "C:\\MinGW\\msys\\1.0\\bin;"
+         (getenv "PATH")))
 
 (setenv "PATH"
-	(concat
-	 ;; Change this with your path to MSYS bin directory
-	 "c:\\Program Files\\Git\\bin;"
-	 (getenv "PATH")))
+        (concat
+         ;; Change this with your path to MSYS bin directory
+         "c:\\Program Files\\Git\\bin;"
+         (getenv "PATH")))
 ;;-------------------------------------Server------------------
 (require 'server)
 (or (server-running-p)
@@ -99,7 +98,7 @@
   (global-company-mode)
   (setq-local company-dabbrev-downcase nil)
   (setq company-minimum-prefix-length 2
-	company-show-numbers t
+        company-show-numbers t
         company-idle-delay 0)
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
   )
@@ -187,7 +186,6 @@
                               ) )
 
 (use-package org
-  :pin manual
   :defer t
   :mode
   ("\\.org$" . org-mode)
@@ -432,10 +430,10 @@
   (global-set-key (kbd "C-c j") 'projectile-grep)
   (eval-after-load "projectile"
     '(setq projectile-mode-line
-	   '(:eval (list " ["
-			 (propertize (projectile-project-name)
-				     'face '(:weight bold :background "#fdf6e3" :foreground "#cd5c5c"))
-			 "]"))))
+           '(:eval (list " ["
+                         (propertize (projectile-project-name)
+                                     'face '(:weight bold :background "#fdf6e3" :foreground "#cd5c5c"))
+                         "]"))))
   )
 
 (use-package counsel-projectile
@@ -497,7 +495,7 @@
 (use-package cmake-mode
   :defer t
   :mode (("\\.cmake\\'" . cmake-mode)
-	 ("CMakeLists\\.txt\\'" . cmake-mode))
+         ("CMakeLists\\.txt\\'" . cmake-mode))
   )
 
 (use-package cmake-project
