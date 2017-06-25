@@ -75,7 +75,6 @@
                          :strike-through nil :overline nil :underline nil :slant normal
                          :weight normal :height 110 :width normal :foundry "outline" :family
                          "Monaco for powerline"))))
- '(column-marker-1 ((t (:background "dim grey"))))
  '(airline-emacs-inner ((t (:background "#002b36" :foreground "orange red"))))
  '(airline-normal-inner ((t (:background "#002b36" :foreground "orange red"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))

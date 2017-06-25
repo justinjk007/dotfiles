@@ -301,13 +301,6 @@
   (global-flycheck-mode t)
   )
 
-(use-package column-marker
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-  (add-hook 'web-mode-hook '(lambda () (interactive) (column-marker-1 80)))
-  )
-
 (use-package speed-type
   :defer t
   )
