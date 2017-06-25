@@ -494,6 +494,17 @@
   (add-hook 'prog-mode-hook 'nlinum-mode)
   )
 
+(use-package anzu
+  :diminish anzu-mode
+  :init
+  (global-set-key [remap query-replace] 'anzu-query-replace)
+  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
+  (global-set-key (kbd "C-c a r") 'anzu-query-replace-at-cursor-thing)
+  :config
+  (global-anzu-mode +1)
+  (set-face-attribute 'anzu-replace-to nil :foreground "#d33682")
+  )
+
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
