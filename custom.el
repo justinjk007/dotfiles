@@ -77,11 +77,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 100 :width normal :foundry "outline" :family "Monaco for powerline"))))
- '(column-marker-1 ((t (:background "dim grey"))))
- '(all-the-icons-dired-dir-face ((t (:foreground "#8b7d7d"))))
- '(airline-emacs-inner ((t (:foreground "orange red"))))
- '(airline-normal-inner ((t (:foreground "orange red"))))
+ '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
+                         :strike-through nil :overline nil :underline nil :slant normal
+                         :weight normal :height 100 :width normal :foundry "outline" :family
+                         "Monaco for powerline"))))
+ '(airline-emacs-inner ((t (:background "#002b36" :foreground "orange red"))))
+ '(airline-normal-inner ((t (:background "#002b36" :foreground "orange red"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#FF7D9E"))))
  '(fic-face ((t (:foreground "#ff6a6a" :slant normal :weight bold))))
