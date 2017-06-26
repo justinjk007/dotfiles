@@ -520,6 +520,12 @@
   (set-face-attribute 'anzu-replace-to nil :foreground "#d33682")
   )
 
+(use-package zeal-at-point
+  :init
+  (add-to-list 'exec-path "C:/Program Files (x86)/Zeal")
+  (global-set-key (kbd "C-c C-d") 'zeal-at-point)
+  )
+
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
