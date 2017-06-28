@@ -81,3 +81,4 @@ fi
 source $HOME/.aliases
 export JAVA_HOME="/etc/environment :$JAVA_HOME"
 export PATH="/home/username/anaconda2/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
