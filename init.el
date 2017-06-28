@@ -466,19 +466,19 @@
 (use-package cmake-mode
   :defer t
   :mode (("\\.cmake\\'" . cmake-mode)
-	 ("CMakeLists\\.txt\\'" . cmake-mode))
+         ("CMakeLists\\.txt\\'" . cmake-mode))
   )
 
-(use-package cmake-project
-  :defer t
-  :init
-  (defun maybe-cmake-project-hook ()
-    (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
-  (add-hook 'c-mode-hook 'maybe-cmake-project-hook)
-  (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
-  :config
-  (setq cmake-project-default-build-dir-name "build\/")
-  )
+;; (use-package cmake-project
+;;   :defer t
+;;   :init
+;;   (defun maybe-cmake-project-hook ()
+;;     (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
+;;   (add-hook 'c-mode-hook 'maybe-cmake-project-hook)
+;;   (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
+;;   :config
+;;   (setq cmake-project-default-build-dir-name "build\/")
+;;   )
 
 (use-package nlinum
   :defer t
