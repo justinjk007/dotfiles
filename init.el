@@ -502,7 +502,10 @@
   ;; go get -u github.com/dougm/goflymake
   :defer t
   :mode ("\\.go\\'" . go-mode)
+  :config
+  (add-hook 'before-save-hook #'gofmt-before-save)
   )
+(use-package company-go)
 
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
