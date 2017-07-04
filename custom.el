@@ -8,8 +8,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(airline-cursor-colors nil)
- '(airline-display-directory nil)
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
@@ -26,8 +24,7 @@
      "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/airline-themes-20170425.1646"
-     "~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
+    ("~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -81,8 +78,6 @@
                          :strike-through nil :overline nil :underline nil :slant normal
                          :weight normal :height 100 :width normal :foundry "outline" :family
                          "Monaco for powerline"))))
- '(airline-emacs-inner ((t (:background "#002b36" :foreground "orange red"))))
- '(airline-normal-inner ((t (:background "#002b36" :foreground "orange red"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#FF7D9E"))))
  '(fic-face ((t (:foreground "#ff6a6a" :slant normal :weight bold))))
