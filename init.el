@@ -31,6 +31,7 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq-default line-spacing 4)
 (defvar org-hide-emphasis-markers t)
+(fringe-mode '(8 . 6)) ; Make left fringe 8 pixel and right 6.
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
