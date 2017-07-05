@@ -508,6 +508,12 @@
   )
 (use-package company-go)
 
+(use-package evil-tutor
+  :defer t
+  :init
+  (evil-ex-define-cmd "evil-tutor[-start]" 'evil-tutor-start)
+  )
+
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
