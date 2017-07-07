@@ -484,6 +484,8 @@
   :diminish auto-fill-mode
   :mode ("\\.ledger\\'" . ledger-mode)
   :bind ("C-c l c" . ledger-mode-clean-buffer)
+  :config
+  (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal" ))
   )
 
 (use-package cmake-mode
