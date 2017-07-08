@@ -249,6 +249,20 @@
   (setq evil-motion-state-tag "MOTION")
   (diminish 'abbrev-mode)
   (diminish 'auto-revert-mode)
+  ;; fancy git icon
+  (defadvice vc-mode-line (after strip-backend () activate)
+    (propertize (all-the-icons-octicon "git-branch")
+		'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
+		'display '(raise -0.1))
+    (when (stringp vc-mode)
+      (let ((gitlogo (replace-regexp-in-string
+		      "^ Git"
+		      (propertize (all-the-icons-octicon
+				   "git-branch"
+				   :face 'all-the-icons-orange)
+				  'display '(raise 0)
+				  ) vc-mode)))
+	(setq vc-mode gitlogo))))
   (spaceline-compile)
   )
 
