@@ -211,10 +211,8 @@
   (setq ns-use-srgb-colorspace nil)
   (setq-default
    powerline-height 19
-   powerline-default-separator 'slant
-   spaceline-flycheck-bullet "❖ %s"
-   spaceline-separator-dir-left '(right . right)
-   spaceline-separator-dir-right '(left . left))
+   powerline-default-separator 'bar
+   spaceline-flycheck-bullet "❖ %s")
   (setq x-underline-at-descent-line t)
   (setq evil-normal-state-tag "NORMAL")
   (setq evil-insert-state-tag "INSERT")
