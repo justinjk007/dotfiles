@@ -117,6 +117,8 @@
   (add-to-list 'company-backends 'company-c-headers)
   )
 
+;; Install LLVM - http://releases.llvm.org/download.html
+;; Install MingW - http://mingw-w64.org/doku.php - 32 bit version
 (use-package clang-format
   :defer t
   :init
@@ -494,6 +496,31 @@
 ;;   :config
 ;;   (setq cmake-project-default-build-dir-name "build\/")
 ;;   )
+
+(use-package irony
+  :config
+  :diminish irony-mode
+  )
+
+(use-package company-irony
+  :ensure irony
+  :defer t
+  :init
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (setq w32-pipe-read-delay 0)
+  (setq irony-server-w32-pipe-buffer-size (* 64 1024))
+  :config
+  (add-to-list 'company-backends 'company-irony)
+  (setq irony-additional-clang-options '("-std=c++17"))
+  )
+
+(use-package flycheck-irony
+  :defer t
+  :after flycheck
+  :init
+  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
+  )
 
 (use-package nlinum
   :defer t
