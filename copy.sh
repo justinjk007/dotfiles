@@ -5,4 +5,5 @@ cp custom.el ~/.emacs.d/
 cp .gitconfig ~/
 cp .aliases ~/
 cp .zshrc ~/
+cp .clang_complete ~/
 cp -rf snippets ~/.emacs.d/
