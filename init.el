@@ -422,6 +422,16 @@
                          "]"))))
   )
 
+(use-package ibuffer-projectile
+  :defer t
+  :init
+  (add-hook 'ibuffer-hook
+	    (lambda ()
+	      (ibuffer-projectile-set-filter-groups)
+	      (unless (eq ibuffer-sorting-mode 'alphabetic)
+		(ibuffer-do-sort-by-alphabetic))))
+  )
+
 (use-package counsel-projectile
   :config
   (counsel-projectile-on)
