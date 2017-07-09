@@ -547,6 +547,12 @@
   (setq irony-additional-clang-options '("-std=c++17"))
   )
 
+(use-package irony-eldoc
+  :defer t
+  :init
+  (add-hook 'irony-mode-hook #'irony-eldoc)
+  )
+
 (use-package flycheck-irony
   :defer t
   :after flycheck
