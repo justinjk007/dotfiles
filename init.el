@@ -611,6 +611,7 @@
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-c k o b") 'kill-other-buffers)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
