@@ -83,5 +83,10 @@ foofoofoo  bar"
                 "\\S-+\\(\\s-+\\)"
                 1 1 nil))
 
+(defun kill-other-buffers ()
+  "Kill all other buffers except scratch."
+  (interactive)
+  (mapc 'kill-buffer (delq "*scratch*" (buffer-list))))
+
 (provide 'custom-functions)
 ;;; custom-functions.el ends here
