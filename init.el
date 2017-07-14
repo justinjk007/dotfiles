@@ -495,8 +495,6 @@
   :after cmake-project
   :mode (("\\.cmake\\'" . cmake-mode)
          ("CMakeLists\\.txt\\'" . cmake-mode))
-  :bind (:map cmake-mode-map
-	      ("S-SPC" . cmake-project-configure-project))
   )
 
 ;; (use-package cmake-project
