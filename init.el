@@ -550,6 +550,7 @@
 
 (use-package irony-eldoc
   :defer t
+  :diminish eldoc-mode
   :init
   (add-hook 'irony-mode-hook #'irony-eldoc)
   )
