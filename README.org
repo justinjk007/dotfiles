@@ -1,9 +1,13 @@
+#+CAPTION: This is how I feeel when I tweak my emacs config
+#+html: <p align="center"><img src="usingemacs.gif" /></p>
+
+
 * This is a repository for my config files
  Here you can find my
 - Emacs configuration for windows
 - Custom functions I have written and collected for emacs
 - My CS:GO autoexec config
 - My git configuration
-- My snippets - Usable with [[https://github.com/joaotavora/yasnippet][YASnippets]] 
+- My snippets - Usable with [[https://github.com/joaotavora/yasnippet][YASnippets]]
 - A small script in vbs to start emacs daemon during startup
   completely hiding the console window.
