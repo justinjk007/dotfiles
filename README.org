@@ -1,3 +1,7 @@
+#+CAPTION: This is how I feeel when I tweak my emacs config
+#+html: <p align="center"><img src="usingemacs.gif" /></p>
+
+
 * This is a repository for my config files
  Here you can find my
 - Emacs configuration
@@ -5,6 +9,6 @@
 - My zsh shell config
 - My shell aliases
 - My git configuration
-- My snippets - Usable with [[https://github.com/joaotavora/yasnippet][YASnippets]] 
+- My snippets - Usable with [[https://github.com/joaotavora/yasnippet][YASnippets]]
 
 PS: Please take a look at my *windows* branch if you are a windows user
