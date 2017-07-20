@@ -607,6 +607,7 @@
 (use-package hydra)
 
 (use-package smartparens
+  :diminish smartparens-mode
   :init
   (add-hook 'prog-mode-hook #'smartparens-mode)
   :config
