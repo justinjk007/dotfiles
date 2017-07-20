@@ -606,6 +606,14 @@
 
 (use-package hydra)
 
+(use-package smartparens
+  :init
+  (add-hook 'prog-mode-hook #'smartparens-mode)
+  :config
+  (require 'smartparens-config)
+  ;; TODO Look into evil-smartparens
+  )
+
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
