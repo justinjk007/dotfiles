@@ -88,5 +88,14 @@ foofoofoo  bar"
   (interactive)
   (mapc 'kill-buffer (delq "*scratch*" (buffer-list))))
 
+(defun my-abbrev-mode-defs ()
+  "This function defins some basic abbrevations."
+  (abbrev-mode 1)
+  (define-abbrev-table 'global-abbrev-table '(
+					      ("alpha" "α")
+					      ("beta" "β")
+					      ("gamma" "γ")
+					      ("delta" "Δ"))))
+
 (provide 'custom-functions)
 ;;; custom-functions.el ends here
