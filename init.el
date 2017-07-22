@@ -50,23 +50,6 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
-;; excutable paths (for unix commands from MSYS and git from msysgit)
-;; (setq exec-path (append exec-path
-;; 			'("C:/MinGW/bin/"
-;; 			  "C:/mingw/msys/1.0/bin/"
-;; 			  "C:/mingw/mingw32/bin"
-;; 			  "C:/Program Files/Git/bin")))
-(setenv "PATH"
-        (concat
-         ;; Change this with your path to MSYS bin directory
-         "C:\\MinGW\\msys\\1.0\\bin;"
-         (getenv "PATH")))
-
-(setenv "PATH"
-        (concat
-         ;; Change this with your path to MSYS bin directory
-         "c:\\Program Files\\Git\\bin;"
-         (getenv "PATH")))
 ;;-------------------------------------Server------------------
 (require 'server)
 (or (server-running-p)
@@ -106,29 +89,6 @@
         company-idle-delay 0)
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
   )
-
-;; (use-package company-ycmd
-;;   :after ycmd
-;;   :config
-;;   (push '(company-ycmd :with company-yasnippet company-dabbrev-code) company-backends)
-;;   )
-
-;; (setq url-show-status nil)              ; make ycmd more quiet
-
-;; (use-package ycmd
-;;   :defer t
-;;   :init
-;;   (setq ycmd-server-command '("python2" "~/src/ycmd/ycmd/__main__.py")
-;;         ycmd-global-config "~/.emacs.d/.ycm_extra_conf.py")
-;;   (defun my-lower-request-message-level ()
-;;     "Lower `request-message-level' in this buffer only."
-;;     (set (make-variable-buffer-local 'request-message-level) -1))
-;;   (add-hook 'ycmd-mode-hook #'my-lower-request-message-level)
-;;   (add-hook 'c++-mode-hook #'ycmd-mode)
-;;   :config
-;;   (define-key ycmd-mode-map (kbd "M-.") #'ycmd-goto)
-;;   (define-key ycmd-mode-map (kbd "M-,") #'pop-tag-mark)
-;;   )
 
 (use-package company-c-headers
   :defer t
