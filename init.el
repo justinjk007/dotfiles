@@ -42,7 +42,7 @@
   (setq use-package-always-ensure t))
 
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
-(setq default-directory "d:/Dropbox/org-files/" )
+;; (setq default-directory "d:/Dropbox/org-files/" )
 (setq-default frame-title-format '("%f [%m%*mode]"))
 ;; (add-to-list 'default-frame-alist '(width  . 110))
 ;; (add-to-list 'default-frame-alist '(height . 37))
@@ -125,8 +125,8 @@
       ring-bell-function 'ignore)
 
 ;;Put backup files neatly away -- saved me many times
-(let ((backup-dir "D:/Dropbox/Code/Emacs/backups")
-      (auto-saves-dir "D:/Dropbox/Code/Emacs/autosavedir/")
+(let ((backup-dir "~/.emacs.d/Emacs/backups")
+      (auto-saves-dir "~/.emacs.d/Emacs/autosavedir/")
       )
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
