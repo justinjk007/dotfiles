@@ -473,7 +473,7 @@
   :mode ("\\.ledger\\'" . ledger-mode)
   :bind ("C-c l c" . ledger-mode-clean-buffer)
   :config
-  (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal" ))
+  (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
 (use-package cmake-mode
