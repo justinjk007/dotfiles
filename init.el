@@ -19,6 +19,7 @@
 (setq user-mail-address "justinjoseph0007@gmail.com")
 (setq initial-scratch-message nil)
 (fset 'yes-or-no-p 'y-or-n-p); Change yes/no to y/n
+(setq save-abbrevs 'silently)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
