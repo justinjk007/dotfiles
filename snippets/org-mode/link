@@ -1,0 +1,4 @@
+# key: link
+# name: link
+# --
+[[${1:Link}][${2:Description}]]
