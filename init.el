@@ -562,7 +562,19 @@
   (add-hook 'prog-mode-hook #'smartparens-mode)
   :config
   (require 'smartparens-config)
-  ;; TODO Look into evil-smartparens
+  ;; TODO Look into using evil-smartparens
+  )
+
+(use-package evil-vimish-fold
+  :diminish (evil-vimish-fold-mode)
+  :config (evil-vimish-fold-mode 1)
+  )
+
+(use-package vimish-fold
+  :bind ("<backtab>" . vimish-fold-toggle)
+  :config
+  (vimish-fold-global-mode t)
+  (set-face-attribute 'vimish-fold-fringe nil :foreground "#d33682")
   )
 
 (global-set-key (kbd "M-z") 'shell-command)
