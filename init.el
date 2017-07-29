@@ -173,6 +173,15 @@
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/")
   )
 
+(use-package markdown-mode
+  ;; http://jblevins.org/projects/markdown-mode/ -- Read all about it
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown")
+  )
+
 (use-package spaceline
   :ensure powerline
   ;; https://gist.github.com/epegzz/1634235/fe5100a91157c5d0f0c8b7b6dedd126c6396ae19
@@ -577,6 +586,7 @@
   (set-face-attribute 'vimish-fold-fringe nil :foreground "#d33682")
   )
 
+;; Misc Bindings
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
