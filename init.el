@@ -414,7 +414,7 @@
     '(setq projectile-mode-line
            '(:eval (list " ["
                          (propertize (projectile-project-name)
-                                     'face '(:weight bold :background "#fdf6e3" :foreground "#cd5c5c"))
+                                     'face '(:weight bold :inherit t :foreground "#cd5c5c"))
                          "]"))))
   )
 
