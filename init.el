@@ -593,6 +593,7 @@
 
 (use-package vimish-fold
   :bind ("<backtab>" . vimish-fold-toggle)
+  :bind ("C-M-," . vimish-fold-toggle-all)
   :config
   (vimish-fold-global-mode t)
   (set-face-attribute 'vimish-fold-fringe nil :foreground "#d33682")
