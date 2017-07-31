@@ -95,6 +95,5 @@
  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
-(set-face-attribute 'region nil :foreground "#2aa198" :background "#fdf6e3")
 (provide 'custom.el)
 ;;; custom.el ends here
