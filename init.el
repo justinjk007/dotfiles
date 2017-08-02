@@ -535,6 +535,7 @@
   :diminish auto-revert-mode
   :init
   (add-hook 'prog-mode-hook 'nlinum-mode)
+  (add-hook 'ledger-mode-hook 'nlinum-mode)
   )
 
 (use-package anzu
