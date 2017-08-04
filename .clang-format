@@ -1,0 +1,18 @@
+---
+# I will use a mix of Google and linux-kernal style guide.
+BasedOnStyle: Google
+IndentWidth: 4
+---
+Language: Cpp
+Standard: Cpp11
+# I know, I know IBM legacy blah blah, but I think 100 is acceptable with todays Standards
+ColumnLimit: 100
+BreakBeforeBraces: Linux
+AlignAfterOpenBracket: BAS_Align
+AlignConsecutiveAssignments: true
+AlignOperands: true
+AllowShortFunctionsOnASingleLine: SFS_Empty
+DerivePointerAlignment: false
+PointerAlignment: Left
+Cpp11BracedListStyle: true
+...
