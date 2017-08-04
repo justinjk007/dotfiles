@@ -6,4 +6,5 @@ cp .gitconfig ~/
 cp .aliases ~/
 cp .zshrc ~/
 cp .clang_complete ~/
+cp .clang-format ~/
 cp -rf snippets ~/.emacs.d/
