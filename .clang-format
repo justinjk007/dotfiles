@@ -1,4 +1,3 @@
----
 # I will use a mix of Google and linux-kernal style guide.
 BasedOnStyle: Google
 Language: Cpp
@@ -14,4 +13,3 @@ AlignOperands: true
 AllowShortFunctionsOnASingleLine: Empty
 DerivePointerAlignment: false
 PointerAlignment: Left
-...
