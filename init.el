@@ -105,7 +105,7 @@
   (global-set-key (kbd "C-c r") 'clang-format-region)
   (global-set-key (kbd "C-c u") 'clang-format-buffer)
   :config
-  (setq clang-format-style-option "llvm")
+  (setq clang-format-style-option "file")
   )
 
 (use-package magit
