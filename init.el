@@ -325,6 +325,10 @@
   :diminish aggressive-indent-mode
   :init
   (aggressive-indent-global-mode t)
+  ;; Since I use clang format and this interferes with it.
+  (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
   )
 
 (use-package key-chord
