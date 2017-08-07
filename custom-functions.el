@@ -97,5 +97,25 @@ foofoofoo  bar"
 					      ("gamma" "γ")
 					      ("delta" "Δ"))))
 
+(defun my-expenses-today ()
+  "Get todays expenses using ledger-cli on the go."
+  (defvar todays-date-flag (concat "-b "
+				   (format-time-string "%m") ;; Month
+				   "/"
+				   (format-time-string "%d") ;; Day
+				   ))
+  (defvar tomorrows-date-flag (concat "-e "
+				      (format-time-string "%m")
+				      "/0" ;; 0 is needed for the date formated below
+				      (number-to-string
+				       (+ (string-to-number (format-time-string "%d")) 1))
+				      ))
+  (defvar todays-expenses-command (concat "ledger -f "
+					  (file-name-nondirectory buffer-file-name)
+					  "hello"
+					  " bal ^Expenses " todays-date-flag " " tomorrows-date-flag))
+  (shell-command todays-expenses-command)
+  )
+
 (provide 'custom-functions)
 ;;; custom-functions.el ends here
