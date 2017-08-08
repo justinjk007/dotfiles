@@ -604,6 +604,32 @@
   (set-face-attribute 'vimish-fold-fringe nil :foreground "#d33682")
   )
 
+(use-package ggtags
+  ;; Get gnu global
+  ;; sudo apt install global
+  ;; http://adoxa.altervista.org/global/
+  :diminish ggtags-mode
+  :init
+  (add-hook 'c-mode-common-hook
+	    (lambda ()
+	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+		(ggtags-mode 1))))
+  )
+
+(use-package counsel-gtags
+  :diminish counsel-gtags-mode
+  :after ggtags
+  :init
+  (add-hook 'c-mode-common-hook
+	    (lambda ()
+	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+		(counsel-gtags-mode))))
+  :bind (("M-t" . counsel-gtags-find-definition)
+	 ("M-r" . counsel-gtags-find-reference)
+	 ("M-s" . counsel-gtags-find-symbol)
+	 ("M-," . counsel-gtags-go-backward))
+  )
+
 ;; Misc Bindings
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
