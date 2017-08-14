@@ -579,19 +579,6 @@
   ;; TODO Look into using evil-smartparens
   )
 
-(use-package evil-vimish-fold
-  :diminish (evil-vimish-fold-mode)
-  :config (evil-vimish-fold-mode 1)
-  )
-
-(use-package vimish-fold
-  :bind ("<backtab>" . vimish-fold-toggle)
-  :bind ("C-M-," . vimish-fold-toggle-all)
-  :config
-  (vimish-fold-global-mode t)
-  (set-face-attribute 'vimish-fold-fringe nil :foreground "#d33682")
-  )
-
 (use-package ggtags
   ;; Get gnu global
   ;; sudo apt install global
