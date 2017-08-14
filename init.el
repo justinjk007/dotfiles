@@ -617,6 +617,11 @@
 	 ("M-," . counsel-gtags-go-backward))
   )
 
+(use-package octave
+  ;; Used for matlab and octave files
+  :mode ("\\.m\\'" . octave-mode)
+  )
+
 ;; Misc Bindings
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
