@@ -329,6 +329,8 @@
   (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
+  ;; MatLab doesnot like me and vice versa
+  (add-to-list 'aggressive-indent-excluded-modes 'octave-mode)
   )
 
 (use-package key-chord
