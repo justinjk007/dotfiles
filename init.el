@@ -624,6 +624,12 @@
   :mode ("\\.m\\'" . octave-mode)
   )
 
+(use-package wotd
+  ;; Gives you word of the day
+  :defer t
+  :bind ("C-c C-w" . wotd-select)
+  )
+
 ;; Misc Bindings
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
