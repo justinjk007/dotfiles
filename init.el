@@ -118,6 +118,12 @@
   (add-hook 'magit-staged-section-mode-hook 'magit-keys)
   )
 
+(use-package magithub
+  :defer t
+  :after magit
+  :config (magithub-feature-autoinject t)
+  )
+
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
