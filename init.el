@@ -109,6 +109,9 @@
   )
 
 (use-package magit
+  ;; Install Diffutils for windows from here
+  ;; http://gnuwin32.sourceforge.net/packages/diffutils.htm
+  ;; And add the bin folder to path
   :bind ("C-x g" . magit-status)
   :defer t
   :config
