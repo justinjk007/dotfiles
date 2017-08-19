@@ -110,8 +110,17 @@
 
 (use-package magit
   ;; Install Diffutils for windows from here
-  ;; http://gnuwin32.sourceforge.net/packages/diffutils.htm
-  ;; And add the bin folder to path
+  ;; Step1 - http://gnuwin32.sourceforge.net/packages/diffutils.htm
+  ;; Step2 - And add the bin folder to path
+  ;; Try this instead of step 2 one day ->
+  ;; (when (string-equal system-type "windows-nt")
+  ;;   (progn
+  ;;     (setq diff-path "your-diff-path")
+  ;;     (setenv "PATH"
+  ;; 	      (concat diff-path ";"))
+  ;;     (setq exec-path
+  ;; 	    '(diff-path))))
+
   :bind ("C-x g" . magit-status)
   :defer t
   :config
