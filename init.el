@@ -625,6 +625,16 @@
   :bind ("C-c C-w" . wotd-select)
   )
 
+(use-package dashboard
+  :diminish page-break-lines-mode
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-banner-logo-title "Lets start hacking !")
+  (setq dashboard-items '((projects . 5)
+			  (recents  . 3)
+			  (agenda . 3)))
+  )
+
 ;; Misc Bindings
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
