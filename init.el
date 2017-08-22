@@ -16,6 +16,7 @@
 (package-initialize)
 (setq gc-cons-threshold 20000000)
 (setq initial-scratch-message nil)
+(setq message-log-max 10000)
 (fset 'yes-or-no-p 'y-or-n-p); Change yes/no to y/n
 (setq save-abbrevs 'silently)
 (prefer-coding-system 'utf-8)
