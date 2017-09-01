@@ -527,6 +527,7 @@
   (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
   :config
   (setq cmake-project-default-build-dir-name "build\/")
+  ;; TODO Checkout cmake-ide https://github.com/atilaneves/cmake-ide
   )
 
 (use-package irony
