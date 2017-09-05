@@ -496,7 +496,7 @@
 
 (use-package cmake-project
   :defer t
-  init
+  :init
   (defun maybe-cmake-project-hook ()
     (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
   (add-hook 'c-mode-hook 'maybe-cmake-project-hook)
