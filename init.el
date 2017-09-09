@@ -575,12 +575,6 @@
   (set-face-attribute 'anzu-replace-to nil :foreground "#d33682")
   )
 
-(use-package zeal-at-point
-  :init
-  (add-to-list 'exec-path "C:/Program Files (x86)/Zeal")
-  (global-set-key (kbd "C-c C-d") 'zeal-at-point)
-  )
-
 (use-package go-mode
   ;; go get -u github.com/dougm/goflymake
   :defer t
