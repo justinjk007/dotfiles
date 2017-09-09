@@ -44,7 +44,6 @@
   (setq use-package-always-ensure t))
 
 (setq browse-url-browser-function 'browse-url-default-windows-browser)
-;; (setq default-directory "d:/Dropbox/org-files/" )
 (setq-default frame-title-format '("%f [%m%*mode]"))
 ;; (add-to-list 'default-frame-alist '(width  . 110))
 ;; (add-to-list 'default-frame-alist '(height . 37))
@@ -171,6 +170,7 @@
   ("\\.org$" . org-mode)
   :config
   (setq org-clock-mode-line-total 'current)
+  (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)

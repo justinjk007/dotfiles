@@ -24,7 +24,7 @@
      "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/solarized-theme-1.2.2" custom-theme-directory t)))
+    ("~/.emacs.d/elpa/solarized-theme-20170831.1159" custom-theme-directory t)))
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -32,7 +32,6 @@
  '(global-flycheck-mode t)
  '(global-hl-line-mode t)
  '(inhibit-startup-screen t)
- '(org-agenda-files(quote("D:/Dropbox/org-files/todo.org")))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
