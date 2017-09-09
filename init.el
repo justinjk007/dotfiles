@@ -507,8 +507,12 @@
   )
 
 (use-package irony
-  :config
   :diminish irony-mode
+  :init
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
   )
 
 (use-package company-irony
@@ -520,8 +524,11 @@
   (setq w32-pipe-read-delay 0)
   (setq irony-server-w32-pipe-buffer-size (* 64 1024))
   :config
-  (add-to-list 'company-backends 'company-irony)
-  (setq irony-additional-clang-options '("-std=c++17"))
+  (setq irony-additional-clang-options '("-std=c++11"))
+  (setq company-idle-delay              nil
+	company-dabbrev-downcase        nil
+	company-backends                '((company-irony company-gtags))
+	)
   )
 
 (use-package irony-eldoc
