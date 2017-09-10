@@ -508,6 +508,9 @@
 (use-package modern-cpp-font-lock
   :init
   (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+  :config
+  (set-fill-column 100) ;; Equal with clang format
+  (setq-default c-basic-offset 4) ;; Eqaul with clang format
   )
 
 (use-package cmake-mode
