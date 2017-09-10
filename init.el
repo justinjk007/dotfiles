@@ -184,6 +184,7 @@
   :after org
   :init
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (setq org-bullets-bullet-list '("◉" "○" "●"))
   ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
   )
 (use-package ox-twbs
