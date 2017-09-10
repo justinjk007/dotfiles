@@ -505,6 +505,11 @@
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
+(use-package modern-cpp-font-lock
+  :init
+  (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+  )
+
 (use-package cmake-mode
   :defer t
   :after cmake-project
