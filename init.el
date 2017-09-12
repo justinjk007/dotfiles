@@ -75,6 +75,13 @@
   (global-set-key (kbd "C-j")  'windmove-down)
   (global-set-key (kbd "C-k") 'windmove-up)
   (define-key evil-normal-state-map "/" 'swiper)
+  (setq evil-operator-state-tag "OPERATOR"
+	evil-normal-state-tag "NORMAL"
+	evil-insert-state-tag "INSERT"
+	visual-state-tag "VISUAL"
+	replace-state-tag "REPLACE"
+	emacs-state-tag "EMACS"
+	motion-state-tag "MOTION" )
   )
 
 (use-package solarized-theme
@@ -209,12 +216,6 @@
    powerline-default-separator 'bar
    spaceline-flycheck-bullet "❖ %s")
   (setq x-underline-at-descent-line t)
-  (setq evil-normal-state-tag "NORMAL")
-  (setq evil-insert-state-tag "INSERT")
-  (setq evil-visual-state-tag "VISUAL")
-  (setq evil-replace-state-tag "REPLACE")
-  (setq evil-emacs-state-tag "EMACS")
-  (setq evil-motion-state-tag "MOTION")
   (diminish 'abbrev-mode)
   (diminish 'auto-revert-mode)
   ;; fancy git icon
