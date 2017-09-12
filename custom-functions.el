@@ -117,5 +117,21 @@ foofoofoo  bar"
   (shell-command todays-expenses-command)
   )
 
+(defun point-in-comment ()
+  (let ((syn (syntax-ppss)))
+    (and (nth 8 syn)
+         (not (nth 3 syn)))))
+
+(defun my-capitalize-all-mysql-keywords ()
+  (interactive)
+  (require 'sql)
+  (save-excursion
+    (dolist (keywords sql-mode-mysql-font-lock-keywords)
+      (goto-char (point-min))
+      (while (re-search-forward (car keywords) nil t)
+        (unless (point-in-comment)
+          (goto-char (match-beginning 0))
+          (upcase-word 1))))))
+
 (provide 'custom-functions)
 ;;; custom-functions.el ends here
