@@ -69,10 +69,6 @@
   (global-set-key  (kbd "M-C-j")  'move-line-down)
   (global-set-key (kbd "M-C-k")  'move-line-up)
   (global-set-key (kbd "C-x C-m") 'move-file)
-  (global-set-key (kbd "C-h")  'windmove-left)
-  (global-set-key (kbd "C-l") 'windmove-right)
-  (global-set-key (kbd "C-j")  'windmove-down)
-  (global-set-key (kbd "C-k") 'windmove-up)
   (define-key evil-normal-state-map "/" 'swiper)
   (setq evil-operator-state-tag "OPERATOR"
 	evil-normal-state-tag "NORMAL"
@@ -323,6 +319,24 @@
   :diminish major-mode-icons-mode
   :config
   (global-flycheck-mode t)
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+    (vector #b00000000
+            #b10000000
+            #b11000000
+            #b11100000
+            #b11110000
+            #b11111000
+            #b11111100
+            #b11111110
+            #b11111111
+            #b11111110
+            #b11111100
+            #b11111000
+            #b11110000
+            #b11100000
+            #b11000000
+            #b10000000
+            #b00000000))
   )
 
 (use-package speed-type
