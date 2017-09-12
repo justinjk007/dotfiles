@@ -662,6 +662,14 @@
 			  (agenda . 3)))
   )
 
+(use-package origami
+  :defer t
+  :init
+  (add-hook 'prog-mode-hook 'origami-mode)
+  :bind
+  ("C-c C-f" . origami-toggle-node )
+  )
+
 ;; Misc Bindings
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
