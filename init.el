@@ -95,23 +95,6 @@
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
   )
 
-(use-package company-c-headers
-  :defer t
-  :init
-  (add-to-list 'company-backends 'company-c-headers)
-  )
-
-;; Install LLVM - http://releases.llvm.org/download.html
-;; Install MingW - http://mingw-w64.org/doku.php - 32 bit version
-(use-package clang-format
-  :defer t
-  :init
-  (global-set-key (kbd "C-c r") 'clang-format-region)
-  (global-set-key (kbd "C-c u") 'clang-format-buffer)
-  :config
-  (setq clang-format-style-option "file")
-  )
-
 (use-package magit
   :bind ("C-x g" . magit-status)
   :defer t
@@ -343,10 +326,6 @@
   :diminish aggressive-indent-mode
   :init
   (aggressive-indent-global-mode t)
-  ;; Since I use clang format and this interferes with it.
-  (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
   ;; MatLab doesnot like me and vice versa
   (add-to-list 'aggressive-indent-excluded-modes 'octave-mode)
   )
@@ -504,72 +483,6 @@
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
-(use-package modern-cpp-font-lock
-  :init
-  (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
-  :config
-  (set-fill-column 100) ;; Equal with clang format
-  (setq-default c-basic-offset 4) ;; Eqaul with clang format
-  )
-
-(use-package cmake-mode
-  :defer t
-  :after cmake-project
-  :mode (("\\.cmake\\'" . cmake-mode)
-         ("CMakeLists\\.txt\\'" . cmake-mode))
-  )
-
-(use-package cmake-project
-  :defer t
-  :init
-  (defun maybe-cmake-project-hook ()
-    (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
-  (add-hook 'c-mode-hook 'maybe-cmake-project-hook)
-  (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
-  :config
-  (setq cmake-project-default-build-dir-name "build\/")
-  ;; TODO Checkout cmake-ide https://github.com/atilaneves/cmake-ide
-  )
-
-(use-package irony
-  :diminish irony-mode
-  :init
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-  )
-
-(use-package company-irony
-  :ensure irony
-  :defer t
-  :init
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (setq w32-pipe-read-delay 0)
-  (setq irony-server-w32-pipe-buffer-size (* 64 1024))
-  :config
-  (setq irony-additional-clang-options '("-std=c++11"))
-  (setq company-idle-delay              nil
-	company-dabbrev-downcase        nil
-	company-backends                '((company-irony company-gtags))
-	)
-  )
-
-(use-package irony-eldoc
-  :defer t
-  :diminish eldoc-mode
-  :init
-  (add-hook 'irony-mode-hook #'irony-eldoc)
-  )
-
-(use-package flycheck-irony
-  :defer t
-  :after flycheck
-  :init
-  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
-  )
-
 (use-package nlinum
   :defer t
   :diminish auto-revert-mode
@@ -615,32 +528,6 @@
   ;; TODO Look into using evil-smartparens
   )
 
-(use-package ggtags
-  ;; Get gnu global
-  ;; sudo apt install global
-  ;; http://adoxa.altervista.org/global/
-  :diminish ggtags-mode
-  :init
-  (add-hook 'c-mode-common-hook
-	    (lambda ()
-	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-		(ggtags-mode 1))))
-  )
-
-(use-package counsel-gtags
-  :diminish counsel-gtags-mode
-  :after ggtags
-  :init
-  (add-hook 'c-mode-common-hook
-	    (lambda ()
-	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-		(counsel-gtags-mode))))
-  :bind (("M-t" . counsel-gtags-find-definition)
-	 ("M-r" . counsel-gtags-find-reference)
-	 ("M-s" . counsel-gtags-find-symbol)
-	 ("M-," . counsel-gtags-go-backward))
-  )
-
 (use-package octave
   ;; Used for matlab and octave files
   :mode ("\\.m\\'" . octave-mode)
@@ -669,6 +556,124 @@
   :bind
   ("C-c C-f" . origami-toggle-node )
   )
+
+;; C++ Config -----------------------------------------------------------------
+
+(use-package modern-cpp-font-lock
+  :init
+  (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+  :config
+  (set-fill-column 100) ;; Equal with clang format
+  (setq-default c-basic-offset 4) ;; Eqaul with clang format
+  )
+
+(use-package company-c-headers
+  :defer t
+  :init
+  (add-to-list 'company-backends 'company-c-headers)
+  )
+
+;; Install LLVM - http://releases.llvm.org/download.html
+;; Install MingW - http://mingw-w64.org/doku.php - 32 bit version
+(use-package clang-format
+  :defer t
+  :init
+  (global-set-key (kbd "C-c r") 'clang-format-region)
+  (global-set-key (kbd "C-c u") 'clang-format-buffer)
+  :config
+  (setq clang-format-style-option "file")
+  ;; Stop aggressive-indent mode to use clang-format
+  (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
+  )
+
+
+(use-package cmake-mode
+  :defer t
+  :after cmake-project
+  :mode (("\\.cmake\\'" . cmake-mode)
+         ("CMakeLists\\.txt\\'" . cmake-mode))
+  )
+
+(use-package cmake-project
+  :defer t
+  :init
+  (defun maybe-cmake-project-hook ()
+    (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
+  (add-hook 'c-mode-hook 'maybe-cmake-project-hook)
+  (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
+  :config
+  (setq cmake-project-default-build-dir-name "build\/")
+  ;; TODO Checkout cmake-ide https://github.com/atilaneves/cmake-ide
+  )
+
+(use-package irony
+  :diminish irony-mode
+  :init
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  )
+
+(use-package company-irony
+  :ensure irony
+  :defer t
+  :init
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (setq w32-pipe-read-delay 0)
+  (setq irony-server-w32-pipe-buffer-size (* 64 1024))
+  :config
+  (setq irony-additional-clang-options '("-std=c++14"))
+  (setq company-idle-delay              nil
+	company-dabbrev-downcase        nil
+	company-backends                '((company-irony company-gtags))
+	)
+  )
+
+(use-package irony-eldoc
+  :defer t
+  :diminish eldoc-mode
+  :init
+  (add-hook 'irony-mode-hook #'irony-eldoc)
+  )
+
+(use-package flycheck-irony
+  :defer t
+  :after flycheck
+  :init
+  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
+  )
+
+(use-package ggtags
+  ;; Get gnu global
+  ;; sudo apt install global
+  ;; http://adoxa.altervista.org/global/
+  :diminish ggtags-mode
+  :init
+  (add-hook 'c-mode-common-hook
+	    (lambda ()
+	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+		(ggtags-mode 1))))
+  )
+
+(use-package counsel-gtags
+  :diminish counsel-gtags-mode
+  :after ggtags
+  :init
+  (add-hook 'c-mode-common-hook
+	    (lambda ()
+	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+		(counsel-gtags-mode))))
+  :bind (("M-t" . counsel-gtags-find-definition)
+	 ("M-r" . counsel-gtags-find-reference)
+	 ("M-s" . counsel-gtags-find-symbol)
+	 ("M-," . counsel-gtags-go-backward))
+  )
+
+;; C++ Config -----------------------------------------------------------------
 
 ;; Misc Bindings
 (global-set-key (kbd "M-z") 'shell-command)
