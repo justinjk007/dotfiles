@@ -73,10 +73,10 @@
   (setq evil-operator-state-tag "OPERATOR"
 	evil-normal-state-tag "NORMAL"
 	evil-insert-state-tag "INSERT"
-	visual-state-tag "VISUAL"
-	replace-state-tag "REPLACE"
-	emacs-state-tag "EMACS"
-	motion-state-tag "MOTION" )
+	evil-visual-state-tag "VISUAL"
+	evil-replace-state-tag "REPLACE"
+	evil-emacs-state-tag "EMACS"
+	evil-motion-state-tag "MOTION" )
   )
 
 (use-package solarized-theme
