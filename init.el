@@ -582,6 +582,9 @@
   :config
   (set-fill-column 100) ;; Equal with clang format
   (setq-default c-basic-offset 4) ;; Eqaul with clang format
+  (font-lock-add-keywords 'c++-mode
+			  '(("\\<\\(FIXME\\):" 1 font-lock-constant-face))
+			  )
   )
 
 (use-package company-c-headers
