@@ -81,7 +81,6 @@
  '(cursor ((t (:background "#FF7D9E"))))
  '(fic-face ((t (:foreground "#ff6a6a" :slant normal :weight bold))))
  '(error ((t (:foreground "indian red" :weight bold))))
- '(highlight-numbers-number ((t (:inherit nil :foreground "#d33682"))))
  '(ivy-minibuffer-match-face-2 ((t (:background "light steel blue" :weight bold))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))

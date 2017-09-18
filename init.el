@@ -359,6 +359,8 @@
   :init
   (add-hook 'prog-mode-hook 'highlight-numbers-mode)
   (add-hook 'css-mode-hook 'highlight-numbers-mode)
+  :config
+  (set-face-attribute 'highlight-numbers-number nil :inherit nil :foreground "coral1")
   )
 
 (use-package rainbow-delimiters
