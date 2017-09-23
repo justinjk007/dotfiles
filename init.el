@@ -460,6 +460,11 @@
     :diminish all-the-icons-dired-mode
     :init
     (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+    :config
+    (require 'ls-lisp)
+    (setq ls-lisp-dirs-first t
+	  ls-lisp-use-insert-directory-program nil
+	  )
     ))
 
 (use-package beacon
