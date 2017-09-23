@@ -15,6 +15,7 @@
 
 (package-initialize)
 (setq gc-cons-threshold 20000000)
+(setq garbage-collection-messages t)
 (setq initial-scratch-message nil)
 (setq message-log-max 10000)
 (fset 'yes-or-no-p 'y-or-n-p); Change yes/no to y/n
