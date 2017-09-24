@@ -547,15 +547,6 @@
 
 (use-package hydra)
 
-(use-package smartparens
-  :diminish smartparens-mode
-  :init
-  (add-hook 'prog-mode-hook #'smartparens-mode)
-  :config
-  (require 'smartparens-config)
-  ;; TODO Look into using evil-smartparens
-  )
-
 (use-package octave
   ;; Used for matlab and octave files
   :mode ("\\.m\\'" . octave-mode)
