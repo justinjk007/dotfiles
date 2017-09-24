@@ -545,7 +545,35 @@
   (evil-ex-define-cmd "evil-tutor[-start]" 'evil-tutor-start)
   )
 
-(use-package hydra)
+(use-package hydra
+  :config
+  (global-set-key
+   (kbd "C-c C-v")
+   (defhydra toggle ()
+     "toggle"
+     ("f" auto-fill-mode "fill" :color blue)
+     ("t" toggle-truncate-lines "truncate" :color blue)
+     ("w" whitespace-mode "whitespace" :color blue)
+     ("q" nil "cancel")))
+
+  (defhydra hydra-next-error
+    (global-map "C-x")
+    "
+Compilation errors:
+_j_: next error        _h_: first error    _q_uit
+_k_: previous error    _l_: last error
+"
+    ("`" next-error     nil)
+    ("j" next-error     nil :bind nil)
+    ("k" previous-error nil :bind nil)
+    ("h" first-error    nil :bind nil)
+    ("l" (condition-case err
+             (while t
+               (next-error))
+           (user-error nil))
+     nil :bind nil)
+    ("q" nil            nil :color blue))
+  )
 
 (use-package octave
   ;; Used for matlab and octave files
