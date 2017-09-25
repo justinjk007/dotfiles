@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: latex
+# key: latex
+# --
+#+CREATOR: Emacs 25.2, Org-mode
+#+OPTIONS: whn:nil toc:nil num:nil
+#+LATEX_HEADER: \usepackage[margin=1.0in]{geometry}
+#+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \usepackage{uarial}
+#+LATEX_HEADER:\renewcommand\familydefault{\sfdefault}
+#+LaTeX_CLASS: article

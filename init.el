@@ -73,7 +73,6 @@
   (global-set-key  (kbd "M-C-j")  'move-line-down)
   (global-set-key (kbd "M-C-k")  'move-line-up)
   (global-set-key (kbd "C-x C-m") 'move-file)
-  (define-key evil-normal-state-map "/" 'swiper)
   (setq evil-operator-state-tag "OPERATOR"
 	evil-normal-state-tag "NORMAL"
 	evil-insert-state-tag "INSERT"
@@ -408,10 +407,12 @@
 (use-package swiper
   :config
   (global-set-key "\C-s" 'swiper)
+  (define-key evil-normal-state-map "/" 'swiper)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
   )
 
 (use-package counsel
+  :ensure swiper
   :config
   (global-set-key (kbd "M-x") 'counsel-M-x)
   (global-set-key (kbd "M-y") 'counsel-yank-pop)
@@ -594,6 +595,10 @@ _k_: previous error    _l_: last error
   (setq dashboard-items '((projects . 5)
 			  (recents  . 3)
 			  (agenda . 3)))
+  )
+
+(use-package tex
+  :ensure auctex
   )
 
 (use-package origami
