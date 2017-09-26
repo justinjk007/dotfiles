@@ -8,4 +8,5 @@
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
 #+LATEX_HEADER: \usepackage{uarial}
 #+LATEX_HEADER:\renewcommand\familydefault{\sfdefault}
-#+LaTeX_CLASS: article
+#+LATEX_HEADER:\renewcommand{\baselinestretch}{2.0}
+#+LATEX_HEADER:\documentclass[12pt,a4paper]{journal}
