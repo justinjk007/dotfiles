@@ -15,7 +15,6 @@
 
 (package-initialize)
 (setq gc-cons-threshold 20000000)
-(setq garbage-collection-messages t)
 (setq user-full-name "Justin Kaipada"
       user-mail-address "justinjoseph0007@gmail.com"
       )
@@ -740,6 +739,8 @@ _k_: previous error    _l_: last error
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c k o b") 'kill-other-buffers)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(setq gc-cons-threshold 800000) ;; Back to default
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 (provide 'init.el)
