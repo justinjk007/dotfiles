@@ -378,23 +378,23 @@
   (add-hook 'css-mode-hook 'rainbow-mode)
   )
 
-(use-package ispell
-  (cond
-   ((string-equal system-type "windows-nt")
-    (progn
-      :init
-      (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
-      (setq ispell-program-name "aspell")
-      (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
-      ))
-   )
-  :config
-  (use-package flyspell-correct
-    :defer t
-    :init
-    (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
-    (add-hook 'js-mode-hook 'flyspell-prog-mode)
-    ))
+
+(use-package ispell)
+(cond
+ ((string-equal system-type "windows-nt")
+  (progn
+    (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
+    (setq ispell-program-name "aspell")
+    (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+    )))
+
+(use-package flyspell-correct
+  :ensure ispell
+  :defer t
+  :init
+  (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
+  (add-hook 'js-mode-hook 'flyspell-prog-mode)
+  )
 
 (use-package ivy
   :diminish ivy-mode
