@@ -1,0 +1,8 @@
+alias cls='clear'
+alias qq='exit'
+alias inf='screenfetch'
+alias emacsnw='emacs -nw'
+alias emacsn='emacs -nw'
+alias emax='emacsclient -c'
+alias ll='ls -alh'
+alias lh='ls -lh'

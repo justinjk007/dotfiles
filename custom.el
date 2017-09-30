@@ -1,4 +1,4 @@
-;;; package --- custom-functions
+;;; package --- custom-file
 ;;; Author:Justin Kaipada
 ;;; Commentary:
 ;;; Code:
@@ -17,8 +17,6 @@
  '(custom-safe-themes
    (quote
     ("2b8dff32b9018d88e24044eb60d8f3829bd6bbeab754e70799b78593af1c3aba"
-     "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879"
-     "4d5ce1a2a9c608a48f0489971bf2ebededdef436107fb4278278043e37062f79"
      "6e771f5545f720302e62fedb0adf8b254f58c1916f54dbb2df11614fc9e24c67"
      "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
      "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
@@ -56,10 +54,6 @@
    (quote
     (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build")))
  '(projectile-use-git-grep t)
- '(python-shell-exec-path (quote ("C:/Python27")))
- '(python-shell-prompt-detect-failure-warning t)
- '(python-shell-virtualenv-root nil)
- '(ring-bell-function (quote ignore))
  '(ring-bell-function (quote ignore) t)
  '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
@@ -100,6 +94,5 @@
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 
-
-(provide 'custom)
+(provide 'custom.el)
 ;;; custom.el ends here

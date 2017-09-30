@@ -1,6 +1,5 @@
 ﻿;;; package --- init-file
 ;;; Author:Justin Kaipada
-;;; Branch:windows
 ;;; Commentary:
 "Thou shalt not cross 80 columns in thy file"
 
@@ -46,7 +45,13 @@
   (require 'use-package)
   (setq use-package-always-ensure t))
 
-(setq browse-url-browser-function 'browse-url-default-windows-browser)
+(cond
+ ((string-equal system-type "gnu/linux")
+  (progn
+    (setq browse-url-browser-function 'browse-url-default-windows-browser)
+    ))
+ )
+
 (setq-default frame-title-format '("%f [%m%*mode]"))
 ;; (add-to-list 'default-frame-alist '(width  . 110))
 ;; (add-to-list 'default-frame-alist '(height . 37))
@@ -91,7 +96,7 @@
   (global-company-mode)
   (setq-local company-dabbrev-downcase nil)
   (setq company-minimum-prefix-length 2
-        company-show-numbers t
+	company-show-numbers t
         company-idle-delay 0)
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
   )
@@ -108,7 +113,6 @@
   ;; 	      (concat diff-path ";"))
   ;;     (setq exec-path
   ;; 	    '(diff-path))))
-
   :bind ("C-x g" . magit-status)
   :defer t
   :config
@@ -131,8 +135,7 @@
       )
   (dolist (dir (list backup-dir auto-saves-dir))
     (when (not (file-directory-p dir))
-      (make-directory dir t))
-    )
+      (make-directory dir t)))
   (setq backup-directory-alist `(("." . ,backup-dir))
         auto-save-file-name-transforms `((".*" ,auto-saves-dir))
         auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
@@ -145,7 +148,6 @@
       version-control t      ; Use version numbers on backups,
       kept-new-versions 3    ; keep some new versions
       kept-old-versions 2)   ; and some old ones, too
-
 
 ;; make electric-pair-mode work on more brackets
 (defvar electric-pair-pairs '(
@@ -163,17 +165,13 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
   (add-hook 'org-agenda-mode-hook 'magit-keys)
-  (use-package ox-twbs
-    :defer t
-    )
   )
 (use-package org-bullets
-  :defer t
   :after org
   :init
+  (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (setq org-bullets-bullet-list '("◉" "○" "●"))
-  ;; (setq org-ellipsis "↷");Change the elipsies org mode to this arrow #Neat
   )
 (use-package ox-twbs
   :after org
@@ -381,10 +379,15 @@
   )
 
 (use-package ispell
-  :init
-  (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
-  (setq ispell-program-name "aspell")
-  (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+  (cond
+   ((string-equal system-type "windows-nt")
+    (progn
+      :init
+      (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
+      (setq ispell-program-name "aspell")
+      (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+      ))
+   )
   :config
   (use-package flyspell-correct
     :defer t
@@ -435,7 +438,7 @@
            '(:eval (list " ["
                          (propertize (projectile-project-name)
                                      'face '(:weight bold :inherit t :foreground "#cd5c5c"))
-                         "]"))))
+			 "]"))))
   )
 
 (use-package ibuffer-projectile
@@ -575,6 +578,14 @@ _k_: previous error    _l_: last error
     ("q" nil            nil :color blue))
   )
 
+(use-package smartparens
+  :diminish smartparens-mode
+  :init
+  (add-hook 'prog-mode-hook #'smartparens-mode)
+  :config
+  (require 'smartparens-config)
+  )
+
 (use-package octave
   ;; Used for matlab and octave files
   :mode ("\\.m\\'" . octave-mode)
@@ -646,7 +657,7 @@ _k_: previous error    _l_: last error
   :defer t
   :after cmake-project
   :mode (("\\.cmake\\'" . cmake-mode)
-         ("CMakeLists\\.txt\\'" . cmake-mode))
+	 ("CMakeLists\\.txt\\'" . cmake-mode))
   )
 
 (use-package cmake-project
@@ -739,7 +750,6 @@ _k_: previous error    _l_: last error
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c k o b") 'kill-other-buffers)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 
 ;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 (provide 'init.el)
