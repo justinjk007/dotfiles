@@ -182,6 +182,28 @@
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/")
   )
 
+(use-package gnus
+  :config
+  (setq gnus-select-method
+	'(nnimap "gmail"
+		 (nnimap-address "imap.googlemail.com")
+		 ;; it could also be imap.googlemail/gmail.com if that's your server.
+		 (cond ;; If windows do this.
+		  ((string-equal system-type "windows-nt")
+		   (progn
+		     (nnimap-server-port 993)
+		     )))
+		 (cond ;; If linux do this
+		  ((string-equal system-type "gnu/linux")
+		   (progn
+		     (nnimap-server-port "imap")
+		     )))
+		 (nnimap-stream ssl)))
+  (setq smtpmail-smtp-server "smtp.googlemail.com"
+	smtpmail-smtp-service 587
+	gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
+  )
+
 (use-package markdown-mode
   ;; http://jblevins.org/projects/markdown-mode/ -- Read all about it
   :commands (markdown-mode gfm-mode)
