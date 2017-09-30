@@ -24,7 +24,7 @@
      "23cf1bbd82721df1785aa1a10f742e555d6ea41921b65fab0345947bdd56c3f8" default)))
  '(custom-theme-load-path
    (quote
-    ("~/.emacs.d/elpa/solarized-theme-20170831.1159" custom-theme-directory t)))
+    ("~/.emacs.d/elpa/solarized-theme-20170924.1440" custom-theme-directory t)))
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
