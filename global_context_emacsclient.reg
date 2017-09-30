@@ -3,14 +3,14 @@ REGEDIT4
 
 [HKEY_CLASSES_ROOT\*\shell\openwemacs]
 @="&Edit with Emacs-client"
-# The above value appears in the global context menu, 
+# The above value appears in the global context menu,
 # i.e., when you right click on a file.
 # (The '&' makes the next character a shortcut.)
-"Icon"="C:\\Program Files (x86)\\GNU Emacs 25.1\\bin\\emacs.exe,0"
+"Icon"="C:\\Program Files (x86)\\GNU Emacs\\bin\\emacs.exe,0"
 # The above uses the icon of the Emacs exe for the context
 # and should match the path used for the command below.
 # The ,0 selects the main icon.
 
 [HKEY_CLASSES_ROOT\*\shell\openwemacs\command]
-@="C:\\Program Files (x86)\\GNU Emacs 25.1\\bin\\emacsclientw.exe \"%1\""
+@="C:\\Program Files (x86)\\GNU Emacs\\bin\\emacsclientw.exe \"%1\""
 # The above has to point to where you install Emacs
