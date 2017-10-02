@@ -1,3 +1,8 @@
 [user]
 	email = justinjoseph0007@gmail.com
-	name = Justin K
+	name = Justin
+	; Use names like Justin K -W10 / Justin K -Work / Justin K -School / Justin K -Linux
+
+; I payed for the campaign
+[magit]
+	hideCampaign = true
