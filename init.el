@@ -233,7 +233,7 @@
   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
   (setq ns-use-srgb-colorspace nil)
   (setq-default
-   powerline-height 19
+   powerline-height 22
    powerline-default-separator 'bar
    spaceline-flycheck-bullet "❖ %s")
   (setq x-underline-at-descent-line t)
