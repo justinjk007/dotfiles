@@ -70,8 +70,8 @@
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
                          :strike-through nil :overline nil :underline nil :slant normal
                          :weight normal :height 105 :width normal :foundry "outline" :family
-                         "DejaVu Sans Mono"))))
- ;; Get you font here https://dejavu-fonts.github.io/
+                         "Hack"))))
+ ;; https://github.com/source-foundry/Hack/releases
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#FF7D9E"))))
  '(fic-face ((t (:foreground "#ff6a6a" :slant normal :weight bold))))
@@ -80,10 +80,10 @@
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
- '(org-default ((t (:family "DejaVu Sans Mono"))))
- '(org-level-1 ((t (:family "DejaVu Sans Mono"))))
- '(org-level-2 ((t (:family "DejaVu Sans Mono"))))
- '(org-level-3 ((t (:foreground "#6495ed":family "DejaVu Sans Mono"))))
+ '(org-default ((t (:family "Hack"))))
+ '(org-level-1 ((t (:family "Hack"))))
+ '(org-level-2 ((t (:family "Hack"))))
+ '(org-level-3 ((t (:foreground "#6495ed":family "Hack"))))
  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
  '(org-verbatim ((t (:foreground "tomato"))))
  '(org-warning ((t (:foreground "red" :underline t))))
