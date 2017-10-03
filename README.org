@@ -13,3 +13,4 @@
   completely hiding the console window for windows.
 - My zsh shell config
 - My shell aliases
+- KeyBoard Config for the *K70 RGB* Keyboard
