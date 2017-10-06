@@ -319,6 +319,10 @@
   (add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
   )
 
+(use-package yasnippet-snippets
+  :after yasnippet
+  )
+
 (use-package flycheck
   :diminish flycheck-mode
   :diminish major-mode-icons-mode
