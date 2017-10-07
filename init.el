@@ -602,6 +602,46 @@ _k_: previous error    _l_: last error
            (user-error nil))
      nil :bind nil)
     ("q" nil            nil :color blue))
+
+;;;; Table Field Marking
+  (defun org-table-mark-field ()
+    "Mark the current table field."
+    (interactive)
+    ;; Do not try to jump to the beginning of field if the point is already there
+    (when (not (looking-back "|[[:blank:]]?"))
+      (org-table-beginning-of-field 1))
+    (set-mark-command nil)
+    (org-table-end-of-field 1))
+
+  (defhydra hydra-org-table-mark-field
+    (:body-pre (org-table-mark-field)
+	       :color red
+	       :hint nil)
+    "
+   ^^      ^🠙^     ^^
+   ^^      _p_     ^^
+🠘 _b_  selection  _f_ 🠚          | Org table mark ▯field▮ |
+   ^^      _n_     ^^
+   ^^      ^🠛^     ^^
+"
+    ("x" exchange-point-and-mark "exchange point/mark")
+    ("f" (lambda (arg)
+	   (interactive "p")
+	   (when (eq 1 arg)
+	     (setq arg 2))
+	   (org-table-end-of-field arg)))
+    ("b" (lambda (arg)
+	   (interactive "p")
+	   (when (eq 1 arg)
+	     (setq arg 2))
+	   (org-table-beginning-of-field arg)))
+    ("n" next-line)
+    ("p" previous-line)
+    ("q" nil "cancel" :color blue))
+
+  (bind-keys
+   :filter (org-at-table-p)
+   ("C-c m" . hydra-org-table-mark-field/body))
   )
 
 (use-package smartparens

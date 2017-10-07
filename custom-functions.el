@@ -95,7 +95,8 @@ foofoofoo  bar"
 					      ("$alpha" "α")
 					      ("$beta" "β")
 					      ("$gamma" "γ")
-					      ("$delta" "Δ"))))
+					      ("$delta" "Δ")))
+  )
 
 (defun my-expenses-today ()
   "Get todays expenses using ledger-cli on the go."
