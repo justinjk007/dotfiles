@@ -2,6 +2,7 @@
 rem Xcopy <Source> [<Destination>] [/w]
 rem Find more here --> https://msdn.microsoft.com/en-us/library/cc771254.aspx
 Xcopy init.el %home%\.emacs.d\init.el /e /y /f /q
+Xcopy myhydras.el %home%\.emacs.d\myhydras.el /e /y /f /q
 echo f | Xcopy .clang_complete %home%\.clang_complete /e /y /f /q
 echo f | Xcopy .clang-format %home%\.clang-format /e /y /f /q
 Xcopy custom.el %home%\.emacs.d\custom.el /e /y /f /q

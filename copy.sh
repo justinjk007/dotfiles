@@ -2,6 +2,7 @@
 cp init.el ~/.emacs.d/
 cp custom-functions.el ~/.emacs.d/
 cp custom.el ~/.emacs.d/
+cp myhydras.el ~/.emacs.d/
 cp .aliases ~/
 cp .zshrc ~/
 cp .clang_complete ~/
