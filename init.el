@@ -742,6 +742,7 @@
 ;; C++ Config -----------------------------------------------------------------
 
 ;; Misc Bindings
+(global-set-key (kbd "M-Z") 'eshell)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
