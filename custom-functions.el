@@ -92,10 +92,10 @@ foofoofoo  bar"
   "This function defins some basic abbrevations."
   (abbrev-mode 1)
   (define-abbrev-table 'global-abbrev-table '(
-					      ("alpha" "α")
-					      ("beta" "β")
-					      ("gamma" "γ")
-					      ("delta" "Δ"))))
+					      ("$alpha" "α")
+					      ("$beta" "β")
+					      ("$gamma" "γ")
+					      ("$delta" "Δ"))))
 
 (defun my-expenses-today ()
   "Get todays expenses using ledger-cli on the go."
