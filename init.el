@@ -45,12 +45,9 @@
   (require 'use-package)
   (setq use-package-always-ensure t))
 
-(cond
- ((string-equal system-type "gnu/linux")
-  (progn
+(if (string-equal system-type "gnu/linux")
     (setq browse-url-browser-function 'browse-url-default-windows-browser)
-    ))
- )
+  )
 
 (setq-default frame-title-format '("%f [%m%*mode]"))
 ;; (add-to-list 'default-frame-alist '(width  . 110))
