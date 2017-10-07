@@ -31,6 +31,7 @@ _k_: previous error    _l_: last error
 (defun org-table-mark-field ()
   "Mark the current table field."
   (interactive)
+  (require 'org-table)
   ;; Do not try to jump to the beginning of field if the point is already there
   (when (not (looking-back "|[[:blank:]]?"))
     (org-table-beginning-of-field 1))
@@ -42,25 +43,25 @@ _k_: previous error    _l_: last error
 	     :color red
 	     :hint nil)
   "
-   ^^      ^🠙^     ^^
-   ^^      _p_     ^^
-🠘 _b_  selection  _f_ 🠚          | Org table mark ▯field▮ |
-   ^^      _n_     ^^
-   ^^      ^🠛^     ^^
+   ^^      ^▲^     ^^
+   ^^      _k_     ^^
+ ◀ _h_  selection  _l_ ▶          Org table mark field
+   ^^      _j_     ^^
+   ^^      ^▼^     ^^
 "
   ("x" exchange-point-and-mark "exchange point/mark")
-  ("f" (lambda (arg)
+  ("l" (lambda (arg)
 	 (interactive "p")
 	 (when (eq 1 arg)
 	   (setq arg 2))
 	 (org-table-end-of-field arg)))
-  ("b" (lambda (arg)
+  ("h" (lambda (arg)
 	 (interactive "p")
 	 (when (eq 1 arg)
 	   (setq arg 2))
 	 (org-table-beginning-of-field arg)))
-  ("n" next-line)
-  ("p" previous-line)
+  ("j" next-line)
+  ("k" previous-line)
   ("q" nil "cancel" :color blue))
 
 (bind-keys
