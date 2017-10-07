@@ -601,12 +601,20 @@
 (use-package gnus
   :init
   (setq gnus-select-method '(nnnil ""))
-  (setq gnus-secondary-select-methods
-	'((nnimap "imap.gmail.com"
-		  (nnimap-address "imap.gmail.com")
-		  (nnimap-server-port 993)
-		  (nnimap-stream ssl)
-		  (nnimap-authenticator login))))
+  (if (string-equal system-type "windows-nt")
+      (setq gnus-secondary-select-methods
+	    '((nnimap "imap.gmail.com"
+		      (nnimap-address "imap.gmail.com")
+		      (nnimap-server-port 993) ;; If WINDOWS do this
+		      (nnimap-stream ssl)
+		      (nnimap-authenticator login))))
+    (setq gnus-secondary-select-methods
+	  '((nnimap "imap.gmail.com"
+		    (nnimap-address "imap.gmail.com")
+		    (nnimap-server-port "imap") ;; If UNIX do this
+		    (nnimap-stream ssl)
+		    (nnimap-authenticator login))))
+    ) ;; If ends here.
   (setq smtpmail-smtp-server "smtp.gmail.com"
 	smtpmail-smtp-service 587
 	gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
