@@ -119,11 +119,13 @@ foofoofoo  bar"
   )
 
 (defun point-in-comment ()
+  "This function is a helper funtion for the fucntion down below."
   (let ((syn (syntax-ppss)))
     (and (nth 8 syn)
          (not (nth 3 syn)))))
 
 (defun my-capitalize-all-mysql-keywords ()
+  "This is an INTERACTIVE funtion that can be called to capitalize all your my sql keywords."
   (interactive)
   (require 'sql)
   (save-excursion
