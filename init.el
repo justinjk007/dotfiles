@@ -596,6 +596,9 @@
   )
 
 (use-package gnus
+  ;; Checkout this great guide here
+  ;; https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/gnus-guide-en.org
+  :commands (gnus)
   :init
   (setq gnus-select-method '(nnnil ""))
   (if (string-equal system-type "windows-nt")
@@ -619,6 +622,15 @@
 
   ;; machine imap.gmail.com login thisisemail@example.com password &*HH%&&H^& port 993
   ;; machine smtp.gmail.com login thisisemail@example.com password &*HH%&&H^& port 587
+  :config
+  (defun my-gnus-group-list-subscribed-groups ()
+    "List all subscribed groups with or without un-read messages"
+    (interactive)
+    (gnus-group-list-all-groups 5))
+
+  (define-key gnus-group-mode-map
+    ;; list all the subscribed groups even they contain zero un-read messages
+    (kbd "o") 'my-gnus-group-list-subscribed-groups)
   )
 
 ;; C++ Config -----------------------------------------------------------------
