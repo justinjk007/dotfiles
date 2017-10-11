@@ -73,7 +73,7 @@
                          "Hack"))))
  ;; https://github.com/source-foundry/Hack/releases
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
- '(cursor ((t (:background "#FF7D9E"))))
+ '(cursor ((t (:background "#d33682"))))
  '(fic-face ((t (:foreground "#ff6a6a" :slant normal :weight bold))))
  '(error ((t (:foreground "indian red" :weight bold))))
  '(ivy-minibuffer-match-face-2 ((t (:background "light steel blue" :weight bold))))

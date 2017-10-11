@@ -475,7 +475,7 @@
   :diminish beacon-mode
   :config
   (beacon-mode 1)
-  (setq beacon-color "#00ff00")
+  (setq beacon-color "#d33682")
   )
 
 (use-package evil-goggles
