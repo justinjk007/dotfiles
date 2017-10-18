@@ -683,48 +683,43 @@
   (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
   :config
   (setq cmake-project-default-build-dir-name "build\/")
-
   ;; TODO Checkout cmake-ide https://github.com/atilaneves/cmake-ide
   )
 
-(use-package irony
-  :diminish irony-mode
-  :init
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-  )
+;; (use-package irony
+;;   :diminish irony-mode
+;;   :init
+;;   (setq w32-pipe-read-delay 0)
+;;   (setq irony-server-w32-pipe-buffer-size (* 64 1024))
+;;   (add-hook 'c++-mode-hook 'irony-mode)
+;;   (add-hook 'c-mode-hook 'irony-mode)
+;;   (add-hook 'objc-mode-hook 'irony-mode)
+;;   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+;;   :config
+;;   (setq irony-additional-clang-options '("-std=c++14"))
+;;   (setq company-idle-delay              nil
+;; 	company-dabbrev-downcase        nil
+;; 	company-backends                '((company-irony company-gtags))
+;; 	)
+;;   )
 
-(use-package company-irony
-  :ensure irony
-  :defer t
-  :init
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (setq w32-pipe-read-delay 0)
-  (setq irony-server-w32-pipe-buffer-size (* 64 1024))
-  :config
-  (setq irony-additional-clang-options '("-std=c++14"))
-  (setq company-idle-delay              nil
-	company-dabbrev-downcase        nil
-	company-backends                '((company-irony company-gtags))
-	)
-  )
+;; (use-package company-irony
+;;   :ensure irony
+;;   )
 
-(use-package irony-eldoc
-  :defer t
-  :diminish eldoc-mode
-  :init
-  (add-hook 'irony-mode-hook #'irony-eldoc)
-  )
+;; (use-package irony-eldoc
+;;   :defer t
+;;   :diminish eldoc-mode
+;;   :init
+;;   (add-hook 'irony-mode-hook #'irony-eldoc)
+;;   )
 
-(use-package flycheck-irony
-  :defer t
-  :after flycheck
-  :init
-  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
-  )
+;; (use-package flycheck-irony
+;;   :defer t
+;;   :after flycheck
+;;   :init
+;;   (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
+;;   )
 
 (use-package ggtags
   ;; Get gnu global
@@ -736,6 +731,7 @@
 	    (lambda ()
 	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
 		(ggtags-mode 1))))
+  (add-to-list 'company-backends 'company-gtags)
   )
 
 (use-package counsel-gtags
