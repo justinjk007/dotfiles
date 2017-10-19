@@ -709,40 +709,41 @@
   ;; TODO Checkout cmake-ide https://github.com/atilaneves/cmake-ide
   )
 
-;; (use-package irony
-;;   :diminish irony-mode
-;;   :init
-;;   (setq w32-pipe-read-delay 0)
-;;   (setq irony-server-w32-pipe-buffer-size (* 64 1024))
-;;   (add-hook 'c++-mode-hook 'irony-mode)
-;;   (add-hook 'c-mode-hook 'irony-mode)
-;;   (add-hook 'objc-mode-hook 'irony-mode)
-;;   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-;;   :config
-;;   (setq irony-additional-clang-options '("-std=c++14"))
-;;   (setq company-idle-delay              nil
-;; 	company-dabbrev-downcase        nil
-;; 	company-backends                '((company-irony company-gtags))
-;; 	)
-;;   )
+;; Setup - https://github.com/Sarcasm/irony-mode/wiki/Setting-up-irony-mode-on-Windows-using-MSVC
+(use-package irony
+  :diminish irony-mode
+  :init
+  (setq w32-pipe-read-delay 0)
+  (setq irony-server-w32-pipe-buffer-size (* 64 1024))
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+  :config
+  (setq irony-additional-clang-options '("-std=c++14"))
+  (setq company-idle-delay              nil
+	company-dabbrev-downcase        nil
+	company-backends                '((company-irony company-gtags))
+	)
+  )
 
-;; (use-package company-irony
-;;   :ensure irony
-;;   )
+(use-package company-irony
+  :ensure irony
+  )
 
-;; (use-package irony-eldoc
-;;   :defer t
-;;   :diminish eldoc-mode
-;;   :init
-;;   (add-hook 'irony-mode-hook #'irony-eldoc)
-;;   )
+(use-package irony-eldoc
+  :defer t
+  :diminish eldoc-mode
+  :init
+  (add-hook 'irony-mode-hook #'irony-eldoc)
+  )
 
-;; (use-package flycheck-irony
-;;   :defer t
-;;   :after flycheck
-;;   :init
-;;   (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
-;;   )
+(use-package flycheck-irony
+  :defer t
+  :after flycheck
+  :init
+  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
+  )
 
 (use-package ggtags
   ;; Get gnu global
