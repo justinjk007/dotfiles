@@ -14,3 +14,27 @@
 - My zsh shell config
 - My shell aliases
 - KeyBoard Config for the *K70 RGB* Keyboard
+
+* Setup
+
+This is for @justinjk007, may be I will forget what to do to setup my
+new system my grandson bought me when i'm 120.
+
+Anyways, first things first grandpa install the glorious [[https://www.gnu.org/software/emacs/][Emacs]]. Ask
+your grandson to get you some boot-loader thou, I hear Linux is good.
+
+- If you have a Linux system good to go install emacs, run the =copy.sh=
+  file and take a break when emacs does work for you.
+- If your grandson is a noob and got you Windows then giddy up
+  - Move =emacs--daemon.vbs= to the startup folder, this will start
+    emacs daemon every-time you start windows.
+  - Move =wifi-on-off.vbs= to startup folder, only do this if you have a
+    desktop and you are using a wi-fi still and you want to play CS:GO
+    with a good ping.
+  - Move =setup_msvc2017.vbs= to startup if you want to use Visual
+    Studio for *C++* development. This script will make sure VS
+    environmental variables are setup and read for scribbling.
+
+
+PS: To get to the startup folder on windows open the run window
+(Windows button + R) and write =shell:startup=.
