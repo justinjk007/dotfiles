@@ -6,6 +6,7 @@ Xcopy myhydras.el %home%\.emacs.d\myhydras.el /e /y /f /q
 echo f | Xcopy .clang_complete %home%\.clang_complete /e /y /f /q
 echo f | Xcopy .clang-format %home%\.clang-format /e /y /f /q
 Xcopy custom.el %home%\.emacs.d\custom.el /e /y /f /q
+Xcopy clang-windows-include-fix.h %home%\.emacs.d\clang-windows-include-fix.h /e /y /f /q
 Xcopy custom-functions.el %home%\.emacs.d\custom-functions.el /e /y /f /q
 Xcopy snippets %home%\.emacs.d\snippets /e /y /f /q
 Xcopy lisp %home%\.emacs.d\lisp /e /y /f /q

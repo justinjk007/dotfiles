@@ -725,6 +725,12 @@
 	company-dabbrev-downcase        nil
 	company-backends                '((company-irony company-gtags))
 	)
+  ;; workaround irony/libclang bug on MSVC
+  ;; see https://github.com/Sarcasm/irony-mode/issues/387#issuecomment-302775453
+  (setq irony-additional-clang-options
+	(list "-include"
+	      (locate-user-emacs-file "clang-windows-include-fix.h"))
+	)
   )
 
 (use-package company-irony
