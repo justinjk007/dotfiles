@@ -211,6 +211,26 @@
   :init (setq markdown-command "multimarkdown")
   )
 
+(use-package shackle
+  :config
+  (shackle-mode t)
+  (setq shackle-rules
+	'((flycheck-error-list-mode :select nil :align below :size 0.25)
+	  (ert-results-mode         :select t   :align below :size 0.5)
+	  (calendar-mode            :select t   :align below :size 0.25)
+	  (racer-help-mode          :select t   :align right :size 0.5)
+	  (help-mode                :select t   :align right :size 0.5)
+	  (helpful-mode             :select t   :align right :size 0.5)
+	  (compilation-mode         :select t   :align right :size 0.5)
+	  ("*Org Select*"           :select t   :align below :size 0.33)
+	  ("*Org Agenda*"           :select t   :align right :size 0.33)
+	  ("*Org Note*"             :select t   :align below :size 0.33)
+	  ("*Org Links*"            :select t   :align below :size 0.2)
+	  (" *Org todo*"            :select t   :align below :size 0.2)
+	  ("*Man.*"                 :select t   :align below :size 0.5  :regexp t)
+	  ("*Org Src.*"             :select t   :align below :size 0.5  :regexp t)))
+  )
+
 (use-package spaceline
   :ensure powerline
   ;; https://gist.github.com/epegzz/1634235/fe5100a91157c5d0f0c8b7b6dedd126c6396ae19
