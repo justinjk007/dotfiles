@@ -744,7 +744,6 @@
   (setq irony-additional-clang-options '("-std=c++14"))
   (setq company-idle-delay              nil
 	company-dabbrev-downcase        nil
-	company-backends                '((company-irony company-gtags))
 	)
   ;; workaround irony/libclang bug on MSVC
   ;; see https://github.com/Sarcasm/irony-mode/issues/387#issuecomment-302775453
@@ -756,6 +755,9 @@
 
 (use-package company-irony
   :ensure irony
+  :ensure company
+  :config
+  (add-to-list 'company-backends 'company-irony)
   )
 
 (use-package irony-eldoc
