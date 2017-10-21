@@ -726,6 +726,7 @@
   (add-hook 'c++-mode-hook 'maybe-cmake-project-hook)
   :config
   (setq cmake-project-default-build-dir-name "build\/")
+  (setq cmake-project-architecture "Win64")
   ;; TODO Checkout cmake-ide https://github.com/atilaneves/cmake-ide
   )
 
