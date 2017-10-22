@@ -727,6 +727,7 @@
   :config
   (setq cmake-project-default-build-dir-name "build\/")
   ;; TODO Checkout cmake-ide https://github.com/atilaneves/cmake-ide
+  ;; TODO Checkout msvc-ide https://github.com/yaruopooner/msvc/blob/master/doc/manual.en.md
   )
 
 ;; Setup - https://github.com/Sarcasm/irony-mode/wiki/Setting-up-irony-mode-on-Windows-using-MSVC
