@@ -146,6 +146,18 @@
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
+;;-------------------------------------Eshell------------------
+(setq eshell-prompt-function
+      (lambda ()
+	(concat
+	 (propertize "┌─[" 'face `(:foreground "#b58900"))
+	 (propertize (concat (eshell/pwd)) 'face `(:foreground "#93a1a1"))
+	 (propertize "]\n" 'face `(:foreground "#b58900"))
+	 (propertize "└─>" 'face `(:foreground "#b58900"))
+	 (propertize (if (= (user-uid) 0) " # " " $ ") 'face `(:foreground "#859902"))
+	 )))
+;;-------------------------------------Eshell------------------
+
 (setq visible-bell nil
       ring-bell-function 'ignore)
 
@@ -215,20 +227,15 @@
   :config
   (shackle-mode t)
   (setq shackle-rules
-	'((flycheck-error-list-mode :select nil :align below :size 0.25)
-	  (ert-results-mode         :select t   :align below :size 0.5)
-	  (calendar-mode            :select t   :align below :size 0.25)
-	  (racer-help-mode          :select t   :align right :size 0.5)
-	  (help-mode                :select t   :align right :size 0.5)
-	  (helpful-mode             :select t   :align right :size 0.5)
-	  (compilation-mode         :select t   :align right :size 0.5)
+	'(
+	  (compilation-mode         :select t   :align below :size 0.3)
+	  ("*eshell*"               :select t   :align right :size 0.35)
+	  (flycheck-error-list-mode :select nil :align below :size 0.25)
 	  ("*Org Select*"           :select t   :align below :size 0.33)
 	  ("*Org Agenda*"           :select t   :align right :size 0.33)
-	  ("*Org Note*"             :select t   :align below :size 0.33)
-	  ("*Org Links*"            :select t   :align below :size 0.2)
-	  (" *Org todo*"            :select t   :align below :size 0.2)
+	  (" *Org Todo*"            :select t   :align below :size 0.2)
 	  ("*Man.*"                 :select t   :align below :size 0.5  :regexp t)
-	  ("*Org Src.*"             :select t   :align below :size 0.5  :regexp t)))
+	  ))
   )
 
 (use-package spaceline
