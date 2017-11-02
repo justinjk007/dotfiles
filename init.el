@@ -294,6 +294,9 @@
   (defengine google
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
     :keybinding "a")
+  (defengine cpp-reference
+    "http://en.cppreference.com/mwiki/index.php?search=%s"
+    :keybinding "c")
   (defengine rfcs
     "http://pretty-rfc.herokuapp.com/search?q=%s"
     :keybinding "r")
@@ -393,6 +396,7 @@
   (aggressive-indent-global-mode t)
   ;; MatLab doesnot like me and vice versa
   (add-to-list 'aggressive-indent-excluded-modes 'octave-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
   )
 
 (use-package key-chord
