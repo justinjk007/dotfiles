@@ -123,6 +123,19 @@ _k_: previous error    _l_: last error
      ;; y is not used by default
      (define-key gnus-article-mode-map "y" 'hydra-gnus-article/body)))
 
+(defhydra hydra-undo-tree (:color yellow
+                                  :hint nil
+                                  )
+  "
+  _p_: undo  _n_: redo _s_: save _l_: load   "
+  ("p"   undo-tree-undo)
+  ("n"   undo-tree-redo)
+  ("s"   undo-tree-save-history)
+  ("l"   undo-tree-load-history)
+  ("u"   undo-tree-visualize "visualize" :color blue)
+  ("q"   nil "quit" :color blue))
+(global-set-key (kbd "M-,") 'hydra-undo-tree/undo-tree-undo) ;; or whatever
+
 (eval-after-load 'message
   '(progn
      (defhydra hydra-message (:color blue)
