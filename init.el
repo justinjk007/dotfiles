@@ -627,6 +627,10 @@
   :bind ("C-c C-w" . wotd-select)
   )
 
+(use-package yaml-mode
+  :mode ("\\.yml\\'" . yaml-mode)
+  )
+
 (use-package dashboard
   :diminish page-break-lines-mode
   :config
