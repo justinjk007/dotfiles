@@ -629,6 +629,8 @@
 
 (use-package yaml-mode
   :mode ("\\.yml\\'" . yaml-mode)
+  :init
+  (add-hook 'yaml-mode-hook 'highlight-numbers-mode)
   )
 
 (use-package dashboard
