@@ -631,6 +631,7 @@
   :mode ("\\.yml\\'" . yaml-mode)
   :init
   (add-hook 'yaml-mode-hook 'highlight-numbers-mode)
+  (add-hook 'yaml-mode-hook 'nlinum-mode)
   )
 
 (use-package dashboard
