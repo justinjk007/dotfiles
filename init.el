@@ -244,6 +244,8 @@
   )
 (use-package spaceline-config
   :ensure spaceline
+  :init
+  (remove-hook 'focus-out-hook 'powerline-unset-selected-window)
   :config
   (spaceline-spacemacs-theme)
   (set-face-attribute 'spaceline-evil-emacs nil :foreground "#fdf6e3" :background "#6c71c4")
