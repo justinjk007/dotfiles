@@ -16,16 +16,15 @@
 - KeyBoard Config for the *K70 RGB* Keyboard
 
 * Setup
+Get [[https://www.dropbox.com/downloading][Dropbox]], since agenda file is located in there, emacs will bug you
+if it can't find it. After logging in and syncing all you contents set
+*DROPBOX_DIR* to point to the root of Dropbox directory.
 
-This is for @justinjk007, may be I will forget what to do to setup my
-new system my grandson bought me when i'm 120.
+- For Linux
+  - If you have a Linux system good to go install emacs, run the =copy.sh=
+    file and take a break when emacs does work for you.
 
-Anyways, first things first grandpa install the glorious [[https://www.gnu.org/software/emacs/][Emacs]]. Ask
-your grandson to get you some boot-loader thou, I hear Linux is good.
-
-- If you have a Linux system good to go install emacs, run the =copy.sh=
-  file and take a break when emacs does work for you.
-- If your grandson is a noob and got you Windows then giddy up
+- For windows
   - Move =emacs--daemon.vbs= to the startup folder, this will start
     emacs daemon every-time you start windows.
   - Move =wifi-on-off.vbs= to startup folder, only do this if you have a
@@ -34,6 +33,8 @@ your grandson to get you some boot-loader thou, I hear Linux is good.
   - Move =setup_msvc2017.vbs= to startup if you want to use Visual
     Studio for *C++* development. This script will make sure VS
     environmental variables are setup and read for scribbling.
+  - Install [[http://www.corsair.com/en-us/downloads][CUE]] for managing your keyboard profiles and import
+    =K70_CUE2.cuefolder=.
 
 
 PS: To get to the startup folder on windows open the run window
