@@ -1,7 +1,7 @@
 #+CAPTION: This is how I feeel when I tweak my emacs config
 #+html: <p align="center"><img src="usingemacs.gif" /></p>
 
-
+* Install [[https://git-scm.com/downloads][git]] first
 * This is a repository for my config files
  Here you can find my
 - Emacs configuration
@@ -39,3 +39,21 @@ if it can't find it. After logging in and syncing all you contents set
 
 PS: To get to the startup folder on windows open the run window
 (Windows button + R) and write =shell:startup=.
+
+* Other softwares to install
+
+- [[http://aspell.net/win32/][Aspell]] - Try and match this install path
+  #+BEGIN_SRC emacs-lisp
+  (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
+  (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+  #+END_SRC
+- [[https://www.ledger-cli.org/download.html][ledger-cli]]
+- [[https://github.com/source-foundry/Hack][Hack-font]]
+- [[https://github.com/domtronn/all-the-icons.el/tree/master/fonts][All the fonts]]
+- [[https://miktex.org/][MiKTEX]]
+- [[http://releases.llvm.org/download.html][LLVM-ToolChain]]
+- irony-mode-stuff
+
+Add everything to *PATH* off-course
+
+* TODO Add notes about setting up GNUS
