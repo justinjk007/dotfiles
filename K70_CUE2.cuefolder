@@ -3699,7 +3699,7 @@
 					<isDefault>true</isDefault>
 				</dpiMode>
 				<dpiModeAdditional>
-					<id>{202ef5c0-8ed3-41c2-bf0b-5c1f184d2f99}</id>
+					<id>{262a63dd-4e17-4a54-8a6f-b54454cc38d7}</id>
 					<name></name>
 					<settings size="dynamic"/>
 					<sniper>
@@ -4480,6 +4480,54 @@
 																					<id>2147483735</id>
 																					<data>
 																						<base>
+																							<name>Static 10</name>
+																							<keys size="dynamic">
+																								<value0>CapsLock</value0>
+																							</keys>
+																							<enabled>true</enabled>
+																							<executionHints>
+																								<startOnKeyPress>false</startOnKeyPress>
+																								<startWithProfile>true</startWithProfile>
+																								<stopOnKeyPress>false</stopOnKeyPress>
+																								<stopOnKeyRelease>false</stopOnKeyRelease>
+																								<stopAfterTimes>-1</stopAfterTimes>
+																								<playOption>Standard</playOption>
+																							</executionHints>
+																						</base>
+																						<lighting>
+																							<polymorphic_id>23</polymorphic_id>
+																							<ptr_wrapper>
+																								<id>2147483736</id>
+																								<data>
+																									<base>
+																										<base>
+																											<name></name>
+																											<id>{a3fe0808-984c-4dc4-a34f-19b4e6cfe696}</id>
+																											<hidden>false</hidden>
+																											<isPredefined>false</isPredefined>
+																											<duration>10000</duration>
+																											<brightness>10</brightness>
+																										</base>
+																										<transitions size="dynamic">
+																											<value0>
+																												<time>0</time>
+																												<color>#ff006eff</color>
+																											</value0>
+																										</transitions>
+																									</base>
+																									<opacity>255</opacity>
+																								</data>
+																							</ptr_wrapper>
+																						</lighting>
+																					</data>
+																				</ptr_wrapper>
+																			</value0>
+																			<value1>
+																				<polymorphic_id>22</polymorphic_id>
+																				<ptr_wrapper>
+																					<id>2147483737</id>
+																					<data>
+																						<base>
 																							<name>Static 9</name>
 																							<keys size="dynamic">
 																								<value0>Y</value0>
@@ -4499,7 +4547,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483736</id>
+																								<id>2147483738</id>
 																								<data>
 																									<base>
 																										<base>
@@ -4523,11 +4571,11 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value0>
-																			<value1>
+																			</value1>
+																			<value2>
 																				<polymorphic_id>22</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483737</id>
+																					<id>2147483739</id>
 																					<data>
 																						<base>
 																							<name>Static 8</name>
@@ -4549,7 +4597,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483738</id>
+																								<id>2147483740</id>
 																								<data>
 																									<base>
 																										<base>
@@ -4573,11 +4621,11 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value1>
-																			<value2>
+																			</value2>
+																			<value3>
 																				<polymorphic_id>22</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483739</id>
+																					<id>2147483741</id>
 																					<data>
 																						<base>
 																							<name>Static 7</name>
@@ -4597,7 +4645,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483740</id>
+																								<id>2147483742</id>
 																								<data>
 																									<base>
 																										<base>
@@ -4621,11 +4669,11 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value2>
-																			<value3>
+																			</value3>
+																			<value4>
 																				<polymorphic_id>22</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483741</id>
+																					<id>2147483743</id>
 																					<data>
 																						<base>
 																							<name>Static 6</name>
@@ -4633,7 +4681,8 @@
 																								<value0>F1</value0>
 																								<value1>F2</value1>
 																								<value2>G</value2>
-																								<value3>F5</value3>
+																								<value3>B</value3>
+																								<value4>F5</value4>
 																							</keys>
 																							<enabled>true</enabled>
 																							<executionHints>
@@ -4648,7 +4697,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483742</id>
+																								<id>2147483744</id>
 																								<data>
 																									<base>
 																										<base>
@@ -4672,11 +4721,11 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value3>
-																			<value4>
+																			</value4>
+																			<value5>
 																				<polymorphic_id>22</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483743</id>
+																					<id>2147483745</id>
 																					<data>
 																						<base>
 																							<name>Static 5</name>
@@ -4703,7 +4752,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483744</id>
+																								<id>2147483746</id>
 																								<data>
 																									<base>
 																										<base>
@@ -4727,11 +4776,11 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value4>
-																			<value5>
+																			</value5>
+																			<value6>
 																				<polymorphic_id>22</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483745</id>
+																					<id>2147483747</id>
 																					<data>
 																						<base>
 																							<name>Static 4</name>
@@ -4823,7 +4872,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483746</id>
+																								<id>2147483748</id>
 																								<data>
 																									<base>
 																										<base>
@@ -4847,11 +4896,11 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value5>
-																			<value6>
+																			</value6>
+																			<value7>
 																				<polymorphic_id>22</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483747</id>
+																					<id>2147483749</id>
 																					<data>
 																						<base>
 																							<name>Static 3</name>
@@ -4879,7 +4928,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483748</id>
+																								<id>2147483750</id>
 																								<data>
 																									<base>
 																										<base>
@@ -4903,11 +4952,11 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value6>
-																			<value7>
+																			</value7>
+																			<value8>
 																				<polymorphic_id>22</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483749</id>
+																					<id>2147483751</id>
 																					<data>
 																						<base>
 																							<name>Static 2</name>
@@ -4927,7 +4976,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483750</id>
+																								<id>2147483752</id>
 																								<data>
 																									<base>
 																										<base>
@@ -4951,11 +5000,11 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value7>
-																			<value8>
+																			</value8>
+																			<value9>
 																				<polymorphic_id>22</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483751</id>
+																					<id>2147483753</id>
 																					<data>
 																						<base>
 																							<name>Static 1</name>
@@ -4998,7 +5047,7 @@
 																						<lighting>
 																							<polymorphic_id>23</polymorphic_id>
 																							<ptr_wrapper>
-																								<id>2147483752</id>
+																								<id>2147483754</id>
 																								<data>
 																									<base>
 																										<base>
@@ -5022,7 +5071,7 @@
 																						</lighting>
 																					</data>
 																				</ptr_wrapper>
-																			</value8>
+																			</value9>
 																		</layers>
 																	</base>
 																</data>
@@ -5058,7 +5107,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483753</id>
+																<id>2147483755</id>
 																<data>
 																	<base>
 																		<name>Profile Switching 1</name>
@@ -5101,7 +5150,7 @@
 														<first>
 															<polymorphic_id>8</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483754</id>
+																<id>2147483756</id>
 																<data>
 																	<base>
 																		<name>o O</name>
@@ -5144,7 +5193,7 @@
 														<first>
 															<polymorphic_id>26</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483755</id>
+																<id>2147483757</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5179,7 +5228,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483756</id>
+																<id>2147483758</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5218,7 +5267,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483757</id>
+																<id>2147483759</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5257,7 +5306,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483758</id>
+																<id>2147483760</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5296,7 +5345,7 @@
 														<first>
 															<polymorphic_id>27</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483759</id>
+																<id>2147483761</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5332,7 +5381,7 @@
 														<first>
 															<polymorphic_id>28</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483760</id>
+																<id>2147483762</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5367,7 +5416,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483761</id>
+																<id>2147483763</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5426,7 +5475,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483762</id>
+																					<id>2147483764</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -5483,7 +5532,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483763</id>
+																					<id>2147483765</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -5540,7 +5589,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483764</id>
+																					<id>2147483766</id>
 																					<data>
 																						<base>
 																							<name>Rainbow Wave 1</name>
@@ -5601,7 +5650,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483765</id>
+																					<id>2147483767</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -5815,7 +5864,7 @@
 														<first>
 															<polymorphic_id>33</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483766</id>
+																<id>2147483768</id>
 																<data>
 																	<base>
 																		<name>EqPresetSwitch</name>
@@ -5850,7 +5899,7 @@
 														<first>
 															<polymorphic_id>34</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483767</id>
+																<id>2147483769</id>
 																<data>
 																	<base>
 																		<name>DolbyStateChange</name>
@@ -5885,7 +5934,7 @@
 														<first>
 															<polymorphic_id>35</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483768</id>
+																<id>2147483770</id>
 																<data>
 																	<base>
 																		<name>MicMute</name>
@@ -5920,7 +5969,7 @@
 														<first>
 															<polymorphic_id>36</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483769</id>
+																<id>2147483771</id>
 																<data>
 																	<base>
 																		<name>SidetoneMute</name>
@@ -5990,7 +6039,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483770</id>
+																					<id>2147483772</id>
 																					<data>
 																						<base>
 																							<name></name>
@@ -6137,7 +6186,7 @@
 												<presets size="dynamic">
 													<value0>
 														<ptr_wrapper>
-															<id>2147483771</id>
+															<id>2147483773</id>
 															<data>
 																<id>{df65cb3e-f06b-49e4-9376-adba2c0caf6e}</id>
 																<name>Pure Direct</name>
@@ -6160,7 +6209,7 @@
 													</value0>
 													<value1>
 														<ptr_wrapper>
-															<id>2147483772</id>
+															<id>2147483774</id>
 															<data>
 																<id>{c1d3947b-493e-42c6-9503-dd63d6c40012}</id>
 																<name>Movie Theater</name>
@@ -6183,7 +6232,7 @@
 													</value1>
 													<value2>
 														<ptr_wrapper>
-															<id>2147483773</id>
+															<id>2147483775</id>
 															<data>
 																<id>{138c0b33-bc2c-42ff-96c8-190328221a5a}</id>
 																<name>FPS Competition</name>
@@ -6206,7 +6255,7 @@
 													</value2>
 													<value3>
 														<ptr_wrapper>
-															<id>2147483774</id>
+															<id>2147483776</id>
 															<data>
 																<id>{861c1fd2-fafa-485c-ae46-64fe006e583f}</id>
 																<name>Clear Chat</name>
@@ -6229,7 +6278,7 @@
 													</value3>
 													<value4>
 														<ptr_wrapper>
-															<id>2147483775</id>
+															<id>2147483777</id>
 															<data>
 																<id>{ace12c08-a7e1-4a87-8110-555e383ce327}</id>
 																<name>Bass Boost</name>
@@ -6331,7 +6380,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483776</id>
+																					<id>2147483778</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -6388,7 +6437,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483777</id>
+																					<id>2147483779</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -6571,7 +6620,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483778</id>
+																					<id>2147483780</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -6628,7 +6677,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483779</id>
+																					<id>2147483781</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -6863,7 +6912,7 @@
 					<isDefault>true</isDefault>
 				</dpiMode>
 				<dpiModeAdditional>
-					<id>{af95ba38-be89-4dca-bd5d-7b09208a5d0f}</id>
+					<id>{f6c850f6-a90c-4021-9bb2-211edfb3601d}</id>
 					<name></name>
 					<settings size="dynamic"/>
 					<sniper>
