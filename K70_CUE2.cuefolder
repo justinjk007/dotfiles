@@ -1357,7 +1357,7 @@
 																										<transitions size="dynamic">
 																											<value0>
 																												<time>0</time>
-																												<color>#ff8ab6e0</color>
+																												<color>#ff7ca3c9</color>
 																											</value0>
 																										</transitions>
 																									</base>
@@ -1525,7 +1525,7 @@
 																										<transitions size="dynamic">
 																											<value0>
 																												<time>0</time>
-																												<color>#ff7727ff</color>
+																												<color>#ffbf3dff</color>
 																											</value0>
 																										</transitions>
 																									</base>
@@ -3699,7 +3699,7 @@
 					<isDefault>true</isDefault>
 				</dpiMode>
 				<dpiModeAdditional>
-					<id>{262a63dd-4e17-4a54-8a6f-b54454cc38d7}</id>
+					<id>{964f2795-ac21-4f89-8ded-fc238ca373ba}</id>
 					<name></name>
 					<settings size="dynamic"/>
 					<sniper>
@@ -6912,7 +6912,7 @@
 					<isDefault>true</isDefault>
 				</dpiMode>
 				<dpiModeAdditional>
-					<id>{f6c850f6-a90c-4021-9bb2-211edfb3601d}</id>
+					<id>{cd2e57dc-ad05-4346-9eb4-27e6fb73fa30}</id>
 					<name></name>
 					<settings size="dynamic"/>
 					<sniper>
