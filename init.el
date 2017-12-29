@@ -190,13 +190,15 @@
   :defer t
   :mode
   ("\\.org$" . org-mode)
-  :config
-  (setq org-clock-mode-line-total 'current)
-  (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
+  :init
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
   (add-hook 'org-agenda-mode-hook 'magit-keys)
+  (add-hook 'org-mode-hook 'my-evaluate-time-table-automatically)
+  :config
+  (setq org-clock-mode-line-total 'current)
+  (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
   )
 (use-package org-bullets
   :after org
