@@ -55,6 +55,12 @@
     (".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build")))
  '(projectile-use-git-grep t)
  '(ring-bell-function (quote ignore) t)
+ '(safe-local-variable-values
+   (quote
+    ((eval add-hook
+	   (quote before-save-hook)
+	   (quote my-evaluate-time-table-automatically)
+	   nil t))))
  '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
