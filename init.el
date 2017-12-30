@@ -195,7 +195,6 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
   (add-hook 'org-agenda-mode-hook 'magit-keys)
-  (add-hook 'org-mode-hook 'my-evaluate-time-table-automatically)
   :config
   (setq org-clock-mode-line-total 'current)
   (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
