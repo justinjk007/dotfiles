@@ -523,9 +523,11 @@
     :init
     (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
     :config
+    ;; Sort directories first in dired buffer
     (require 'ls-lisp)
     (setq ls-lisp-dirs-first t
 	  ls-lisp-use-insert-directory-program nil
+	  dired-listing-switches "-laGh1v" ;; Sort ".git" type directories first
 	  )
     ))
 
