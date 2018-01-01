@@ -52,7 +52,6 @@ PS: To get to the startup folder on windows open the run window
 - [[https://github.com/domtronn/all-the-icons.el/tree/master/fonts][All the fonts]]
 - [[https://miktex.org/][MiKTEX]]
 - [[http://releases.llvm.org/download.html][LLVM-ToolChain]]
-- irony-mode-stuff
 
 Add everything to *PATH* off-course
 
