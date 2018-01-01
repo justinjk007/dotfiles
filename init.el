@@ -754,50 +754,6 @@
   ;; TODO Checkout msvc-ide https://github.com/yaruopooner/msvc/blob/master/doc/manual.en.md
   )
 
-;; Setup - https://github.com/Sarcasm/irony-mode/wiki/Setting-up-irony-mode-on-Windows-using-MSVC
-(use-package irony
-  :diminish irony-mode
-  :init
-  (setq w32-pipe-read-delay 0)
-  (setq irony-server-w32-pipe-buffer-size (* 64 1024))
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-  :config
-  (setq irony-additional-clang-options '("-std=c++14"))
-  (setq company-idle-delay              nil
-	company-dabbrev-downcase        nil
-	)
-  ;; workaround irony/libclang bug on MSVC
-  ;; see https://github.com/Sarcasm/irony-mode/issues/387#issuecomment-302775453
-  (setq irony-additional-clang-options
-	(list "-include"
-	      (locate-user-emacs-file "clang-windows-include-fix.h"))
-	)
-  )
-
-(use-package company-irony
-  :ensure irony
-  :ensure company
-  :config
-  (add-to-list 'company-backends 'company-irony)
-  )
-
-(use-package irony-eldoc
-  :defer t
-  :diminish eldoc-mode
-  :init
-  (add-hook 'irony-mode-hook #'irony-eldoc)
-  )
-
-(use-package flycheck-irony
-  :defer t
-  :after flycheck
-  :init
-  (add-hook 'flycheck-mode-hook #'flycheck-irony-setup)
-  )
-
 (use-package ggtags
   ;; Get gnu global
   ;; sudo apt install global
