@@ -4,8 +4,6 @@
 "Thou shalt not cross 80 columns in thy file"
 
 ;;; Code:
-;;(let ((file-name-handler-alist nil))
-;;File handler should be enabled at the bottom as well
 (require 'package)
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
                          ("melpa-s" . "http://stable.melpa.org/packages/")
@@ -98,43 +96,9 @@
 	company-show-numbers t
         company-idle-delay 0)
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
-  ;; Add hippies expand as company backend
-  (defun my-try-expand-company (old)
-    (unless company-candidates
-      (company-auto-begin))
-    (if (not old)
-        (progn
-          (he-init-string (he-lisp-symbol-beg) (point))
-          (if (not (he-string-member he-search-string he-tried-table))
-              (setq he-tried-table (cons he-search-string he-tried-table)))
-          (setq he-expand-list
-                (and (not (equal he-search-string ""))
-                     company-candidates))))
-    (while (and he-expand-list
-                (he-string-member (car he-expand-list) he-tried-table))
-      (setq he-expand-list (cdr he-expand-list)))
-    (if (null he-expand-list)
-        (progn
-          (if old (he-reset-string))
-          ())
-      (progn
-	(he-substitute-string (car he-expand-list))
-	(setq he-expand-list (cdr he-expand-list))
-	t)))
   )
 
 (use-package magit
-  ;; Install Diffutils for windows from here
-  ;; Step1 - http://gnuwin32.sourceforge.net/packages/diffutils.htm
-  ;; Step2 - And add the bin folder to path
-  ;; Try this instead of step 2 one day ->
-  ;; (when (string-equal system-type "windows-nt")
-  ;;   (progn
-  ;;     (setq diff-path "your-diff-path")
-  ;;     (setenv "PATH"
-  ;; 	      (concat diff-path ";"))
-  ;;     (setq exec-path
-  ;; 	    '(diff-path))))
   :bind ("C-x g" . magit-status)
   :defer t
   :config
@@ -361,24 +325,6 @@
   :diminish major-mode-icons-mode
   :config
   (global-flycheck-mode t)
-  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
-    (vector #b00000000
-            #b10000000
-            #b11000000
-            #b11100000
-            #b11110000
-            #b11111000
-            #b11111100
-            #b11111110
-            #b11111111
-            #b11111110
-            #b11111100
-            #b11111000
-            #b11110000
-            #b11100000
-            #b11000000
-            #b10000000
-            #b00000000))
   )
 
 (use-package speed-type
@@ -752,8 +698,6 @@
   :config
   (setq cmake-project-default-build-dir-name "build\/")
   (setq cmake-project-architecture "Win64")
-  ;; TODO Checkout cmake-ide https://github.com/atilaneves/cmake-ide
-  ;; TODO Checkout msvc-ide https://github.com/yaruopooner/msvc/blob/master/doc/manual.en.md
   )
 
 (use-package ggtags
@@ -797,6 +741,5 @@
 (global-set-key (kbd "C-c k o b") 'kill-other-buffers)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;  ) ;; !IMPORTANT for closing the file name handler, see begining of file
 (provide 'init.el)
 ;;; init.el ends here
