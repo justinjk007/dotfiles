@@ -62,6 +62,8 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
+(use-package diminish :ensure t)
+
 (use-package evil
   :config
   (evil-mode 1)
@@ -511,7 +513,7 @@
 
 (use-package counsel-projectile
   :config
-  (counsel-projectile-on)
+  (counsel-projectile-mode)
   )
 
 (use-package all-the-icons
