@@ -139,14 +139,12 @@ foofoofoo  bar"
 (defun my-evaluate-time-table-automatically()
   "This function evaluates the org-clock summary automatically if
   in tt.org file. This is called in tt.org as file-local-variable"
-  (if (string= (file-name-nondirectory buffer-file-name) "tt.org")
-      (add-hook 'before-save-hook
-		(lambda () (save-excursion
-			     (goto-char (point-min))
-			     (forward-line 9) ;; Line 10 is where the table is, starts from line 1 and move 9 times = line 10
-			     (org-clock-report)
-			     ))))
-  )
+  (save-excursion
+    (goto-char (point-min))
+    (forward-line 9) ;; Line 10 is where the table is, starts from line 1 and move 9 times = line 10
+    (org-clock-report)))
+
+
 
 (provide 'custom-functions)
 ;;; custom-functions.el ends here

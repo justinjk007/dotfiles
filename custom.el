@@ -57,9 +57,9 @@
  '(safe-local-variable-values
    (quote
     ((eval add-hook
-	   (quote before-save-hook)
-	   (quote my-evaluate-time-table-automatically)
-	   nil t))))
+ 	   (quote before-save-hook)
+ 	   (quote my-evaluate-time-table-automatically)
+ 	   nil t))))
  '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
