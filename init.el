@@ -325,6 +325,13 @@
   :diminish major-mode-icons-mode
   :config
   (global-flycheck-mode t)
+  (add-hook 'c++-mode-hook
+	    (lambda () (setq flycheck-clang-include-path
+			     (list
+			      (expand-file-name "include" (getenv "CGAL_DIR"))
+			      (expand-file-name (getenv "BOOST_INCLUDEDIR"))
+			      (expand-file-name "msvc2015_64/include/" (getenv "QT_DIR"))
+			      ))))
   )
 
 (use-package speed-type
