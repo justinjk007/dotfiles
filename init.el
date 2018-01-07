@@ -529,6 +529,11 @@
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
+(use-package flycheck-ledger
+  :ensure (string-equal system-type "gnu/linux")
+  :after ledger-mode
+  )
+
 (use-package nlinum
   :defer t
   :diminish auto-revert-mode
