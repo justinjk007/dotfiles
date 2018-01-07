@@ -9,3 +9,4 @@ cp .zshrc ~/
 cp .clang_complete ~/
 cp .clang-format ~/
 cp -rf snippets ~/.emacs.d/
+cp .ycm_extra_conf.py ~/

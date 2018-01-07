@@ -10,3 +10,4 @@ Xcopy clang-windows-include-fix.h %home%\.emacs.d\clang-windows-include-fix.h /e
 Xcopy custom-functions.el %home%\.emacs.d\custom-functions.el /e /y /f /q
 Xcopy snippets %home%\.emacs.d\snippets /e /y /f /q
 Xcopy lisp %home%\.emacs.d\lisp /e /y /f /q
+echo f | Xcopy .ycm_extra_conf.py %home%\.ycm_extra_conf.py /e /y /f /q

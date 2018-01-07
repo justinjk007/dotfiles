@@ -707,6 +707,23 @@
   (setq cmake-project-architecture "Win64")
   )
 
+(use-package ycmd
+  :init
+  (add-hook 'c++-mode-hook 'ycmd-mode)
+  (set 'ycmd-server-command '("python" "-u" "C:/Program Files/ycmd/ycmd"))
+  (set 'ycmd-global-config (file-truename "~/.ycm_extra_conf.py"))
+  )
+
+(use-package company-ycmd
+  :config
+  (company-ycmd-setup)
+  )
+
+(use-package flycheck-ycmd
+  :config
+  (flycheck-ycmd-setup)
+  )
+
 (use-package ggtags
   ;; Get gnu global
   ;; sudo apt install global
