@@ -8,6 +8,7 @@
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
                          ("melpa-s" . "http://stable.melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("org" . "http://orgmode.org/elpa/")
                          ))
 
 (package-initialize)
@@ -153,6 +154,8 @@
                               ) )
 
 (use-package org
+  :ensure org-plus-contrib
+  :pin org
   :defer t
   :mode
   ("\\.org$" . org-mode)
