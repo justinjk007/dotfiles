@@ -715,10 +715,13 @@
   (setq cmake-project-architecture "Win64")
   )
 
+;; https://github.com/Valloric/ycmd
+;; Install ymcd by installing build.py, do "python build.py -h" for help
+;; (set 'ycmd-server-command '("python" "-u" (expand-file-name "ycmd" (getenv "YCMD"))))
 (use-package ycmd
   :init
   (add-hook 'c++-mode-hook 'ycmd-mode)
-  (set 'ycmd-server-command '("python" "-u" "C:/Program Files/ycmd/ycmd"))
+  (set 'ycmd-server-command `("python" "-u" ,(expand-file-name "ycmd" (getenv "YCMD"))))
   (set 'ycmd-global-config (file-truename "~/.ycm_extra_conf.py"))
   )
 
