@@ -533,8 +533,8 @@
   )
 
 (use-package flycheck-ledger
-  :ensure (string-equal system-type "gnu/linux")
   :after ledger-mode
+  :if (string-equal system-type "gnu/linux")
   )
 
 (use-package nlinum
