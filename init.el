@@ -102,11 +102,6 @@
 (use-package magit
   :bind ("C-x g" . magit-status)
   :defer t
-  :config
-  (add-hook 'magit-status-mode-hook 'magit-keys)
-  (add-hook 'magit-log-mode-hook 'magit-keys)
-  (add-hook 'magit-diff-mode-hook 'magit-keys)
-  (add-hook 'magit-staged-section-mode-hook 'magit-keys)
   )
 
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
@@ -163,7 +158,6 @@
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
-  (add-hook 'org-agenda-mode-hook 'magit-keys)
   :config
   (setq org-clock-mode-line-total 'current)
   (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))

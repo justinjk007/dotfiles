@@ -35,11 +35,6 @@
   (interactive)
   (org-map-entries 'org-archive-subtree "/DONE" 'file))
 
-(defun magit-keys()
-  "Change emacs evil mode n and p to j and k repectively"
-  (define-key evil-emacs-state-map (kbd "j") 'next-line)
-  (define-key evil-emacs-state-map (kbd "k") 'previous-line))
-
 (defun insert-date (prefix)
   "Insert the current date with as PREFIX."
   (interactive "P")
