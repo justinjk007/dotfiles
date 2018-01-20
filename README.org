@@ -30,9 +30,6 @@ if it can't find it. After logging in and syncing all you contents set
   - Move =wifi-on-off.vbs= to startup folder, only do this if you have a
     desktop and you are using a wi-fi still and you want to play CS:GO
     with a good ping.
-  - Move =setup_msvc2017.vbs= to startup if you want to use Visual
-    Studio for *C++* development. This script will make sure VS
-    environmental variables are setup and read for scribbling.
   - Install [[http://www.corsair.com/en-us/downloads][CUE]] for managing your keyboard profiles and import
     =K70_CUE2.cuefolder=.
 
@@ -54,5 +51,3 @@ PS: To get to the startup folder on windows open the run window
 - [[http://releases.llvm.org/download.html][LLVM-ToolChain]]
 
 Add everything to *PATH* off-course
-
-* TODO Add notes about setting up GNUS
