@@ -1,7 +1,10 @@
 #+CAPTION: This is how I feeel when I tweak my emacs config
-#+html: <p align="center"><img src="usingemacs.gif" /></p>
+#+html: <p align="center"><img src="fluff/usingemacs.gif" /></p>
 
 * Install [[https://git-scm.com/downloads][git]] first
+- You have to move =.gitconfig= manually and set appropriate name for
+  the machine, this is only done once for that machine anyways.
+
 * This is a repository for my config files
  Here you can find my
 - Emacs configuration

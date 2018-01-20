@@ -7,5 +7,5 @@ cp .ycm_extra_conf.py ~/
 cp .clang_complete ~/
 cp .clang-format ~/
 cp -rf snippets ~/.emacs.d/
-cp .aliases ~/
-cp .zshrc ~/
+cp linux/.aliases ~/
+cp linux/.zshrc ~/
