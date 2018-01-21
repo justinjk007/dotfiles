@@ -152,15 +152,15 @@
   :ensure org-plus-contrib
   :pin org
   :defer t
-  :mode
-  ("\\.org$" . org-mode)
+  :mode ("\\.org$" . org-mode)
+  :bind ("C-'" . org-cycle-agenda-files)
   :init
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
+  (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
   :config
   (setq org-clock-mode-line-total 'current)
-  (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
   )
 (use-package org-bullets
   :after org
