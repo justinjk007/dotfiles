@@ -35,6 +35,8 @@ if it can't find it. After logging in and syncing all you contents set
     with a good ping.
   - Install [[http://www.corsair.com/en-us/downloads][CUE]] for managing your keyboard profiles and import
     =K70_CUE2.cuefolder=.
+  - Remember the paths in the registry files should be changed to the correct paths before adding them, 
+    you might even break windows without doing that.
 
 
 PS: To get to the startup folder on windows open the run window
