@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: shared_pointers
+# key: share
+# --
+std::shared_ptr<${1:Class_name}> ${2:pointer_name} = std::make_shared<$1>($0);

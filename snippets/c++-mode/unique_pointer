@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: unique_pointer
+# key: unq
+# --
+ std::unique_ptr<${1:Class_name}> ${2:pointer_name} = std::make_unique<$1>($0);
