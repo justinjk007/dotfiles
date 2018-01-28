@@ -322,13 +322,6 @@
   :diminish major-mode-icons-mode
   :config
   (global-flycheck-mode t)
-  (add-hook 'c++-mode-hook
-	    (lambda () (setq flycheck-clang-include-path
-			     (list
-			      (expand-file-name "include" (getenv "CGAL_DIR"))
-			      (expand-file-name (getenv "BOOST_INCLUDEDIR"))
-			      (expand-file-name "msvc2015_64/include/" (getenv "QT_DIR"))
-			      ))))
   )
 
 (use-package speed-type
@@ -711,7 +704,6 @@
 
 ;; https://github.com/Valloric/ycmd
 ;; Install ymcd by installing build.py, do "python build.py -h" for help
-;; (set 'ycmd-server-command '("python" "-u" (expand-file-name "ycmd" (getenv "YCMD"))))
 (use-package ycmd
   :init
   (add-hook 'c++-mode-hook 'ycmd-mode)
