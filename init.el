@@ -188,7 +188,7 @@
   (shackle-mode t)
   (setq shackle-rules
 	'(
-	  (compilation-mode         :select t   :align below :size 0.3)
+	  (compilation-mode         :select t   :align right :size 0.4)
 	  ("*eshell*"               :select t   :align right :size 0.35)
 	  (flycheck-error-list-mode :select nil :align below :size 0.25)
 	  ("*Org Select*"           :select t   :align below :size 0.33)
