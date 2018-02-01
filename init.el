@@ -198,6 +198,8 @@
 	  ))
   )
 
+(use-package multiple-cursors)
+
 (use-package spaceline
   :ensure powerline
   ;; https://gist.github.com/epegzz/1634235/fe5100a91157c5d0f0c8b7b6dedd126c6396ae19
