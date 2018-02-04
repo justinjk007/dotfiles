@@ -8,15 +8,13 @@
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
                          ("melpa-s" . "http://stable.melpa.org/packages/")
                          ("gnu" . "http://elpa.gnu.org/packages/")
-			 ("org" . "http://orgmode.org/elpa/")
-                         ))
+			 ("org" . "http://orgmode.org/elpa/")))
 
 (package-initialize)
 (setq gc-cons-threshold (* 50 1024 1024))
 (add-hook 'focus-out-hook #'garbage-collect) ;; Garbage-collect on focus-out
 (setq user-full-name "Justin Kaipada"
-      user-mail-address "justinjoseph0007@gmail.com"
-      )
+      user-mail-address "justinjoseph0007@gmail.com")
 (setq initial-scratch-message nil)
 (setq message-log-max 10000)
 (fset 'yes-or-no-p 'y-or-n-p); Change yes/no to y/n
@@ -189,8 +187,8 @@
   (shackle-mode t)
   (setq shackle-rules
 	'(
-	  (compilation-mode         :select t   :align right :size 0.4)
-	  ("*eshell*"               :select t   :align right :size 0.35)
+	  (compilation-mode         :select t :other t)
+	  ("*eshell*"               :select t :other t)
 	  (flycheck-error-list-mode :select nil :align below :size 0.25)
 	  ("*Org Select*"           :select t   :align below :size 0.33)
 	  ("*Org Agenda*"           :select t   :align right :size 0.33)
