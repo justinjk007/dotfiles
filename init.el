@@ -13,6 +13,7 @@
 
 (package-initialize)
 (setq gc-cons-threshold (* 50 1024 1024))
+(add-hook 'focus-out-hook #'garbage-collect) ;; Garbage-collect on focus-out
 (setq user-full-name "Justin Kaipada"
       user-mail-address "justinjoseph0007@gmail.com"
       )
