@@ -15,3 +15,4 @@ export VISUAL='/usr/bin/emacs'
 source $HOME/.aliases
 
 export DROPBOX_DIR="~/Dropbox"
+export YCMD="/usr/src/ycmd/"
