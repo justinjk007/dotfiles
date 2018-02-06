@@ -81,6 +81,11 @@
 
 (use-package solarized-theme
   :pin melpa
+  :config
+  (load-theme 'solarized-dark t)
+  (setq x-underline-at-descent-line t
+	solarized-distinct-doc-face nil
+	solarized-use-variable-pitch nil)
   )
 
 (use-package company
@@ -225,7 +230,6 @@
    powerline-height 22
    powerline-default-separator 'bar
    spaceline-flycheck-bullet "❖ %s")
-  (setq x-underline-at-descent-line t)
   (diminish 'abbrev-mode)
   (diminish 'auto-revert-mode)
   ;; fancy git icon

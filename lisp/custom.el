@@ -19,9 +19,6 @@
     (
      "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
      default)))
- '(custom-theme-load-path
-   (quote
-    ("~/.emacs.d/elpa/solarized-theme-20180101.42" custom-theme-directory t)))
  '(electric-pair-mode t)
  '(flycheck-indication-mode (quote right-fringe))
  '(flyspell-abbrev-p t)
@@ -63,8 +60,6 @@
  '(scroll-restore-mode t)
  '(send-mail-function (quote mailclient-send-it))
  '(show-paren-mode t)
- '(solarized-distinct-doc-face nil)
- '(solarized-use-variable-pitch nil)
  '(standard-indent 2))
 
 (custom-set-faces
