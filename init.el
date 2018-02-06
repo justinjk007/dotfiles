@@ -85,6 +85,7 @@
 
 (use-package company
   :diminish company-mode
+  :pin melpa
   :config
   (global-company-mode)
   (setq-local company-dabbrev-downcase nil)
@@ -674,10 +675,7 @@
   (global-set-key (kbd "C-c u") 'clang-format-buffer)
   :config
   (setq clang-format-style-option "file")
-  ;; Stop aggressive-indent mode to use clang-format
-  (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
+  (fset 'c-indent-region 'clang-format-region)
   )
 
 (use-package cmake-mode
@@ -701,6 +699,7 @@
 
 ;; https://github.com/Valloric/ycmd
 ;; Install ymcd by installing build.py, do "python build.py -h" for help
+;; Set Environment variable YMCD to the root folder of the repo
 (use-package ycmd
   :init
   (add-hook 'c++-mode-hook 'ycmd-mode)
@@ -709,6 +708,7 @@
   )
 
 (use-package company-ycmd
+  :after company
   :config
   (company-ycmd-setup)
   )
