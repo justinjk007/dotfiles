@@ -91,18 +91,32 @@
 (use-package company
   :diminish company-mode
   :pin melpa
-  :config
-  (global-company-mode)
+  :preface
+  ;; enable yasnippet everywhere
+  ;; https://onze.io/emacs/c++/2017/03/16/emacs-cpp.html
+  (defvar company-mode/enable-yas t
+    "Enable yasnippet for all backends.")
+  (defun company-mode/backend-with-yas (backend)
+    (if (or
+         (not company-mode/enable-yas)
+         (and (listp backend) (member 'company-yasnippet backend)))
+        backend
+      (append (if (consp backend) backend (list backend))
+              '(:with company-yasnippet))))
+  :config (global-company-mode t)
   (setq-local company-dabbrev-downcase nil)
   (setq company-minimum-prefix-length 2
 	company-show-numbers t
         company-idle-delay 0)
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
+  (setq company-backends
+	(mapcar #'company-mode/backend-with-yas company-backends))
   )
 
 (use-package magit
   :bind ("C-x g" . magit-status)
   :defer t
+  :diminish auto-revert-mode
   )
 
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
@@ -528,7 +542,6 @@
 
 (use-package nlinum
   :defer t
-  :diminish auto-revert-mode
   :init
   (add-hook 'prog-mode-hook 'nlinum-mode)
   (add-hook 'ledger-mode-hook 'nlinum-mode)
@@ -662,6 +675,8 @@
   (font-lock-add-keywords 'c++-mode
 			  '(("\\<\\(FIXME\\):" 1 font-lock-constant-face))
 			  )
+
+  :diminish modern-c++-font-lock-mode
   )
 
 (use-package company-c-headers
@@ -705,6 +720,7 @@
 ;; Install ymcd by installing build.py, do "python build.py -h" for help
 ;; Set Environment variable YMCD to the root folder of the repo
 (use-package ycmd
+  :diminish ycmd-mode
   :init
   (add-hook 'c++-mode-hook 'ycmd-mode)
   (set 'ycmd-server-command `("python" "-u" ,(expand-file-name "ycmd" (getenv "YCMD"))))
@@ -713,13 +729,18 @@
 
 (use-package company-ycmd
   :after company
-  :config
-  (company-ycmd-setup)
+  :init (add-hook 'ycmd-mode-hook 'company-ycmd-setup)
+  :config (add-to-list 'company-backends (company-mode/backend-with-yas 'company-ycmd))
   )
 
 (use-package flycheck-ycmd
-  :config
-  (flycheck-ycmd-setup)
+  :after company
+  :init (add-hook 'ycmd-mode-hook 'flycheck-ycmd-setup)
+  )
+
+(use-package eldoc
+  :diminish eldoc-mode
+  :init (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
   )
 
 (use-package ggtags
