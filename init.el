@@ -714,7 +714,10 @@
   (global-set-key (kbd "C-c u") 'clang-format-buffer)
   :config
   (setq clang-format-style-option "file")
-  (fset 'c-indent-region 'clang-format-region)
+  ;; Stop aggressive-indent mode to use clang-format
+  (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
   )
 
 (use-package cmake-mode
