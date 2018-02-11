@@ -4,6 +4,8 @@
 * Install [[https://git-scm.com/downloads][git]] first
 - You have to move =.gitconfig= manually and set appropriate name for
   the machine, this is only done once for that machine anyways.
+- Also move =secret.el= to the home directory with the correct secret
+  codes in it.
 
 * This is a repository for my config files
  Here you can find my
@@ -35,7 +37,7 @@ if it can't find it. After logging in and syncing all you contents set
     with a good ping.
   - Install [[http://www.corsair.com/en-us/downloads][CUE]] for managing your keyboard profiles and import
     =K70_CUE2.cuefolder=.
-  - Remember the paths in the registry files should be changed to the correct paths before adding them, 
+  - Remember the paths in the registry files should be changed to the correct paths before adding them,
     you might even break windows without doing that.
 
 

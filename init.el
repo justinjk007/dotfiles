@@ -193,7 +193,9 @@
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
-  (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
+  (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
+			   ,(expand-file-name "org-files/gcal.org" (getenv "DROPBOX_DIR"))
+			   ))
   :config
   (setq org-clock-mode-line-total 'current)
   )
@@ -212,13 +214,22 @@
   :config
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/")
   )
+;; Get secrets from here --> https://console.developers.google.com
+(setq package-check-signature nil)
+(use-package org-gcal
+  :init
+  (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
+  (add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync) ))
+  :config
+  (load-file "~/secret.el")
+  )
 
 (use-package markdown-mode
   ;; http://jblevins.org/projects/markdown-mode/ -- Read all about it
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
+	 ("\\.md\\'" . markdown-mode)
+	 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")
   )
 
