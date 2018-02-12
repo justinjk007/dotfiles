@@ -44,6 +44,10 @@ if it can't find it. After logging in and syncing all you contents set
 PS: To get to the startup folder on windows open the run window
 (Windows button + R) and write =shell:startup=.
 
+* Environment variables to be added
+- *DROPBOX_DIR*, should point to the root of Dropbox.
+- *YCMD*, should point to the root of the ycmd repository
+
 * Other softwares to install
 
 - [[http://aspell.net/win32/][Aspell]] - Try and match this install path
