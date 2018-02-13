@@ -219,7 +219,6 @@
 (use-package org-gcal
   :init
   (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
-  (add-hook 'org-capture-after-finalize-hook (lambda () (org-gcal-sync) ))
   :config
   (load-file "~/secret.el")
   (setq org-gcal-file-alist `(("justinjoseph0007@gmail.com" . ,(expand-file-name "org-files/gcal.org" (getenv "DROPBOX_DIR")))))
