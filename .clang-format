@@ -4,7 +4,6 @@ Language: Cpp
 Standard: Cpp11
 Cpp11BracedListStyle: true
 IndentWidth: 4
-# I know, I know IBM legacy blah blah, but I think 100 is acceptable with todays Standards
 ColumnLimit: 100
 BreakBeforeBraces: Linux
 AlignAfterOpenBracket: Align
