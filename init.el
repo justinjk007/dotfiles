@@ -197,7 +197,9 @@
 			   ,(expand-file-name "org-files/gcal.org" (getenv "DROPBOX_DIR"))
 			   ))
   :config
-  (setq org-clock-mode-line-total 'current)
+  (setq org-clock-mode-line-total 'current
+	org-duration-format (quote h:mm)
+	)
   )
 (use-package org-bullets
   :after org
@@ -221,7 +223,8 @@
   (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
   :config
   (load-file "~/secret.el")
-  (setq org-gcal-file-alist `(("justinjoseph0007@gmail.com" . ,(expand-file-name "org-files/gcal.org" (getenv "DROPBOX_DIR")))))
+  (setq org-gcal-file-alist `(("justinjoseph0007@gmail.com" .
+			       ,(expand-file-name "org-files/gcal.org" (getenv "DROPBOX_DIR")))))
   )
 
 (use-package markdown-mode
