@@ -1,0 +1,7 @@
+REGEDIT4
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=-
+
+# https://github.com/LigerLearn/emacs-course/tree/master/remapping-caps-lock
+# This will remove all the mappings added by SwapCapsLockAndLeftCtrl.reg file
