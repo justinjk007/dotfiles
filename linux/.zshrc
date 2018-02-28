@@ -16,3 +16,5 @@ source $HOME/.aliases
 
 export DROPBOX_DIR="~/Dropbox"
 export YCMD="/usr/src/ycmd/"
+
+setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
