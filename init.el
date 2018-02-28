@@ -263,24 +263,19 @@
   (remove-hook 'focus-out-hook 'powerline-unset-selected-window)
   :config
   (spaceline-spacemacs-theme)
+  (setq ns-use-srgb-colorspace nil)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; Enable color change with modes
   (set-face-attribute 'spaceline-evil-emacs nil :foreground "#fdf6e3" :background "#6c71c4")
   (set-face-attribute 'spaceline-evil-normal nil :foreground "#fdf6e3" :background "#268bd2")
   (set-face-attribute 'spaceline-evil-insert nil :foreground "#fdf6e3" :background "#859902")
   (set-face-attribute 'spaceline-evil-visual nil :foreground "#fdf6e3" :background "#2AA198")
   (set-face-attribute 'spaceline-evil-motion nil :foreground "#fdf6e3" :background "#268bd2")
   (set-face-attribute 'spaceline-evil-replace nil :foreground "#fdf6e3" :background "#cd5c5c")
-  (spaceline-toggle-evil-state-on)
-  (spaceline-toggle-org-clock-on)
-  (spaceline-toggle-projectile-root-on)
-  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state)
-  (setq ns-use-srgb-colorspace nil)
   (setq-default
    powerline-height 22
    powerline-default-separator 'bar
    spaceline-flycheck-bullet "❖ %s")
-  (diminish 'abbrev-mode)
-  (diminish 'auto-revert-mode)
-  ;; fancy git icon
+  ;; Fancy git icon
   (defadvice vc-mode-line (after strip-backend () activate)
     (propertize (all-the-icons-octicon "git-branch")
 		'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
@@ -294,6 +289,11 @@
 				  'display '(raise 0)
 				  ) vc-mode)))
 	(setq vc-mode gitlogo))))
+  (spaceline-toggle-evil-state-on)
+  (spaceline-toggle-org-clock-on)
+  (spaceline-toggle-projectile-root-on)
+  (spaceline-toggle-buffer-size-off)
+  (spaceline-toggle-minor-modes-off)
   (spaceline-compile)
   )
 

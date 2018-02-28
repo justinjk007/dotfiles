@@ -6,6 +6,11 @@
   the machine, this is only done once for that machine anyways.
 - Also move =secret.el= to the home directory with the correct secret
   codes in it.
+- If =magit= suddenly stops working on windows, run this on =cmd=
+
+  #+BEGIN_SRC sh
+  git config --global credential.helper wincred
+  #+END_SRC
 
 * This is a repository for my config files
  Here you can find my
