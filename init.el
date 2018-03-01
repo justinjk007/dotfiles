@@ -293,7 +293,6 @@
   (spaceline-toggle-org-clock-on)
   (spaceline-toggle-projectile-root-on)
   (spaceline-toggle-buffer-size-off)
-  (spaceline-toggle-minor-modes-off)
   (spaceline-compile)
   )
 
