@@ -29,6 +29,7 @@
 (setq disabled-command-function nil)
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 2) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
+(setq auto-window-vscroll nil) ;; Increase scrolling performance
 (setq-default line-spacing 4)
 (defvar org-hide-emphasis-markers t)
 (fringe-mode '(8 . 6)) ; Make left fringe 8 pixel and right 6.
