@@ -657,44 +657,6 @@
   ("C-c C-f" . origami-toggle-node )
   )
 
-(use-package gnus
-  ;; Checkout this great guide here
-  ;; https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/gnus-guide-en.org
-  :commands (gnus)
-  :init
-  (setq gnus-select-method '(nnnil ""))
-  (if (string-equal system-type "windows-nt")
-      (setq gnus-secondary-select-methods
-	    '((nnimap "imap.gmail.com"
-		      (nnimap-address "imap.gmail.com")
-		      (nnimap-server-port 993) ;; If WINDOWS do this
-		      (nnimap-stream ssl)
-		      (nnimap-authenticator login))))
-    (setq gnus-secondary-select-methods
-	  '((nnimap "imap.gmail.com"
-		    (nnimap-address "imap.gmail.com")
-		    (nnimap-server-port "imap") ;; If UNIX do this
-		    (nnimap-stream ssl)
-		    (nnimap-authenticator login))))
-    ) ;; If ends here.
-  (setq smtpmail-smtp-server "smtp.gmail.com"
-	smtpmail-smtp-service 587
-	gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]")
-  ;; This should be placed in .authinfo or .authinfo.gpg in you home directory.
-
-  ;; machine imap.gmail.com login thisisemail@example.com password &*HH%&&H^& port 993
-  ;; machine smtp.gmail.com login thisisemail@example.com password &*HH%&&H^& port 587
-  :config
-  (defun my-gnus-group-list-subscribed-groups ()
-    "List all subscribed groups with or without un-read messages"
-    (interactive)
-    (gnus-group-list-all-groups 5))
-
-  (define-key gnus-group-mode-map
-    ;; list all the subscribed groups even they contain zero un-read messages
-    (kbd "o") 'my-gnus-group-list-subscribed-groups)
-  )
-
 ;; C++ Config -----------------------------------------------------------------
 
 (use-package modern-cpp-font-lock
