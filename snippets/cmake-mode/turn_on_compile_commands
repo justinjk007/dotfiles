@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: turn_on_compile_commands
+# key: compile_commands
+# --
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
