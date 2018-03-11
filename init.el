@@ -757,6 +757,7 @@
   :diminish ycmd-mode
   :init
   (add-hook 'c++-mode-hook 'ycmd-mode)
+  (add-hook 'c-mode-hook 'ycmd-mode)
   (set 'ycmd-server-command `("python" "-u" ,(expand-file-name "ycmd" (getenv "YCMD"))))
   (set 'ycmd-global-config (file-truename "~/.ycm_extra_conf.py"))
   )
