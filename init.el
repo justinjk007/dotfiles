@@ -639,10 +639,14 @@
   (add-hook 'yaml-mode-hook 'nlinum-mode)
   )
 
-(use-package adafruit-wisdom
+(use-package dashboard
+  :diminish page-break-lines-mode
   :config
-  (setq inhibit-startup-message t)
-  (setq initial-scratch-message (concat ";; " (adafruit-wisdom-select) "\n"))
+  (dashboard-setup-startup-hook)
+  (setq dashboard-banner-logo-title "Lets start hacking !")
+  (setq dashboard-items '((projects . 5)
+			  (recents  . 3)
+			  (agenda . 3)))
   )
 
 (use-package tex
