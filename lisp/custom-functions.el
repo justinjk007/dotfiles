@@ -94,23 +94,20 @@ foofoofoo  bar"
   )
 
 (defun my-expenses-today ()
-  "Get todays expenses using ledger-cli on the go."
+  "Get todays expenses using ledger-cli using this INTERACTIVE function."
+  (interactive)
   (defvar todays-date-flag (concat "-b "
-				   (format-time-string "%m") ;; Month
-				   "/"
-				   (format-time-string "%d") ;; Day
-				   ))
+				   (format-time-string "%m/%d"))) ;; mm/dd
   (defvar tomorrows-date-flag (concat "-e "
 				      (format-time-string "%m")
-				      "/0" ;; 0 is needed for the date formated below
+				      "/"
 				      (number-to-string
-				       (+ (string-to-number (format-time-string "%d")) 1))
-				      ))
+				       (+ (string-to-number (format-time-string "%d")) 1))))
   (defvar todays-expenses-command (concat "ledger -f "
 					  (file-name-nondirectory buffer-file-name)
-					  "hello"
 					  " bal ^Expenses " todays-date-flag " " tomorrows-date-flag))
-  (shell-command todays-expenses-command)
+  (message todays-expenses-command)
+  (shell-command-to-string todays-expenses-command)
   )
 
 (defun point-in-comment ()
@@ -138,8 +135,6 @@ foofoofoo  bar"
     (goto-char (point-min))
     (forward-line 9) ;; Line 10 is where the table is, starts from line 1 and move 9 times = line 10
     (org-clock-report)))
-
-
 
 (provide 'custom-functions)
 ;;; custom-functions.el ends here
