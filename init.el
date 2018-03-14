@@ -779,6 +779,7 @@
 (global-set-key (kbd "S-SPC") 'recompile)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
+(global-set-key (kbd "<f5>") 'revert-buffer)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (provide 'init.el)
