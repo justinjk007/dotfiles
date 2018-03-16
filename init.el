@@ -80,9 +80,7 @@
 	evil-replace-state-tag "REPLACE"
 	evil-emacs-state-tag "EMACS"
 	evil-motion-state-tag "MOTION" )
-  (define-key evil-normal-state-map (kbd "C-y") 'yank)
-  (define-key evil-insert-state-map (kbd "C-y") 'yank)
-  (define-key evil-visual-state-map (kbd "C-y") 'yank)
+  (define-key minibuffer-local-map (kbd "C-y") 'yank)
   )
 
 (use-package solarized-theme
