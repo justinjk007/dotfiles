@@ -65,6 +65,8 @@
   (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
   (define-key evil-normal-state-map "n" 'scroll-up)
   (define-key evil-normal-state-map "N" 'scroll-down)
+  (define-key evil-normal-state-map "J" 'evil-scroll-line-up)
+  (define-key evil-normal-state-map "K" 'evil-scroll-line-down)
   (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
   (define-key evil-visual-state-map (kbd "L") 'end-of-line)
   (define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
