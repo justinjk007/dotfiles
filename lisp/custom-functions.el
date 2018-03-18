@@ -96,17 +96,27 @@ foofoofoo  bar"
 (defun my-expenses-today ()
   "Get todays expenses using ledger-cli using this INTERACTIVE function."
   (interactive)
-  (let* ((now (current-time))
-	 (tomorrow (time-add now (* 24 3600)))
-	 (last-week (time-subtract now (* 7 24 3600)))
-	 )
-    (defvar todays-date-flag-start (format-time-string "-b %m/%d" now))
-    (defvar todays-date-flag-stop (format-time-string "-e %m/%d" now))
+  (let* ((tomorrow (time-add (current-time) (* 24 3600))))
+    (defvar todays-date-flag (format-time-string "-b %m/%d"))
     (defvar tomorrows-date-flag (format-time-string "-e %m/%d" tomorrow))
-    (defvar last-weeks-date-flag (format-time-string "-b %m/%d" last-week))
-    (defvar ledger-todays-expenses-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal ^Expenses " todays-date-flag-start " " tomorrows-date-flag))
-    (defvar ledger-this-weeks-expenses-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal ^Expenses " last-weeks-date-flag " " todays-date-flag-stop))
+    (defvar ledger-todays-expenses-command (concat "ledger -f "
+						   (file-name-nondirectory buffer-file-name)
+						   " bal ^Expenses " todays-date-flag
+						   " " tomorrows-date-flag))
     (message ledger-todays-expenses-command)
+    ) ;; let finishes
+  )
+
+(defun my-expenses-last-week ()
+  "Get last-weeks expenses using ledger-cli using this INTERACTIVE function."
+  (interactive)
+  (let* ((last-week (time-subtract (current-time) (* 7 24 3600))))
+    (defvar last-weeks-date-flag (format-time-string "-b %m/%d" last-week))
+    (defvar todays-date-flag (format-time-string "-e %m/%d"))
+    (defvar ledger-this-weeks-expenses-command (concat "ledger -f "
+						       (file-name-nondirectory buffer-file-name)
+						       " bal ^Expenses " last-weeks-date-flag
+						       " " todays-date-flag))
     (message ledger-this-weeks-expenses-command)
     ) ;; let finishes
   )
