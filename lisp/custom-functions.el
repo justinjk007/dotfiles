@@ -96,18 +96,14 @@ foofoofoo  bar"
 (defun my-expenses-today ()
   "Get todays expenses using ledger-cli using this INTERACTIVE function."
   (interactive)
-  (defvar todays-date-flag (concat "-b "
-				   (format-time-string "%m/%d"))) ;; mm/dd
-  (defvar tomorrows-date-flag (concat "-e "
-				      (format-time-string "%m")
-				      "/"
-				      (number-to-string
-				       (+ (string-to-number (format-time-string "%d")) 1))))
-  (defvar todays-expenses-command (concat "ledger -f "
-					  (file-name-nondirectory buffer-file-name)
-					  " bal ^Expenses " todays-date-flag " " tomorrows-date-flag))
-  (message todays-expenses-command)
-  (shell-command-to-string todays-expenses-command)
+  (defvar todays-date-flag (format-time-string "-b %m/%d")) ;; mm/dd
+  (defvar tomorrows-date-flag (concat (format-time-string "-e %m/")
+				      (number-to-string (+ (string-to-number (format-time-string "%d")) 1))))
+  (defvar ledger-todays-expenses-command (concat "ledger -f "
+						 (file-name-nondirectory buffer-file-name)
+						 " bal ^Expenses " todays-date-flag " " tomorrows-date-flag))
+  (message ledger-todays-expenses-command)
+  (shell-command-to-string ledger-todays-expenses-command)
   )
 
 (defun point-in-comment ()
