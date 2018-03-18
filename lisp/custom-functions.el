@@ -97,12 +97,13 @@ foofoofoo  bar"
   "Get todays expenses using ledger-cli using this INTERACTIVE function."
   (interactive)
   (let* ((tomorrow (time-add (current-time) (* 24 3600))))
-    (defvar todays-date-flag (format-time-string "-b %m/%d"))
+    (defvar todays-date-flag-start (format-time-string "-b %m/%d"))
     (defvar tomorrows-date-flag (format-time-string "-e %m/%d" tomorrow))
     (defvar ledger-todays-expenses-command (concat "ledger -f "
 						   (file-name-nondirectory buffer-file-name)
-						   " bal ^Expenses " todays-date-flag
+						   " bal ^Expenses " todays-date-flag-start
 						   " " tomorrows-date-flag))
+    (kill-new ledger-todays-expenses-command)
     (message ledger-todays-expenses-command)
     ) ;; let finishes
   )
@@ -118,6 +119,7 @@ foofoofoo  bar"
 						       " bal ^Expenses " last-weeks-date-flag
 						       " " todays-date-flag))
     (message ledger-this-weeks-expenses-command)
+    (kill-new ledger-this-weeks-expenses-command)
     ) ;; let finishes
   )
 
