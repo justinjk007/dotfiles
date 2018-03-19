@@ -241,6 +241,10 @@
   :init (setq markdown-command "multimarkdown")
   )
 
+(use-package academic-phrases
+  :after org-mode
+  )
+
 (use-package shackle
   :config
   (shackle-mode t)
