@@ -204,7 +204,8 @@
   (setq org-clock-mode-line-total 'current
 	org-duration-format (quote h:mm)
 	)
-  (setq org-icalendar-include-todo t)
+  (require 'ox-latex)
+  (setq org-latex-listings 't)
   )
 (use-package org-bullets
   :after org
@@ -239,6 +240,10 @@
 	 ("\\.md\\'" . markdown-mode)
 	 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")
+  )
+
+(use-package academic-phrases
+  :after org-mode
   )
 
 (use-package shackle
