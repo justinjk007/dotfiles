@@ -204,7 +204,8 @@
   (setq org-clock-mode-line-total 'current
 	org-duration-format (quote h:mm)
 	)
-  (setq org-icalendar-include-todo t)
+  (require 'ox-latex)
+  (setq org-latex-listings 't)
   )
 (use-package org-bullets
   :after org
