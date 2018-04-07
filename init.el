@@ -232,6 +232,9 @@
   (setq org-gcal-file-alist `(("justinjoseph0007@gmail.com" .
 			       ,(expand-file-name "org-files/gcal.org" (getenv "DROPBOX_DIR")))))
   )
+(use-package ox-hugo
+  :after ox
+  )
 
 (use-package markdown-mode
   ;; http://jblevins.org/projects/markdown-mode/ -- Read all about it
