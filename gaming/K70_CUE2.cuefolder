@@ -3580,8 +3580,8 @@
 					</properties>
 					<isHardware>false</isHardware>
 					<RGBShareMeta>
-						<CueVersion>2.21.67</CueVersion>
-						<ProfileVersion>2.21.55</ProfileVersion>
+						<CueVersion>2.23.40</CueVersion>
+						<ProfileVersion>2.22.19</ProfileVersion>
 						<KeyboardModel>K70 RGB</KeyboardModel>
 						<MouseModel>Demo Scimitar</MouseModel>
 						<HeadsetModel>Demo VOID WIRELESS</HeadsetModel>
@@ -3596,118 +3596,119 @@
 					</RGBShareMeta>
 				</profile>
 				<dpiMode>
-					<cereal_class_version>200</cereal_class_version>
+					<cereal_class_version>201</cereal_class_version>
 					<id>{811b30a9-714b-46fd-9c19-1e980a27d662}</id>
 					<name>Default</name>
 					<settings size="dynamic">
 						<value0>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>2147483719</id>
-								<data>
-									<cereal_class_version>200</cereal_class_version>
-									<index>0</index>
-									<default>false</default>
-									<enabled>true</enabled>
-									<independent>false</independent>
-									<dpiX>800</dpiX>
-									<dpiY>800</dpiY>
-									<color>#ffff0000</color>
-								</data>
-							</ptr_wrapper>
+							<key>Dpi1</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>2147483719</id>
+									<data>
+										<cereal_class_version>201</cereal_class_version>
+										<enabled>true</enabled>
+										<independent>false</independent>
+										<dpiX>800</dpiX>
+										<dpiY>800</dpiY>
+										<color>#ffff0000</color>
+									</data>
+								</ptr_wrapper>
+							</value>
 						</value0>
 						<value1>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>2147483720</id>
-								<data>
-									<index>1</index>
-									<default>true</default>
-									<enabled>true</enabled>
-									<independent>false</independent>
-									<dpiX>1500</dpiX>
-									<dpiY>1500</dpiY>
-									<color>#ffffffff</color>
-								</data>
-							</ptr_wrapper>
+							<key>Dpi2</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>2147483720</id>
+									<data>
+										<enabled>true</enabled>
+										<independent>false</independent>
+										<dpiX>1500</dpiX>
+										<dpiY>1500</dpiY>
+										<color>#ffffffff</color>
+									</data>
+								</ptr_wrapper>
+							</value>
 						</value1>
 						<value2>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>2147483721</id>
-								<data>
-									<index>2</index>
-									<default>false</default>
-									<enabled>true</enabled>
-									<independent>false</independent>
-									<dpiX>3000</dpiX>
-									<dpiY>3000</dpiY>
-									<color>#ff00ff00</color>
-								</data>
-							</ptr_wrapper>
+							<key>Dpi3</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>2147483721</id>
+									<data>
+										<enabled>true</enabled>
+										<independent>false</independent>
+										<dpiX>3000</dpiX>
+										<dpiY>3000</dpiY>
+										<color>#ff00ff00</color>
+									</data>
+								</ptr_wrapper>
+							</value>
 						</value2>
 						<value3>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>2147483722</id>
-								<data>
-									<index>3</index>
-									<default>false</default>
-									<enabled>true</enabled>
-									<independent>false</independent>
-									<dpiX>6000</dpiX>
-									<dpiY>6000</dpiY>
-									<color>#ffffff00</color>
-								</data>
-							</ptr_wrapper>
+							<key>Dpi4</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>2147483722</id>
+									<data>
+										<enabled>true</enabled>
+										<independent>false</independent>
+										<dpiX>6000</dpiX>
+										<dpiY>6000</dpiY>
+										<color>#ffffff00</color>
+									</data>
+								</ptr_wrapper>
+							</value>
 						</value3>
 						<value4>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>2147483723</id>
-								<data>
-									<index>4</index>
-									<default>false</default>
-									<enabled>true</enabled>
-									<independent>false</independent>
-									<dpiX>9000</dpiX>
-									<dpiY>9000</dpiY>
-									<color>#ff00ffff</color>
-								</data>
-							</ptr_wrapper>
+							<key>Dpi5</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>2147483723</id>
+									<data>
+										<enabled>true</enabled>
+										<independent>false</independent>
+										<dpiX>9000</dpiX>
+										<dpiY>9000</dpiY>
+										<color>#ff00ffff</color>
+									</data>
+								</ptr_wrapper>
+							</value>
 						</value4>
+						<value5>
+							<key>SniperDpi</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>2147483724</id>
+									<data>
+										<enabled>true</enabled>
+										<independent>false</independent>
+										<dpiX>400</dpiX>
+										<dpiY>400</dpiY>
+										<color>#ff008080</color>
+									</data>
+								</ptr_wrapper>
+							</value>
+						</value5>
 					</settings>
-					<sniper>
-						<polymorphic_id>1073741824</polymorphic_id>
-						<ptr_wrapper>
-							<id>2147483724</id>
-							<data>
-								<index>5</index>
-								<default>false</default>
-								<enabled>true</enabled>
-								<independent>false</independent>
-								<dpiX>400</dpiX>
-								<dpiY>400</dpiY>
-								<color>#ff008080</color>
-							</data>
-						</ptr_wrapper>
-					</sniper>
 					<active>true</active>
-					<independent>true</independent>
-					<defaultIndex>1</defaultIndex>
+					<defaultIndex>Dpi2</defaultIndex>
 					<defaultModeIndex>0</defaultModeIndex>
 					<isDefault>true</isDefault>
 				</dpiMode>
 				<dpiModeAdditional>
-					<id>{964f2795-ac21-4f89-8ded-fc238ca373ba}</id>
+					<id>{8bd60dd9-f16a-40d1-a9cd-20c5b1d5eca0}</id>
 					<name></name>
 					<settings size="dynamic"/>
-					<sniper>
-						<polymorphic_id>0</polymorphic_id>
-					</sniper>
 					<active>false</active>
-					<independent>false</independent>
-					<defaultIndex>-1</defaultIndex>
+					<defaultIndex>Invalid</defaultIndex>
 					<defaultModeIndex>-1</defaultModeIndex>
 					<isDefault>false</isDefault>
 				</dpiModeAdditional>
@@ -5146,54 +5147,13 @@
 															<second>Click</second>
 														</second>
 													</value0>
-													<value1>
-														<first>
-															<polymorphic_id>8</polymorphic_id>
-															<ptr_wrapper>
-																<id>2147483756</id>
-																<data>
-																	<base>
-																		<name>o O</name>
-																		<id>{a458285e-8e89-4eb4-9185-a5ad129fee0c}</id>
-																		<repeatOptions>
-																			<repeatCount>1</repeatCount>
-																			<repeatMode>NoRepeat</repeatMode>
-																			<delay>0</delay>
-																			<delayMode>Constant</delayMode>
-																			<randomDelayFrom>0</randomDelayFrom>
-																			<randomDelayTo>0</randomDelayTo>
-																		</repeatOptions>
-																		<executionHints>
-																			<terminateOnSecondExec>false</terminateOnSecondExec>
-																			<restartOnSecondExec>false</restartOnSecondExec>
-																			<execHint>OnBoth</execHint>
-																			<retainOriginalKeyOutput>false</retainOriginalKeyOutput>
-																		</executionHints>
-																		<actionLighting>{00000000-0000-0000-0000-000000000000}</actionLighting>
-																		<actionSoundPath></actionSoundPath>
-																		<attachedActions size="dynamic"/>
-																	</base>
-																	<keyName>O</keyName>
-																	<keyStroke size="dynamic"/>
-																	<holdingKeyEnabled>false</holdingKeyEnabled>
-																	<holdingKeyType>OnPress</holdingKeyType>
-																	<holdingKeyOnPressInterval>100</holdingKeyOnPressInterval>
-																	<sniperSwitchMode>WhilePressed</sniperSwitchMode>
-																</data>
-															</ptr_wrapper>
-														</first>
-														<second>
-															<first>CapsLock</first>
-															<second>Click</second>
-														</second>
-													</value1>
 												</actions>
 												<default_actions size="dynamic">
 													<value0>
 														<first>
 															<polymorphic_id>26</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483757</id>
+																<id>2147483756</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5228,7 +5188,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483758</id>
+																<id>2147483757</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5267,7 +5227,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483759</id>
+																<id>2147483758</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5306,7 +5266,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483760</id>
+																<id>2147483759</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5345,7 +5305,7 @@
 														<first>
 															<polymorphic_id>27</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483761</id>
+																<id>2147483760</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5381,7 +5341,7 @@
 														<first>
 															<polymorphic_id>28</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483762</id>
+																<id>2147483761</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5416,7 +5376,7 @@
 														<first>
 															<polymorphic_id>7</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483763</id>
+																<id>2147483762</id>
 																<data>
 																	<base>
 																		<name></name>
@@ -5475,7 +5435,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483764</id>
+																					<id>2147483763</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -5532,7 +5492,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483765</id>
+																					<id>2147483764</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -5589,7 +5549,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483766</id>
+																					<id>2147483765</id>
 																					<data>
 																						<base>
 																							<name>Rainbow Wave 1</name>
@@ -5650,7 +5610,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483767</id>
+																					<id>2147483766</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -5864,7 +5824,7 @@
 														<first>
 															<polymorphic_id>33</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483768</id>
+																<id>2147483767</id>
 																<data>
 																	<base>
 																		<name>EqPresetSwitch</name>
@@ -5899,7 +5859,7 @@
 														<first>
 															<polymorphic_id>34</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483769</id>
+																<id>2147483768</id>
 																<data>
 																	<base>
 																		<name>DolbyStateChange</name>
@@ -5934,7 +5894,7 @@
 														<first>
 															<polymorphic_id>35</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483770</id>
+																<id>2147483769</id>
 																<data>
 																	<base>
 																		<name>MicMute</name>
@@ -5969,7 +5929,7 @@
 														<first>
 															<polymorphic_id>36</polymorphic_id>
 															<ptr_wrapper>
-																<id>2147483771</id>
+																<id>2147483770</id>
 																<data>
 																	<base>
 																		<name>SidetoneMute</name>
@@ -6039,7 +5999,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483772</id>
+																					<id>2147483771</id>
 																					<data>
 																						<base>
 																							<name></name>
@@ -6186,7 +6146,7 @@
 												<presets size="dynamic">
 													<value0>
 														<ptr_wrapper>
-															<id>2147483773</id>
+															<id>2147483772</id>
 															<data>
 																<id>{df65cb3e-f06b-49e4-9376-adba2c0caf6e}</id>
 																<name>Pure Direct</name>
@@ -6209,7 +6169,7 @@
 													</value0>
 													<value1>
 														<ptr_wrapper>
-															<id>2147483774</id>
+															<id>2147483773</id>
 															<data>
 																<id>{c1d3947b-493e-42c6-9503-dd63d6c40012}</id>
 																<name>Movie Theater</name>
@@ -6232,7 +6192,7 @@
 													</value1>
 													<value2>
 														<ptr_wrapper>
-															<id>2147483775</id>
+															<id>2147483774</id>
 															<data>
 																<id>{138c0b33-bc2c-42ff-96c8-190328221a5a}</id>
 																<name>FPS Competition</name>
@@ -6255,7 +6215,7 @@
 													</value2>
 													<value3>
 														<ptr_wrapper>
-															<id>2147483776</id>
+															<id>2147483775</id>
 															<data>
 																<id>{861c1fd2-fafa-485c-ae46-64fe006e583f}</id>
 																<name>Clear Chat</name>
@@ -6278,7 +6238,7 @@
 													</value3>
 													<value4>
 														<ptr_wrapper>
-															<id>2147483777</id>
+															<id>2147483776</id>
 															<data>
 																<id>{ace12c08-a7e1-4a87-8110-555e383ce327}</id>
 																<name>Bass Boost</name>
@@ -6380,7 +6340,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483778</id>
+																					<id>2147483777</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -6437,7 +6397,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483779</id>
+																					<id>2147483778</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -6620,7 +6580,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483780</id>
+																					<id>2147483779</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -6677,7 +6637,7 @@
 																			<value0>
 																				<polymorphic_id>11</polymorphic_id>
 																				<ptr_wrapper>
-																					<id>2147483781</id>
+																					<id>2147483780</id>
 																					<data>
 																						<base>
 																							<name>Default</name>
@@ -6849,8 +6809,8 @@
 					</properties>
 					<isHardware>false</isHardware>
 					<RGBShareMeta>
-						<CueVersion>2.21.67</CueVersion>
-						<ProfileVersion>2.21.55</ProfileVersion>
+						<CueVersion>2.23.40</CueVersion>
+						<ProfileVersion>2.22.19</ProfileVersion>
 						<KeyboardModel>K70 RGB</KeyboardModel>
 						<MouseModel>Demo Scimitar</MouseModel>
 						<HeadsetModel>Demo VOID WIRELESS</HeadsetModel>
@@ -6869,58 +6829,71 @@
 					<name>Default</name>
 					<settings size="dynamic">
 						<value0>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>71</id>
-							</ptr_wrapper>
+							<key>Dpi1</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>71</id>
+								</ptr_wrapper>
+							</value>
 						</value0>
 						<value1>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>72</id>
-							</ptr_wrapper>
+							<key>Dpi2</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>72</id>
+								</ptr_wrapper>
+							</value>
 						</value1>
 						<value2>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>73</id>
-							</ptr_wrapper>
+							<key>Dpi3</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>73</id>
+								</ptr_wrapper>
+							</value>
 						</value2>
 						<value3>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>74</id>
-							</ptr_wrapper>
+							<key>Dpi4</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>74</id>
+								</ptr_wrapper>
+							</value>
 						</value3>
 						<value4>
-							<polymorphic_id>1073741824</polymorphic_id>
-							<ptr_wrapper>
-								<id>75</id>
-							</ptr_wrapper>
+							<key>Dpi5</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>75</id>
+								</ptr_wrapper>
+							</value>
 						</value4>
+						<value5>
+							<key>SniperDpi</key>
+							<value>
+								<polymorphic_id>1073741824</polymorphic_id>
+								<ptr_wrapper>
+									<id>76</id>
+								</ptr_wrapper>
+							</value>
+						</value5>
 					</settings>
-					<sniper>
-						<polymorphic_id>1073741824</polymorphic_id>
-						<ptr_wrapper>
-							<id>76</id>
-						</ptr_wrapper>
-					</sniper>
 					<active>true</active>
-					<independent>true</independent>
-					<defaultIndex>1</defaultIndex>
+					<defaultIndex>Dpi2</defaultIndex>
 					<defaultModeIndex>0</defaultModeIndex>
 					<isDefault>true</isDefault>
 				</dpiMode>
 				<dpiModeAdditional>
-					<id>{cd2e57dc-ad05-4346-9eb4-27e6fb73fa30}</id>
+					<id>{f958fe2a-7916-4891-9460-a9eba244d3ea}</id>
 					<name></name>
 					<settings size="dynamic"/>
-					<sniper>
-						<polymorphic_id>0</polymorphic_id>
-					</sniper>
 					<active>false</active>
-					<independent>false</independent>
-					<defaultIndex>-1</defaultIndex>
+					<defaultIndex>Invalid</defaultIndex>
 					<defaultModeIndex>-1</defaultModeIndex>
 					<isDefault>false</isDefault>
 				</dpiModeAdditional>
