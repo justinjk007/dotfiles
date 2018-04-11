@@ -1,6 +1,6 @@
 (global-set-key
  (kbd "C-c C-v")
- (defhydra toggle ()
+ (defhydra hydra-toggle-stuff ()
    "toggle"
    ("f" auto-fill-mode "fill" :color blue)
    ("t" toggle-truncate-lines "truncate" :color blue)
@@ -8,66 +8,26 @@
    ("q" nil "cancel"))
  )
 
-(defhydra hydra-next-error
-  (global-map "C-x")
+(defhydra hydra-org (:color green)
   "
-Compilation errors:
-_j_: next error        _h_: first error    _q_uit
-_k_: previous error    _l_: last error
+^
+^Org^               ^Links^             ^Outline^
+^───^───────────────^─────^─────────────^───────^───────────
+_q_ quit            _i_ insert          _<_ previous
+^^                  _n_ next            _>_ next
+^^                  _p_ previous        _a_ all
+^^                  _s_ store           _v_ overview
+^^                  ^^                  ^^
 "
-  ("`" next-error     nil)
-  ("j" next-error     nil :bind nil)
-  ("k" previous-error nil :bind nil)
-  ("h" first-error    nil :bind nil)
-  ("l" (condition-case err
-	   (while t
-	     (next-error))
-	 (user-error nil))
-   nil :bind nil)
-  ("q" nil            nil :color blue)
-  )
-
-;;;; Table Field Marking
-(defun org-table-mark-field ()
-  "Mark the current table field."
-  (interactive)
-  (require 'org-table)
-  ;; Do not try to jump to the beginning of field if the point is already there
-  (when (not (looking-back "|[[:blank:]]?"))
-    (org-table-beginning-of-field 1))
-  (set-mark-command nil)
-  (org-table-end-of-field 1))
-
-(defhydra hydra-org-table-mark-field
-  (:body-pre (org-table-mark-field)
-	     :color red
-	     :hint nil)
-  "
-   ^^      ^▲^     ^^
-   ^^      _k_     ^^
- ◀ _h_  selection  _l_ ▶          Org table mark field
-   ^^      _j_     ^^
-   ^^      ^▼^     ^^
-"
-  ("x" exchange-point-and-mark "exchange point/mark")
-  ("l" (lambda (arg)
-	 (interactive "p")
-	 (when (eq 1 arg)
-	   (setq arg 2))
-	 (org-table-end-of-field arg)))
-  ("h" (lambda (arg)
-	 (interactive "p")
-	 (when (eq 1 arg)
-	   (setq arg 2))
-	 (org-table-beginning-of-field arg)))
-  ("j" next-line)
-  ("k" previous-line)
-  ("q" nil "cancel" :color blue))
-
-(bind-keys
- :filter (org-at-table-p)
- ("C-c m" . hydra-org-table-mark-field/body)
- )
+  ("q" nil)
+  ("<" org-backward-element)
+  (">" org-forward-element)
+  ("a" outline-show-all)
+  ("i" org-insert-link :color blue)
+  ("n" org-next-link)
+  ("p" org-previous-link)
+  ("s" org-store-link)
+  ("v" org-overview))
 
 ;; ------------------- Hydras for gnus --------------------------------.
 (eval-after-load 'gnus-group
