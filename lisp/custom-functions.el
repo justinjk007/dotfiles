@@ -149,5 +149,16 @@ foofoofoo  bar"
     (forward-line 9) ;; Line 10 is where the table is, starts from line 1 and move 9 times = line 10
     (org-clock-report)))
 
+;; Table Field Marking
+(defun org-table-mark-field ()
+  "Mark the current table field."
+  (interactive)
+  (require 'org-table)
+  ;; Do not try to jump to the beginning of field if the point is already there
+  (when (not (looking-back "|[[:blank:]]?"))
+    (org-table-beginning-of-field 1))
+  (set-mark-command nil)
+  (org-table-end-of-field 1))
+
 (provide 'custom-functions)
 ;;; custom-functions.el ends here
