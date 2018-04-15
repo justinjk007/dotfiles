@@ -83,7 +83,7 @@
  '(org-default ((t (:family "Hack"))))
  '(org-level-1 ((t (:family "Hack"))))
  '(org-level-2 ((t (:family "Hack"))))
- '(org-level-3 ((t (:foreground "#6495ed":family "Hack"))))
+ '(org-level-3 ((t (:foreground "#6c71c4" :family "Hack"))))
  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
  '(org-verbatim ((t (:foreground "tomato"))))
  '(org-warning ((t (:foreground "red" :underline t))))
