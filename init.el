@@ -329,8 +329,8 @@
          ("\\.html?\\'" . web-mode)
          )
   :config
-  (setq-default web-mode-markup-indent-offset tab-width)
   (setq-default web-mode-php-indent-offset tab-width)
+  (setq web-mode-markup-indent-offset 2)
   (add-hook 'web-mode-hook  'my-web-mode-hook)
   (add-hook 'web-mode-hook  'emmet-mode)
   (add-hook 'web-mode-hook 'rainbow-mode)
