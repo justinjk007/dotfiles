@@ -95,26 +95,10 @@
 (use-package company
   :diminish company-mode
   :pin melpa
-  :preface
-  ;; enable yasnippet everywhere
-  ;; https://onze.io/emacs/c++/2017/03/16/emacs-cpp.html
-  (defvar company-mode/enable-yas t
-    "Enable yasnippet for all backends.")
-  (defun company-mode/backend-with-yas (backend)
-    (if (or
-         (not company-mode/enable-yas)
-         (and (listp backend) (member 'company-yasnippet backend)))
-        backend
-      (append (if (consp backend) backend (list backend))
-              '(:with company-yasnippet))))
-  :config (global-company-mode t)
-  (setq-local company-dabbrev-downcase nil)
-  (setq company-minimum-prefix-length 2
-	company-show-numbers t
-        company-idle-delay 0)
-  (add-to-list 'company-transformers #'company-sort-by-occurrence)
-  (setq company-backends
-	(mapcar #'company-mode/backend-with-yas company-backends))
+  )
+
+(use-package eldoc
+  :diminish eldoc-mode
   )
 
 (use-package magit
@@ -353,6 +337,26 @@
   :config
   (yas-global-mode 1)
   (add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
+  :preface
+  ;; enable yasnippet everywhere
+  ;; https://onze.io/emacs/c++/2017/03/16/emacs-cpp.html
+  (defvar company-mode/enable-yas t
+    "Enable yasnippet for all backends.")
+  (defun company-mode/backend-with-yas (backend)
+    (if (or
+         (not company-mode/enable-yas)
+         (and (listp backend) (member 'company-yasnippet backend)))
+        backend
+      (append (if (consp backend) backend (list backend))
+              '(:with company-yasnippet))))
+  :config (global-company-mode t)
+  (setq-local company-dabbrev-downcase nil)
+  (setq company-minimum-prefix-length 2
+	company-show-numbers t
+        company-idle-delay 0)
+  (add-to-list 'company-transformers #'company-sort-by-occurrence)
+  (setq company-backends
+	(mapcar #'company-mode/backend-with-yas company-backends))
   )
 
 (use-package yasnippet-snippets
@@ -738,6 +742,7 @@
   :init
   (add-hook 'c++-mode-hook 'ycmd-mode)
   (add-hook 'c-mode-hook 'ycmd-mode)
+  (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
   (set 'ycmd-server-command `("python" "-u" ,(expand-file-name "ycmd" (getenv "YCMD"))))
   (set 'ycmd-global-config (file-truename "~/.ycm_extra_conf.py"))
   )
@@ -753,10 +758,6 @@
   :init (add-hook 'ycmd-mode-hook 'flycheck-ycmd-setup)
   )
 
-(use-package eldoc
-  :diminish eldoc-mode
-  :init (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
-  )
 
 (use-package ggtags
   ;; Get gnu global
