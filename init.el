@@ -95,6 +95,13 @@
 (use-package company
   :diminish company-mode
   :pin melpa
+  :config
+  (global-company-mode t)
+  (setq-local company-dabbrev-downcase nil)
+  (setq company-minimum-prefix-length 2
+	company-show-numbers t
+        company-idle-delay 0)
+  (add-to-list 'company-transformers #'company-sort-by-occurrence)
   )
 
 (use-package eldoc
@@ -349,12 +356,6 @@
         backend
       (append (if (consp backend) backend (list backend))
               '(:with company-yasnippet))))
-  :config (global-company-mode t)
-  (setq-local company-dabbrev-downcase nil)
-  (setq company-minimum-prefix-length 2
-	company-show-numbers t
-        company-idle-delay 0)
-  (add-to-list 'company-transformers #'company-sort-by-occurrence)
   (setq company-backends
 	(mapcar #'company-mode/backend-with-yas company-backends))
   )
