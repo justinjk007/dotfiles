@@ -104,7 +104,15 @@
 (use-package eldoc)
 
 (use-package magit
-  :bind ("C-x g" . magit-status)
+  :init
+  (defun my-magit-status ()
+    "Copy current file name as Updating for default commit message and call 'magit status'"
+    (interactive)
+    (progn
+      (kill-new (concat "Update " (file-name-nondirectory buffer-file-name)))
+      (magit-status)
+      ))
+  :bind ("C-x g" . my-magit-status)
   :defer t
   )
 
