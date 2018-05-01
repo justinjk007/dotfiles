@@ -57,8 +57,6 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-(use-package diminish :ensure t)
-
 (use-package evil
   :config
   (evil-mode 1)
@@ -93,34 +91,34 @@
   )
 
 (use-package company
-  :diminish company-mode
   :pin melpa
-  :preface
-  ;; enable yasnippet everywhere
-  ;; https://onze.io/emacs/c++/2017/03/16/emacs-cpp.html
-  (defvar company-mode/enable-yas t
-    "Enable yasnippet for all backends.")
-  (defun company-mode/backend-with-yas (backend)
-    (if (or
-         (not company-mode/enable-yas)
-         (and (listp backend) (member 'company-yasnippet backend)))
-        backend
-      (append (if (consp backend) backend (list backend))
-              '(:with company-yasnippet))))
-  :config (global-company-mode t)
+  :config
+  (global-company-mode t)
   (setq-local company-dabbrev-downcase nil)
   (setq company-minimum-prefix-length 2
 	company-show-numbers t
         company-idle-delay 0)
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
+<<<<<<< HEAD
   (setq company-backends
 	(mapcar #'company-mode/backend-with-yas company-backends))
+=======
+>>>>>>> 1db9c37d4b68d385699bd858d8748bebc1dea3a1
   )
 
+(use-package eldoc)
+
 (use-package magit
-  :bind ("C-x g" . magit-status)
+  :init
+  (defun my-magit-status ()
+    "Copy current file name as Updating for default commit message and call 'magit status'"
+    (interactive)
+    (progn
+      (kill-new (concat "Update " (file-name-nondirectory buffer-file-name)))
+      (magit-status)
+      ))
+  :bind ("C-x g" . my-magit-status)
   :defer t
-  :diminish auto-revert-mode
   )
 
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
@@ -246,6 +244,11 @@
 
 (use-package multiple-cursors)
 
+(use-package minions
+  :config
+  (minions-mode 1)
+  )
+
 (use-package spaceline
   :ensure powerline
   ;; https://gist.github.com/epegzz/1634235/fe5100a91157c5d0f0c8b7b6dedd126c6396ae19
@@ -286,6 +289,14 @@
   (spaceline-toggle-org-clock-on)
   (spaceline-toggle-projectile-root-on)
   (spaceline-toggle-buffer-size-off)
+  ;; Customization for minions mode
+  (spaceline-toggle-major-mode-off)
+  (spaceline-define-segment minor-modes
+    (if (bound-and-true-p minions-mode)
+	(format-mode-line minions-mode-line-modes)
+      (spaceline-minor-modes-default)
+      ))
+  ;; Customization for minions mode
   (spaceline-compile)
   )
 
@@ -340,19 +351,30 @@
 
 (use-package emmet-mode
   :defer t
-  :diminish emmet-mode
   :init
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode)
   )
 
 (use-package yasnippet
-  :diminish yas-minor-mode
-  :diminish undo-tree-mode
   :load-path "~/.emacs.d/snippets/"
   :config
   (yas-global-mode 1)
   (add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
+  :preface
+  ;; enable yasnippet everywhere
+  ;; https://onze.io/emacs/c++/2017/03/16/emacs-cpp.html
+  (defvar company-mode/enable-yas t
+    "Enable yasnippet for all backends.")
+  (defun company-mode/backend-with-yas (backend)
+    (if (or
+         (not company-mode/enable-yas)
+         (and (listp backend) (member 'company-yasnippet backend)))
+        backend
+      (append (if (consp backend) backend (list backend))
+              '(:with company-yasnippet))))
+  (setq company-backends
+	(mapcar #'company-mode/backend-with-yas company-backends))
   )
 
 (use-package yasnippet-snippets
@@ -360,8 +382,6 @@
   )
 
 (use-package flycheck
-  :diminish flycheck-mode
-  :diminish major-mode-icons-mode
   :config
   (global-flycheck-mode t)
   )
@@ -375,13 +395,11 @@
   )
 
 (use-package which-key
-  :diminish which-key-mode
   :config
   (which-key-mode))
 
 (use-package aggressive-indent
   :defer t
-  :diminish aggressive-indent-mode
   :init
   (aggressive-indent-global-mode t)
   ;; MatLab doesnot like me and vice versa
@@ -417,7 +435,6 @@
 
 (use-package rainbow-mode
   :defer t
-  :diminish rainbow-mode
   :init
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
@@ -442,7 +459,6 @@
   )
 
 (use-package ivy
-  :diminish ivy-mode
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
@@ -505,7 +521,6 @@
   :config
   (use-package all-the-icons-dired
     :defer t
-    :diminish all-the-icons-dired-mode
     :init
     (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
     :config
@@ -518,14 +533,12 @@
     ))
 
 (use-package beacon
-  :diminish beacon-mode
   :config
   (beacon-mode 1)
   (setq beacon-color "#d33682")
   )
 
 (use-package evil-goggles
-  :diminish evil-goggles-mode
   :config
   (evil-goggles-mode)
   (evil-goggles-use-diff-faces)
@@ -540,7 +553,6 @@
 
 (use-package hungry-delete
   ;; deletes all the whitespace when you hit backspace or delete
-  :diminish hungry-delete-mode
   :config
   (global-hungry-delete-mode)
   )
@@ -554,7 +566,6 @@
 
 (use-package ledger-mode
   :defer t
-  :diminish auto-fill-mode
   :mode ("\\.ledger\\'" . ledger-mode)
   :bind ("C-c l c" . ledger-mode-clean-buffer)
   :config
@@ -574,7 +585,6 @@
   )
 
 (use-package anzu
-  :diminish anzu-mode
   :init
   (global-set-key [remap query-replace] 'anzu-query-replace)
   (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp)
@@ -605,7 +615,6 @@
   )
 
 (use-package smartparens
-  :diminish smartparens-mode
   :init
   (add-hook 'prog-mode-hook #'smartparens-mode)
   :config
@@ -631,7 +640,6 @@
   )
 
 (use-package dashboard
-  :diminish page-break-lines-mode
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Lets start hacking !")
@@ -687,7 +695,6 @@
 			  '(("\\<\\(FIXME\\):" 1 font-lock-constant-face))
 			  )
 
-  :diminish modern-c++-font-lock-mode
   )
 
 (use-package company-c-headers
@@ -734,10 +741,10 @@
 ;; Install ymcd by installing build.py, do "python build.py -h" for help
 ;; Set Environment variable YMCD to the root folder of the repo
 (use-package ycmd
-  :diminish ycmd-mode
   :init
   (add-hook 'c++-mode-hook 'ycmd-mode)
   (add-hook 'c-mode-hook 'ycmd-mode)
+  (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
   (set 'ycmd-server-command `("python" "-u" ,(expand-file-name "ycmd" (getenv "YCMD"))))
   (set 'ycmd-global-config (file-truename "~/.ycm_extra_conf.py"))
   )
@@ -753,16 +760,11 @@
   :init (add-hook 'ycmd-mode-hook 'flycheck-ycmd-setup)
   )
 
-(use-package eldoc
-  :diminish eldoc-mode
-  :init (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
-  )
 
 (use-package ggtags
   ;; Get gnu global
   ;; sudo apt install global
   ;; http://adoxa.altervista.org/global/
-  :diminish ggtags-mode
   :init
   (add-hook 'c-mode-common-hook
 	    (lambda ()
@@ -772,7 +774,6 @@
   )
 
 (use-package counsel-gtags
-  :diminish counsel-gtags-mode
   :after ggtags
   :init
   (add-hook 'c-mode-common-hook

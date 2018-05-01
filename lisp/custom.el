@@ -26,6 +26,21 @@
  '(global-flycheck-mode t)
  '(global-hl-line-mode t)
  '(inhibit-startup-screen t)
+ '(ledger-reports
+   (quote
+    (("bal cleared" "ledger [[ledger-mode-flags]] -f %(ledger-file) bal --cleared")
+     (#("bal" 0 1
+	(idx 0))
+      "%(binary) -f %(ledger-file) bal")
+     (#("reg" 0 1
+	(idx 1))
+      "%(binary) -f %(ledger-file) reg")
+     (#("payee" 0 1
+	(idx 2))
+      "%(binary) -f %(ledger-file) reg @%(payee)")
+     (#("account" 0 1
+	(idx 3))
+      "%(binary) -f %(ledger-file) reg %(account)"))))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
