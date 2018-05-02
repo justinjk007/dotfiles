@@ -99,25 +99,17 @@
 	company-show-numbers t
         company-idle-delay 0)
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
-<<<<<<< HEAD
-  (setq company-backends
-	(mapcar #'company-mode/backend-with-yas company-backends))
-=======
->>>>>>> 1db9c37d4b68d385699bd858d8748bebc1dea3a1
   )
 
 (use-package eldoc)
 
 (use-package magit
   :init
-  (defun my-magit-status ()
-    "Copy current file name as Updating for default commit message and call 'magit status'"
-    (interactive)
-    (progn
-      (kill-new (concat "Update " (file-name-nondirectory buffer-file-name)))
-      (magit-status)
-      ))
-  :bind ("C-x g" . my-magit-status)
+  (defadvice magit-status
+      (before magit-status activate)
+    (kill-new (concat "Update " (file-name-nondirectory (if (null buffer-file-name) "" buffer-file-name)))))
+  (ad-activate 'magit-status)
+  :bind ("C-x g" . magit-status)
   :defer t
   )
 
