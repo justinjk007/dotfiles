@@ -45,6 +45,11 @@ if it can't find it. After logging in and syncing all you contents set
   - Remember the paths in the registry files should be changed to the correct paths before adding them,
     you might even break windows without doing that.
 
+- For OS X
+  - Install [[https://brew.sh][Brew]].
+  - Install Aspell from brew using =brew install aspell=
+  - Install emacs, run the =copy.sh=
+
 
 PS: To get to the startup folder on windows open the run window
 (Windows button + R) and write =shell:startup=.

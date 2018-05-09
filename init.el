@@ -173,7 +173,6 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
   (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
-			   ,(expand-file-name "org-files/gcal.org" (getenv "DROPBOX_DIR"))
 			   ))
   :config
   (setq org-clock-mode-line-total 'current
@@ -725,6 +724,7 @@
   )
 
 ;; https://github.com/Valloric/ycmd
+;; git submodule update --init --recursive
 ;; Install ymcd by installing build.py, do "python build.py -h" for help
 ;; Set Environment variable YMCD to the root folder of the repo
 (use-package ycmd
