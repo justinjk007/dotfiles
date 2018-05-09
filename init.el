@@ -51,9 +51,10 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq mac-command-modifier 'control)
-(if (eq system-type 'darwin)
-    (set-face-attribute 'default nil :height 140)
-  )
+(add-hook 'after-make-frame-functions 'lambda ()
+	  (if (eq system-type 'darwin)
+	      (set-face-attribute 'default nil :height 140)
+	    ))
 
 ;;-------------------------------------Server------------------
 (require 'server)
@@ -195,16 +196,6 @@
   :after org
   :config
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/")
-  )
-;; Get secrets from here --> https://console.developers.google.com
-(setq package-check-signature nil)
-(use-package org-gcal
-  :init
-  (add-hook 'org-agenda-mode-hook (lambda () (org-gcal-sync) ))
-  :config
-  (load-file "~/secret.el")
-  (setq org-gcal-file-alist `(("justinjoseph0007@gmail.com" .
-			       ,(expand-file-name "org-files/gcal.org" (getenv "DROPBOX_DIR")))))
   )
 (use-package ox-hugo
   :after ox
