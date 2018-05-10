@@ -76,11 +76,12 @@ prepended to the element after the #+HEADER: tag."
     (when mod (insert mod) (forward-line))
     (when text (insert text))))
 
-(define-key org-mode-map "<"
-  (lambda () (interactive)
-    (if (or (region-active-p) (looking-back "^"))
-	(hydra-org-template/body)
-      (self-insert-command 1))))
+(with-eval-after-load "org"
+  (define-key org-mode-map "<"
+    (lambda () (interactive)
+      (if (or (region-active-p) (looking-back "^"))
+	  (hydra-org-template/body)
+	(self-insert-command 1)))))
 
 (eval-after-load "org"
   '(cl-pushnew
