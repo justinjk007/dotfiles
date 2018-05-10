@@ -51,10 +51,9 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (setq mac-command-modifier 'control)
-(add-hook 'after-make-frame-functions 'lambda ()
-	  (if (eq system-type 'darwin)
-	      (set-face-attribute 'default nil :height 140)
-	    ))
+(if (eq system-type 'darwin)
+    (set-face-attribute 'default nil :height 140)
+  )
 
 ;;-------------------------------------Server------------------
 (require 'server)
