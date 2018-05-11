@@ -669,6 +669,11 @@
   ("C-c C-f" . origami-toggle-node )
   )
 
+;; Tramp setup ---------------
+(require 'tramp)
+(setq tramp-default-method "ssh")
+;; Tramp setup ---------------
+
 ;; C++ Config -----------------------------------------------------------------
 
 (use-package modern-cpp-font-lock
