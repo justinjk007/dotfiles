@@ -90,6 +90,7 @@ foofoofoo  bar"
 					      ("$alpha" "α")
 					      ("$beta" "β")
 					      ("$gamma" "γ")
+					      ("$tick" "✓")
 					      ("$delta" "Δ")))
   )
 
