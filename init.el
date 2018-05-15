@@ -50,10 +50,6 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-;; (setq mac-command-modifier 'control)
-(if (eq system-type 'darwin)
-    (set-face-attribute 'default nil :height 140)
-  )
 
 ;;-------------------------------------Server------------------
 (require 'server)
@@ -671,6 +667,13 @@
 ;; Tramp setup ---------------
 (require 'tramp)
 (setq tramp-default-method "ssh")
+;; Load any specific setup stuff like work users and so on if any
+(when (file-exists-p "~/tramp-settings.el")
+  (progn
+    (message "Custom tramp file exists")
+    (load-file "~/tramp-settings.el")
+    )
+  )
 ;; Tramp setup ---------------
 
 ;; C++ Config -----------------------------------------------------------------
@@ -791,6 +794,10 @@
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+(if (eq system-type 'darwin)
+    (set-face-attribute 'default nil :height 140)
+  )
 
 (provide 'init.el)
 ;;; init.el ends here
