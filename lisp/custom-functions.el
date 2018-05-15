@@ -91,6 +91,7 @@ foofoofoo  bar"
 					      ("$beta" "β")
 					      ("$gamma" "γ")
 					      ("$tick" "✓")
+					      ("$cross" "✗")
 					      ("$delta" "Δ")))
   )
 

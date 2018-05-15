@@ -50,7 +50,7 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(setq mac-command-modifier 'control)
+;; (setq mac-command-modifier 'control)
 (if (eq system-type 'darwin)
     (set-face-attribute 'default nil :height 140)
   )
