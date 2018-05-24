@@ -330,6 +330,11 @@
   (add-hook 'web-mode-hook  'highlight-numbers-mode)
   )
 
+(use-package json-mode
+  :defer t
+  :mode ("\\.json\\'" . json-mode)
+  )
+
 (use-package emmet-mode
   :defer t
   :init
