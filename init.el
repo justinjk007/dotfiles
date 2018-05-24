@@ -503,20 +503,14 @@
   (counsel-projectile-mode)
   )
 
-(use-package all-the-icons
-  :config
-  (use-package all-the-icons-dired
-    :defer t
-    :init
-    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-    :config
-    ;; Sort directories first in dired buffer
-    (require 'ls-lisp)
-    (setq ls-lisp-dirs-first t
-	  ls-lisp-use-insert-directory-program nil
-	  dired-listing-switches "-laGh1v" ;; Sort ".git" type directories first
-	  )
-    ))
+(use-package all-the-icons)
+
+;; For changing dired list order
+(require 'ls-lisp)
+(setq ls-lisp-dirs-first t
+      ls-lisp-use-insert-directory-program nil
+      dired-listing-switches "-laGh1v" ;; Sort ".git" type directories first
+      )
 
 (use-package beacon
   :config
