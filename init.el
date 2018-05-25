@@ -675,6 +675,11 @@
   )
 ;; Tramp setup ---------------
 
+(use-package blacken
+  :init
+  (add-hook 'python-mode-hook 'blacken-mode)
+  )
+
 ;; C++ Config -----------------------------------------------------------------
 
 (use-package modern-cpp-font-lock
