@@ -171,8 +171,12 @@
 			   ))
   :config
   (setq org-clock-mode-line-total 'current
-	org-duration-format (quote h:mm)
-	)
+	org-duration-format (quote h:mm))
+  (font-lock-add-keywords 'org-mode
+  			  '(
+			    ("\\<\\(✗\\)" . font-lock-warning-face)
+  			    ("\\<\\(✓\\)" . font-lock-keyword-face))
+			  )
   (require 'ox-latex)
   (setq org-latex-listings 't)
   )
@@ -675,9 +679,8 @@
   )
 ;; Tramp setup ---------------
 
-(use-package blacken
-  :init
-  (add-hook 'python-mode-hook 'blacken-mode)
+(use-package py-yapf
+  :init (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
   )
 
 ;; C++ Config -----------------------------------------------------------------
