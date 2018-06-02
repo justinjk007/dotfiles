@@ -94,7 +94,7 @@
   :pin melpa
   :config
   (global-company-mode t)
-  (setq-local company-dabbrev-downcase nil)
+  (setq company-dabbrev-downcase nil)
   (setq company-minimum-prefix-length 2
 	company-show-numbers t
         company-idle-delay 0)
