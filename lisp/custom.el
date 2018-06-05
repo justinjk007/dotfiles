@@ -110,5 +110,11 @@
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
  '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
 
+(custom-theme-set-faces
+ 'solarized-dark
+ `(org-block-begin-line ((t (:foreground "#93a1a1" :height 0.8))))
+ `(org-block-end-line ((t (:foreground "#93a1a1" :height 0.8))))
+ )
+
 (provide 'custom.el)
 ;;; custom.el ends here
