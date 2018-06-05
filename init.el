@@ -18,7 +18,6 @@
 (setq initial-scratch-message nil)
 (setq message-log-max 10000)
 (fset 'yes-or-no-p 'y-or-n-p); Change yes/no to y/n
-(setq save-abbrevs 'silently)
 (prefer-coding-system 'utf-8)
 (set-default-coding-systems 'utf-8)
 (set-terminal-coding-system 'utf-8)
