@@ -799,6 +799,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
 (global-set-key (kbd "<f5>") 'revert-buffer)
+(global-set-key (kbd "M-TAB") 'nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (if (eq system-type 'darwin)
