@@ -169,6 +169,7 @@
   (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
 			   ))
   :config
+  (add-to-list 'org-file-apps '(directory . emacs)) ;; Make emacs open file links in dired instead of file explorer
   (setq org-clock-mode-line-total 'current
 	org-duration-format (quote h:mm))
   (font-lock-add-keywords 'org-mode
