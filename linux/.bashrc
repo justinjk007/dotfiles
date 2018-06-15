@@ -124,4 +124,8 @@ if [ -x /usr/bin/mint-fortune ]; then
     /usr/bin/mint-fortune
 fi
 
+export SHELL="/bin/bash"
+export DROPBOX_DIR="~/Dropbox"
+export YCMD="/usr/src/ycmd/"
+setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
 source $HOME/.aliases

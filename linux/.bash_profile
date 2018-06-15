@@ -11,8 +11,3 @@
 
 # On OS X, Terminal by default runs a login shell every time, so this is a little different to most
 # other systems, but you can configure that in the preferences.
-
-export SHELL="/bin/bash"
-export DROPBOX_DIR="~/Dropbox"
-export YCMD="/usr/src/ycmd/"
-setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
