@@ -177,6 +177,7 @@
 			    ("\\<\\(✗\\)" . font-lock-warning-face)
   			    ("\\<\\(✓\\)" . font-lock-keyword-face))
 			  )
+  (define-key org-mode-map (kbd "C-c m") 'org-table-mark-field)
   (require 'ox-latex)
   (setq org-latex-listings 't)
   )
