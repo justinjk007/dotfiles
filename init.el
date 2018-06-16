@@ -31,6 +31,7 @@
 (setq auto-window-vscroll nil) ;; Increase scrolling performance
 (setq-default line-spacing 4)
 (defvar org-hide-emphasis-markers t)
+(setq debug-on-error nil)
 (fringe-mode '(8 . 6)) ; Make left fringe 8 pixel and right 6.
 ;; For emacs 26
 ;; (line-number              (:foreground red :background black))
@@ -396,6 +397,10 @@
   ;; MatLab doesnot like me and vice versa
   (add-to-list 'aggressive-indent-excluded-modes 'octave-mode)
   (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
+  ;; Stop aggressive-indent mode to use clang-format
+  (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
+  (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
   )
 
 (use-package key-chord
@@ -681,7 +686,9 @@
 ;; Tramp setup ---------------
 
 (use-package py-yapf
-  :init (add-hook 'python-mode-hook 'py-yapf-enable-on-save)
+  :config
+  (eval-after-load "python"
+    '(define-key python-mode-map (kbd "C-c u") 'py-yapf-buffer))
   )
 
 ;; C++ Config -----------------------------------------------------------------
@@ -707,16 +714,13 @@
 ;; Install LLVM - http://releases.llvm.org/download.html
 ;; Install MingW - http://mingw-w64.org/doku.php - 32 bit version
 (use-package clang-format
-  :defer t
   :init
-  (global-set-key (kbd "C-c r") 'clang-format-region)
-  (global-set-key (kbd "C-c u") 'clang-format-buffer)
+  (require 'cc-mode)
+  (add-hook 'c-mode-common-hook '(lambda ()(ignore-errors (clang-format))))
   :config
   (setq clang-format-style-option "file")
-  ;; Stop aggressive-indent mode to use clang-format
-  (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
+  (define-key c-mode-base-map (kbd "C-c r") 'clang-format-region)
+  (define-key c-mode-base-map (kbd "C-c u") 'clang-format-buffer)
   )
 
 (use-package cmake-mode
