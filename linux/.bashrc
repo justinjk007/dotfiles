@@ -127,5 +127,7 @@ fi
 export SHELL="/bin/bash"
 export DROPBOX_DIR="~/Dropbox"
 export YCMD="/usr/src/ycmd/"
-setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
+fi
 source $HOME/.aliases
