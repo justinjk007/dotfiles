@@ -276,6 +276,7 @@
   (spaceline-toggle-org-clock-on)
   (spaceline-toggle-projectile-root-on)
   (spaceline-toggle-buffer-size-off)
+  (display-time-mode 1)
   ;; Customization for minions mode
   (spaceline-toggle-major-mode-off)
   (spaceline-define-segment minor-modes

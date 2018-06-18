@@ -127,7 +127,13 @@ fi
 export SHELL="/bin/bash"
 export DROPBOX_DIR="~/Dropbox"
 export YCMD="/usr/src/ycmd/"
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
 fi
-source $HOME/.aliases
+
+source $HOME/.aliases # Load aliases
+WORK_FILE=".work_aliases" # Load work aliases if they exist
+if [ -f $WORK_FILE ]; then
+    source $HOME/$W$WORK_FILE
+fi
