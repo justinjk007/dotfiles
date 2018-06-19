@@ -179,6 +179,7 @@
   			    ("\\<\\(✓\\)" . font-lock-keyword-face))
 			  )
   (define-key org-mode-map (kbd "C-c m") 'org-table-mark-field)
+  (define-key org-mode-map (kbd "C-c d") 'insert-date)
   (require 'ox-latex)
   (setq org-latex-listings 't)
   )
@@ -276,7 +277,9 @@
   (spaceline-toggle-org-clock-on)
   (spaceline-toggle-projectile-root-on)
   (spaceline-toggle-buffer-size-off)
-  (display-time-mode 1)
+  (if (eq system-type 'darwin)
+      (display-time-mode 1) ;; Display time in spaceline
+    )
   ;; Customization for minions mode
   (spaceline-toggle-major-mode-off)
   (spaceline-define-segment minor-modes
