@@ -124,9 +124,10 @@ if [ -x /usr/bin/mint-fortune ]; then
     /usr/bin/mint-fortune
 fi
 
-export SHELL="/bin/bash"
-export DROPBOX_DIR="~/Dropbox"
-export YCMD="/usr/src/ycmd/"
+ENV_FILE=".environ" # Load system specific environmental varibles if they exist
+if [ -f $ENV_FILE ]; then
+    source $HOME/$ENV_FILE
+fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
@@ -135,5 +136,5 @@ fi
 source $HOME/.aliases # Load aliases
 WORK_FILE=".work_aliases" # Load work aliases if they exist
 if [ -f $WORK_FILE ]; then
-    source $HOME/$W$WORK_FILE
+    source $HOME/$WORK_FILE
 fi

@@ -1,0 +1,5 @@
+# This file contains environmental varibles, this is not copied automatically
+
+export SHELL="/bin/bash"
+export DROPBOX_DIR="~/Dropbox"
+export YCMD="/usr/src/ycmd/"
