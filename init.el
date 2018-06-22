@@ -30,7 +30,10 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq auto-window-vscroll nil) ;; Increase scrolling performance
 (setq-default line-spacing 4)
-(defvar org-hide-emphasis-markers t)
+(if (eq system-type 'darwin)
+    (defvar org-hide-emphasis-markers nil)
+  (defvar org-hide-emphasis-markers t)
+  )
 (setq debug-on-error nil)
 (fringe-mode '(8 . 6)) ; Make left fringe 8 pixel and right 6.
 ;; For emacs 26
