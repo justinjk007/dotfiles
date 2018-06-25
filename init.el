@@ -739,6 +739,7 @@
 
 (use-package cmake-project
   :defer t
+  :bind (:map cmake-mode-map ("C-c C-c" . cmake-project-configure-project))
   :init
   (defun maybe-cmake-project-hook ()
     (if (file-exists-p "CMakeLists.txt") (cmake-project-mode)))
@@ -747,7 +748,6 @@
   :config
   (setq cmake-project-default-build-dir-name "build\/")
   (setq cmake-project-architecture "Win64")
-  (define-key cmake-mode-map (kbd "C-c C-c") 'cmake-project-configure-project)
   )
 
 ;; https://github.com/Valloric/ycmd
