@@ -185,6 +185,22 @@
   (define-key org-mode-map (kbd "C-c d") 'insert-date)
   (require 'ox-latex)
   (setq org-latex-listings 't)
+  ;; Run/highlight code using babel in org-mode
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (python . t)
+     ;; (ipython . t)
+     (sh . t)
+     (shell . t)
+     ;; Include other languages here...
+     ))
+  ;; Syntax highlight in #+BEGIN_SRC blocks
+  (setq org-src-fontify-natively t)
+  ;; Don't prompt before running code in org
+  (setq org-confirm-babel-evaluate nil)
+  ;; Fix an incompatibility between the ob-async and ob-ipython packages
+  ;; (setq ob-async-no-async-languages-alist '("ipython"))
   )
 (use-package org-bullets
   :after org
