@@ -30,6 +30,18 @@
   (defvar web-mode-indent-style 4)
   (global-set-key (kbd "C-c C-c") 'web-mode-fold-or-unfold))
 
+;; https://stackoverflow.com/questions/1587972/how-to-display-indentation-guides-in-emacs/4459159#4459159
+(defun my-aj-toggle-fold ()
+  "Toggle fold all lines larger than indentation on current line."
+  (interactive)
+  (let ((col 1))
+    (save-excursion
+      (back-to-indentation)
+      (setq col (+ 1 (current-column)))
+      (set-selective-display
+       (if selective-display nil (or col 1))))))
+(global-set-key (kbd "C-c t") 'my-aj-toggle-fold)
+
 (defun my-org-archive-done-tasks ()
   "Move all done tasks in the current buffer to archive file."
   (interactive)
