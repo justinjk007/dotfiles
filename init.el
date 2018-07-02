@@ -30,10 +30,7 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq auto-window-vscroll nil) ;; Increase scrolling performance
 (setq-default line-spacing 4)
-(if (eq system-type 'darwin)
-    (defvar org-hide-emphasis-markers nil)
-  (defvar org-hide-emphasis-markers t)
-  )
+(defvar org-hide-emphasis-markers t)
 (setq debug-on-error nil)
 (fringe-mode '(8 . 6)) ; Make left fringe 8 pixel and right 6.
 ;; For emacs 26
@@ -831,8 +828,11 @@
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Changes for work macbook
 (if (eq system-type 'darwin)
-    (set-face-attribute 'default nil :height 140)
+    (progn
+      (set-face-attribute 'default nil :height 140)
+      (defvar org-hide-emphasis-markers nil))
   )
 
 (provide 'init.el)
