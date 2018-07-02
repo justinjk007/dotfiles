@@ -391,6 +391,7 @@
 
 (use-package yasnippet-snippets
   :after yasnippet
+  :config (yasnippet-snippets-initialize)
   )
 
 (use-package flycheck
