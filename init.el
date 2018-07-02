@@ -727,7 +727,6 @@
   (font-lock-add-keywords 'c++-mode
 			  '(("\\<\\(FIXME\\):" 1 font-lock-constant-face))
 			  )
-
   )
 
 (use-package company-c-headers
@@ -817,6 +816,8 @@
 	 ("M-s" . counsel-gtags-find-symbol)
 	 ("M-," . counsel-gtags-go-backward))
   )
+
+(define-key c-mode-base-map (kbd "<M-return>") 'ff-find-other-file)
 
 ;; C++ Config -----------------------------------------------------------------
 
