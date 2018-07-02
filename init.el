@@ -394,6 +394,10 @@
   :config (yasnippet-snippets-initialize)
   )
 
+(use-package ivy-yasnippet
+  :after yasnippet
+  )
+
 (use-package flycheck
   :config
   (global-flycheck-mode t)
