@@ -368,6 +368,14 @@
   (add-hook 'css-mode-hook 'emmet-mode)
   )
 
+
+(use-package web-beautify
+  :config
+  (define-key web-mode-map (kbd "C-c f") 'web-beautify-html)
+  (define-key js2-mode-map (kbd "C-c f") 'web-beautify-js)
+  (define-key css-mode-map (kbd "C-c f") 'web-beautify-css)
+  )
+
 (use-package yasnippet
   :load-path "~/.emacs.d/snippets/"
   :config
