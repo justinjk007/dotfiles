@@ -423,16 +423,8 @@
   (which-key-mode))
 
 (use-package aggressive-indent
+  :commands (aggressive-indent-mode)
   :defer t
-  :init
-  (aggressive-indent-global-mode t)
-  ;; MatLab doesnot like me and vice versa
-  (add-to-list 'aggressive-indent-excluded-modes 'octave-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'web-mode)
-  ;; Stop aggressive-indent mode to use clang-format
-  (add-to-list 'aggressive-indent-excluded-modes 'c++-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'c-mode)
-  (add-to-list 'aggressive-indent-excluded-modes 'cmake-project-mode)
   )
 
 (use-package key-chord
