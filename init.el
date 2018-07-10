@@ -771,6 +771,7 @@
 ;; Install ymcd by installing build.py, do "python build.py -h" for help
 ;; Set Environment variable YMCD to the root folder of the repo
 (use-package ycmd
+  :if-not (string-equal system-type "windows-nt")
   :init
   (add-hook 'c++-mode-hook 'ycmd-mode)
   (add-hook 'c-mode-hook 'ycmd-mode)
@@ -780,12 +781,14 @@
   )
 
 (use-package company-ycmd
+  :if-not (string-equal system-type "windows-nt")
   :after company
   :init (add-hook 'ycmd-mode-hook 'company-ycmd-setup)
   :config (add-to-list 'company-backends (company-mode/backend-with-yas 'company-ycmd))
   )
 
 (use-package flycheck-ycmd
+  :if-not (string-equal system-type "windows-nt")
   :after company
   :init (add-hook 'ycmd-mode-hook 'flycheck-ycmd-setup)
   )
