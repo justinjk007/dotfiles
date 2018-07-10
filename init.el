@@ -837,8 +837,16 @@
 (if (eq system-type 'darwin)
     (progn
       (set-face-attribute 'default nil :height 140)
-      (defvar org-hide-emphasis-markers nil))
+      (defvar org-hide-emphasis-markers nil)
+      )
   )
+(fset 'make-exporter-data-into-cfg
+      (lambda (&optional arg) "Keyboard
+      macro." (interactive "p") (kmacro-exec-ring-item (quote ([98
+								65 escape 118 66 120 105 backspace escape 104 118 105 34
+								121 111 escape 112 107 65 escape 73 escape 119 119 119 119
+								119 108 108 118 105 34 121 106 65 58 escape 112 97 61 56 48
+								escape 73 escape 107 100 100] 0 "%d")) arg)))
 
 (provide 'init.el)
 ;;; init.el ends here
