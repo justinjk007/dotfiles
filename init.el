@@ -30,7 +30,6 @@
 (setq mouse-wheel-progressive-speed nil)
 (setq auto-window-vscroll nil) ;; Increase scrolling performance
 (setq-default line-spacing 4)
-(defvar org-hide-emphasis-markers t)
 (setq debug-on-error nil)
 (fringe-mode '(8 . 6)) ; Make left fringe 8 pixel and right 6.
 ;; For emacs 26
@@ -170,6 +169,7 @@
   (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
 			   ))
   :config
+  (defvar org-hide-emphasis-markers t) ;; Stop seeing all the markup symbols in org file, beautiful
   (add-to-list 'org-file-apps '(directory . emacs)) ;; Make emacs open file links in dired instead of file explorer
   (setq org-clock-mode-line-total 'current
 	org-duration-format (quote h:mm))
@@ -840,9 +840,10 @@
 (if (eq system-type 'darwin)
     (progn
       (set-face-attribute 'default nil :height 140)
-      (defvar org-hide-emphasis-markers nil)
+      (setq org-hide-emphasis-markers nil) ;; See all markdown in org file, makes copying directory names, links, commands more correct
       )
   )
+
 (fset 'make-exporter-data-into-cfg
       (lambda (&optional arg) "Keyboard
       macro." (interactive "p") (kmacro-exec-ring-item (quote ([98
