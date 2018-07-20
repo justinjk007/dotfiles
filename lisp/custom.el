@@ -112,8 +112,8 @@
 
 (custom-theme-set-faces
  'solarized-dark
- `(org-block-begin-line ((t (:foreground "#93a1a1" :height 0.8))))
- `(org-block-end-line ((t (:foreground "#93a1a1" :height 0.8))))
+ `(org-block-begin-line ((t (:foreground "dim gray" :height 0.8))))
+ `(org-block-end-line ((t (:foreground "dim gray" :height 0.8))))
  )
 
 (provide 'custom.el)
