@@ -841,6 +841,8 @@
     (progn
       (set-face-attribute 'default nil :height 140)
       (setq org-hide-emphasis-markers nil) ;; See all markdown in org file, makes copying directory names, links, commands more correct
+      (setq split-height-threshold nil) ;; Make windows split vertically first
+      (setq split-width-threshold 0)
       )
   )
 
