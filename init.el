@@ -103,12 +103,17 @@
 (use-package eldoc)
 
 (use-package magit
-  :init
+  :bind ("C-x g" . magit-status)
+  :config
+  ;; Add a default commit message to clipboard when opening magit status
   (defadvice magit-status
       (before magit-status activate)
     (kill-new (concat "Update " (file-name-nondirectory (if (null buffer-file-name) "" buffer-file-name)))))
   (ad-activate 'magit-status)
-  :bind ("C-x g" . magit-status)
+  ;; Add username section in magit status buffer
+  (magit-add-section-hook 'magit-status-sections-hook
+			  'magit-insert-user-header
+			  )
   :defer t
   )
 
