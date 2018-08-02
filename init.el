@@ -854,5 +854,12 @@
 								119 108 108 118 105 34 121 106 65 58 escape 112 97 61 56 48
 								escape 73 escape 107 100 100] 0 "%d")) arg)))
 
+;; Testing tramp, load custom-tramp files if they exist
+(when (file-exists-p "~/Repos/tramp/lisp/tramp.el")
+  (progn
+    (mapc 'load (file-expand-wildcards "~/Repos/tramp/lisp/*.el"))
+    )
+  )
+
 (provide 'init.el)
 ;;; init.el ends here
