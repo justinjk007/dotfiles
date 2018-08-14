@@ -492,17 +492,6 @@
   (global-set-key (kbd "<f6>") 'ivy-resume)
   )
 
-(use-package ivy-rich
-  :after ivy
-  :custom
-  (ivy-virtual-abbreviate 'full
-                          ivy-rich-switch-buffer-align-virtual-buffer t
-                          ivy-rich-path-style 'abbrev)
-  :config
-  (ivy-set-display-transformer 'ivy-switch-buffer
-                               'ivy-rich-switch-buffer-transformer)
-  )
-
 (use-package swiper
   :config
   (global-set-key "\C-s" 'swiper)
