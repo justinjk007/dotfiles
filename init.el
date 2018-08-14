@@ -848,7 +848,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
 (global-set-key (kbd "<f5>") 'revert-buffer)
-;; (add-hook 'before-save-hook 'delete-trailing-whitespace) # TODO Make a function that asks before doing this when commiting
+(global-set-key (kbd "C-c k w") 'delete-trailing-whitespace)
 
 ;; Changes for work macbook
 (if (eq system-type 'darwin)
