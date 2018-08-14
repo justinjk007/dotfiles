@@ -723,6 +723,15 @@
     (load-file "~/tramp-settings.el")
     )
   )
+
+;; Testing/Fixing tramp connection to Z/OS mainframes
+(add-to-list
+  'tramp-connection-properties
+  `(,(regexp-quote "torolaba.canlab.ibm.com") "remote-shell" "/bin/bash")
+  )
+;; Testing tramp, load custom-tramp files if they exist
+;; (setq tramp-verbose 10)
+
 ;; Tramp setup ---------------
 
 (use-package py-yapf
@@ -869,13 +878,6 @@
 								121 111 escape 112 107 65 escape 73 escape 119 119 119 119
 								119 108 108 118 105 34 121 106 65 58 escape 112 97 61 56 48
 								escape 73 escape 107 100 100] 0 "%d")) arg)))
-
-;; Testing tramp, load custom-tramp files if they exist
-(when (file-exists-p "~/Repos/tramp/lisp/tramp.el")
-  (progn
-    (mapc 'load (file-expand-wildcards "~/Repos/tramp/lisp/*.el"))
-    )
-  )
 
 (provide 'init.el)
 ;;; init.el ends here
