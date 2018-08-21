@@ -717,6 +717,7 @@
 (add-to-list
   'tramp-connection-properties
   `(,(regexp-quote "torolaba.canlab.ibm.com") "remote-shell" "/bin/bash")
+  `(,(regexp-quote "torolabq.canlab.ibm.com") "remote-shell" "/bin/bash")
   )
 ;; Testing tramp, load custom-tramp files if they exist
 ;; (setq tramp-verbose 10)
