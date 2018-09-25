@@ -692,6 +692,11 @@
 			     (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
   )
 
+(use-package groovy-mode
+  :defer t
+  :mode ("\\.groovy\\'" . groovy-mode)
+  )
+
 (use-package origami
   :defer t
   :init
