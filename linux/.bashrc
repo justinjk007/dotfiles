@@ -131,3 +131,8 @@ WORK_FILE=".work_aliases" # Load work aliases if they exist
 if [ -f $WORK_FILE ]; then
     source $HOME/$WORK_FILE
 fi
+
+WORK_CONFIG=".work_config" # Load work aliases if they exist
+if [ -f $WORK_CONFIG ]; then
+    source $HOME/$WORK_CONFIG
+fi
