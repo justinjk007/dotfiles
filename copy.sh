@@ -3,6 +3,7 @@ cp init.el ~/.emacs.d/
 cp lisp/myhydras.el ~/.emacs.d/
 cp lisp/custom.el ~/.emacs.d/
 cp lisp/custom-functions.el ~/.emacs.d/
+cp lisp/ox-mediawiki.el ~/.emacs.d/ox-mediawiki.el
 cp .ycm_extra_conf.py ~/
 cp .clang-format ~/
 cp -rf snippets ~/.emacs.d/

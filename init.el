@@ -203,6 +203,9 @@
   (setq org-confirm-babel-evaluate nil)
   ;; Fix an incompatibility between the ob-async and ob-ipython packages
   ;; (setq ob-async-no-async-languages-alist '("ipython"))
+
+  ;; Load org to media wiki lisp file
+  (load-file "~/.emacs.d/ox-mediawiki.el")
   )
 (use-package org-bullets
   :after org
