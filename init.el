@@ -205,6 +205,7 @@
   ;; (setq ob-async-no-async-languages-alist '("ipython"))
 
   ;; Load org to media wiki lisp file
+  ;; https://github.com/tomalexander/orgmode-mediawiki
   (load-file "~/.emacs.d/ox-mediawiki.el")
   )
 (use-package org-bullets
