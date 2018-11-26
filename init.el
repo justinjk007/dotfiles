@@ -240,16 +240,7 @@
   :after org-mode
   )
 
-(use-package olivetti
-  :after org-mode
-  :config
-  (defun me/org-mode ()
-    "My olivetti configuration for 'org-mode'."
-    (olivetti-mode)
-    (olivetti-set-width 150)
-    )
-  (add-hook 'org-mode-hook 'me/org-mode)
-  )
+(use-package olivetti)
 
 (use-package shackle
   :config
