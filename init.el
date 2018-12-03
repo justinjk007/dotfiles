@@ -31,6 +31,7 @@
 (setq auto-window-vscroll nil) ;; Increase scrolling performance
 (setq-default line-spacing 4)
 (setq debug-on-error nil)
+(defalias 'perl-mode 'cperl-mode)
 (fringe-mode '(8 . 6)) ; Make left fringe 8 pixel and right 6.
 ;; For emacs 26
 ;; (line-number              (:foreground red :background black))
