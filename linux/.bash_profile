@@ -11,3 +11,5 @@
 
 # On OS X, Terminal by default runs a login shell every time, so this is a little different to most
 # other systems, but you can configure that in the preferences.
+
+exec /bin/bash
