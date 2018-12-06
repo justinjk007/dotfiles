@@ -37,6 +37,11 @@
 ;; (line-number              (:foreground red :background black))
 ;; (line-number-current-line (:foreground orange :background black))
 
+;; Load machine specific customizations if any!
+(when (file-exists-p "~/machine-specific.el")
+  (progn (message "Machine specific customizations exits")
+	 (load-file "~/machine-specific.el")))
+
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -715,23 +720,7 @@
 ;; Tramp setup ---------------
 (require 'tramp)
 (setq tramp-default-method "ssh")
-;; Load any specific setup stuff like work users and so on if any
-(when (file-exists-p "~/tramp-settings.el")
-  (progn
-    (message "Custom tramp file exists")
-    (load-file "~/tramp-settings.el")
-    )
-  )
-
-;; Testing/Fixing tramp connection to Z/OS mainframes
-(add-to-list
-  'tramp-connection-properties
-  `(,(regexp-quote "torolaba.canlab.ibm.com") "remote-shell" "/bin/bash")
-  `(,(regexp-quote "torolabq.canlab.ibm.com") "remote-shell" "/bin/bash")
-  )
-;; Testing tramp, load custom-tramp files if they exist
-;; (setq tramp-verbose 10)
-
+;; Settings for tramp that are machine specific are loaded from machine-specific.el see line 40
 ;; Tramp setup ---------------
 
 (use-package py-yapf
