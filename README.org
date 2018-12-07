@@ -30,6 +30,10 @@ Get [[https://www.dropbox.com/downloading][Dropbox]], since agenda file is locat
 if it can't find it. After logging in and syncing all you contents set
 *DROPBOX_DIR* to point to the root of Dropbox directory.
 
+Since generally some environment varibles are specific to the machine,
+edit file:./lisp/machine-specific.el and move it to =~= directory
+manually, this is only done once really.
+
 - For Linux
   - If you have a Linux system good to go install emacs, run the =copy.sh=
     file and take a break when emacs does work for you.

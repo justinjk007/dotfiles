@@ -28,4 +28,9 @@
 ;; Testing tramp, load custom-tramp files if they exist
 ;; (setq tramp-verbose 10)
 
+(defvar ledger-binary-path "/usr/local/bin/ledger")
+(setq-default explicit-shell-file-name "/bin/bash")
+(setq-default shell-file-name "/bin/bash")
+
+(setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
 ;;; machine-specific.el ends here
