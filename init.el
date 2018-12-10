@@ -485,7 +485,14 @@
     (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
     (setq ispell-program-name "aspell")
     (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
-    )))
+    ))
+ )
+(cond
+ ((string-equal system-type "darwin")
+  (progn
+    (setq ispell-program-name "/usr/local/bin/aspell")
+    ))
+ )
 
 (use-package flyspell-correct
   :ensure ispell
