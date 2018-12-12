@@ -37,11 +37,6 @@
 ;; (line-number              (:foreground red :background black))
 ;; (line-number-current-line (:foreground orange :background black))
 
-;; Load machine specific customizations if any!
-(when (file-exists-p "~/machine-specific.el")
-  (progn (message "Machine specific customizations exits")
-	 (load-file "~/machine-specific.el")))
-
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -126,6 +121,11 @@
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
+;; Load machine specific customizations if any!
+(when (file-exists-p "~/machine-specific.el")
+  (progn (message "Machine specific customizations exits")
+	 (load-file "~/machine-specific.el")))
 
 ;;-------------------------------------Eshell------------------
 (setq eshell-prompt-function
@@ -534,6 +534,7 @@
 (use-package projectile
   :config
   (projectile-global-mode)
+  (projectile-mode +1)
   (setq projectile-completion-system 'ivy)
   (global-set-key (kbd "C-c j") 'projectile-grep)
   (eval-after-load "projectile"
@@ -542,7 +543,6 @@
                          (propertize (projectile-project-name)
                                      'face '(:weight bold :foreground "#6c71c4"))
 			 "]"))))
-  (projectile-mode +1)
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   )
@@ -861,23 +861,6 @@
 (global-set-key (kbd "C-c k w") 'delete-trailing-whitespace)
 (define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
 
-;; Changes for work macbook
-(if (eq system-type 'darwin)
-    (progn
-      (set-face-attribute 'default nil :height 140)
-      (setq org-hide-emphasis-markers nil) ;; See all markdown in org file, makes copying directory names, links, commands more correct
-      (setq split-height-threshold nil) ;; Make windows split vertically first
-      (setq split-width-threshold 0)
-      )
-  )
-
-(fset 'make-exporter-data-into-cfg
-      (lambda (&optional arg) "Keyboard
-      macro." (interactive "p") (kmacro-exec-ring-item (quote ([98
-								65 escape 118 66 120 105 backspace escape 104 118 105 34
-								121 111 escape 112 107 65 escape 73 escape 119 119 119 119
-								119 108 108 118 105 34 121 106 65 58 escape 112 97 61 56 48
-								escape 73 escape 107 100 100] 0 "%d")) arg)))
 
 (provide 'init.el)
 ;;; init.el ends here
