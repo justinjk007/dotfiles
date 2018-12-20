@@ -60,7 +60,6 @@ PS: To get to the startup folder on windows open the run window
 
 * Environment variables to be added
 - *DROPBOX_DIR*, should point to the root of Dropbox.
-- *YCMD*, should point to the root of the ycmd repository
 
 * Other softwares to install
 

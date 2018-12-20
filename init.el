@@ -790,34 +790,6 @@
   (setq cmake-project-architecture "Win64")
   )
 
-;; https://github.com/Valloric/ycmd
-;; git submodule update --init --recursive
-;; Install ymcd by installing build.py, do "python build.py -h" for help
-;; Set Environment variable YMCD to the root folder of the repo
-(use-package ycmd
-  :unless (string-equal system-type "windows-nt")
-  :init
-  (add-hook 'c++-mode-hook 'ycmd-mode)
-  (add-hook 'c-mode-hook 'ycmd-mode)
-  (add-hook 'ycmd-mode-hook 'ycmd-eldoc-setup)
-  (set 'ycmd-server-command `("python" "-u" ,(expand-file-name "ycmd" (getenv "YCMD"))))
-  (set 'ycmd-global-config (file-truename "~/.ycm_extra_conf.py"))
-  )
-
-(use-package company-ycmd
-  :unless (string-equal system-type "windows-nt")
-  :after company
-  :init (add-hook 'ycmd-mode-hook 'company-ycmd-setup)
-  :config (add-to-list 'company-backends (company-mode/backend-with-yas 'company-ycmd))
-  )
-
-(use-package flycheck-ycmd
-  :unless (string-equal system-type "windows-nt")
-  :after company
-  :init (add-hook 'ycmd-mode-hook 'flycheck-ycmd-setup)
-  )
-
-
 (use-package ggtags
   ;; Get gnu global
   ;; sudo apt install global
