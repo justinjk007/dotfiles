@@ -206,11 +206,11 @@
   (setq org-confirm-babel-evaluate nil)
   ;; Fix an incompatibility between the ob-async and ob-ipython packages
   ;; (setq ob-async-no-async-languages-alist '("ipython"))
-
   ;; Load org to media wiki lisp file
   ;; https://github.com/tomalexander/orgmode-mediawiki
   (load-file "~/.emacs.d/ox-mediawiki.el")
   )
+
 (use-package org-bullets
   :after org
   :init
@@ -218,14 +218,18 @@
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   (setq org-bullets-bullet-list '("●" "●" "●" "●" "●" "●" "●"))
   )
+
 (use-package ox-twbs
+  ; Export org-mode to twitter bootstrap
   :after org
   )
+
 (use-package ox-reveal
   :after org
   :config
   (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/")
   )
+
 (use-package ox-hugo
   :after ox
   )
