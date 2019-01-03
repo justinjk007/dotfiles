@@ -57,7 +57,7 @@ manually, this is only done once really.
   brew unlink emacs
   brew uninstall emacs
   brew install emacs --with-modules --with-cocoa --with-gnutls --with-librsvg --with-imagemagick@6
-  brew linkapps
+  ln -s /usr/local/Cellar/emacs/*/Emacs.app /Applications
   #+END_SRC
   - Run the =copy.sh=
 
