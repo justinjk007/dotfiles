@@ -264,6 +264,7 @@
   )
 
 (use-package multiple-cursors)
+(use-package all-the-icons)
 
 (use-package minions
   :config
@@ -294,9 +295,10 @@
    spaceline-flycheck-bullet "❖ %s")
   ;; Fancy git icon
   (defadvice vc-mode-line (after strip-backend () activate)
-    (propertize (all-the-icons-octicon "git-branch")
+  (with-no-warnings
+   (propertize (all-the-icons-octicon "git-branch")
 		'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
-		'display '(raise -0.1))
+		'display '(raise -0.1)))
     (when (stringp vc-mode)
       (let ((gitlogo (replace-regexp-in-string
 		      "^ Git"
@@ -562,7 +564,6 @@
   (counsel-projectile-mode)
   )
 
-(use-package all-the-icons)
 
 ;; For changing dired list order
 (require 'ls-lisp)
