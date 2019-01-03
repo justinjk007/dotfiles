@@ -32,7 +32,7 @@
 (setq-default line-spacing 4)
 (setq debug-on-error nil)
 (defalias 'perl-mode 'cperl-mode)
-(global-display-line-numbers-mode) ; New line numbering system starts from emacs 26
+(add-hook 'prog-mode-hook 'display-line-numbers-mode) ; New line numbering system starts from emacs 26
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -605,6 +605,7 @@
   :mode ("\\.ledger\\'" . ledger-mode)
   :bind ("C-c l c" . ledger-mode-clean-buffer)
   :config
+  (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
@@ -665,6 +666,7 @@
   :mode ("\\.yml\\'" . yaml-mode)
   :init
   (add-hook 'yaml-mode-hook 'highlight-numbers-mode)
+  (add-hook 'yaml-mode-hook 'display-line-numbers-mode)
   )
 
 (use-package dashboard
