@@ -32,10 +32,7 @@
 (setq-default line-spacing 4)
 (setq debug-on-error nil)
 (defalias 'perl-mode 'cperl-mode)
-(fringe-mode '(8 . 6)) ; Make left fringe 8 pixel and right 6.
-;; For emacs 26
-;; (line-number              (:foreground red :background black))
-;; (line-number-current-line (:foreground orange :background black))
+(global-display-line-numbers-mode) ; New line numbering system starts from emacs 26
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -616,13 +613,6 @@
   :if (string-equal system-type "gnu/linux")
   )
 
-(use-package nlinum
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook 'nlinum-mode)
-  (add-hook 'ledger-mode-hook 'nlinum-mode)
-  )
-
 (use-package anzu
   :init
   (global-set-key [remap query-replace] 'anzu-query-replace)
@@ -675,7 +665,6 @@
   :mode ("\\.yml\\'" . yaml-mode)
   :init
   (add-hook 'yaml-mode-hook 'highlight-numbers-mode)
-  (add-hook 'yaml-mode-hook 'nlinum-mode)
   )
 
 (use-package dashboard
