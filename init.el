@@ -54,6 +54,13 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
+; On OS-X and linux, get the environment vars right even when started outside of terminal
+(use-package exec-path-from-shell
+  :if (memq window-system '(mac ns))
+  :ensure t
+  :config (exec-path-from-shell-initialize)
+  )
+
 (use-package evil
   :config
   (evil-mode 1)
