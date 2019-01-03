@@ -196,7 +196,6 @@
    '(
      (python . t)
      ;; (ipython . t)
-     (sh . t)
      (shell . t)
      ;; Include other languages here...
      ))
