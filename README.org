@@ -52,7 +52,14 @@ manually, this is only done once really.
 - For OS X
   - Install [[https://brew.sh][Brew]].
   - Install Aspell from brew using =brew install aspell=
-  - Install emacs, run the =copy.sh=
+  - Install emacs like this
+  #+BEGIN_SRC
+  brew unlink emacs
+  brew uninstall emacs
+  brew install emacs --devel --with-modules --with-cocoa --with-gnutls --with-librsvg --with-imagemagick@6
+  brew linkapps
+  #+END_SRC
+  - Run the =copy.sh=
 
 
 PS: To get to the startup folder on windows open the run window
