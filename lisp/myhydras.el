@@ -64,6 +64,9 @@ _q_ quit            _i_ insert          _<_ previous
   ("<" self-insert-command "ins")
   ("o" nil "quit"))
 
+(require 'org-tempo) ; Required from org 9 onwards for old template expansion
+;; Reset the org-template expnsion system, this is need after upgrading to org 9 for some reason
+(setq org-structure-template-alist (eval (car (get 'org-structure-template-alist 'standard-value))))
 (defun hot-expand (str &optional mod header)
   "Expand org template.
   STR is a structure template string recognised by org like <s. MOD
@@ -77,7 +80,7 @@ _q_ quit            _i_ insert          _<_ previous
       (deactivate-mark))
     (when header (insert "#+HEADER: " header) (forward-line))
     (insert str)
-    (org-try-structure-completion)
+    (org-tempo-complete-tag)
     (when mod (insert mod) (forward-line))
     (when text (insert text))))
 
@@ -89,7 +92,7 @@ _q_ quit            _i_ insert          _<_ previous
 	(self-insert-command 1)))))
 (eval-after-load "org"
   '(cl-pushnew
-    '("not" "#+BEGIN_NOTES\n?\n#+END_NOTES")
+    '("not" . "note")
     org-structure-template-alist))
 
 ;;; myhydras.el ends here
