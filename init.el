@@ -542,7 +542,6 @@
   (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
   (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
   (global-set-key (kbd "C-x l") 'counsel-locate)
-  (global-set-key (kbd "C-x j") 'counsel-grep)
   )
 
 (use-package projectile
@@ -574,6 +573,7 @@
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode)
+  (global-set-key (kbd "C-x j") 'counsel-projectile-git-grep)
   )
 
 
