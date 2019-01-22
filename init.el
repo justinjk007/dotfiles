@@ -387,6 +387,11 @@
   :mode ("\\.json\\'" . json-mode)
   )
 
+(use-package yafolding
+  :init
+  (add-hook 'prog-mode-hook (lambda () (yafolding-mode)))
+  )
+
 (use-package emmet-mode
   :defer t
   :init
@@ -832,7 +837,9 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
 (global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "C-c k w") 'delete-trailing-whitespace)
+(global-set-key (kbd "C-c k w") '(lambda ()
+				   (yafolding-show-all)
+				   (delete-trailing-whitespace)))
 (define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
 
 
