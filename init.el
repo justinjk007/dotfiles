@@ -838,6 +838,7 @@
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "C-c k w") '(lambda ()
+				   (interactive)
 				   (yafolding-show-all)
 				   (delete-trailing-whitespace)))
 (define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
