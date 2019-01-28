@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: start debugger at line
+# key: db
+# --
+import pdb; pdb.set_trace()

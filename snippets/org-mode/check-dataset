@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: check-dataset
+# key: check
+# description: This should be expanded and then the Z/OS dataset name should be in placed at $0, this checks if the dataset is free or if allocated
+# --
+ tso "qdsn '$0'"
