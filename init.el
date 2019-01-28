@@ -827,6 +827,7 @@
 ;; C++ Config -----------------------------------------------------------------
 
 ;; Misc Bindings
+(global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "M-Z") 'eshell)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
@@ -835,14 +836,18 @@
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
-(global-set-key (kbd "<f5>") 'revert-buffer)
+(global-set-key (kbd "C-c k t") '(lambda ()
+				   (interactive )
+				   (tramp-cleanup-all-buffers)
+				   (tramp-cleanup-all-connections)
+				   (message "Cleaned all tramp connections...")))
 (global-set-key (kbd "C-c k w") '(lambda ()
 				   (interactive)
 				   (yafolding-show-all)
-				   (delete-trailing-whitespace)))
-(define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
-
+				   (delete-trailing-whitespace)
+				   (message "Deleted all whitespaces...")))
 
 (provide 'init.el)
 ;;; init.el ends here
