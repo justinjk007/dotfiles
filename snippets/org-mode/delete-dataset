@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: delete-dataset
+# description: deletes the Z/OS dataset or the members if mentioned. The dataset name should be replaced at $0
+# key: del
+# --
+tso "delete '$0'"
