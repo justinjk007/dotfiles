@@ -835,6 +835,7 @@
 (global-set-key (kbd "C-x d") 'dired-jump)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
+(global-set-key (kbd "C-c r") 'replace-string)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
