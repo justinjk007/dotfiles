@@ -496,9 +496,9 @@
 (cond
  ((string-equal system-type "windows-nt")
   (progn
-    (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
-    (setq ispell-program-name "aspell")
-    (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+    (add-to-list 'exec-path "c:/Program Files (x86)/Hunspell/bin/")
+    (setq ispell-program-name "hunspell")
+    (setq ispell-local-dictionary "en_US")
     ))
  )
 (cond

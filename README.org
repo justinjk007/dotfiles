@@ -64,10 +64,9 @@ PS: To get to the startup folder on windows open the run window
 
 * Other softwares to install
 
-- [[http://aspell.net/win32/][Aspell]] - Try and match this install path
+- [[https://sourceforge.net/projects/ezwinports/files/][Hunspell]]- Try and match this install path
   #+BEGIN_SRC emacs-lisp
-  (add-to-list 'exec-path "C:/Program Files (x86)/Aspell/bin/")
-  (setq ispell-personal-dictionary "C:/Program Filesx(x86)/Aspell/dict")
+    (add-to-list 'exec-path "c:/Program Files (x86)/Hunspell/bin/")
   #+END_SRC
 - [[https://www.ledger-cli.org/download.html][ledger-cli]]
 - [[https://github.com/source-foundry/Hack][Hack-font]]
