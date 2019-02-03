@@ -80,7 +80,7 @@ _q_ quit            _i_ insert          _<_ previous
       (deactivate-mark))
     (when header (insert "#+HEADER: " header) (forward-line))
     (insert str)
-    (org-try-structure-completion)
+    (org-tempo-complete-tag)
     (when mod (insert mod) (forward-line))
     (when text (insert text))))
 

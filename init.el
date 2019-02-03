@@ -387,6 +387,11 @@
   :mode ("\\.json\\'" . json-mode)
   )
 
+(use-package yafolding
+  :init
+  (add-hook 'prog-mode-hook (lambda () (yafolding-mode)))
+  )
+
 (use-package emmet-mode
   :defer t
   :init
@@ -537,7 +542,6 @@
   (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
   (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
   (global-set-key (kbd "C-x l") 'counsel-locate)
-  (global-set-key (kbd "C-x j") 'counsel-grep)
   )
 
 (use-package projectile
@@ -569,6 +573,7 @@
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode)
+  (global-set-key (kbd "C-x j") 'counsel-projectile-git-grep)
   )
 
 
@@ -822,6 +827,7 @@
 ;; C++ Config -----------------------------------------------------------------
 
 ;; Misc Bindings
+(global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "M-Z") 'eshell)
 (global-set-key (kbd "M-z") 'shell-command)
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
@@ -829,12 +835,20 @@
 (global-set-key (kbd "C-x d") 'dired-jump)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
+(global-set-key (kbd "C-c r") 'replace-string)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-(global-set-key (kbd "C-c k b") 'kill-other-buffers)
-(global-set-key (kbd "<f5>") 'revert-buffer)
-(global-set-key (kbd "C-c k w") 'delete-trailing-whitespace)
 (define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
-
+(global-set-key (kbd "C-c k b") 'kill-other-buffers)
+(global-set-key (kbd "C-c k t") '(lambda ()
+				   (interactive )
+				   (tramp-cleanup-all-buffers)
+				   (tramp-cleanup-all-connections)
+				   (message "Cleaned all tramp connections...")))
+(global-set-key (kbd "C-c k w") '(lambda ()
+				   (interactive)
+				   (yafolding-show-all)
+				   (delete-trailing-whitespace)
+				   (message "Deleted all whitespaces...")))
 
 (provide 'init.el)
 ;;; init.el ends here

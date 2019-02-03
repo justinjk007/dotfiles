@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: list-dataset
+# key: list
+# description: This should be expanded and then the Z/OS dataset name should be in placed at $0, this lists the members of the dataset
+# --
+ftpls -d //$0
