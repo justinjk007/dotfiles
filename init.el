@@ -111,6 +111,7 @@
 (use-package eldoc)
 
 (use-package magit
+  :defer t
   :bind ("C-x g" . magit-status)
   :config
   ;; Add a default commit message to clipboard when opening magit status
@@ -122,7 +123,7 @@
   (magit-add-section-hook 'magit-status-sections-hook
 			  'magit-insert-user-header
 			  )
-  :defer t
+  (add-hook 'with-editor-mode-hook 'evil-insert-state)
   )
 
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
