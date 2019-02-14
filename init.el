@@ -443,6 +443,7 @@
 (use-package flycheck
   :config
   (global-flycheck-mode t)
+  (setq flycheck-python-pycompile-executable "python3")
   )
 
 (use-package speed-type
