@@ -744,10 +744,10 @@
 ;; Settings for tramp that are machine specific are loaded from machine-specific.el see line 40
 ;; Tramp setup ---------------
 
-(use-package py-yapf
+(use-package yapfify
   :config
   (eval-after-load "python"
-    '(define-key python-mode-map (kbd "C-c u") 'py-yapf-buffer))
+    '(define-key python-mode-map (kbd "C-c u") 'yapfify-buffer))
   )
 
 ;; C++ Config -----------------------------------------------------------------
