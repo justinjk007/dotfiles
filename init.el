@@ -827,11 +827,10 @@
 	 ("M-," . counsel-gtags-go-backward))
   )
 
-(define-key c-mode-base-map (kbd "<M-return>") 'ff-find-other-file)
-
 ;; C++ Config -----------------------------------------------------------------
 
 ;; Misc Bindings
+(define-key c-mode-base-map (kbd "<M-return>") 'ff-find-other-file)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "M-Z") 'eshell)
 (global-set-key (kbd "M-z") 'shell-command)
