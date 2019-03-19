@@ -104,9 +104,10 @@
   :bind ("C-c l c" . ledger-mode-clean-buffer)
   :config
   (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
-  (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
+  (setq compile-command (concat "hledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
+(global-set-key (kbd "S-SPC") 'recompile)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-c r") 'replace-string)
 (global-set-key (kbd "C-x d") 'dired-jump)
