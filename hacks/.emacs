@@ -64,11 +64,14 @@
 (use-package swiper
   :config
   (global-set-key "\C-s" 'swiper)
-  (define-key evil-normal-state-map "/" 'swiper)
   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
   )
 
 (use-package counsel
+  ;; For the future during new emacs installation if it fails saying
+  ;; use-package cannot install counsel mode, just install counsel the
+  ;; old fashion way using 'M-x package-install <ret> counsel' .
+  :init (counsel-mode)
   :ensure swiper
   :config
   (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -118,3 +121,18 @@
 
 (provide '.emacs)
 ;;; init.el ends here
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (counsel ledger-mode projectile swiper ivy which-key company use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
