@@ -1,0 +1,15 @@
+language: elisp
+
+services:
+  - docker
+
+before_install:
+  - mkdir ~/.emacs.d/
+  - cd ${TRAVIS_BUILD_DIR}
+  - ./copy.sh                    # Copy all the repository files to home
+#   - docker pull silex/emacs:26.2
+#   - docker run -d -p 127.0.0.1:80:4567 --name=emacs-container silex/emacs:26.2 /bin/sh -c "pwd; emacs --version;"
+#   - docker logs $(docker ps -aqf "name=emacs-container")
+
+script:
+  - ls -l ~/.emacs.d
