@@ -819,7 +819,7 @@
 	 ("M-r" . counsel-gtags-find-reference)
 	 ("M-s" . counsel-gtags-find-symbol)
 	 ("M-," . counsel-gtags-go-backward))
-  
+  )
 
 ;; C++ Config -----------------------------------------------------------------
 
