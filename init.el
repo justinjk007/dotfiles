@@ -526,6 +526,7 @@
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
   (setq enable-recursive-minibuffers t)
+  :bind ("C-c r" . ivy-resume)
   )
 
 (use-package swiper
@@ -536,17 +537,10 @@
   )
 
 (use-package counsel
-  :ensure swiper
-  :config
-  (global-set-key (kbd "M-x") 'counsel-M-x)
-  (global-set-key (kbd "M-y") 'counsel-yank-pop)
-  (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-  (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-  (global-set-key (kbd "<f1> l") 'counsel-find-library)
-  (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-  (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-  (global-set-key (kbd "C-x l") 'counsel-locate)
+  ;; For the future during new emacs installation if it fails saying
+  ;; use-package cannot install counsel mode, just install counsel the
+  ;; old fashion way using 'M-x package-install <ret> counsel' .
+  :init (counsel-mode)
   )
 
 (use-package projectile
@@ -839,7 +833,7 @@
 (global-set-key (kbd "C-x d") 'dired-jump)
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
-(global-set-key (kbd "C-c r") 'replace-string)
+(global-set-key (kbd "C-c C-r") 'replace-string)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
