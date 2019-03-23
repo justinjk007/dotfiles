@@ -648,6 +648,26 @@
   )
 (use-package company-go)
 
+(use-package lsp-mode
+  :commands lsp
+  )
+
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  )
+
+(use-package company-lsp
+  :commands company-lsp
+  )
+
+(use-package dart-mode
+  ; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
+  ; This is where dart fmt comes from
+  :mode ("\\.dart\\'" . dart-mode)
+  :config
+  (setq dart-format-on-save t)
+  )
+
 (use-package evil-tutor
   :defer t
   :init
