@@ -661,12 +661,11 @@
   )
 
 (use-package dart-mode
-  ; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
-  ; This is where dart fmt comes from
-
-  ; Installed this pub global activate dart_language_server
+  ;; Installed this pub global activate dart_language_server
+  ;; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
   :bind (:map dart-mode-map ("C-c f" . dart-format))
-  :mode ("\\.dart\\'" . dart-mode)
+  :init
+  (remove-hook 'prog-mode-hook 'fic-mode)
   :config
   (setq dart-format-on-save t)
   )
