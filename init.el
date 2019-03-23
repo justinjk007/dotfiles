@@ -665,6 +665,7 @@
   ; This is where dart fmt comes from
 
   ; Installed this pub global activate dart_language_server
+  :bind (:map dart-mode-map ("C-c f" . dart-format))
   :mode ("\\.dart\\'" . dart-mode)
   :config
   (setq dart-format-on-save t)
