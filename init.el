@@ -665,9 +665,7 @@
   ;; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
   :bind (:map dart-mode-map ("C-c f" . dart-format))
   :init
-  (remove-hook 'prog-mode-hook 'fic-mode)
-  :config
-  (setq dart-format-on-save t)
+  (remove-hook 'prog-mode-hook 'fic-mode) ;; For some reason, fic mode seems to break dart-mode
   )
 
 (use-package evil-tutor
