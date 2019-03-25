@@ -6,4 +6,5 @@
 # this manually as this could just be a sample and is not often
 # changed
 
-export PATH="$PATH:/Users/justin.kaipada@ibm.com/dev/flutter/bin/"
+export PATH="$PATH:$HOME/dev/flutter/bin/"
+export PATH="$PATH":"$HOME/dev/flutter/.pub-cache/bin"
