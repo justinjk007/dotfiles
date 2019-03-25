@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Sample 
+
+# Notice how this is not copied by the copy script, you have to do
+# this manually as this could just be a sample and is not often
+# changed
+
+export PATH="$PATH:/Users/justin.kaipada@ibm.com/dev/flutter/bin/"

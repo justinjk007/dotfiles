@@ -1,4 +1,10 @@
+#!/usr/bin/env bash
+
 # IBM specific config
+
+# Notice how this is not copied by the copy script, you have to do
+# this manually as this could just be a sample and is not often
+# changed
 
 export everyone='/gsa/tlbgsa/home/c/a/ca0g3671/everyone' # accessible on all machines
 export run_temp='/gsa/tlbgsa/home/c/a/ca0g3671/temp_script' # For quick and dirty scripting on the go, accessible on all machines

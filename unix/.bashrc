@@ -132,7 +132,12 @@ if [ -f $WORK_FILE ]; then
     source $HOME/$WORK_FILE
 fi
 
-WORK_CONFIG=".work_config" # Load work aliases if they exist
+WORK_CONFIG=".work_config" # Load work config if they exist
 if [ -f $WORK_CONFIG ]; then
     source $HOME/$WORK_CONFIG
+fi
+
+MACHINE_CONFIG=".machine_config" # Load machine specific config if they exist
+if [ -f $MACHINE_CONFIG ]; then
+    source $HOME/$MACHINE_CONFIG
 fi

@@ -12,6 +12,6 @@ copy_verbose lisp/custom-functions.el ~/.emacs.d/
 copy_verbose lisp/ox-mediawiki.el ~/.emacs.d/ox-mediawiki.el
 copy_verbose .clang-format ~/
 copy_verbose snippets ~/.emacs.d/
-copy_verbose linux/.aliases ~/
-copy_verbose linux/.bashrc ~/
-copy_verbose linux/.bash_profile ~/
+copy_verbose unix/.aliases ~/
+copy_verbose unix/.bashrc ~/
+copy_verbose unix/.bash_profile ~/
