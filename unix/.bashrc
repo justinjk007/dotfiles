@@ -115,6 +115,8 @@ if [ -x /usr/bin/mint-fortune ]; then
     /usr/bin/mint-fortune
 fi
 
+set -o emacs
+
 PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[01;35m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
 
 ENV_FILE=".environ" # Load system specific environmental varibles if they exist
@@ -127,15 +129,6 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 fi
 
 source $HOME/.aliases # Load aliases
-WORK_FILE=".work_aliases" # Load work aliases if they exist
-if [ -f $WORK_FILE ]; then
-    source $HOME/$WORK_FILE
-fi
-
-WORK_CONFIG=".work_config" # Load work config if they exist
-if [ -f $WORK_CONFIG ]; then
-    source $HOME/$WORK_CONFIG
-fi
 
 MACHINE_CONFIG=".machine_config" # Load machine specific config if they exist
 if [ -f $MACHINE_CONFIG ]; then
