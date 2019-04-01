@@ -650,10 +650,16 @@
 
 (use-package lsp-mode
   :commands lsp
+  :init
+  (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
+      (add-hook 'dart-mode-hook #'lsp)
+    )
   )
 
 (use-package lsp-ui
   :commands lsp-ui-mode
+  :config
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   )
 
 (use-package company-lsp
