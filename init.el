@@ -651,15 +651,25 @@
 (use-package lsp-mode
   :commands lsp
   :init
-  (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
-      (add-hook 'dart-mode-hook #'lsp)
-    )
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  :config
+  (with-eval-after-load "projectile"
+    (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+    (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+  (setq lsp-auto-guess-root t)
+  (defun project-try-dart (dir)
+    (let ((project (or (locate-dominating-file dir "pubspec.yaml")
+                       (locate-dominating-file dir "BUILD"))))
+      (if project
+          (cons 'dart project)
+	(cons 'transient dir))))
+  (add-hook 'project-find-functions #'project-try-dart)
+  (cl-defmethod project-roots ((project (head dart)))
+    (list (cdr project)))
   )
 
 (use-package lsp-ui
   :commands lsp-ui-mode
-  :config
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   )
 
 (use-package company-lsp
@@ -672,6 +682,9 @@
   :bind (:map dart-mode-map ("C-c f" . dart-format))
   :init
   (remove-hook 'prog-mode-hook 'fic-mode) ;; For some reason, fic mode seems to break dart-mode
+  (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
+      (add-hook 'dart-mode-hook #'lsp)
+    )
   )
 
 (use-package evil-tutor
