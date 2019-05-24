@@ -290,6 +290,7 @@
   (setq doom-modeline-major-mode-icon nil)
   (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-indent-info t)
+  (setq column-number-mode t)
   (display-time-mode 1)
   (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3")
   (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3")
