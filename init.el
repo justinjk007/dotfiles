@@ -285,7 +285,8 @@
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :config
-  (setq doom-modeline-buffer-file-name-style 'relative-from-project)
+  ;; (setq doom-modeline-buffer-file-name-style 'relative-from-project) ;; Emacs lags when used over tramp mode with this
+  (setq doom-modeline-buffer-file-name-style 'file-name)
   (setq doom-modeline-major-mode-icon nil)
   (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-indent-info t)
