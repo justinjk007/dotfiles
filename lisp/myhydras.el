@@ -14,27 +14,6 @@
    ("q" nil "cancel"))
  )
 
-(defhydra hydra-org (:color green)
-  "
-^
-^Org^               ^Links^             ^Outline^
-^───^───────────────^─────^─────────────^───────^───────────
-_q_ quit            _i_ insert          _<_ previous
-^^                  _n_ next            _>_ next
-^^                  _p_ previous        _a_ all
-^^                  _s_ store           _v_ overview
-^^                  ^^                  ^^
-"
-  ("q" nil)
-  ("<" org-backward-element)
-  (">" org-forward-element)
-  ("a" outline-show-all)
-  ("i" org-insert-link :color blue)
-  ("n" org-next-link)
-  ("p" org-previous-link)
-  ("s" org-store-link)
-  ("v" org-overview))
-
 (defhydra hydra-org-template (:color blue :hint nil)
   "
  _c_enter  _q_uote     _e_macs-lisp    _L_aTeX:
