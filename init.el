@@ -6,8 +6,8 @@
 ;;; Code:
 (require 'package)
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                         ("melpa-s" . "http://stable.melpa.org/packages/")
-                         ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("melpa-s" . "http://stable.melpa.org/packages/")
+			 ("gnu" . "http://elpa.gnu.org/packages/")
 			 ("org" . "http://orgmode.org/elpa/")))
 
 (package-initialize)
@@ -54,7 +54,7 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-; On OS-X and linux, get the environment vars right even when started outside of terminal
+					; On OS-X and linux, get the environment vars right even when started outside of terminal
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
   :ensure t
@@ -101,7 +101,7 @@
   (setq company-dabbrev-downcase nil)
   (setq company-minimum-prefix-length 2
 	company-show-numbers t
-        company-idle-delay 0)
+	company-idle-delay 0)
   (add-to-list 'company-transformers #'company-sort-by-occurrence)
   (defun add-pcomplete-to-capf ()
     (add-hook 'completion-at-point-functions 'pcomplete-completions-at-point nil t))
@@ -158,11 +158,11 @@
     (when (not (file-directory-p dir))
       (make-directory dir t)))
   (setq backup-directory-alist `(("." . ,backup-dir))
-        auto-save-file-name-transforms `((".*" ,auto-saves-dir))
-        auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
-        tramp-backup-directory-alist `((".*" . ,backup-dir))
-        tramp-auto-save-directory auto-saves-dir
-        )
+	auto-save-file-name-transforms `((".*" ,auto-saves-dir))
+	auto-save-list-file-prefix (concat auto-saves-dir ".saves-")
+	tramp-backup-directory-alist `((".*" . ,backup-dir))
+	tramp-auto-save-directory auto-saves-dir
+	)
   )
 (setq backup-by-copying t    ; Don't delink hardlinks
       delete-old-versions t  ; Clean up the backups
@@ -172,8 +172,8 @@
 
 ;; make electric-pair-mode work on more brackets
 (defvar electric-pair-pairs '(
-                              (?\{ . ?\})
-                              ) )
+			      (?\{ . ?\})
+			      ) )
 
 (use-package org
   :ensure org-plus-contrib
@@ -193,9 +193,9 @@
   (setq org-clock-mode-line-total 'current
 	org-duration-format (quote h:mm))
   (font-lock-add-keywords 'org-mode
-  			  '(
+			  '(
 			    ("\\<\\(✗\\)" . font-lock-warning-face)
-  			    ("\\<\\(✓\\)" . font-lock-keyword-face))
+			    ("\\<\\(✓\\)" . font-lock-keyword-face))
 			  )
   (define-key org-mode-map (kbd "C-c m") 'org-table-mark-field)
   (define-key org-mode-map (kbd "C-c d") 'insert-date)
@@ -230,7 +230,7 @@
   )
 
 (use-package ox-twbs
-  ; Export org-mode to twitter bootstrap
+					; Export org-mode to twitter bootstrap
   :after org
   )
 
@@ -299,7 +299,7 @@
   (set-face-attribute 'doom-modeline-evil-operator-state nil :background "#268bd2" :foreground "#fdf6e3")
   (set-face-attribute 'doom-modeline-evil-replace-state nil :background "#cd5c5c" :foreground "#fdf6e3")
   (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3")
- )
+  )
 
 ;; (use-package spaceline
 ;;   :ensure powerline
@@ -386,15 +386,15 @@
 (use-package web-mode
   :defer t
   :mode (("\\.djhtml\\'" . web-mode)
-         ("\\.phtml\\'" . web-mode)
-         ("\\.erb\\'" . web-mode)
-         ("\\.php\\'" . web-mode)
-         ("\\.as[cp]x\\'" . web-mode)
-         ("\\.[agj]sp\\'" . web-mode)
-         ("\\.tpl\\.php\\'" . web-mode)
-         ("\\.mustache\\'" . web-mode)
-         ("\\.html?\\'" . web-mode)
-         )
+	 ("\\.phtml\\'" . web-mode)
+	 ("\\.erb\\'" . web-mode)
+	 ("\\.php\\'" . web-mode)
+	 ("\\.as[cp]x\\'" . web-mode)
+	 ("\\.[agj]sp\\'" . web-mode)
+	 ("\\.tpl\\.php\\'" . web-mode)
+	 ("\\.mustache\\'" . web-mode)
+	 ("\\.html?\\'" . web-mode)
+	 )
   :config
   (setq-default web-mode-php-indent-offset tab-width)
   (setq web-mode-markup-indent-offset 2)
@@ -441,11 +441,11 @@
     "Enable yasnippet for all backends.")
   (defun company-mode/backend-with-yas (backend)
     (if (or
-         (not company-mode/enable-yas)
-         (and (listp backend) (member 'company-yasnippet backend)))
-        backend
+	 (not company-mode/enable-yas)
+	 (and (listp backend) (member 'company-yasnippet backend)))
+	backend
       (append (if (consp backend) backend (list backend))
-              '(:with company-yasnippet))))
+	      '(:with company-yasnippet))))
   (setq company-backends
 	(mapcar #'company-mode/backend-with-yas company-backends))
   )
@@ -570,9 +570,9 @@
   (global-set-key (kbd "C-c j") 'projectile-grep)
   (eval-after-load "projectile"
     '(setq projectile-mode-line
-           '(:eval (list " ["
-                         (propertize (projectile-project-name)
-                                     'face '(:weight bold :foreground "#6c71c4"))
+	   '(:eval (list " ["
+			 (propertize (projectile-project-name)
+				     'face '(:weight bold :foreground "#6c71c4"))
 			 "]"))))
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -678,9 +678,9 @@
   (setq lsp-auto-guess-root t)
   (defun project-try-dart (dir)
     (let ((project (or (locate-dominating-file dir "pubspec.yaml")
-                       (locate-dominating-file dir "BUILD"))))
+		       (locate-dominating-file dir "BUILD"))))
       (if project
-          (cons 'dart project)
+	  (cons 'dart project)
 	(cons 'transient dir))))
   (add-hook 'project-find-functions #'project-try-dart)
   (cl-defmethod project-roots ((project (head dart)))
