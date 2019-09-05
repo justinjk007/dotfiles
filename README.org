@@ -6,8 +6,6 @@
 * Install [[https://git-scm.com/downloads][git]] first
 - You have to move =.gitconfig= manually and set appropriate name for
   the machine, this is only done once for that machine anyways.
-- Also move =secret.el= to the home directory with the correct secret
-  codes in it.
 - If =magit= suddenly stops working on windows, run this on =cmd=
 
   #+BEGIN_SRC sh
