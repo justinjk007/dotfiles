@@ -33,7 +33,7 @@
 (setq debug-on-error nil)
 (defalias 'perl-mode 'cperl-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode) ; New line numbering system starts from emacs 26
-(add-hook 'latex-mode-hook 'display-line-numbers-mode) ; New line numbering system starts from emacs 26
+(add-hook 'tex-mode-hook 'display-line-numbers-mode) ; For latex
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -537,7 +537,7 @@
   :ensure ispell
   :defer t
   :init
-  (add-hook 'text-mode-hook 'flyspell-mode) ;; For latex
+  (add-hook 'tex-mode-hook 'flyspell-mode) ;; For latex
   (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
   (add-hook 'js-mode-hook 'flyspell-prog-mode)
   )
