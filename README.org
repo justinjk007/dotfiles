@@ -48,7 +48,7 @@ manually, this is only done once really.
     =K70_CUE2.cuefolder=.
   - Remember the paths in the registry files should be changed to the correct paths before adding them,
     you might even break windows without doing that.
-  - Put =emacsclient.vbs= on desktop. Hide it and pin it to the taskbar. Emacs/bin directory should be in path.
+  - To pin emacsclient on the taskbar, run =runemacs.exe=, pin it to taskbar, change properties -> target to =emacsclientw -c=
 
 - For OS X
   - Install [[https://brew.sh][Brew]].
