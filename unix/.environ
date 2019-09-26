@@ -3,3 +3,4 @@
 export SHELL="/bin/bash"
 export DROPBOX_DIR="~/Dropbox"
 export YCMD="/usr/src/ycmd/"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64" # should point to the whole folder not a specific binary
