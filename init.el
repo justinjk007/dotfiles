@@ -181,13 +181,13 @@
   :pin org
   :defer t
   :mode ("\\.org$" . org-mode)
-  :bind ("C-'" . org-cycle-agenda-files)
+  ;; :bind ("C-'" . org-cycle-agenda-files)
   :init
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
-  (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
-			   ))
+  ;; (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
+  ;; 			   ))
   :config
   (defvar org-hide-emphasis-markers t) ;; Stop seeing all the markup symbols in org file, beautiful
   (add-to-list 'org-file-apps '(directory . emacs)) ;; Make emacs open file links in dired instead of file explorer
@@ -269,7 +269,7 @@
 	  ("*eshell*"               :select t :other t)
 	  (flycheck-error-list-mode :select nil :align below :size 0.25)
 	  ("*Org Select*"           :select t   :align below :size 0.33)
-	  ("*Org Agenda*"           :select t   :align right :size 0.33)
+	  ;; ("*Org Agenda*"           :select t   :align right :size 0.33)
 	  (" *Org Todo*"            :select t   :align below :size 0.2)
 	  ("*Man.*"                 :select t   :align below :size 0.5  :regexp t)
 	  ))
@@ -489,7 +489,7 @@
   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
   (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
   (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
-  (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
+  ;; (key-chord-define evil-normal-state-map "GG" 'org-agenda);Org-agenda
   (key-chord-mode 1)
   )
 
