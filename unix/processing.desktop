@@ -1,0 +1,11 @@
+# Add this to /usr/share/applications
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Processing
+Exec=/home/justin/processing-3.5.3/processing
+Icon=/home/justin/processing-3.5.3/lib/icons/pde-256.png
+Categories=Development;IDE;
+Terminal=false
+StartupNotify=true
+Name[en_GB]=processing.desktop

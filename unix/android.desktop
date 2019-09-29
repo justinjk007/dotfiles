@@ -9,4 +9,4 @@ Categories=Development;IDE;
 Terminal=false
 StartupNotify=true
 StartupWMClass=jetbrains-android-studio
-Name[en_GB]=android-studio.desktop
+Name[en_GB]=android.desktop
