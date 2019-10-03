@@ -698,14 +698,18 @@
   )
 
 (use-package dart-mode
-  ;; Installed this pub global activate dart_language_server
-  ;; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
-  :bind (:map dart-mode-map ("C-c f" . dart-format))
   :init
   (remove-hook 'prog-mode-hook 'fic-mode) ;; For some reason, fic mode seems to break dart-mode
   (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
       (add-hook 'dart-mode-hook #'lsp)
     )
+  )
+
+(use-package dart-server
+  ;; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
+  :bind (:map dart-mode-map ("C-c f" . dart-server-format))
+  :init
+  (add-hook 'dart-mode-hook 'dart-server) ;; For some reason, fic mode seems to break dart-mode
   )
 
 (use-package evil-tutor
