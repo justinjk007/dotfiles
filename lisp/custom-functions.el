@@ -93,7 +93,11 @@ foofoofoo  bar"
 (defun kill-other-buffers ()
   "Kill all other buffers except scratch."
   (interactive)
-  (mapc 'kill-buffer (delq "*scratch*" (buffer-list))))
+  (let ((preserved-buffers '("*scratch*" "*dashboard*" "*Messages*")))
+    (mapc (lambda (buffer-name)
+            (unless (member buffer-name preserved-buffers)
+              (kill-buffer buffer-name)))
+          (mapcar #'buffer-name (buffer-list)))))
 
 (defun my-abbrev-mode-defs ()
   "This function defins some basic abbrevations."
