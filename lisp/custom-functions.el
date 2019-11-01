@@ -94,10 +94,10 @@ foofoofoo  bar"
   "Kill all other buffers except scratch."
   (interactive)
   (let ((preserved-buffers '("*scratch*" "*dashboard*" "*Messages*")))
-    (mapc (lambda (buffer-name)
-            (unless (member buffer-name preserved-buffers)
-              (kill-buffer buffer-name)))
-          (mapcar #'buffer-name (buffer-list)))))
+    (mapc (lambda (buffer)
+            (unless (member (buffer-name buffer) preserved-buffers)
+              (kill-buffer buffer)))
+          (buffer-list))))
 
 (defun my-abbrev-mode-defs ()
   "This function defins some basic abbrevations."
