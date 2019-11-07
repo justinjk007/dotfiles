@@ -13,5 +13,4 @@
 (function() {
     'use strict';
     document.querySelector('span._2BMnTatQ5gjKGK5OWROgaG').style.display='none'; // Hide username
-    document.querySelector('span._1pHyKCBktIf_9WFW9jjM3P').style.display='none'; // Hide my karma
 })();
