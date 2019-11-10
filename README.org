@@ -21,7 +21,6 @@
 - My snippets - Usable with [[https://github.com/joaotavora/yasnippet][YASnippets]]
 - A small script in vbs to start emacs daemon during startup
   completely hiding the console window for windows.
-- My zsh shell config
 - My shell aliases
 - KeyBoard Config for the *K70 RGB* Keyboard
 
