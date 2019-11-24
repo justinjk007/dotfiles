@@ -691,8 +691,6 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode
-  :config
-  (lsp-ui-sideline-enable nil)
   )
 
 (use-package company-lsp
