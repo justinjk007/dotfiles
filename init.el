@@ -699,7 +699,9 @@
 
 (use-package dart-mode
   :init
-  (remove-hook 'prog-mode-hook 'fic-mode) ;; For some reason, fic mode seems to break dart-mode
+  ;; For some reason, fic mode seems to break dart-mode
+  (add-hook 'dart-mode-hook (lambda () (fic-mode -1)))
+  (add-hook 'dart-mode-hook (lambda () (eldoc-mode -1))) ; This feature is given by lsp ui anyways
   (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
       (add-hook 'dart-mode-hook #'lsp)
     )
