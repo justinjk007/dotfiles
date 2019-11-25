@@ -20,7 +20,7 @@
      "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
      default)))
  '(electric-pair-mode t)
- '(flycheck-indication-mode (quote right-fringe))
+ '(flycheck-indication-mode nil)
  '(flyspell-abbrev-p t)
  '(frame-background-mode (quote dark))
  '(global-flycheck-mode t)
