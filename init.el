@@ -576,13 +576,6 @@
   (projectile-mode +1)
   (setq projectile-completion-system 'ivy)
   (global-set-key (kbd "C-c j") 'projectile-grep)
-  (eval-after-load "projectile"
-    '(setq projectile-mode-line
-	   '(:eval (list " ["
-			 (propertize (projectile-project-name)
-				     'face '(:weight bold :foreground "#6c71c4"))
-			 "]"))))
-  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   )
 
