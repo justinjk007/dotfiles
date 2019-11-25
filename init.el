@@ -690,6 +690,7 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode
+  :bind ("M-g f" . lsp-ui-sideline-apply-code-actions)
   )
 
 (use-package company-lsp
