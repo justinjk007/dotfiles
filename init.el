@@ -458,6 +458,7 @@
 
 (use-package ivy-yasnippet
   :after yasnippet
+  :after ivy
   )
 
 (use-package flycheck
@@ -562,6 +563,11 @@
   ;; use-package cannot install counsel mode, just install counsel the
   ;; old fashion way using 'M-x package-install <ret> counsel' .
   :init (counsel-mode)
+  )
+
+(use-package avy
+  :config (avy-setup-default)
+  :bind ("M-g M-g" . avy-goto-line)
   )
 
 (use-package projectile
