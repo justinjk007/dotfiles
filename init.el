@@ -641,6 +641,7 @@
   :bind ("C-c l c" . ledger-mode-clean-buffer)
   :config
   (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
+  (add-hook 'before-save-hook #'ledger-mode-clean-buffer)
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
