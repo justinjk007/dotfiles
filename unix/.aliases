@@ -9,3 +9,4 @@ alias la='ls -A'
 alias l='ls -CF'
 alias tail='tail -50'
 alias please='sudo'
+alias sshaws='ssh -i ~/.ssh/aws-instance-1.pem ubuntu@3.88.234.167' # temp setup for winter semester
