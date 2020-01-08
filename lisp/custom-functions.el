@@ -93,7 +93,7 @@ foofoofoo  bar"
 (defun kill-other-buffers ()
   "Kill all other buffers except scratch."
   (interactive)
-  (let ((preserved-buffers '("*scratch*" "*dashboard*" "*Messages*")))
+  (let ((preserved-buffers '("*scratch*" "*dashboard*" "*Messages*" "tt.org")))
     (mapc (lambda (buffer)
             (unless (member (buffer-name buffer) preserved-buffers)
               (kill-buffer buffer)))
