@@ -615,13 +615,6 @@
   (evil-goggles-use-diff-faces)
   )
 
-(use-package fic-mode
-  ;; Highlight TODO statements in certain modes
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook 'fic-mode)
-  )
-
 (use-package hungry-delete
   ;; deletes all the whitespace when you hit backspace or delete
   :config
@@ -700,8 +693,6 @@
 
 (use-package dart-mode
   :init
-  ;; For some reason, fic mode seems to break dart-mode
-  (add-hook 'dart-mode-hook (lambda () (fic-mode -1)))
   (add-hook 'dart-mode-hook (lambda () (eldoc-mode -1))) ; This feature is given by lsp ui anyways
   (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
       (add-hook 'dart-mode-hook #'lsp)
@@ -712,7 +703,7 @@
   ;; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
   :bind (:map dart-mode-map ("C-c f" . dart-server-format))
   :init
-  (add-hook 'dart-mode-hook 'dart-server) ;; For some reason, fic mode seems to break dart-mode
+  (add-hook 'dart-mode-hook 'dart-server)
   )
 
 (use-package evil-tutor
