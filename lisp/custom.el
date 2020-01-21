@@ -84,8 +84,8 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil
                          :strike-through nil :overline nil :underline nil :slant normal
-                         :weight normal :height 105 :width normal :foundry "outline" :family
-                         "Hack"))))
+                         :weight normal :height 110 :width medium :foundry "outline" :family
+                         "IBM Plex Mono"))))
  ;; https://github.com/source-foundry/Hack/releases
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#d33682"))))
@@ -95,10 +95,10 @@
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
- '(org-default ((t (:family "Hack"))))
- '(org-level-1 ((t (:family "Hack"))))
- '(org-level-2 ((t (:family "Hack"))))
- '(org-level-3 ((t (:foreground "#6c71c4" :family "Hack"))))
+ '(org-default ((t (:family "IBM Plex Mono"))))
+ '(org-level-1 ((t (:family "IBM Plex Mono"))))
+ '(org-level-2 ((t (:family "IBM Plex Mono"))))
+ '(org-level-3 ((t (:foreground "#6c71c4" :family "IBM Plex Mono"))))
  '(org-link ((t (:foreground "SkyBlue1" :underline t))))
  '(org-verbatim ((t (:foreground "tomato"))))
  '(org-warning ((t (:foreground "red" :underline t))))
