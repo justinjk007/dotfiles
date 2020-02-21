@@ -667,6 +667,9 @@
   :init
   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   :config
+  ;;;;;;;;;;;;;;;;;
+  ;; Dart config ;;
+  ;;;;;;;;;;;;;;;;;
   (with-eval-after-load "projectile"
     (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
     (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
@@ -680,7 +683,27 @@
   (add-hook 'project-find-functions #'project-try-dart)
   (cl-defmethod project-roots ((project (head dart)))
     (list (cdr project)))
-  )
+  ;;;;;;;;;;;;;;;;;;;
+  ;; Python config ;;
+  ;;;;;;;;;;;;;;;;;;;
+  ;; !!!!!!NEED THIS!!!!!
+  ;; pip install 'python-language-server[all]'
+
+  ;; make sure we have lsp-imenu everywhere we have LSP
+  (require 'lsp-imenu)
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)  
+  ;; get lsp-python-enable defined
+  ;; NB: use either projectile-project-root or ffip-get-project-root-directory
+  ;;     or any other function that can be used to find the root directory of a project
+  (lsp-define-stdio-client lsp-python "python"
+                           #'projectile-project-root
+                           '("pyls"))
+  ;; make sure this is activated when python-mode is activated
+  ;; lsp-python-enable is created by macro above 
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (lsp-python-enable)))
+  )					; End of use-package
 
 (use-package lsp-ui
   :commands lsp-ui-mode
@@ -689,6 +712,7 @@
 
 (use-package company-lsp
   :commands company-lsp
+  :config (push 'company-lsp company-backends)
   )
 
 (use-package dart-mode
