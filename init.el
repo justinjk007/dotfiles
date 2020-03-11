@@ -425,9 +425,7 @@
 
 (use-package web-beautify
   :config
-  (eval-after-load "js2-mode" '(define-key js2-mode-map (kbd "C-c f") 'web-beautify-js))
-  (eval-after-load "css" '(define-key css-mode-map (kbd "C-c f") 'web-beautify-css))
-  (eval-after-load "web" '(define-key web-mode-map (kbd "C-c f") 'web-beautify-html))
+  (eval-after-load 'web-mode '(define-key web-mode-map (kbd "C-c u") 'web-beautify-html))
   )
 
 (use-package yasnippet
