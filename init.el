@@ -629,7 +629,7 @@
 (use-package ledger-mode
   :defer t
   :mode ("\\.ledger\\'" . ledger-mode)
-  :bind ("C-c l c" . ledger-mode-clean-buffer)
+  :bind (:map ledger-mode-map ("C-c u" . ledger-mode-clean-buffer))
   :config
   (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
   (add-hook 'before-save-hook #'ledger-mode-clean-buffer)
@@ -689,7 +689,7 @@
 
   ;; make sure we have lsp-imenu everywhere we have LSP
   (require 'lsp-imenu)
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)  
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   ;; get lsp-python-enable defined
   ;; NB: use either projectile-project-root or ffip-get-project-root-directory
   ;;     or any other function that can be used to find the root directory of a project
@@ -697,7 +697,7 @@
                            #'projectile-project-root
                            '("pyls"))
   ;; make sure this is activated when python-mode is activated
-  ;; lsp-python-enable is created by macro above 
+  ;; lsp-python-enable is created by macro above
   (add-hook 'python-mode-hook
             (lambda ()
               (lsp-python-enable)))
