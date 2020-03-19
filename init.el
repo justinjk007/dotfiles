@@ -187,7 +187,7 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
   ;; (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
-  ;; 			   ))
+  ;;                       ))
   :config
   (defvar org-hide-emphasis-markers t) ;; Stop seeing all the markup symbols in org file, beautiful
   (add-to-list 'org-file-apps '(directory . emacs)) ;; Make emacs open file links in dired instead of file explorer
@@ -429,7 +429,7 @@
 
 (use-package key-chord
   :config
-  (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
+  (setq key-chord-two-keys-delay              0.5) ;0.5 seconds delay time
   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
   (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
   (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
@@ -459,7 +459,6 @@
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
   )
-
 
 (use-package ispell)
 (cond
@@ -538,7 +537,6 @@
   (global-set-key (kbd "C-x j") 'counsel-projectile-git-grep)
   )
 
-
 ;; For changing dired list order
 (require 'ls-lisp)
 (setq ls-lisp-dirs-first t
@@ -610,9 +608,9 @@
   :init
   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   :config
-  ;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;
   ;; Dart config ;;
-  ;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;
   (with-eval-after-load "projectile"
     (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
     (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
@@ -626,9 +624,9 @@
   (add-hook 'project-find-functions #'project-try-dart)
   (cl-defmethod project-roots ((project (head dart)))
     (list (cdr project)))
-  ;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;
   ;; Python config ;;
-  ;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;
 
   ;; make sure we have lsp-imenu everywhere we have LSP
   (require 'lsp-imenu)
@@ -637,14 +635,14 @@
   ;; NB: use either projectile-project-root or ffip-get-project-root-directory
   ;;     or any other function that can be used to find the root directory of a project
   (lsp-define-stdio-client lsp-python "python"
-                           #'projectile-project-root
-                           '("pyls"))
+			   #'projectile-project-root
+			   '("pyls"))
   ;; make sure this is activated when python-mode is activated
   ;; lsp-python-enable is created by macro above
   (add-hook 'python-mode-hook
-            (lambda ()
-              (lsp-python-enable)))
-  )					; End of use-package
+	    (lambda ()
+	      (lsp-python-enable)))
+  )                                     ; End of use-package
 
 (use-package lsp-ui
   :commands lsp-ui-mode
@@ -773,11 +771,11 @@
   (defun wrapper-auto-virtualenvwrapper-activate ()
     (let ((path (auto-virtualenvwrapper-find-virtualenv-path)))
       (when (and path (not (equal path auto-virtualenvwrapper--path)))
-        (setq auto-virtualenvwrapper--path path
-              venv-current-name (file-name-base (file-truename path)))
-        (venv--activate-dir auto-virtualenvwrapper--path)
-        (pyvenv-activate auto-virtualenvwrapper--path)
-        (auto-virtualenvwrapper-message "activated virtualenv: %s" path))))
+	(setq auto-virtualenvwrapper--path path
+	      venv-current-name (file-name-base (file-truename path)))
+	(venv--activate-dir auto-virtualenvwrapper--path)
+	(pyvenv-activate auto-virtualenvwrapper--path)
+	(auto-virtualenvwrapper-message "activated virtualenv: %s" path))))
 
   (add-hook 'python-mode-hook #'wrapper-auto-virtualenvwrapper-activate)
   (add-hook 'focus-in-hook #'wrapper-auto-virtualenvwrapper-activate)
