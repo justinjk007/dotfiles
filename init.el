@@ -302,61 +302,6 @@
   (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3")
   )
 
-;; (use-package spaceline
-;;   :ensure powerline
-;;   ;; https://gist.github.com/epegzz/1634235/fe5100a91157c5d0f0c8b7b6dedd126c6396ae19
-;;   )
-;; (use-package spaceline-config
-;;   :ensure spaceline
-;;   :init
-;;   (remove-hook 'focus-out-hook 'powerline-unset-selected-window)
-;;   :config
-;;   (spaceline-spacemacs-theme)
-;;   (setq ns-use-srgb-colorspace nil)
-;;   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; Enable color change with modes
-;;   (set-face-attribute 'spaceline-evil-emacs nil :foreground "#fdf6e3" :background "#6c71c4")
-;;   (set-face-attribute 'spaceline-evil-normal nil :foreground "#fdf6e3" :background "#268bd2")
-;;   (set-face-attribute 'spaceline-evil-insert nil :foreground "#fdf6e3" :background "#859902")
-;;   (set-face-attribute 'spaceline-evil-visual nil :foreground "#fdf6e3" :background "#2AA198")
-;;   (set-face-attribute 'spaceline-evil-motion nil :foreground "#fdf6e3" :background "#268bd2")
-;;   (set-face-attribute 'spaceline-evil-replace nil :foreground "#fdf6e3" :background "#cd5c5c")
-;;   (setq-default
-;;    powerline-height 22
-;;    powerline-default-separator 'bar
-;;    spaceline-flycheck-bullet "❖ %s")
-;;   ;; Fancy git icon
-;;   (defadvice vc-mode-line (after strip-backend () activate)
-;;   (with-no-warnings
-;;    (propertize (all-the-icons-octicon "git-branch")
-;; 		'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
-;; 		'display '(raise -0.1)))
-;;     (when (stringp vc-mode)
-;;       (let ((gitlogo (replace-regexp-in-string
-;; 		      "^ Git"
-;; 		      (propertize (all-the-icons-octicon
-;; 				   "git-branch"
-;; 				   :face 'all-the-icons-orange)
-;; 				  'display '(raise 0)
-;; 				  ) vc-mode)))
-;; 	(setq vc-mode gitlogo))))
-;;   (spaceline-toggle-evil-state-on)
-;;   (spaceline-toggle-org-clock-on)
-;;   (spaceline-toggle-projectile-root-on)
-;;   (spaceline-toggle-buffer-size-off)
-;;   (if (eq system-type 'darwin)
-;;       (display-time-mode 1) ;; Display time in spaceline
-;;     )
-;;   ;; Customization for minions mode
-;;   (spaceline-toggle-major-mode-off)
-;;   (spaceline-define-segment minor-modes
-;;     (if (bound-and-true-p minions-mode)
-;; 	(format-mode-line minions-mode-line-modes)
-;;       (spaceline-minor-modes-default)
-;;       ))
-;;   ;; Customization for minions mode
-;;   (spaceline-compile)
-;;   )
-
 (use-package engine-mode
   :config
   (engine-mode t)
