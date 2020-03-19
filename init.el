@@ -574,7 +574,7 @@
 (use-package ledger-mode
   :defer t
   :mode ("\\.ledger\\'" . ledger-mode)
-  :bind ("C-c l c" . ledger-mode-clean-buffer)
+  :bind (:map ledger-mode-map ("C-c u" . ledger-mode-clean-buffer))
   :config
   (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
   (add-hook 'before-save-hook #'ledger-mode-clean-buffer)
