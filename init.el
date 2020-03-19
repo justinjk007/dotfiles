@@ -55,7 +55,7 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-					; On OS-X and linux, get the environment vars right even when started outside of terminal
+;; On OS-X and linux, get the environment vars right even when started outside of terminal
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
   :ensure t
@@ -629,12 +629,10 @@
   ;;;;;;;;;;;;;;;;;;;
   ;; Python config ;;
   ;;;;;;;;;;;;;;;;;;;
-  ;; !!!!!!NEED THIS!!!!!
-  ;; pip install 'python-language-server[all]'
 
   ;; make sure we have lsp-imenu everywhere we have LSP
   (require 'lsp-imenu)
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)  
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   ;; get lsp-python-enable defined
   ;; NB: use either projectile-project-root or ffip-get-project-root-directory
   ;;     or any other function that can be used to find the root directory of a project
@@ -642,7 +640,7 @@
                            #'projectile-project-root
                            '("pyls"))
   ;; make sure this is activated when python-mode is activated
-  ;; lsp-python-enable is created by macro above 
+  ;; lsp-python-enable is created by macro above
   (add-hook 'python-mode-hook
             (lambda ()
               (lsp-python-enable)))
@@ -770,65 +768,20 @@
     '(define-key python-mode-map (kbd "C-c u") 'yapfify-buffer))
   )
 
-(use-package pyvenv
-  :ensure t
-  :commands (pyvenv-activate pyvenv-deactivate pyvenv-workon)
-  :hook (python-mode . lj-py/pyvenv-activate-if-found)
-  :preface
-  (progn
-    (autoload 'projectile-project-p "projectile")
-    (autoload 'f-join "f")
+(use-package auto-virtualenvwrapper
+  :init
+  (defun wrapper-auto-virtualenvwrapper-activate ()
+    (let ((path (auto-virtualenvwrapper-find-virtualenv-path)))
+      (when (and path (not (equal path auto-virtualenvwrapper--path)))
+        (setq auto-virtualenvwrapper--path path
+              venv-current-name (file-name-base (file-truename path)))
+        (venv--activate-dir auto-virtualenvwrapper--path)
+        (pyvenv-activate auto-virtualenvwrapper--path)
+        (auto-virtualenvwrapper-message "activated virtualenv: %s" path))))
 
-    (defvar lj-py/venv-names '(".env" "env" ".venv" "venv" ".virtualenv"))
-
-    (defun lj-py/directory-first-ancestor (dir pred)
-      "Search up the filesystem for the first DIR satisfying PRED.
-Return the first non-nil result of evalutating PRED."
-      (let (result)
-        (while dir
-          (pcase (funcall pred dir)
-            (`nil
-             (setq dir (f-parent dir)))
-            (res
-             (setq result res)
-             (setq dir nil))))
-        result))
-
-    (defun lj-py/find-venv-in-directory (dir)
-      (-when-let ((dir) (--keep (let ((dir (f-join dir it)))
-                                  (when (f-directory? dir)
-                                    dir))
-                                lj-py/venv-names))
-        (file-truename dir)))
-
-    (defun lj-py/pyvenv-dir ()
-      (lj-py/directory-first-ancestor default-directory
-                                      #'lj-py/find-venv-in-directory))
-
-    (defun lj-py/pyvenv-activate-if-found ()
-      (-when-let (env (lj-py/pyvenv-dir))
-        (pyvenv-activate env)
-        (message "Using pyvenv at %s" (f-abbrev env))))
-
-    (defun lj-py/pyvenv-init (env)
-      (interactive
-       (list (or (lj-py/pyvenv-dir)
-                 (f-join (read-directory-name "Project root: " nil nil t) ".env"))))
-      (when (f-dir? env)
-        (user-error "Environment already exists"))
-      (let ((reporter (make-progress-reporter "Initializing pyvenv environment...")))
-        (pcase (call-process "pyvenv" nil nil nil env)
-          (`0
-           (progress-reporter-update reporter)
-           (pyvenv-activate env)
-           (progress-reporter-done reporter))
-          (_
-           (message "%sFAILED" (aref (cdr reporter) 3)))))))
-  ;; :config
-  ;; (lj-local-leader-def :keymaps 'python-mode-map "e" '(lj-py/pyvenv-init :wk "init pyvenv"))
+  (add-hook 'python-mode-hook #'wrapper-auto-virtualenvwrapper-activate)
+  (add-hook 'focus-in-hook #'wrapper-auto-virtualenvwrapper-activate)
   )
-
-;; C++ Config -----------------------------------------------------------------
 
 (use-package modern-cpp-font-lock
   :init
@@ -903,8 +856,6 @@ Return the first non-nil result of evalutating PRED."
 	 ("M-s" . counsel-gtags-find-symbol)
 	 ("M-," . counsel-gtags-go-backward))
   )
-
-;; C++ Config -----------------------------------------------------------------
 
 ;; Misc Bindings
 (define-key c-mode-base-map (kbd "<M-return>") 'ff-find-other-file)
