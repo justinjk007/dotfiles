@@ -60,8 +60,10 @@ PS: To get to the startup folder on windows open the run window
 (Windows button + R) and write =shell:startup=.
 
 * Environment variables to be added
-- *DROPBOX_DIR*, should point to the root of Dropbox.
-
+- *DROPBOX_DIR*, should point to the root of Dropbox
+  like =D:\Dropbox=
+- *FLUTTER_ROOT*, should point to the root of flutter sdk path
+  like =D:\Dev\flutter=
 * Other softwares to install
 
 - Python

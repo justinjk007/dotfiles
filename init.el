@@ -669,6 +669,17 @@
   (add-hook 'dart-mode-hook 'dart-server)
   )
 
+(use-package flutter
+  :after dart-mode
+  :bind
+  (:map dart-mode-map
+	("C-M-x" . #'flutter-run-or-hot-reload)
+	("C-M-z" . #'flutter-hot-restart)
+	)
+  :custom
+  (flutter-sdk-path (getenv "FLUTTER_ROOT"))
+  )
+
 (use-package evil-tutor
   :defer t
   :init
