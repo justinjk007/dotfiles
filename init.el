@@ -779,17 +779,7 @@
 
 (use-package auto-virtualenvwrapper
   :init
-  (defun wrapper-auto-virtualenvwrapper-activate ()
-    (let ((path (auto-virtualenvwrapper-find-virtualenv-path)))
-      (when (and path (not (equal path auto-virtualenvwrapper--path)))
-	(setq auto-virtualenvwrapper--path path
-	      venv-current-name (file-name-base (file-truename path)))
-	(venv--activate-dir auto-virtualenvwrapper--path)
-	(pyvenv-activate auto-virtualenvwrapper--path)
-	(auto-virtualenvwrapper-message "activated virtualenv: %s" path))))
-
-  (add-hook 'python-mode-hook #'wrapper-auto-virtualenvwrapper-activate)
-  (add-hook 'focus-in-hook #'wrapper-auto-virtualenvwrapper-activate)
+  (add-hook 'python-mode-hook #'auto-virtualenvwrapper-activate)
   )
 
 (use-package modern-cpp-font-lock
