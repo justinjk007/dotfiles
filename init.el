@@ -575,7 +575,6 @@
   :bind (:map ledger-mode-map ("C-c u" . ledger-mode-clean-buffer))
   :config
   (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
-  (add-hook 'before-save-hook #'ledger-mode-clean-buffer)
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
@@ -598,8 +597,6 @@
   ;; go get -u github.com/dougm/goflymake
   :defer t
   :mode ("\\.go\\'" . go-mode)
-  :config
-  (add-hook 'before-save-hook #'gofmt-before-save)
   )
 (use-package company-go)
 
