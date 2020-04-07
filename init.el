@@ -238,7 +238,7 @@
 (use-package ox-reveal
   :after org
   :config
-  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.5.0/")
+  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js")
   )
 
 (use-package ox-hugo
