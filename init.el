@@ -55,7 +55,7 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-					; On OS-X and linux, get the environment vars right even when started outside of terminal
+;; On OS-X and linux, get the environment vars right even when started outside of terminal
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
   :ensure t
@@ -187,7 +187,7 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
   ;; (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
-  ;; 			   ))
+  ;;                       ))
   :config
   (defvar org-hide-emphasis-markers t) ;; Stop seeing all the markup symbols in org file, beautiful
   (add-to-list 'org-file-apps '(directory . emacs)) ;; Make emacs open file links in dired instead of file explorer
@@ -238,7 +238,7 @@
 (use-package ox-reveal
   :after org
   :config
-  (setq org-reveal-root "https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js")
+  (setq org-reveal-root "https://cdn.jsdelivr.net/npm/reveal.js")
   )
 
 (use-package ox-hugo
@@ -301,61 +301,6 @@
   (set-face-attribute 'doom-modeline-evil-replace-state nil :background "#cd5c5c" :foreground "#fdf6e3")
   (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3")
   )
-
-;; (use-package spaceline
-;;   :ensure powerline
-;;   ;; https://gist.github.com/epegzz/1634235/fe5100a91157c5d0f0c8b7b6dedd126c6396ae19
-;;   )
-;; (use-package spaceline-config
-;;   :ensure spaceline
-;;   :init
-;;   (remove-hook 'focus-out-hook 'powerline-unset-selected-window)
-;;   :config
-;;   (spaceline-spacemacs-theme)
-;;   (setq ns-use-srgb-colorspace nil)
-;;   (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state) ;; Enable color change with modes
-;;   (set-face-attribute 'spaceline-evil-emacs nil :foreground "#fdf6e3" :background "#6c71c4")
-;;   (set-face-attribute 'spaceline-evil-normal nil :foreground "#fdf6e3" :background "#268bd2")
-;;   (set-face-attribute 'spaceline-evil-insert nil :foreground "#fdf6e3" :background "#859902")
-;;   (set-face-attribute 'spaceline-evil-visual nil :foreground "#fdf6e3" :background "#2AA198")
-;;   (set-face-attribute 'spaceline-evil-motion nil :foreground "#fdf6e3" :background "#268bd2")
-;;   (set-face-attribute 'spaceline-evil-replace nil :foreground "#fdf6e3" :background "#cd5c5c")
-;;   (setq-default
-;;    powerline-height 22
-;;    powerline-default-separator 'bar
-;;    spaceline-flycheck-bullet "❖ %s")
-;;   ;; Fancy git icon
-;;   (defadvice vc-mode-line (after strip-backend () activate)
-;;   (with-no-warnings
-;;    (propertize (all-the-icons-octicon "git-branch")
-;; 		'face `(:family ,(all-the-icons-octicon-family) :height 1.2)
-;; 		'display '(raise -0.1)))
-;;     (when (stringp vc-mode)
-;;       (let ((gitlogo (replace-regexp-in-string
-;; 		      "^ Git"
-;; 		      (propertize (all-the-icons-octicon
-;; 				   "git-branch"
-;; 				   :face 'all-the-icons-orange)
-;; 				  'display '(raise 0)
-;; 				  ) vc-mode)))
-;; 	(setq vc-mode gitlogo))))
-;;   (spaceline-toggle-evil-state-on)
-;;   (spaceline-toggle-org-clock-on)
-;;   (spaceline-toggle-projectile-root-on)
-;;   (spaceline-toggle-buffer-size-off)
-;;   (if (eq system-type 'darwin)
-;;       (display-time-mode 1) ;; Display time in spaceline
-;;     )
-;;   ;; Customization for minions mode
-;;   (spaceline-toggle-major-mode-off)
-;;   (spaceline-define-segment minor-modes
-;;     (if (bound-and-true-p minions-mode)
-;; 	(format-mode-line minions-mode-line-modes)
-;;       (spaceline-minor-modes-default)
-;;       ))
-;;   ;; Customization for minions mode
-;;   (spaceline-compile)
-;;   )
 
 (use-package engine-mode
   :config
@@ -425,9 +370,7 @@
 
 (use-package web-beautify
   :config
-  (eval-after-load "js2-mode" '(define-key js2-mode-map (kbd "C-c f") 'web-beautify-js))
-  (eval-after-load "css" '(define-key css-mode-map (kbd "C-c f") 'web-beautify-css))
-  (eval-after-load "web" '(define-key web-mode-map (kbd "C-c f") 'web-beautify-html))
+  (eval-after-load 'web-mode '(define-key web-mode-map (kbd "C-c u") 'web-beautify-html))
   )
 
 (use-package yasnippet
@@ -486,7 +429,7 @@
 
 (use-package key-chord
   :config
-  (setq key-chord-two-keys-delay  0.5) ;0.5 seconds delay time
+  (setq key-chord-two-keys-delay              0.5) ;0.5 seconds delay time
   (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
   (key-chord-define evil-normal-state-map "rr" 'revert-buffer-no-confirm)
   (key-chord-define evil-normal-state-map "ff" 'ispell-word);Corrects singleWord
@@ -516,7 +459,6 @@
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode)
   (add-hook 'css-mode-hook 'rainbow-mode)
   )
-
 
 (use-package ispell)
 (cond
@@ -595,7 +537,6 @@
   (global-set-key (kbd "C-x j") 'counsel-projectile-git-grep)
   )
 
-
 ;; For changing dired list order
 (require 'ls-lisp)
 (setq ls-lisp-dirs-first t
@@ -631,10 +572,9 @@
 (use-package ledger-mode
   :defer t
   :mode ("\\.ledger\\'" . ledger-mode)
-  :bind ("C-c l c" . ledger-mode-clean-buffer)
+  :bind (:map ledger-mode-map ("C-c u" . ledger-mode-clean-buffer))
   :config
   (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
-  (add-hook 'before-save-hook #'ledger-mode-clean-buffer)
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
@@ -657,8 +597,6 @@
   ;; go get -u github.com/dougm/goflymake
   :defer t
   :mode ("\\.go\\'" . go-mode)
-  :config
-  (add-hook 'before-save-hook #'gofmt-before-save)
   )
 (use-package company-go)
 
@@ -667,6 +605,9 @@
   :init
   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   :config
+    ;;;;;;;;;;;;;;;;;
+  ;; Dart config ;;
+    ;;;;;;;;;;;;;;;;;
   (with-eval-after-load "projectile"
     (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
     (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
@@ -680,7 +621,25 @@
   (add-hook 'project-find-functions #'project-try-dart)
   (cl-defmethod project-roots ((project (head dart)))
     (list (cdr project)))
-  )
+    ;;;;;;;;;;;;;;;;;;;
+  ;; Python config ;;
+    ;;;;;;;;;;;;;;;;;;;
+
+  ;; make sure we have lsp-imenu everywhere we have LSP
+  (require 'lsp-imenu)
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+  ;; get lsp-python-enable defined
+  ;; NB: use either projectile-project-root or ffip-get-project-root-directory
+  ;;     or any other function that can be used to find the root directory of a project
+  (lsp-define-stdio-client lsp-python "python"
+			   #'projectile-project-root
+			   '("pyls"))
+  ;; make sure this is activated when python-mode is activated
+  ;; lsp-python-enable is created by macro above
+  (add-hook 'python-mode-hook
+	    (lambda ()
+	      (lsp-python-enable)))
+  )                                     ; End of use-package
 
 (use-package lsp-ui
   :commands lsp-ui-mode
@@ -689,6 +648,7 @@
 
 (use-package company-lsp
   :commands company-lsp
+  :config (push 'company-lsp company-backends)
   )
 
 (use-package dart-mode
@@ -704,6 +664,17 @@
   :bind (:map dart-mode-map ("C-c f" . dart-server-format))
   :init
   (add-hook 'dart-mode-hook 'dart-server)
+  )
+
+(use-package flutter
+  :after dart-mode
+  :bind
+  (:map dart-mode-map
+	("C-M-x" . #'flutter-run-or-hot-reload)
+	("C-M-z" . #'flutter-hot-restart)
+	)
+  :custom
+  (flutter-sdk-path (getenv "FLUTTER_ROOT"))
   )
 
 (use-package evil-tutor
@@ -803,65 +774,10 @@
     '(define-key python-mode-map (kbd "C-c u") 'yapfify-buffer))
   )
 
-(use-package pyvenv
-  :ensure t
-  :commands (pyvenv-activate pyvenv-deactivate pyvenv-workon)
-  :hook (python-mode . lj-py/pyvenv-activate-if-found)
-  :preface
-  (progn
-    (autoload 'projectile-project-p "projectile")
-    (autoload 'f-join "f")
-
-    (defvar lj-py/venv-names '(".env" "env" ".venv" "venv" ".virtualenv"))
-
-    (defun lj-py/directory-first-ancestor (dir pred)
-      "Search up the filesystem for the first DIR satisfying PRED.
-Return the first non-nil result of evalutating PRED."
-      (let (result)
-        (while dir
-          (pcase (funcall pred dir)
-            (`nil
-             (setq dir (f-parent dir)))
-            (res
-             (setq result res)
-             (setq dir nil))))
-        result))
-
-    (defun lj-py/find-venv-in-directory (dir)
-      (-when-let ((dir) (--keep (let ((dir (f-join dir it)))
-                                  (when (f-directory? dir)
-                                    dir))
-                                lj-py/venv-names))
-        (file-truename dir)))
-
-    (defun lj-py/pyvenv-dir ()
-      (lj-py/directory-first-ancestor default-directory
-                                      #'lj-py/find-venv-in-directory))
-
-    (defun lj-py/pyvenv-activate-if-found ()
-      (-when-let (env (lj-py/pyvenv-dir))
-        (pyvenv-activate env)
-        (message "Using pyvenv at %s" (f-abbrev env))))
-
-    (defun lj-py/pyvenv-init (env)
-      (interactive
-       (list (or (lj-py/pyvenv-dir)
-                 (f-join (read-directory-name "Project root: " nil nil t) ".env"))))
-      (when (f-dir? env)
-        (user-error "Environment already exists"))
-      (let ((reporter (make-progress-reporter "Initializing pyvenv environment...")))
-        (pcase (call-process "pyvenv" nil nil nil env)
-          (`0
-           (progress-reporter-update reporter)
-           (pyvenv-activate env)
-           (progress-reporter-done reporter))
-          (_
-           (message "%sFAILED" (aref (cdr reporter) 3)))))))
-  ;; :config
-  ;; (lj-local-leader-def :keymaps 'python-mode-map "e" '(lj-py/pyvenv-init :wk "init pyvenv"))
+(use-package auto-virtualenvwrapper
+  :init
+  (add-hook 'python-mode-hook #'auto-virtualenvwrapper-activate)
   )
-
-;; C++ Config -----------------------------------------------------------------
 
 (use-package modern-cpp-font-lock
   :init
@@ -936,8 +852,6 @@ Return the first non-nil result of evalutating PRED."
 	 ("M-s" . counsel-gtags-find-symbol)
 	 ("M-," . counsel-gtags-go-backward))
   )
-
-;; C++ Config -----------------------------------------------------------------
 
 ;; Misc Bindings
 (define-key c-mode-base-map (kbd "<M-return>") 'ff-find-other-file)

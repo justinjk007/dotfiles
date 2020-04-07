@@ -38,8 +38,6 @@ manually, this is only done once really.
     file and take a break when emacs does work for you.
 
 - For windows
-  - Move =emacs--daemon.vbs= to the startup folder, this will start
-    emacs daemon every-time you start windows.
   - Move =wifi-on-off.vbs= to startup folder, only do this if you have a
     desktop and you are using a wi-fi still and you want to play CS:GO
     with a good ping.
@@ -47,7 +45,11 @@ manually, this is only done once really.
     =K70_CUE2.cuefolder=.
   - Remember the paths in the registry files should be changed to the correct paths before adding them,
     you might even break windows without doing that.
-  - To pin emacsclient on the taskbar, run =runemacs.exe=, pin it to taskbar, change properties -> target to =emacsclientw -c=
+  - To pin emacsclient on the taskbar, run =runemacs.exe=, pin it to taskbar, change
+    properties. This will emacs daemon on the first click and start a client, if the daemon is
+    running start the client
+    - Target to ="C:\Program Files (x86)\GNU Emacs\bin\emacsclientw.exe" -c -a ""=
+    - Start in directory ="C:\Program Files (x86)\GNU Emacs\bin"=
 
 - For OS X
   - Install [[https://brew.sh][Brew]].
@@ -60,18 +62,23 @@ PS: To get to the startup folder on windows open the run window
 (Windows button + R) and write =shell:startup=.
 
 * Environment variables to be added
-- *DROPBOX_DIR*, should point to the root of Dropbox.
-
+- *DROPBOX_DIR*, should point to the root of Dropbox
+  like =D:\Dropbox=
+- *FLUTTER_ROOT*, should point to the root of flutter sdk path
+  like =D:\Dev\flutter=
 * Other softwares to install
 
+- Python
+  #+begin_src sh
+  pip install 'python-language-server[all]' # for lsp support
+   #+end_src
 - [[https://sourceforge.net/projects/ezwinports/files/][Hunspell]]- Try and match this install path
   #+BEGIN_SRC emacs-lisp
     (add-to-list 'exec-path "c:/Program Files (x86)/Hunspell/bin/")
   #+END_SRC
 - [[https://www.ledger-cli.org/download.html][ledger-cli]]
-- [[https://github.com/source-foundry/Hack][Hack-font]]
+- [[https://github.com/IBM/plex/releases][IBM Plex fonts]]
 - [[https://github.com/domtronn/all-the-icons.el/tree/master/fonts][All the fonts]]
-
   #+begin_src emacs-lisp
   ;; On linux this can easily done by calling
   (all-the-icons-install-fonts)
