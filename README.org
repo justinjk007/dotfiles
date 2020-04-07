@@ -38,8 +38,6 @@ manually, this is only done once really.
     file and take a break when emacs does work for you.
 
 - For windows
-  - Move =emacs--daemon.vbs= to the startup folder, this will start
-    emacs daemon every-time you start windows.
   - Move =wifi-on-off.vbs= to startup folder, only do this if you have a
     desktop and you are using a wi-fi still and you want to play CS:GO
     with a good ping.
@@ -47,7 +45,11 @@ manually, this is only done once really.
     =K70_CUE2.cuefolder=.
   - Remember the paths in the registry files should be changed to the correct paths before adding them,
     you might even break windows without doing that.
-  - To pin emacsclient on the taskbar, run =runemacs.exe=, pin it to taskbar, change properties -> target to =emacsclientw -c=
+  - To pin emacsclient on the taskbar, run =runemacs.exe=, pin it to taskbar, change
+    properties. This will emacs daemon on the first click and start a client, if the daemon is
+    running start the client
+    - Target to ="C:\Program Files (x86)\GNU Emacs\bin\emacsclientw.exe" -c -a ""=
+    - Start in directory ="C:\Program Files (x86)\GNU Emacs\bin"=
 
 - For OS X
   - Install [[https://brew.sh][Brew]].
