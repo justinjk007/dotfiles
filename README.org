@@ -36,6 +36,7 @@ manually, this is only done once really.
 - For Linux
   - If you have a Linux system good to go install emacs, run the =copy.sh=
     file and take a break when emacs does work for you.
+  - Emacs daemon can be run as service, =copy.sh= copies the service file
 
 - For windows
   - Move =wifi-on-off.vbs= to startup folder, only do this if you have a

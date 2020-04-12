@@ -16,3 +16,4 @@ copy_verbose snippets ~/.emacs.d/
 copy_verbose unix/.aliases ~/
 copy_verbose unix/.bashrc ~/
 copy_verbose unix/.bash_profile ~/
+copy_verbose hacks/emacs.service ~/.config/systemd/user/emacs.service
