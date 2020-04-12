@@ -8,6 +8,7 @@ copy_verbose () {
 copy_verbose init.el ~/.emacs.d/
 copy_verbose lisp/myhydras.el ~/.emacs.d/
 copy_verbose lisp/custom.el ~/.emacs.d/
+copy_verbose fluff/blackhole.png ~/.emacs.d/
 copy_verbose lisp/custom-functions.el ~/.emacs.d/
 copy_verbose lisp/ox-mediawiki.el ~/.emacs.d/ox-mediawiki.el
 copy_verbose .clang-format ~/

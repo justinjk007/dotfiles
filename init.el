@@ -716,7 +716,9 @@
 (use-package dashboard
   :config
   (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner (expand-file-name "~/.emacs.d/blackhole.png"))
   (setq dashboard-banner-logo-title "Lets start hacking !")
+  (setq dashboard-set-footer nil)
   (setq dashboard-items '((projects . 5)
 			  (recents  . 3)
 			  (agenda . 3)))
