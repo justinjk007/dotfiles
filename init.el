@@ -605,24 +605,8 @@
   :init
   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   :config
-    ;;;;;;;;;;;;;;;;;
-  ;; Dart config ;;
-    ;;;;;;;;;;;;;;;;;
-  (with-eval-after-load "projectile"
-    (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-    (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
-  (setq lsp-auto-guess-root t)
-  (defun project-try-dart (dir)
-    (let ((project (or (locate-dominating-file dir "pubspec.yaml")
-		       (locate-dominating-file dir "BUILD"))))
-      (if project
-	  (cons 'dart project)
-	(cons 'transient dir))))
-  (add-hook 'project-find-functions #'project-try-dart)
-  (cl-defmethod project-roots ((project (head dart)))
-    (list (cdr project)))
     ;;;;;;;;;;;;;;;;;;;
-  ;; Python config ;;
+    ;; Python config ;;
     ;;;;;;;;;;;;;;;;;;;
 
   ;; make sure we have lsp-imenu everywhere we have LSP
@@ -649,6 +633,29 @@
 (use-package company-lsp
   :commands company-lsp
   :config (push 'company-lsp company-backends)
+  )
+
+(use-package company-capf)
+
+(use-package lsp-dart
+  :hook (dart-mode . lsp)
+  :config
+    ;;;;;;;;;;;;;;;;;
+    ;; Dart config ;;
+    ;;;;;;;;;;;;;;;;;
+  (with-eval-after-load "projectile"
+    (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+    (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+  (setq lsp-auto-guess-root t)
+  (defun project-try-dart (dir)
+    (let ((project (or (locate-dominating-file dir "pubspec.yaml")
+		       (locate-dominating-file dir "BUILD"))))
+      (if project
+	  (cons 'dart project)
+	(cons 'transient dir))))
+  (add-hook 'project-find-functions #'project-try-dart)
+  (cl-defmethod project-roots ((project (head dart)))
+    (list (cdr project)))
   )
 
 (use-package dart-mode
