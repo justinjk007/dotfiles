@@ -11,7 +11,10 @@
 			 ("org" . "http://orgmode.org/elpa/")))
 
 (package-initialize)
-(setq gc-cons-threshold (* 50 1024 1024))
+(setq gc-cons-threshold (* 100 1024 1024));; 100mb
+;; Increase the amount of data which Emacs reads from the process. Again the emacs default is too
+;; low 4k considering that the some of the language server responses are in 800k - 3M range.
+(setq-default read-process-output-max (* 1024 1024)) ;; 1mb
 (add-hook 'focus-out-hook #'garbage-collect) ;; Garbage-collect on focus-out
 (setq user-full-name "Justin Kaipada"
       user-mail-address "justinjoseph0007@gmail.com")
@@ -602,47 +605,27 @@
 
 (use-package lsp-mode
   :commands lsp
-  :init
-  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   :config
-    ;;;;;;;;;;;;;;;;;;;
-    ;; Python config ;;
-    ;;;;;;;;;;;;;;;;;;;
-
-  ;; make sure we have lsp-imenu everywhere we have LSP
-  (require 'lsp-imenu)
-  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-  ;; get lsp-python-enable defined
-  ;; NB: use either projectile-project-root or ffip-get-project-root-directory
-  ;;     or any other function that can be used to find the root directory of a project
-  (lsp-define-stdio-client lsp-python "python"
-			   #'projectile-project-root
-			   '("pyls"))
-  ;; make sure this is activated when python-mode is activated
-  ;; lsp-python-enable is created by macro above
-  (add-hook 'python-mode-hook
-	    (lambda ()
-	      (lsp-python-enable)))
-  )                                     ; End of use-package
+  ;; This variable determines how often lsp-mode will refresh the highlights, lenses, links, etc
+  ;; while you type. Slow it down so emacs don't get stuck.
+  (setq lsp-idle-delay 0.500)
+  (setq lsp-prefer-capf t) ;; company-capf, use this instead of company lsp, better performance
+  )
 
 (use-package lsp-ui
   :commands lsp-ui-mode
+  :init
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   :bind ("M-g f" . lsp-ui-sideline-apply-code-actions)
   )
-
-(use-package company-lsp
-  :commands company-lsp
-  :config (push 'company-lsp company-backends)
-  )
-
-(use-package company-capf)
 
 (use-package lsp-dart
   :hook (dart-mode . lsp)
   :config
-    ;;;;;;;;;;;;;;;;;
-    ;; Dart config ;;
-    ;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;
+  ;; Dart config ;;
+  ;;;;;;;;;;;;;;;;;
   (with-eval-after-load "projectile"
     (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
     (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
