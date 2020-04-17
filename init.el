@@ -625,7 +625,10 @@
   )
 
 (use-package lsp-dart
-  :hook (dart-mode . lsp)
+  :init
+  (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
+      (add-hook 'dart-mode-hook #'lsp)
+    )
   :config
   ;;;;;;;;;;;;;;;;;
   ;; Dart config ;;
@@ -648,9 +651,6 @@
 (use-package dart-mode
   :init
   (add-hook 'dart-mode-hook (lambda () (eldoc-mode -1))) ; This feature is given by lsp ui anyways
-  (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
-      (add-hook 'dart-mode-hook #'lsp)
-    )
   )
 
 (use-package dart-server
