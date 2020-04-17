@@ -112,10 +112,6 @@
   (add-hook 'org-mode-hook #'add-pcomplete-to-capf)
   )
 
-(use-package company-box
-  :hook (company-mode . company-box-mode)
-  )
-
 (use-package eldoc)
 
 (use-package magit
