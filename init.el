@@ -663,7 +663,7 @@
 	("C-M-x" . #'flutter-run-or-hot-reload)
 	("C-M-z" . #'flutter-hot-restart)
 	)
-  :config
+  :custom
   ;; file mode specification error means environment var is not set
   (flutter-sdk-path (getenv "FLUTTER_ROOT"))
   )
