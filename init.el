@@ -135,9 +135,9 @@
 (load custom-file)
 
 ;; Load machine specific customizations if any!
-(when (file-exists-p "~/machine-specific.el")
+(when (file-exists-p "~/.emacs.d/machine-specific.el")
   (progn (message "Machine specific customizations exits")
-	 (load-file "~/machine-specific.el")))
+	 (load-file "~/.emacs.d/machine-specific.el")))
 
 ;;-------------------------------------Eshell------------------
 (setq eshell-prompt-function
