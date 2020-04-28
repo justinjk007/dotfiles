@@ -38,7 +38,7 @@
 (if (eq system-type 'darwin)
     (progn
       (set-face-attribute 'default nil :height 145)
-      (setq org-hide-emphasis-markers nil) ;; See all markdown in org file, makes copying directory names, links, commands more correct
+      (setq-default org-hide-emphasis-markers nil) ;; See all markdown in org file, makes copying directory names, links, commands more correct
       (setq split-height-threshold nil) ;; Make windows split vertically first
       (setq split-width-threshold 0)
       )
