@@ -58,9 +58,9 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-;; On OS-X and linux, get the environment vars right even when started outside of terminal
+;; ;; On OS-X , get the environment vars right even when started outside of terminal
 (use-package exec-path-from-shell
-  :if (memq window-system '(mac ns))
+  :if (memq window-system '(mac ns x))
   :ensure t
   :config (exec-path-from-shell-initialize)
   )
@@ -292,8 +292,10 @@
   ;; (setq doom-modeline-buffer-file-name-style 'relative-from-project) ;; Emacs lags when used over tramp mode with this
   (setq doom-modeline-buffer-file-name-style 'file-name)
   (setq doom-modeline-major-mode-icon nil)
-  (setq doom-modeline-enable-word-count t)
+  ;; This line slows emacs down a lot in big org files
+  ;; (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-indent-info t)
+  (setq doom-modeline-modal-icon nil)
   (setq column-number-mode t)
   (display-time-mode 1)
   (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3")
