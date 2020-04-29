@@ -287,6 +287,10 @@
 (use-package multiple-cursors)
 (use-package all-the-icons)
 
+(use-package minions
+  :config (minions-mode 1)
+  )
+
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :config
@@ -295,7 +299,7 @@
   ;; This line slows emacs down a lot in big org files on OS X alone
   ;; (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-indent-info t)
-  (setq doom-modeline-minor-modes t) ;; Adds the gear icon with minor modes
+  (setq doom-modeline-minor-modes t) ;; Adds the gear icon with minions
   (setq doom-modeline-height 30)
   (setq doom-modeline-bar-width 1)
   (setq doom-modeline-modal-icon nil)
