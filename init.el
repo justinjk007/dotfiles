@@ -287,30 +287,28 @@
 (use-package multiple-cursors)
 (use-package all-the-icons)
 
-(use-package minions
-  :config
-  (minions-mode 1)
-  )
-
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :config
-  ;; (setq doom-modeline-buffer-file-name-style 'relative-from-project) ;; Emacs lags when used over tramp mode with this
   (setq doom-modeline-buffer-file-name-style 'file-name)
   (setq doom-modeline-major-mode-icon nil)
-  ;; This line slows emacs down a lot in big org files
+  ;; This line slows emacs down a lot in big org files on OS X alone
   ;; (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-indent-info t)
+  (setq doom-modeline-minor-modes t) ;; Adds the gear icon with minor modes
+  (setq doom-modeline-height 30)
+  (setq doom-modeline-bar-width 1)
   (setq doom-modeline-modal-icon nil)
   (setq column-number-mode t)
   (display-time-mode 1)
-  (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-motion-state nil :background "#268bd2" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-normal-state nil :background "#268bd2" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-operator-state nil :background "#268bd2" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-replace-state nil :background "#cd5c5c" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3")
+  ;; Here height is the scale of the font, 0.8 means 80%
+  (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3" :height 0.8)
+  (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3" :height 0.8)
+  (set-face-attribute 'doom-modeline-evil-motion-state nil :background "#268bd2" :foreground "#fdf6e3" :height 0.8)
+  (set-face-attribute 'doom-modeline-evil-normal-state nil :background "#268bd2" :foreground "#fdf6e3" :height 0.8)
+  (set-face-attribute 'doom-modeline-evil-operator-state nil :background "#268bd2" :foreground "#fdf6e3" :height 0.8)
+  (set-face-attribute 'doom-modeline-evil-replace-state nil :background "#cd5c5c" :foreground "#fdf6e3" :height 0.8)
+  (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3" :height 0.8)
   )
 
 (use-package engine-mode
