@@ -10,6 +10,7 @@ notifications:
 
 before_install:
   - mkdir ~/.emacs.d/
+  - mkdir -p ~/.config/systemd/user/ # For the emacs deamon service file
   - cd ${TRAVIS_BUILD_DIR}
   - ./copy.sh                    # Copy all the repository files to home
 
