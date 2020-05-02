@@ -306,13 +306,13 @@
   (setq column-number-mode t)
   (display-time-mode 1)
   ;; Here height is the scale of the font, 0.8 means 80%
-  (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3" :height 0.8)
-  (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3" :height 0.8)
-  (set-face-attribute 'doom-modeline-evil-motion-state nil :background "#268bd2" :foreground "#fdf6e3" :height 0.8)
-  (set-face-attribute 'doom-modeline-evil-normal-state nil :background "#268bd2" :foreground "#fdf6e3" :height 0.8)
-  (set-face-attribute 'doom-modeline-evil-operator-state nil :background "#268bd2" :foreground "#fdf6e3" :height 0.8)
-  (set-face-attribute 'doom-modeline-evil-replace-state nil :background "#cd5c5c" :foreground "#fdf6e3" :height 0.8)
-  (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3" :height 0.8)
+  (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-motion-state nil :background "#268bd2" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-normal-state nil :background "#268bd2" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-operator-state nil :background "#268bd2" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-replace-state nil :background "#cd5c5c" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3" :height 1)
   )
 
 (use-package engine-mode
