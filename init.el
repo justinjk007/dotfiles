@@ -58,11 +58,17 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-;; On OS-X and linux, get the environment vars right even when started outside of terminal
+;; ;; On OS-X , get the environment vars right even when started outside of terminal
 (use-package exec-path-from-shell
-  :if (memq window-system '(mac ns))
+  :if (memq window-system '(mac ns x))
   :ensure t
-  :config (exec-path-from-shell-initialize)
+  :config
+  ;; New version of Mac OS seems to make zsh the default shell, so we
+  ;; need to tell emacs that or it will try to run bash and fail, even
+  ;; though bash exists.
+  (setq explicit-shell-file-name "/bin/zsh")
+  (setq shell-file-name "zsh")
+  (exec-path-from-shell-initialize)
   )
 
 (use-package evil
@@ -135,9 +141,9 @@
 (load custom-file)
 
 ;; Load machine specific customizations if any!
-(when (file-exists-p "~/machine-specific.el")
+(when (file-exists-p "~/.emacs.d/machine-specific.el")
   (progn (message "Machine specific customizations exits")
-	 (load-file "~/machine-specific.el")))
+	 (load-file "~/.emacs.d/machine-specific.el")))
 
 ;;-------------------------------------Eshell------------------
 (setq eshell-prompt-function
@@ -285,27 +291,31 @@
 (use-package all-the-icons)
 
 (use-package minions
-  :config
-  (minions-mode 1)
+  :config (minions-mode 1)
   )
 
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
   :config
-  ;; (setq doom-modeline-buffer-file-name-style 'relative-from-project) ;; Emacs lags when used over tramp mode with this
   (setq doom-modeline-buffer-file-name-style 'file-name)
   (setq doom-modeline-major-mode-icon nil)
-  (setq doom-modeline-enable-word-count t)
+  ;; This line slows emacs down a lot in big org files on OS X alone
+  ;; (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-indent-info t)
+  (setq doom-modeline-minor-modes t) ;; Adds the gear icon with minions
+  (setq doom-modeline-height 30)
+  (setq doom-modeline-bar-width 1)
+  (setq doom-modeline-modal-icon nil)
   (setq column-number-mode t)
   (display-time-mode 1)
-  (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-motion-state nil :background "#268bd2" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-normal-state nil :background "#268bd2" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-operator-state nil :background "#268bd2" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-replace-state nil :background "#cd5c5c" :foreground "#fdf6e3")
-  (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3")
+  ;; Here height is the scale of the font, 0.8 means 80%
+  (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-motion-state nil :background "#268bd2" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-normal-state nil :background "#268bd2" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-operator-state nil :background "#268bd2" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-replace-state nil :background "#cd5c5c" :foreground "#fdf6e3" :height 1)
+  (set-face-attribute 'doom-modeline-evil-visual-state nil :background "#2AA198" :foreground "#fdf6e3" :height 1)
   )
 
 (use-package engine-mode
@@ -625,7 +635,10 @@
   )
 
 (use-package lsp-dart
-  :hook (dart-mode . lsp)
+  :init
+  (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
+      (add-hook 'dart-mode-hook #'lsp)
+    )
   :config
   ;;;;;;;;;;;;;;;;;
   ;; Dart config ;;
@@ -648,9 +661,6 @@
 (use-package dart-mode
   :init
   (add-hook 'dart-mode-hook (lambda () (eldoc-mode -1))) ; This feature is given by lsp ui anyways
-  (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
-      (add-hook 'dart-mode-hook #'lsp)
-    )
   )
 
 (use-package dart-server
@@ -668,6 +678,7 @@
 	("C-M-z" . #'flutter-hot-restart)
 	)
   :custom
+  ;; file mode specification error means environment var is not set
   (flutter-sdk-path (getenv "FLUTTER_ROOT"))
   )
 

@@ -99,7 +99,7 @@
  '(org-level-1 ((t (:family "IBM Plex Mono"))))
  '(org-level-2 ((t (:family "IBM Plex Mono"))))
  '(org-level-3 ((t (:foreground "#6c71c4" :family "IBM Plex Mono"))))
- '(org-link ((t (:foreground "SkyBlue1" :underline t))))
+ '(org-link ((t (:foreground "#b58900" :underline t :weight normal))))
  '(org-verbatim ((t (:foreground "tomato"))))
  '(org-warning ((t (:foreground "red" :underline t))))
  '(org-clock-overlay ((t (:background "pale green"))))

@@ -10,9 +10,9 @@ export PATH="$PATH":"$HOME/dev/flutter/.pub-cache/bin"
 
 
 # IBM specific config
-export everyone='/gsa/tlbgsa/home/c/a/ca0g3671/everyone' # accessible on all machines
-export run_temp='/gsa/tlbgsa/home/c/a/ca0g3671/temp_script' # For quick and dirty scripting on the go, accessible on all machines
-alias run_temp='/gsa/tlbgsa/home/c/a/ca0g3671/temp_script'
+export everyone='/gsa/tlbgsa/home/k/a/kaipada/everyone' # accessible on all machines
+export run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
+alias run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script'
 alias ll='ls -al' # h option is not supported on AIX or Z/OS
 export TERM=xterm
 set -o emacs

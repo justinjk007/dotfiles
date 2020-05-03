@@ -7,13 +7,20 @@
 
 ;;; Code:
 
+(require 'tramp)
 ;; Default user for the main proxy server, the gsa server
 (add-to-list 'tramp-default-user-alist
 	     '("ssh" "canlab\\.ibm\\.com\\'" "default-user-name"))
+;; Example
+(add-to-list 'tramp-default-user-alist
+	     '("ssh" "canlab\\.ibm\\.com\\'" "vabld"))
 
 ;; For hopping, in order... host, user, proxy
 (add-to-list 'tramp-default-proxies-alist
 	     '("\\`machine\\.canlab\\.ibm\\.com\\'" "\\`username\\'"  "/ssh:machine.to.use..as.proxy.com:"))
+;; Example
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`bpi25\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpidevlnx.canlab.ibm.com:"))
 
 ;; When connecting to bpi servers use this new version of git instead of the installed old one which is incompatible with Magit
 (push "/specific/path/to/git/bin/" tramp-remote-path)
@@ -37,8 +44,8 @@
 ;; Changes for work macbook
 (if (eq system-type 'darwin)
     (progn
-      (set-face-attribute 'default nil :height 140)
-      (setq org-hide-emphasis-markers nil) ;; See all markdown in org file, makes copying directory names, links, commands more correct
+      (set-face-attribute 'default nil :height 145)
+      (setq-default org-hide-emphasis-markers nil) ;; See all markdown in org file, makes copying directory names, links, commands more correct
       (setq split-height-threshold nil) ;; Make windows split vertically first
       (setq split-width-threshold 0)
       )
