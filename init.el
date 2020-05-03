@@ -261,7 +261,10 @@
   :after org-mode
   )
 
-(use-package olivetti)
+(use-package olivetti
+  :config
+  (setq-default olivetti-body-width 100)
+  )
 
 (use-package shackle
   :config
@@ -578,6 +581,7 @@
   :bind (:map ledger-mode-map ("C-c u" . ledger-mode-clean-buffer))
   :config
   (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
+  (add-hook 'ledger-mode-hook 'olivetti-mode)
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   )
 
