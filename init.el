@@ -195,6 +195,7 @@
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
+  (add-hook 'org-mode-hook 'olivetti-mode)
   ;; (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
   ;;                       ))
   :config
@@ -269,7 +270,8 @@
 
 (use-package olivetti
   :config
-  (setq-default olivetti-body-width 100)
+  (setq-default olivetti-body-width 120)
+  (add-hook 'dired-mode-hook 'olivetti-mode)
   )
 
 (use-package shackle
@@ -618,7 +620,8 @@
 (use-package company-go)
 
 (use-package lsp-mode
-  :commands lsp
+  :commands (lsp lsp-deferred)
+  ;; :hook (nxml-mode . lsp-deferred)
   :config
   ;; This variable determines how often lsp-mode will refresh the highlights, lenses, links, etc
   ;; while you type. Slow it down so emacs don't get stuck.
