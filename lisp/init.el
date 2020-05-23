@@ -683,7 +683,7 @@
 	)
   :custom
   ;; file mode specification error means environment var is not set
-  (flutter-sdk-path (getenv "FLUTTER_ROOT"))
+  (flutter-sdk-path "~/Dev/flutter/")
   )
 
 (use-package evil-tutor
