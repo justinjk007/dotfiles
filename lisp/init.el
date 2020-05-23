@@ -646,7 +646,7 @@
   ;;;;;;;;;;;;;;;;;
   ;; Dart config ;;
   ;;;;;;;;;;;;;;;;;
-  (setq lsp-dart-project-sdk-dir "~/Dev/flutter/bin/cache/dart-sdk")
+  (setq lsp-dart-sdk-dir "~/Dev/flutter/bin/cache/dart-sdk")
   (setq lsp-auto-guess-root t)
   (with-eval-after-load "projectile"
     (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
