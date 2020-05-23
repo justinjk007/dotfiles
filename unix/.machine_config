@@ -5,8 +5,8 @@
 # changed
 # This is just a sample
 
-export PATH="$PATH:$HOME/dev/flutter/bin/"
-export PATH="$PATH":"$HOME/dev/flutter/.pub-cache/bin"
+export PATH="$PATH:$HOME/Dev/flutter/bin/"
+export PATH="$PATH":"$HOME/Dev/flutter/.pub-cache/bin"
 
 
 # IBM specific config

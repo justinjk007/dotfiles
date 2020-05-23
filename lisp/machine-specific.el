@@ -20,7 +20,7 @@
 	     '("\\`machine\\.canlab\\.ibm\\.com\\'" "\\`username\\'"  "/ssh:machine.to.use..as.proxy.com:"))
 ;; Example
 (add-to-list 'tramp-default-proxies-alist
-	     '("\\`bpi25\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpidevlnx.canlab.ibm.com:"))
+	     '("\\`bpi25\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
 
 ;; When connecting to bpi servers use this new version of git instead of the installed old one which is incompatible with Magit
 (push "/specific/path/to/git/bin/" tramp-remote-path)
