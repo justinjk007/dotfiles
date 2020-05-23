@@ -7,6 +7,7 @@
 
 export PATH="$PATH:$HOME/Dev/flutter/bin/"
 export PATH="$PATH":"$HOME/Dev/flutter/.pub-cache/bin"
+export PATH="$PATH":"$HOME/Dev/flutter/bin/cache/dart-sdk/bin/"
 
 
 # IBM specific config

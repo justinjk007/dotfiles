@@ -646,19 +646,20 @@
   ;;;;;;;;;;;;;;;;;
   ;; Dart config ;;
   ;;;;;;;;;;;;;;;;;
+  (setq lsp-dart-project-sdk-dir "~/Dev/flutter/bin/cache/dart-sdk")
+  (setq lsp-auto-guess-root t)
   (with-eval-after-load "projectile"
     (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
     (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
-  (setq lsp-auto-guess-root t)
   (defun project-try-dart (dir)
     (let ((project (or (locate-dominating-file dir "pubspec.yaml")
 		       (locate-dominating-file dir "BUILD"))))
       (if project
 	  (cons 'dart project)
 	(cons 'transient dir))))
-  (add-hook 'project-find-functions #'project-try-dart)
   (cl-defmethod project-roots ((project (head dart)))
     (list (cdr project)))
+  (add-hook 'project-find-functions #'project-try-dart)
   )
 
 (use-package dart-mode
