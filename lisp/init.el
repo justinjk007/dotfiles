@@ -631,10 +631,16 @@
 
 (use-package lsp-ui
   :commands lsp-ui-mode
+  :bind ("M-g f" . lsp-ui-sideline-apply-code-actions)
   :init
   (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-  :bind ("M-g f" . lsp-ui-sideline-apply-code-actions)
+  :config
+  (setq lsp-ui-doc-position 'top) ;; top right
+  (setq lsp-ui-sideline-delay 5) ;; 5 seconds delay
+  (setq
+    lsp-signature-auto-activate t
+    lsp-signature-doc-lines 1)
   )
 
 (use-package lsp-dart
@@ -647,6 +653,7 @@
   ;; Dart config ;;
   ;;;;;;;;;;;;;;;;;
   (setq lsp-dart-sdk-dir "~/Dev/flutter/bin/cache/dart-sdk")
+  (setq lsp-dart-flutter-widget-guides 'nil)
   (setq lsp-auto-guess-root t)
   (with-eval-after-load "projectile"
     (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
@@ -669,7 +676,7 @@
 
 (use-package dart-server
   ;; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
-  :bind (:map dart-mode-map ("C-c f" . dart-server-format))
+  :bind (:map dart-mode-map ("C-c u" . dart-server-format))
   :init
   (add-hook 'dart-mode-hook 'dart-server)
   )
