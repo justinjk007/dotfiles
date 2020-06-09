@@ -34,7 +34,6 @@
 (setq auto-window-vscroll nil) ;; Increase scrolling performance
 (setq-default line-spacing 4)
 (setq debug-on-error nil)
-(defalias 'perl-mode 'cperl-mode)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode) ; New line numbering system starts from emacs 26
 (add-hook 'tex-mode-hook 'display-line-numbers-mode) ; For latex
 
@@ -785,6 +784,14 @@
 (setq tramp-default-method "ssh")
 ;; Settings for tramp that are machine specific are loaded from machine-specific.el see line 40
 ;; Tramp setup ---------------
+
+;; Perl modifications
+(require 'cperl-mode)
+(defalias 'perl-mode 'cperl-mode)
+;; sudo cpan install Perl::Tidy
+;; then use emacs command package-install-file to install from local perltidy.el
+(require 'perltidy)
+(define-key cperl-mode-map (kbd "C-c u") 'perltidy-dwim)
 
 (use-package yapfify
   :config
