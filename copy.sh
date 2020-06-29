@@ -5,7 +5,7 @@ copy_verbose () {
     cp -rf $1 $2
 }
 
-copy_verbose lisp/init.el ~/.emacs.d/
+copy_verbose ./init.el ~/.emacs.d/
 copy_verbose lisp/myhydras.el ~/.emacs.d/
 copy_verbose lisp/custom.el ~/.emacs.d/
 copy_verbose fluff/blackhole.png ~/.emacs.d/
