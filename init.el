@@ -635,11 +635,10 @@
   (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
   :config
-  (setq lsp-ui-doc-position 'top) ;; top right
-  (setq lsp-ui-sideline-delay 5) ;; 5 seconds delay
-  (setq
-    lsp-signature-auto-activate t
-    lsp-signature-doc-lines 1)
+  (setq lsp-ui-doc-position 'top ;; top right
+	lsp-signature-auto-activate t
+	lsp-ui-sideline-delay 5 ;; 5 seconds
+	lsp-signature-doc-lines 1 )
   )
 
 (use-package lsp-dart
