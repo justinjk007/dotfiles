@@ -22,10 +22,11 @@ PERL_MM_OPT="INSTALL_BASE=/Users/Justin.Kaipada@ibm.com/perl5"; export PERL_MM_O
 
 alias ssh11='ssh kaipada@bpidevlnx11.fyre.ibm.com'
 
+alias gitforcepull='git fetch --all && git reset --hard origin/master' # pull and overwrite any local changes
+
 export everyone='/gsa/tlbgsa/home/k/a/kaipada/everyone' # accessible on all machines
 export run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
 alias run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script'
-alias gitforcepull='git fetch --all && git reset --hard origin/master' # pull and overwrite any local changes
 alias ll='ls -al' # h option is not supported on AIX or Z/OS
 export TERM=xterm
 set -o vi
