@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Move this file to .git/hooks/prepare-commit-msg of any repo and make it executable
+
+# This hook works for branches named such as "issue-123-description"
+# and will add "issue #123" to the commit message.
+
+# get current branch
+branchName=`git rev-parse --abbrev-ref HEAD`
+
+# search issue id in the branch name, such a "issue-123-description"
+issueId=$(echo $branchName | sed -nE 's,(^issue\b?-?[0-9]+)-.+,\1,p')
+
+# remove previous insertions
+cat $1 > tmp.commit.txt
+sed '/^issue/d' ./tmp.commit.txt > $1
+rm -rf tmp.commit.txt
+
+# only prepare commit message if pattern matched
+if [[ ! -z $issueId ]]; then
+ # $1 is the name of the file containing the commit message
+ issueNum=$(cut -c 7-${#issueId} <<<"$issueId") # get only the id number
+ echo -e "\n\nissue #$issueNum" >> $1
+fi
