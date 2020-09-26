@@ -24,6 +24,14 @@ alias ssh11='ssh kaipada@bpidevlnx11.fyre.ibm.com'
 
 alias gitforcepull='git fetch --all && git reset --hard origin/master' # pull and overwrite any local changes
 
+export everyone='/gsa/pokgsa/home/k/a/kaipada/everyone' # accessible on all machines
+export run_temp='/gsa/pokgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
+alias run_temp='/gsa/pokgsa/home/k/a/kaipada/temp_script'
+
+export everyone='/gsa/rtpgsa/home/k/a/kaipada/everyone' # accessible on all machines
+export run_temp='/gsa/rtpgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
+alias run_temp='/gsa/rtpgsa/home/k/a/kaipada/temp_script'
+
 export everyone='/gsa/tlbgsa/home/k/a/kaipada/everyone' # accessible on all machines
 export run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
 alias run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script'
