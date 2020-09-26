@@ -194,6 +194,11 @@
 			    ("\\<\\(✗\\)" . font-lock-warning-face)
 			    ("\\<\\(✓\\)" . font-lock-keyword-face))
 			  )
+  (setq org-todo-keywords '((sequence "TODO" "DONE" "CANCELED")))
+  (setq org-todo-keyword-faces '(
+				 ("CANCELED" . font-lock-warning-face)
+				 ("DONE" . font-lock-keyword-face)
+				 ))
   (define-key org-mode-map (kbd "C-c m") 'org-table-mark-field)
   (define-key org-mode-map (kbd "C-c d") 'insert-date)
   (require 'ox-latex)
