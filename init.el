@@ -813,6 +813,7 @@
 (defalias 'perl-mode 'cperl-mode)
 ;; sudo cpan install Perl::Tidy
 ;; then use emacs command package-install-file to install from local perltidy.el
+(add-to-list 'load-path "~/.emacs.d/") ;; Tell emacs where is your personal elisp lib dir
 (require 'perltidy)
 (define-key cperl-mode-map (kbd "C-c u") 'perltidy-dwim)
 
