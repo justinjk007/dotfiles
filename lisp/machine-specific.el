@@ -50,4 +50,22 @@
       (setq split-width-threshold 0)
       )
   )
+
+;; Load these to exec path so flutter lsp environment works
+(setq exec-path
+	  '(
+	    "/bin"
+	    "/sbin"
+	    "/usr/bin"
+	    "/usr/sbin"
+	    "/usr/local/bin"
+	    "/usr/local/gsa/bin"
+	    "/Library/Apple/usr/bin"
+	    "/Users/Justin.Kaipada@ibm.com/perl5/bin"
+	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/bin/"
+	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/.pub-cache/bin/"
+	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/bin/cache/dart-sdk/bin/"
+	    )
+	  )
+
 ;;; machine-specific.el ends here

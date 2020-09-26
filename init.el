@@ -57,19 +57,6 @@
     (server-start))
 ;;-------------------------------------Server------------------
 
-;; ;; On OS-X , get the environment vars right even when started outside of terminal
-(use-package exec-path-from-shell
-  :if (memq window-system '(mac ns x))
-  :ensure t
-  :config
-  ;; New version of Mac OS seems to make zsh the default shell, so we
-  ;; need to tell emacs that or it will try to run bash and fail, even
-  ;; though bash exists.
-  (setq explicit-shell-file-name "/bin/zsh")
-  (setq shell-file-name "zsh")
-  (exec-path-from-shell-initialize)
-  )
-
 (use-package evil
   :config
   (evil-mode 1)
