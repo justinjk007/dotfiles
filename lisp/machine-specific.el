@@ -10,20 +10,53 @@
 (require 'tramp)
 ;; Default user for the main proxy server, the gsa server
 (add-to-list 'tramp-default-user-alist
-	     '("ssh" "canlab\\.ibm\\.com\\'" "default-user-name"))
-;; Example
-(add-to-list 'tramp-default-user-alist
 	     '("ssh" "canlab\\.ibm\\.com\\'" "vabld"))
+;; This overrides user just for bpidevlnx, this should be always last among the list
+(add-to-list 'tramp-default-user-alist
+	     '("ssh" "bpidevlnx11\\.fyre\\.ibm\\.com\\'" "kaipada"))
 
 ;; For hopping, in order... host, user, proxy
 (add-to-list 'tramp-default-proxies-alist
-	     '("\\`machine\\.canlab\\.ibm\\.com\\'" "\\`username\\'"  "/ssh:machine.to.use..as.proxy.com:"))
-;; Example
-(add-to-list 'tramp-default-proxies-alist
 	     '("\\`bpi25\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`extract\\.canlab\\.ibm\\.com\\'" "\\`shadowd\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`bpi20\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`bpi20\\.canlab\\.ibm\\.com\\'" "\\`root\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`bpi07\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`bpidevaix\\.canlab\\.ibm\\.com\\'" "\\`xlrtcbld\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`bpidevaix\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`bpidevaix\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpileivt11.fyre.ibm.com:"))
+
+;; IVT machines, use bpidevlnx as proxy to hop when connecting to all the ivt machines
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7101\\.canlab\\.ibm\\.com\\'" "\\`vainst\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7102\\.canlab\\.ibm\\.com\\'" "\\`vainst\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7103\\.canlab\\.ibm\\.com\\'" "\\`vainst\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7104\\.canlab\\.ibm\\.com\\'" "\\`vainst\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7105\\.canlab\\.ibm\\.com\\'" "\\`vainst\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7106\\.canlab\\.ibm\\.com\\'" "\\`vainst\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7107\\.canlab\\.ibm\\.com\\'" "\\`vainst\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7108\\.canlab\\.ibm\\.com\\'" "\\`vainst\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
+
+;; Build machines, use bpidevlnx as proxy to hop when connecting to all the ivt machines
+(add-to-list 'tramp-default-proxies-alist
+	     '("\\`cspr7025\\.canlab\\.ibm\\.com\\'" "\\`vabld\\'"  "/ssh:bpidevlnx11.fyre.ibm.com:"))
 
 ;; When connecting to bpi servers use this new version of git instead of the installed old one which is incompatible with Magit
-(push "/specific/path/to/git/bin/" tramp-remote-path)
+(push "/opt/rh/rh-git218/root/bin" tramp-remote-path)
 
 ;; Use specific shells when connecting to any machines
 (add-to-list
