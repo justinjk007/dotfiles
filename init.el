@@ -368,6 +368,42 @@
   (add-hook 'web-mode-hook  'highlight-numbers-mode)
   )
 
+;; https://patrickskiba.com/emacs/2019/09/07/emacs-for-react-dev.html
+;; (use-package tide
+;;   :defer t
+;;   :after (typescript-mode company flycheck)
+;;   :hook ((typescript-mode . tide-setup)
+;;          (typescript-mode . tide-hl-identifier-mode)
+;;          (before-save . tide-format-before-save))
+;;   :init
+;;   (defun setup-tide-mode ()
+;;   (interactive)
+;;   (tide-setup)
+;;   (flycheck-mode +1)
+;;   (setq flycheck-check-syntax-automatically '(save mode-enabled))
+;;   ;; (eldoc-mode +1)
+;;   (tide-hl-identifier-mode +1)
+;;   ;; company is an optional dependency. You have to
+;;   ;; install it separately via package-install
+;;   ;; `M-x package-install [ret] company`
+;;   (company-mode +1))
+
+;;   ;; aligns annotation to the right hand side
+;;   (setq company-tooltip-align-annotations t)
+;;   ;; formats the buffer before saving
+;;   (add-hook 'before-save-hook 'tide-format-before-save)
+;;   (add-hook 'typescript-mode-hook #'setup-tide-mode)
+;;   (add-hook 'js-mode-hook #'setup-tide-mode)
+;;   ;; :config
+;;   ;; (flycheck-javascript-standard-executable "/usr/bin/standardx")
+;;   )
+
+(use-package prettier
+  ; Need tp install https://github.com/prettier/prettier
+  :defer t
+  :bind (:map js2-mode-map ("C-c u" . prettier-prettify))
+  )
+
 (use-package json-mode
   :defer t
   :mode ("\\.json\\'" . json-mode)
@@ -500,6 +536,7 @@
   (add-hook 'tex-mode-hook 'flyspell-mode) ;; For latex
   (add-hook 'sgml-mode-hook 'flyspell-prog-mode)
   (add-hook 'js-mode-hook 'flyspell-prog-mode)
+  (add-hook 'js2-mode-hook 'flyspell-prog-mode)
   )
 
 (use-package ivy
