@@ -253,6 +253,9 @@
 	 ("\\.md\\'" . markdown-mode)
 	 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")
+  :config
+  (require 'evil-markdown) ;; load .emacs.d/lisp/evil-markdown.el
+  (set-face-attribute 'markdown-inline-code-face nil :foreground "coral1")
   )
 
 (use-package academic-phrases
@@ -818,7 +821,7 @@
 (defalias 'perl-mode 'cperl-mode)
 ;; sudo cpan install Perl::Tidy
 ;; then use emacs command package-install-file to install from local perltidy.el
-(add-to-list 'load-path "~/.emacs.d/") ;; Tell emacs where is your personal elisp lib dir
+(add-to-list 'load-path "~/.emacs.d/lisp/") ;; Tell emacs where is your personal elisp lib dir
 (require 'perltidy)
 (define-key cperl-mode-map (kbd "C-c u") 'perltidy-dwim)
 
