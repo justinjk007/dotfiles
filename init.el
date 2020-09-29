@@ -256,6 +256,10 @@
   :init (setq markdown-command "multimarkdown")
   :config
   (require 'evil-markdown) ;; load .emacs.d/lisp/evil-markdown.el
+  (set-face-attribute 'markdown-header-face-1 nil :foreground "#cb4b16" :height 1.3 :family "IBM Plex Mono" )
+  (set-face-attribute 'markdown-header-face-2 nil :foreground "#859902" :height 1.2 :family "IBM Plex Mono" )
+  (set-face-attribute 'markdown-header-face-3 nil :foreground "#6c71c4" :height 1.15 :family "IBM Plex Mono" )
+  (set-face-attribute 'markdown-header-face-4 nil :foreground "#b58900" :height 1.10 :family "IBM Plex Mono" )
   (set-face-attribute 'markdown-inline-code-face nil :foreground "coral1")
   )
 
