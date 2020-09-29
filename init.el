@@ -36,6 +36,7 @@
 (setq debug-on-error nil)
 (add-hook 'prog-mode-hook 'display-line-numbers-mode) ; New line numbering system starts from emacs 26
 (add-hook 'tex-mode-hook 'display-line-numbers-mode) ; For latex
+(add-to-list 'load-path "~/.emacs.d/lisp/") ;; Tell emacs where is your personal elisp lib dir
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -821,7 +822,6 @@
 (defalias 'perl-mode 'cperl-mode)
 ;; sudo cpan install Perl::Tidy
 ;; then use emacs command package-install-file to install from local perltidy.el
-(add-to-list 'load-path "~/.emacs.d/lisp/") ;; Tell emacs where is your personal elisp lib dir
 (require 'perltidy)
 (define-key cperl-mode-map (kbd "C-c u") 'perltidy-dwim)
 
