@@ -183,13 +183,14 @@
   (add-hook 'org-mode-hook 'flyspell-mode)
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
   (add-hook 'org-mode-hook 'olivetti-mode)
-  ;; (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))
-  ;;                       ))
+  ;; (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
   :config
   (defvar org-hide-emphasis-markers t) ;; Stop seeing all the markup symbols in org file, beautiful
   (add-to-list 'org-file-apps '(directory . emacs)) ;; Make emacs open file links in dired instead of file explorer
   (setq org-clock-mode-line-total 'current
-	org-duration-format (quote h:mm))
+	org-duration-format (quote h:mm)
+	org-src-preserve-indentation 't
+	)
   (font-lock-add-keywords 'org-mode
 			  '(
 			    ("\\<\\(✗\\)" . font-lock-warning-face)
@@ -233,7 +234,7 @@
   )
 
 (use-package ox-twbs
-					; Export org-mode to twitter bootstrap
+  ;; Export org-mode to twitter bootstrap
   :after org
   )
 
@@ -467,7 +468,7 @@
   :defer t
   )
 
-(use-package htmlize
+(use-package htmlize
   :defer t
   )
 
@@ -720,7 +721,7 @@
   :after dart-mode
   :bind
   (:map dart-mode-map
-	("C-M-x" . #'flutter-run-or-hot-reload)
+	("S-SPC" . #'flutter-run-or-hot-reload)
 	("C-M-z" . #'flutter-hot-restart)
 	)
   :custom
