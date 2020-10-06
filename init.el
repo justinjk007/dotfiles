@@ -15,7 +15,7 @@
 ;; Increase the amount of data which Emacs reads from the process. Again the emacs default is too
 ;; low 4k considering that the some of the language server responses are in 800k - 3M range.
 (setq-default read-process-output-max (* 1024 1024)) ;; 1mb
-(add-hook 'focus-out-hook #'garbage-collect) ;; Garbage-collect on focus-out
+(add-hook 'after-focus-change-function #'garbage-collect) ;; Garbage-collect on focus-out
 (setq user-full-name "Justin Kaipada"
       user-mail-address "justinjoseph0007@gmail.com")
 (setq initial-scratch-message nil)
@@ -262,6 +262,8 @@
   (set-face-attribute 'markdown-header-face-3 nil :foreground "#6c71c4" :height 1.15 :family "IBM Plex Mono" )
   (set-face-attribute 'markdown-header-face-4 nil :foreground "#b58900" :height 1.10 :family "IBM Plex Mono" )
   (set-face-attribute 'markdown-inline-code-face nil :foreground "coral1")
+  (setq markdown-fontify-code-blocks-natively t)
+  (add-hook 'markdown-mode-hook 'olivetti-mode)
   )
 
 (use-package academic-phrases
