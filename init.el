@@ -15,7 +15,7 @@
 ;; Increase the amount of data which Emacs reads from the process. Again the emacs default is too
 ;; low 4k considering that the some of the language server responses are in 800k - 3M range.
 (setq-default read-process-output-max (* 1024 1024)) ;; 1mb
-(add-hook 'after-focus-change-function #'garbage-collect) ;; Garbage-collect on focus-out
+(add-function :after after-focus-change-function #'garbage-collect) ;; Garbage-collect on focus-out
 (setq user-full-name "Justin Kaipada"
       user-mail-address "justinjoseph0007@gmail.com")
 (setq initial-scratch-message nil)
