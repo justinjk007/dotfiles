@@ -262,8 +262,16 @@
   (set-face-attribute 'markdown-header-face-3 nil :foreground "#6c71c4" :height 1.15 :family "IBM Plex Mono" )
   (set-face-attribute 'markdown-header-face-4 nil :foreground "#b58900" :height 1.10 :family "IBM Plex Mono" )
   (set-face-attribute 'markdown-inline-code-face nil :foreground "coral1")
+  (set-face-attribute 'markdown-language-keyword-face nil :inherit font-lock-string-face)
   (setq markdown-fontify-code-blocks-natively t)
   (add-hook 'markdown-mode-hook 'olivetti-mode)
+  (add-hook 'markdown-mode-hook 'my-abbrev-mode-defs)
+  (font-lock-add-keywords 'markdown-mode
+			  '(("\\<\\(✗\\)" . font-lock-warning-face)
+			    ("\\<\\(TODO\\)" . font-lock-string-face)
+			    ("\\<\\(DONE\\)" . font-lock-keyword-face)
+			    ("\\<\\(✓\\)" . font-lock-keyword-face))
+			  )
   )
 
 (use-package academic-phrases
