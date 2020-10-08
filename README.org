@@ -55,6 +55,7 @@ manually, this is only done once really.
 - For OS X
   - Install [[https://brew.sh][Brew]].
   - Install Aspell from brew using =brew install aspell=
+  - Install Ghostscript to view pdfs in DocView =brew install gs=
   - Install emacs from https://emacsformacosx.com/
   - Run the =copy.sh=
 

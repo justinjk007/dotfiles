@@ -642,6 +642,9 @@
   (add-hook 'ledger-mode-hook 'display-line-numbers-mode)
   (add-hook 'ledger-mode-hook 'olivetti-mode)
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
+  (if (eq system-type 'darwin)
+      (setq ledger-binary-path "/usr/local/bin/ledger")
+    )
   )
 
 (use-package flycheck-ledger

@@ -28,7 +28,7 @@
  '(inhibit-startup-screen t)
  '(ledger-reports
    (quote
-    (("bal cleared" "ledger [[ledger-mode-flags]] -f %(ledger-file) bal --cleared")
+    (("bal cleared" "%(binary) [[ledger-mode-flags]] -f %(ledger-file) bal --cleared")
      (#("bal" 0 1
 	(idx 0))
       "%(binary) -f %(ledger-file) bal")
