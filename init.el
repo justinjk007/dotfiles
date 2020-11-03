@@ -819,6 +819,8 @@
 (use-package groovy-mode
   :defer t
   :mode ("\\.groovy\\'" . groovy-mode)
+  :config
+  (add-hook 'groovy-mode-hook 'rainbow-mode)
   )
 
 (use-package origami
