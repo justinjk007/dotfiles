@@ -47,13 +47,10 @@
   (interactive)
   (org-map-entries 'org-archive-subtree "/DONE" 'file))
 
-(defun insert-date (prefix)
-  "Insert the current date with as PREFIX."
-  (interactive "P")
-  (let ((format (cond
-                 ((not prefix) "%d/%m/%Y")
-                 ((equal prefix '(4)) "%Y/%m/%d")
-                 ((equal prefix '(16)) "%A, %d. %B %Y")))
+(defun insert-date ()
+  "Insert the current date."
+  (interactive)
+  (let ((format "%B %e, %Y" )
         (system-time-locale "de_DE"))
     (insert (format-time-string format))))
 
