@@ -51,8 +51,26 @@
   "Insert the current date."
   (interactive)
   (let ((format "%B %e, %Y" )
-        (system-time-locale "de_DE"))
-    (insert (format-time-string format))))
+	(system-time-locale "en_US"))
+    (insert (format-time-string format))
+    )
+  )
+
+(defun format-date-in-region (start end)
+  "Format date from START to END 05/11/2020 -> November  5, 2020."
+  (interactive "r")
+  (let* ((time (s-split "/" (buffer-substring-no-properties start end)))
+          (day (string-to-number (nth 0 time)))
+          (month (string-to-number (nth 1 time)))
+          (year (string-to-number (nth 2 time)))
+	  (system-time-locale "en_US")
+	  )
+    (save-excursion
+        (delete-region start end)
+        (goto-char start)
+        (insert (format-time-string "%B %e, %Y" (encode-time 0 0 0 day month year))) )
+    )
+  )
 
 (defun my-window-split-h (prefix)
   "Splits window right with older window open, with PREFIX arg."
