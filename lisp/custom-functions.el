@@ -178,6 +178,14 @@ foofoofoo  bar"
   (set-mark-command nil)
   (org-table-end-of-field 1))
 
+(defun delete-carrage-returns ()
+  "Remove all the ^M chars from files."
+  (interactive)
+  (save-excursion
+    (goto-char 0)
+    (while (search-forward "\r" nil :noerror)
+      (replace-match ""))))
+
 
 ;; Macro will convert env var file item from legacy build to perl env var defenition
 (fset 'convert-make-env-to-perl-env
