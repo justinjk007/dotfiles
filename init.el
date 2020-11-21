@@ -482,10 +482,6 @@
   :defer t
   )
 
-(use-package which-key
-  :config
-  (which-key-mode))
-
 (use-package aggressive-indent
   :commands (aggressive-indent-mode)
   :defer t
