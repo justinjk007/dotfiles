@@ -781,8 +781,7 @@
   (setq dashboard-banner-logo-title "Lets start hacking !")
   (setq dashboard-set-footer nil)
   (setq dashboard-items '((projects . 5)
-			  (recents  . 3)
-			  (agenda . 3)))
+			  (recents  . 3)))
   )
 
 (use-package tex
