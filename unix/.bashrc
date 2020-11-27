@@ -117,7 +117,7 @@ fi
 
 set -o emacs
 
-PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[01;35m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
+PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
 
 ENV_FILE=".environ" # Load system specific environmental varibles if they exist
 if [ -f $ENV_FILE ]; then
