@@ -6,6 +6,7 @@ Xcopy init.el %home%\.emacs.d\init.el /e /y /f /q
 Xcopy lisp\myhydras.el %home%\.emacs.d\myhydras.el /e /y /f /q
 Xcopy lisp\custom.el %home%\.emacs.d\custom.el /e /y /f /q
 Xcopy fluff\blackhole.png %home%\.emacs.d\blackhole.png /e /y /f /q
+Xcopy fluff\meditate.png %home%\.emacs.d\meditate.png /e /y /f /q
 Xcopy lisp\custom-functions.el %home%\.emacs.d\custom-functions.el /e /y /f /q
 Xcopy unix\.clang-format %home%\.clang-format /e /y /f /q
 Xcopy snippets %home%\.emacs.d\snippets /e /y /f /q

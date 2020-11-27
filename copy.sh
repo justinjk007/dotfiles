@@ -10,6 +10,7 @@ copy_verbose ./init.el ~/.emacs.d/
 copy_verbose lisp/myhydras.el ~/.emacs.d/
 copy_verbose lisp/custom.el ~/.emacs.d/
 copy_verbose fluff/blackhole.png ~/.emacs.d/
+copy_verbose fluff/meditate.png ~/.emacs.d/
 copy_verbose lisp/custom-functions.el ~/.emacs.d/
 copy_verbose unix/.clang-format ~/
 copy_verbose snippets ~/.emacs.d/
