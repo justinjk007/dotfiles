@@ -648,6 +648,10 @@
   :if (string-equal system-type "gnu/linux")
   )
 
+(use-package dockerfile-mode
+  :mode ("Dockerfile\\'" . dockerfile-mode)
+  )
+
 (use-package anzu
   :init
   (global-set-key [remap query-replace] 'anzu-query-replace)
