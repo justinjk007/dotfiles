@@ -28,19 +28,20 @@
  '(inhibit-startup-screen t)
  '(ledger-reports
    (quote
-    (("bal cleared" "%(binary) [[ledger-mode-flags]] -f %(ledger-file) bal --cleared")
+    (("bal cleared" "%(binary) [[ledger-mode-flags]] -f %(ledger-file) bal --cleared --real")
      (#("bal" 0 1
 	(idx 0))
-      "%(binary) -f %(ledger-file) bal")
+      "%(binary) -f %(ledger-file) bal --real")
+     ("budget" "%(binary) --empty -S -T -f %(ledger-file) bal ^assets:budget")
      (#("reg" 0 1
 	(idx 1))
-      "%(binary) -f %(ledger-file) reg")
+      "%(binary) -f %(ledger-file) reg --real")
      (#("payee" 0 1
 	(idx 2))
-      "%(binary) -f %(ledger-file) reg @%(payee)")
+      "%(binary) -f %(ledger-file) reg @%(payee) --real")
      (#("account" 0 1
 	(idx 3))
-      "%(binary) -f %(ledger-file) reg %(account)"))))
+      "%(binary) -f %(ledger-file) reg %(account) --real"))))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
