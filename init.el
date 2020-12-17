@@ -248,6 +248,14 @@
   :after ox
   )
 
+(use-package csv-mode
+  :mode (".tsv" ".csv" ".tabular" ".vcf")
+  :config
+  (setq-default csv-align-mode t)
+  (setq-default csv-header-line t)
+  (setq-default toggle-truncate-lines 1)
+  )
+
 (use-package markdown-mode
   ;; http://jblevins.org/projects/markdown-mode/ -- Read all about it
   :commands (markdown-mode gfm-mode)
