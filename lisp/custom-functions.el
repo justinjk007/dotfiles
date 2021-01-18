@@ -201,6 +201,16 @@ foofoofoo  bar"
     (while (search-forward "\r" nil :noerror)
       (replace-match ""))))
 
+(defun perl-add-debug ()
+  "Add a debug statement to the perl file."
+  (interactive)
+  (beginning-of-line)
+  (newline-and-indent)
+  (forward-line -1) ; prev line
+  (insert "$DB::single = 1;")
+  (beginning-of-line)
+  )
+
 (defun git-clone ()
   "Clone git URL in clipboard asynchronously and open in dired when finished."
   (interactive)
