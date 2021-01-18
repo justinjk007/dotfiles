@@ -418,7 +418,9 @@
 ;;   )
 
 (use-package prettier
-  ; Need tp install https://github.com/prettier/prettier
+  ; Better to install on project basis like this, and then add a config file
+  ; npm install --save-dev --save-exact prettier
+  ; https://github.com/prettier/prettier
   :defer t
   :bind (:map js2-mode-map ("C-c u" . prettier-prettify))
   )
