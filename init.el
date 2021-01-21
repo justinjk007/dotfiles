@@ -344,13 +344,10 @@
   (engine/set-keymap-prefix (kbd "M-a"))
   (defengine duckduckgo
     "https://duckduckgo.com/?q=%s"
-    :keybinding "d")
-  (defengine github
-    "https://github.com/search?ref=simplesearch&q=%s"
-    :keybinding "g")
+    :keybinding "a")
   (defengine google
     "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
-    :keybinding "a")
+    :keybinding "g")
   (defengine cpp-reference
     "http://en.cppreference.com/mwiki/index.php?search=%s"
     :keybinding "c")
