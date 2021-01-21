@@ -369,6 +369,7 @@
   :defer t
   :mode (("\\.djhtml\\'" . web-mode)
 	 ("\\.phtml\\'" . web-mode)
+	 ("\\.json\\'" . web-mode)
 	 ("\\.erb\\'" . web-mode)
 	 ("\\.php\\'" . web-mode)
 	 ("\\.as[cp]x\\'" . web-mode)
@@ -421,13 +422,10 @@
   ; Better to install on project basis like this, and then add a config file
   ; npm install --save-dev --save-exact prettier
   ; https://github.com/prettier/prettier
+  ; https://github.com/jscheid/prettier.el
   :defer t
-  :bind (:map js2-mode-map ("C-c u" . prettier-prettify))
-  )
-
-(use-package json-mode
-  :defer t
-  :mode ("\\.json\\'" . json-mode)
+  :after web-mode
+  :bind (:map web-mode-map ("C-c u" . prettier-prettify))
   )
 
 (use-package yafolding
@@ -440,11 +438,6 @@
   :init
   (add-hook 'sgml-mode-hook 'emmet-mode)
   (add-hook 'css-mode-hook 'emmet-mode)
-  )
-
-(use-package web-beautify
-  :config
-  (eval-after-load 'web-mode '(define-key web-mode-map (kbd "C-c u") 'web-beautify-html))
   )
 
 (use-package yasnippet
