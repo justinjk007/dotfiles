@@ -910,7 +910,7 @@
 (use-package ggtags
   ;; Get gnu global
   ;; sudo apt install global
-  ;; http://adoxa.altervista.org/global/
+  ;; http://adoxa.altervista.org/global
   :init
   (add-hook 'c-mode-common-hook
 	    (lambda ()
