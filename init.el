@@ -367,6 +367,7 @@
   :mode (("\\.djhtml\\'" . web-mode)
 	 ("\\.phtml\\'" . web-mode)
 	 ("\\.json\\'" . web-mode)
+	 ("\\.jsx\\'" . web-mode)
 	 ("\\.erb\\'" . web-mode)
 	 ("\\.php\\'" . web-mode)
 	 ("\\.as[cp]x\\'" . web-mode)
@@ -423,6 +424,8 @@
   :defer t
   :after web-mode
   :bind (:map web-mode-map ("C-c u" . prettier-prettify))
+  :bind (:map js-mode-map ("C-c u" . prettier-prettify))
+  :bind ("C-c {" . global-prettier-mode)
   )
 
 (use-package yafolding
