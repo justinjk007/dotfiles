@@ -43,6 +43,7 @@ export TERM=xterm
 set -o vi
 export PATH="$PATH":"/gsa/rtpgsa/projects/x/xlcmpbld/build/tools":"/build/tools"
 PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
+
 export everyone='/gsa/tlbgsa/home/k/a/kaipada/everyone' # accessible on all machines
 export run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
 alias run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script'

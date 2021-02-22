@@ -41,7 +41,11 @@
       "%(binary) -f %(ledger-file) reg @%(payee) --real")
      (#("account" 0 1
 	(idx 3))
-      "%(binary) -f %(ledger-file) reg %(account) --real"))))
+      "%(binary) -f %(ledger-file) reg %(account) --real")
+     (#("account (even virtual)" 0 1
+	(idx 3))
+      "%(binary) -f %(ledger-file) reg %(account)")
+     )))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
