@@ -1,4 +1,4 @@
-#+html: <a href="https://travis-ci.org/justinjk007/dotfiles"><img alt="CI build status" src="https://travis-ci.org/justinjk007/dotfiles.svg?branch=master" /></a> <a href="https://badges.pufler.dev"><img alt="Last updated date" src="https://badges.pufler.dev/updated/justinjk007/dotfiles" /></a>
+#+html: <a href="https://www.gnu.org/software/emacs/"><img alt="Works on Emacs badge" src="https://img.shields.io/badge/Works%20on-GNU%20Emacs%2027.2-%23a577bf" /></a><a href="https://travis-ci.org/justinjk007/dotfiles"><img alt="CI build status" src="https://travis-ci.org/justinjk007/dotfiles.svg?branch=master" /></a> <a href="https://badges.pufler.dev"><img alt="Last updated date" src="https://badges.pufler.dev/updated/justinjk007/dotfiles" /></a>
 
 #+CAPTION: This is how I feel when I tweak my emacs config
 #+html: <p align="center"><img src="fluff/usingemacs.gif" /></p>
