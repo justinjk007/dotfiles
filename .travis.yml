@@ -12,7 +12,7 @@ before_install:
   - mkdir ~/.emacs.d/
   - mkdir -p ~/.config/systemd/user/ # For the emacs deamon service file
   - cd ${TRAVIS_BUILD_DIR}
-  - ./SETUP.sh                    # Copy all the repository files to home
+  - ./SETUP.sh copy                   # Copy all the repository files to home
 
 script:
   - ls -l ~/.emacs.d

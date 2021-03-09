@@ -1,27 +1,16 @@
 #!/bin/bash -x
 
-mkdir -p ~/.emacs.d/lisp
-
-###########
-# Cleanup #
-###########
-
-rm -rf ~/.emacs.d/init.el
-rm -rf ~/.emacs.d/myhydras.el
-rm -rf ~/.emacs.d/custom.el
-rm -rf ~/.emacs.d/custom-functions.el
-rm -rf ~/.emacs.d/snippets
-rm -rf ~/.emacs.d/blackhole.png
-rm -rf ~/.emacs.d/meditate.png
-rm -rf ~/.emacs.d/lisp/ox-mediawiki.el
-rm -rf ~/.emacs.d/lisp/perltidy.el
-rm -rf ~/.emacs.d/lisp/evil-markdown.el
-rm -rf ~/.clang-format
-rm -rf ~/.aliases
-rm -rf ~/.bashrc
-rm -rf ~/.perltidyrc
-rm -rf ~/.bash_profile
-rm -rf ~/.config/systemd/user/emacs.service
+if [[ $1 == 'copy' ]]; then
+    function setup_link() {
+	rm -rf $2
+	cp -r $1 $2
+    }
+else
+    function setup_link() {
+	rm -rf $2
+	ln -s $1 $2
+    }
+fi
 
 #################
 # Link stuff up #
@@ -29,19 +18,21 @@ rm -rf ~/.config/systemd/user/emacs.service
 
 cwd=`pwd`
 
-ln -s $cwd/lisp/init.el ~/.emacs.d/init.el
-ln -s $cwd/lisp/myhydras.el ~/.emacs.d/myhydras.el
-ln -s $cwd/lisp/custom.el ~/.emacs.d/custom.el
-ln -s $cwd/lisp/custom-functions.el ~/.emacs.d/custom-functions.el
-ln -s $cwd/snippets ~/.emacs.d/snippets
-ln -s $cwd/fluff/blackhole.png ~/.emacs.d/blackhole.png
-ln -s $cwd/fluff/meditate.png ~/.emacs.d/meditate.png
-ln -s $cwd/lisp/ox-mediawiki.el ~/.emacs.d/lisp/ox-mediawiki.el
-ln -s $cwd/lisp/perltidy.el ~/.emacs.d/lisp/perltidy.el
-ln -s $cwd/lisp/evil-markdown.el ~/.emacs.d/lisp/evil-markdown.el
-ln -s $cwd/unix/.clang-format ~/.clang-format
-ln -s $cwd/unix/.aliases ~/.aliases
-ln -s $cwd/unix/.bashrc ~/.bashrc
-ln -s $cwd/unix/.perltidyrc ~/.perltidyrc
-ln -s $cwd/unix/.bash_profile ~/.bash_profile
-ln -s $cwd/hacks/emacs.service ~/.config/systemd/user/emacs.service
+mkdir -p ~/.emacs.d/lisp
+
+setup_link $cwd/lisp/init.el ~/.emacs.d/init.el
+setup_link $cwd/lisp/myhydras.el ~/.emacs.d/myhydras.el
+setup_link $cwd/lisp/custom.el ~/.emacs.d/custom.el
+setup_link $cwd/lisp/custom-functions.el ~/.emacs.d/custom-functions.el
+setup_link $cwd/snippets ~/.emacs.d/snippets
+setup_link $cwd/fluff/blackhole.png ~/.emacs.d/blackhole.png
+setup_link $cwd/fluff/meditate.png ~/.emacs.d/meditate.png
+setup_link $cwd/lisp/ox-mediawiki.el ~/.emacs.d/lisp/ox-mediawiki.el
+setup_link $cwd/lisp/perltidy.el ~/.emacs.d/lisp/perltidy.el
+setup_link $cwd/lisp/evil-markdown.el ~/.emacs.d/lisp/evil-markdown.el
+setup_link $cwd/unix/.clang-format ~/.clang-format
+setup_link $cwd/unix/.aliases ~/.aliases
+setup_link $cwd/unix/.bashrc ~/.bashrc
+setup_link $cwd/unix/.perltidyrc ~/.perltidyrc
+setup_link $cwd/unix/.bash_profile ~/.bash_profile
+setup_link $cwd/hacks/emacs.service ~/.config/systemd/user/emacs.service
