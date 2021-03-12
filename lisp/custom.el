@@ -45,8 +45,8 @@
      (#("account (even virtual)" 0 1
 	(idx 3))
       "%(binary) -f %(ledger-file) reg %(account)")
-     ("TFSA room bal" "%(binary) -S -T -f %(ledger-file) bal ^TfsaRoom")
-     ("TFSA room reg" "%(binary) -S -T -f %(ledger-file) reg ^TfsaRoom")
+     ("TFSA room bal" "%(binary) -S -T -f %(ledger-file) bal ^TFSAroom")
+     ("TFSA room reg" "%(binary) -S -T -f %(ledger-file) reg ^TFSAroom")
      )))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
