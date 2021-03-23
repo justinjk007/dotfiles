@@ -124,7 +124,7 @@ if [ -f $ENV_FILE ]; then
     source $HOME/$ENV_FILE
 fi
 
-if [[ "$OSTYPE" == "linux-gnu" ]]; then
+if [[ "$OSTYPE" == "linux-gnu" && "$HOSTNAME" != "kaipanas" ]]; then
     setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
 fi
 
