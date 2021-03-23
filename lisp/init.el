@@ -186,7 +186,13 @@
   ;; (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
   :config
   (defvar org-hide-emphasis-markers t) ;; Stop seeing all the markup symbols in org file, beautiful
-  (add-to-list 'org-file-apps '(directory . emacs)) ;; Make emacs open file links in dired instead of file explorer
+  (setq org-file-apps
+      '((auto-mode . emacs)
+	(directory . emacs)
+        ("cron\\." . emacs)
+        ("\\.cron" . emacs)
+        ("\\.mkv" . "vlc \"%s\"")
+	))
   (setq org-clock-mode-line-total 'current
 	org-duration-format (quote h:mm)
 	org-src-preserve-indentation 't
