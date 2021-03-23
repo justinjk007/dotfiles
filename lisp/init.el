@@ -779,6 +779,8 @@
   :init
   (add-hook 'yaml-mode-hook 'highlight-numbers-mode)
   (add-hook 'yaml-mode-hook 'display-line-numbers-mode)
+  (add-hook 'yaml-mode-hook 'display-line-numbers-mode)
+  (add-hook 'yaml-mode-hook (lambda () (yafolding-mode)))
   )
 
 (use-package dashboard
@@ -940,6 +942,7 @@
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
+(define-key dired-mode-map "a" (lambda () (interactive) (find-alternate-file "..")))
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
 (global-set-key (kbd "C-c C-r") 'replace-string)
