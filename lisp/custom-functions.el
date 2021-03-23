@@ -175,8 +175,7 @@ foofoofoo  bar"
           (upcase-word 1))))))
 
 (defun my-evaluate-time-table-automatically()
-  "This function evaluates the org-clock summary automatically if
-  in tt.org file. This is called in tt.org as file-local-variable"
+  "Evaluate the org-clock summary automatically if in tt.org file.  This is called in tt.org as file-local-variable."
   (save-excursion
     (goto-char (point-min))
     (forward-line 9) ;; Line 10 is where the table is, starts from line 1 and move 9 times = line 10
@@ -200,6 +199,13 @@ foofoofoo  bar"
     (goto-char 0)
     (while (search-forward "\r" nil :noerror)
       (replace-match ""))))
+
+(defun my-dired-copy-path-at-point ()
+  "Copy the full link to the file at point."
+    (interactive)
+    (dired-copy-filename-as-kill 0))
+; Small 'w' copies file name, so big 'W' copies the whole link
+(define-key dired-mode-map (kbd "W") 'my-dired-copy-path-at-point)
 
 (defun perl-add-debug ()
   "Add a debug statement to the perl file."
