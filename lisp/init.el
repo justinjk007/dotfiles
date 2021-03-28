@@ -86,9 +86,15 @@
   :pin melpa
   :config
   (load-theme 'solarized-dark t)
+  (setq solarized-distinct-fringe-background t)
   (setq x-underline-at-descent-line t
 	solarized-distinct-doc-face nil
 	solarized-use-variable-pitch nil)
+  (custom-theme-set-faces
+   'solarized-dark
+   `(org-block-begin-line ((t (:foreground "dim gray" :height 0.8))))
+   `(org-block-end-line ((t (:foreground "dim gray" :height 0.8))))
+   )
   )
 
 (use-package company
@@ -833,12 +839,10 @@
   (add-hook 'groovy-mode-hook 'rainbow-mode)
   )
 
-(use-package origami
+(use-package crontab-mode
   :defer t
-  :init
-  (add-hook 'prog-mode-hook 'origami-mode)
-  :bind
-  ("C-c C-f" . origami-toggle-node )
+  :mode ("cron\\." . crontab-mode)
+  :mode ("\\.cron" . crontab-mode)
   )
 
 ;; Tramp setup ---------------

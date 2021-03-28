@@ -205,7 +205,9 @@ foofoofoo  bar"
     (interactive)
     (dired-copy-filename-as-kill 0))
 ; Small 'w' copies file name, so big 'W' copies the whole link
-(define-key dired-mode-map (kbd "W") 'my-dired-copy-path-at-point)
+(with-eval-after-load "dired"
+  (define-key dired-mode-map (kbd "W") 'my-dired-copy-path-at-point)
+  )
 
 (defun perl-add-debug ()
   "Add a debug statement to the perl file."
