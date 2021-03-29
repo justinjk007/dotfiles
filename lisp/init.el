@@ -944,6 +944,16 @@
 	 ("M-," . counsel-gtags-go-backward))
   )
 
+(use-package ansible
+  :defer t
+  :config
+  (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+  (setq ansible-vault-password-file "~/ansible_vault_password.txt")
+  ;; (global-set-key (kbd "C-c b") 'ansible-decrypt-buffer)
+  ;; (global-set-key (kbd "C-c g") 'ansible-encrypt-buffer)
+  ;; (add-hook 'ansible-hook 'ansible-auto-decrypt-encrypt)
+  )
+
 ;; Misc Bindings
 (define-key c-mode-base-map (kbd "<M-return>") 'ff-find-other-file)
 (global-set-key (kbd "<f5>") 'revert-buffer)

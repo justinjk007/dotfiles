@@ -26,27 +26,13 @@ PATH="/Users/Justin.Kaipada@ibm.com/Library/Python/3.8/bin${PATH:+:${PATH}}"; ex
 # IBM VPN
 export PATH="$PATH:/opt/cisco/anyconnect/bin/"
 
-alias ssh11='ssh kaipada@bpidevlnx11.fyre.ibm.com'
 alias gitforcepull='git fetch --all && git reset --hard origin/master' # pull and overwrite any local changes
 
 PROMPT_COMMAND='printf "\033k\033\134"' # stop GNU Screen from changing the set title
 
-alias run_temp='/gsa/pokgsa/home/k/a/kaipada/temp_script'
-export everyone='/gsa/pokgsa/home/k/a/kaipada/everyone' # accessible on all machines
-export run_temp='/gsa/pokgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
-
 export everyone='/gsa/rtpgsa/home/k/a/kaipada/everyone' # accessible on all machines
 export run_temp='/gsa/rtpgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
 alias run_temp='/gsa/rtpgsa/home/k/a/kaipada/temp_script'
-alias ll='ls -al' # h option is not supported on AIX or Z/OS
-export TERM=xterm
-set -o vi
-export PATH="$PATH":"/gsa/rtpgsa/projects/x/xlcmpbld/build/tools":"/build/tools"
-PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
-
-export everyone='/gsa/tlbgsa/home/k/a/kaipada/everyone' # accessible on all machines
-export run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines
-alias run_temp='/gsa/tlbgsa/home/k/a/kaipada/temp_script'
 alias ll='ls -al' # h option is not supported on AIX or Z/OS
 export TERM=xterm
 set -o vi

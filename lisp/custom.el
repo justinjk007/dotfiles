@@ -52,7 +52,7 @@
    '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
  '(package-enable-at-startup t)
  '(package-selected-packages
-   '(org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
+   '(ansible org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
  '(powerline-height nil)
  '(projectile-globally-ignored-directories
    '(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build"))
