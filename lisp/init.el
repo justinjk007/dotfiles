@@ -946,8 +946,9 @@
 
 (use-package ansible
   :defer t
-  :config
+  :init
   (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+  :config
   (setq ansible-vault-password-file "~/ansible_vault_password.txt")
   ;; (global-set-key (kbd "C-c b") 'ansible-decrypt-buffer)
   ;; (global-set-key (kbd "C-c g") 'ansible-encrypt-buffer)
