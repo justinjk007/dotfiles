@@ -71,7 +71,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width medium :foundry "outline" :family "IBM Plex Mono"))))
- '(ansible-task-label-face ((t (:foreground "#268bd2"))))
+ '(ansible-task-label-face ((t (:foreground "#d33682"))))
  '(ansible-section-face ((t (:foreground "#d33682"))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#d33682"))))
