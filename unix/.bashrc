@@ -119,18 +119,21 @@ set -o emacs
 
 PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+    setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
+fi
+
 ENV_FILE=".environ" # Load system specific environmental varibles if they exist
 if [ -f $ENV_FILE ]; then
     source $HOME/$ENV_FILE
 fi
 
-if [[ "$OSTYPE" == "linux-gnu" && "$HOSTNAME" != "kaipanas" ]]; then
-    setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key
+ENV_FILE=".aliases"
+if [ -f $ENV_FILE ]; then
+    source $HOME/$ENV_FILE
 fi
 
-source $HOME/.aliases # Load aliases
-
-MACHINE_CONFIG=".machine_config" # Load machine specific config if they exist
-if [ -f $MACHINE_CONFIG ]; then
-    source $HOME/$MACHINE_CONFIG
+ENV_FILE=".machine_config" # Load machine specific config if they exist
+if [ -f $ENV_FILE ]; then
+    source $HOME/$ENV_FILE
 fi
