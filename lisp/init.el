@@ -832,17 +832,18 @@
 			     (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
   )
 
-(use-package groovy-mode
-  :defer t
-  :mode ("\\.groovy\\'" . groovy-mode)
-  :config
-  (add-hook 'groovy-mode-hook 'rainbow-mode)
-  )
-
 (use-package crontab-mode
   :defer t
   :mode ("cron\\." . crontab-mode)
   :mode ("\\.cron" . crontab-mode)
+  )
+
+(use-package groovy-mode
+  :defer t
+  :mode ("\\.groovy" . groovy-mode)
+  :mode ("\\Jenkinsfile\\'" . groovy-mode)
+  :config
+  (add-hook 'groovy-mode-hook 'rainbow-mode)
   )
 
 ;; Tramp setup ---------------
