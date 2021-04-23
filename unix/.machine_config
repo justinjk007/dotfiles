@@ -28,7 +28,20 @@ export PATH="$PATH:/opt/cisco/anyconnect/bin/"
 
 alias gitforcepull='git fetch --all && git reset --hard origin/master' # pull and overwrite any local changes
 
-PROMPT_COMMAND='printf "\033k\033\134"' # stop GNU Screen from changing the set title
+export PROMPT_COMMAND='printf "\033k\033\134"' # stop GNU Screen from changing the set title
+
+# if on pok domain start hostnames with POK otherwise stick to TOR
+HOSTNAME=`hostname`
+FIRST_3_CHAR=`echo $HOSTNAME | cut -c1-3`
+DOMAIN_CHAR=`echo $HOSTNAME | cut -d . -f 2`
+if [ "$FIRST_3_CHAR" == "TOR" ] && [ "$DOMAIN_CHAR" == "pok" ]; then
+    NAME=`echo $HOSTNAME | cut -d . -f 1`
+    SECOND_PART=`echo $NAME | cut -c4-8`
+    NEW_HOSTNAME="POK$SECOND_PART"
+else
+    NEW_HOSTNAME=`echo $HOSTNAME | cut -d . -f 1`
+fi
+PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]$NEW_HOSTNAME\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
 
 export everyone='/gsa/rtpgsa/home/k/a/kaipada/everyone' # accessible on all machines
 export run_temp='/gsa/rtpgsa/home/k/a/kaipada/temp_script' # For quick and dirty scripting on the go, accessible on all machines

@@ -197,6 +197,10 @@
 	(directory . emacs)
         ("cron\\." . emacs)
         ("\\.cron" . emacs)
+        ("\\.bds" . emacs)
+        ("\\.bld" . emacs)
+        ("\\.bvt" . emacs)
+        ("\\.cron" . emacs)
         ("\\.mkv" . "vlc \"%s\"")
 	))
   (setq org-clock-mode-line-total 'current
