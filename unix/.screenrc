@@ -13,9 +13,6 @@ hardstatus alwayslastline
 hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW}'
 caption always "%3n %t %c"
 screen -t devlnx 0
-screen -t bpi07 1
-screen -t bpi20 2
-screen -t bpi25 3
 termcapinfo xterm ti@:te@
 termcapinfo xterm-color ti@:te@
 bind b eval "windowlist"
