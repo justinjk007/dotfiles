@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: alter-dataset-class-to-standard
+# key: alt
+# --
+tsocmd "ALTER '$0' MGMTCLAS(STANDARD)"

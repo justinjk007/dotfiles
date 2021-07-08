@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: migrate-dataset-to-tape
+# key: mig
+# --
+tsocmd "HMIGRATE '$0'"
