@@ -241,6 +241,22 @@
   (load-file "~/.emacs.d/ox-mediawiki.el")
   )
 
+(use-package org-roam
+  ;; Need manual install on Windows, this will automatically compile a
+  ;; custom SQLite DB for us on Mac and Linux
+  ;; Check variable 'org-roam--sqlite-available-p' to see if db is installed
+  :if (eq (string-equal system-type "windows-nt") nil) ; Don't run on windows
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory "~/Repos/RoamNotes")
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n i" . org-roam-node-insert))
+  :config
+  (org-roam-setup)
+  )
+
 (use-package org-bullets
   :after org
   :init
