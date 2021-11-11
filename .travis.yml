@@ -16,4 +16,4 @@ before_install:
 
 script:
   - ls -l ~/.emacs.d
-  - docker run -v ~/.emacs.d:/root/.emacs.d -it --rm silex/emacs:27 emacs --batch --load /root/.emacs.d/init.el --kill
+  - docker run -v ~/.emacs.d:/root/.emacs.d -it --rm silex/emacs emacs --batch --load /root/.emacs.d/init.el --kill
