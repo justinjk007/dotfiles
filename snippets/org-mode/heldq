@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: heldq
+# key: helq
+# --
+/shadow/c390.tools/oe/heldq v $0 | tee heldq.log

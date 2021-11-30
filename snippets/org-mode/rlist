@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rlist
+# key: rlist
+# --
+rexx /shadow/c390.tools/oe/IGGCSIRX.rexx $0
