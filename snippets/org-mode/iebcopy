@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: iebcopy
+# key: iebcopy
+# --
+//COPY$0     EXEC PGM=IEBCOPY
+//SYSPRINT DD  SYSOUT=*
+//IN  DD DSNAME=$1,DISP=SHR
+//OUT DD DSNAME=$2,
+//       DISP=(NEW,CATLG),
+//       UNIT=SYSDA,LIKE=$3
+//SYSIN    DD  *
+       COPY INDD=IN,OUTDD=OUT
