@@ -59,7 +59,8 @@
  '(projectile-use-git-grep t)
  '(ring-bell-function 'ignore)
  '(safe-local-variable-values
-   '((eval add-hook 'before-save-hook 'my-evaluate-time-table-automatically nil t)))
+   '((flyspell-mode)
+     (eval add-hook 'before-save-hook 'my-evaluate-time-table-automatically nil t)))
  '(scroll-restore-mode t)
  '(send-mail-function 'mailclient-send-it)
  '(show-paren-mode t)

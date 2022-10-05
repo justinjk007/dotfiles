@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: artifactory-download-tarball
+# key: arti
+# --
+jfrog rt dl $0
