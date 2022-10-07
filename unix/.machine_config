@@ -21,6 +21,11 @@ PERL_MM_OPT="INSTALL_BASE=/Users/Justin.Kaipada@ibm.com/perl5"; export PERL_MM_O
 # python stuff
 PATH="/Users/Justin.Kaipada@ibm.com/Library/Python/3.8/bin${PATH:+:${PATH}}"; export PATH;
 
+# go stuff
+export PATH="$PATH":"$HOME/go/bin":"/usr/local/go/bin/"
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/go"
+
 # IBM specific config
 
 # IBM VPN

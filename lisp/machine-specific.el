@@ -84,7 +84,12 @@
       )
   )
 
-;; Load these to exec path so flutter lsp environment works
+;; Load these to exec path so flutter and go lsp environment works
+
+;; Even after setting these the best way to get emacs inhert SHELL
+;; seems to be start emacs from terminal, instead from the Dock or
+;; application tray
+
 (setq exec-path
 	  '(
 	    "/bin"
@@ -98,6 +103,9 @@
 	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/bin/"
 	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/.pub-cache/bin/"
 	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/bin/cache/dart-sdk/bin/"
+	    "/Users/Justin.Kaipada@ibm.com/Library/Python/3.8/bin/"
+	    "/usr/local/go/bin/"
+	    "/Users/Justin.Kaipada@ibm.com/go/bin"
 	    )
 	  )
 

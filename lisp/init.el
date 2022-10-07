@@ -701,10 +701,15 @@
   ;; go get -u github.com/dougm/goflymake
   :defer t
   :mode ("\\.go\\'" . go-mode)
+  :init
+  (setq compile-command "go build -v")
+  (setq compilation-read-command nil)
   )
 (use-package company-go)
 
 (use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
   :commands (lsp lsp-deferred)
   ;; :hook (nxml-mode . lsp-deferred)
   :config
@@ -712,6 +717,8 @@
   ;; while you type. Slow it down so emacs don't get stuck.
   (setq lsp-idle-delay 0.500)
   (setq lsp-prefer-capf t) ;; company-capf, use this instead of company lsp, better performance
+  :hook
+  ((go-mode) . lsp)
   )
 
 (use-package lsp-ui
