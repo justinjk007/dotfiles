@@ -31,7 +31,7 @@ export GOROOT="/usr/local/go"
 # IBM VPN
 export PATH="$PATH:/opt/cisco/anyconnect/bin/"
 
-alias gitforcepull='git fetch --all && git reset --hard origin/main' # pull and overwrite any local changes
+alias gitforcepull='git fetch --all && git reset --hard origin/master' # pull and overwrite any local changes
 
 export PROMPT_COMMAND='printf "\033k\033\134"' # stop GNU Screen from changing the set title
 
