@@ -222,7 +222,7 @@ foofoofoo  bar"
 (defun git-clone ()
   "Clone git URL in clipboard asynchronously and open in dired when finished."
   (interactive)
-  (cl-assert (string-match-p "^\\(http\\|git\\|ssh\\)" (current-kill 0)) nil "No URL in clipboard")
+  (cl-assert (string-match-p "^\\(http\\|git\\|ssh\\|org\\)" (current-kill 0)) nil "No URL in clipboard")
   (let* ((url (current-kill 0))
          (download-dir (expand-file-name "~/Repos/"))
          (project-dir (concat (file-name-as-directory download-dir)
