@@ -21,8 +21,8 @@
  '(frame-background-mode 'dark)
  '(global-flycheck-mode t)
  '(global-hl-line-mode t)
+ '(inhibit-compacting-font-caches t t)
  '(inhibit-startup-screen t)
- '(inhibit-compacting-font-caches t)
  '(ledger-reports
    '(("bal cleared" "%(binary) [[ledger-mode-flags]] -f %(ledger-file) bal --cleared --real")
      (#("bal" 0 1
@@ -42,8 +42,7 @@
 	(idx 3))
       "%(binary) -f %(ledger-file) reg %(account)")
      ("TFSA room bal" "%(binary) -S -T -f %(ledger-file) bal ^TFSAroom")
-     ("TFSA room reg" "%(binary) -S -T -f %(ledger-file) reg ^TFSAroom")
-     ))
+     ("TFSA room reg" "%(binary) -S -T -f %(ledger-file) reg ^TFSAroom")))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
@@ -73,7 +72,9 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 110 :width medium :foundry "outline" :family "IBM Plex Mono"))))
  '(ansible-section-face ((t (:foreground "#d33682"))))
- '(ansible-task-label-face ((t (:foreground "#d33682"))))
+ '(ansible-task-label-face ((t (:foreground "#2AA198" :weight bold))))
+ '(anzu-replace-highlight ((t (:background "#d33682" :foreground "gray93" :strike-through t))))
+ '(anzu-replace-to ((t (:foreground "#d33682" :weight bold))))
  '(comint-highlight-prompt ((t (:foreground "orange red"))))
  '(cursor ((t (:background "#d33682"))))
  '(error ((t (:foreground "indian red" :weight bold))))
@@ -99,7 +100,7 @@
  '(org-warning ((t (:foreground "red" :underline t))))
  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
- '(web-mode-folded-face ((t (:foreground "#F6358A" :underline nil)))))
+ '(web-mode-folded-face ((t (:foreground "#d33682" :underline nil)))))
 
 
 (provide 'custom.el)

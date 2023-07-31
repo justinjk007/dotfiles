@@ -684,7 +684,6 @@
   (global-set-key (kbd "C-c a r") 'anzu-query-replace-at-cursor-thing)
   :config
   (global-anzu-mode +1)
-  (set-face-attribute 'anzu-replace-to nil :foreground "#d33682")
   )
 
 (use-package go-mode
@@ -772,12 +771,6 @@
   :custom
   ;; file mode specification error means environment var is not set
   (flutter-sdk-path "~/Dev/flutter/")
-  )
-
-(use-package evil-tutor
-  :defer t
-  :init
-  (evil-ex-define-cmd "evil-tutor[-start]" 'evil-tutor-start)
   )
 
 (use-package hydra
@@ -877,12 +870,6 @@
 (require 'perltidy)
 (define-key cperl-mode-map (kbd "C-c u") 'perltidy-dwim)
 
-(use-package yapfify
-  :config
-  (eval-after-load "python"
-    '(define-key python-mode-map (kbd "C-c u") 'yapfify-buffer))
-  )
-
 (use-package auto-virtualenvwrapper
   :init
   (add-hook 'python-mode-hook #'auto-virtualenvwrapper-activate)
@@ -897,12 +884,6 @@
   (font-lock-add-keywords 'c++-mode
 			  '(("\\<\\(FIXME\\):" 1 font-lock-constant-face))
 			  )
-  )
-
-(use-package company-c-headers
-  :defer t
-  :init
-  (add-to-list 'company-backends 'company-c-headers)
   )
 
 ;; Install LLVM - http://releases.llvm.org/download.html
@@ -936,31 +917,6 @@
   (setq cmake-project-default-build-dir-name "build\/")
   (setq cmake-project-architecture "Win64")
   )
-
-;; (use-package ggtags
-;;   ;; Get gnu global
-;;   ;; sudo apt install global
-;;   ;; http://adoxa.altervista.org/global
-;;   :init
-;;   (add-hook 'c-mode-common-hook
-;; 	    (lambda ()
-;; 	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-;; 		(ggtags-mode 1))))
-;;   (add-to-list 'company-backends 'company-gtags)
-;;   )
-
-;; (use-package counsel-gtags
-;;   :after ggtags
-;;   :init
-;;   (add-hook 'c-mode-common-hook
-;; 	    (lambda ()
-;; 	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-;; 		(counsel-gtags-mode))))
-;;   :bind (("M-t" . counsel-gtags-find-definition)
-;; 	 ("M-r" . counsel-gtags-find-reference)
-;; 	 ("M-s" . counsel-gtags-find-symbol)
-;; 	 ("M-," . counsel-gtags-go-backward))
-;;   )
 
 (use-package ansible
   :defer t
