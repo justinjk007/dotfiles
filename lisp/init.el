@@ -1,14 +1,14 @@
 ﻿;;; package --- init-file
 ;;; Author:Justin Kaipada
 ;;; Commentary:
-"Thou shalt not cross 80 columns in thy file"
+"Thou shalt notcross 80 columns in thy file"
 
 ;;; Code:
 (require 'package)
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
 			 ("melpa-s" . "http://stable.melpa.org/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
-			 ("org" . "http://orgmode.org/elpa/")))
+			 ))
 
 (package-initialize)
 (setq gc-cons-threshold (* 100 1024 1024));; 100mb
@@ -69,6 +69,7 @@
   (define-key evil-normal-state-map (kbd "z") 'org-open-at-point)
   (define-key evil-visual-state-map (kbd "L") 'end-of-line)
   (define-key evil-visual-state-map (kbd "H") 'beginning-of-line)
+  (evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
   (global-set-key  (kbd "M-C-j")  'move-line-down)
   (global-set-key (kbd "M-C-k")  'move-line-up)
   (global-set-key (kbd "C-x C-m") 'move-file)
@@ -179,8 +180,8 @@
 			      ) )
 
 (use-package org
-  :ensure org-plus-contrib
-  :pin org
+  :ensure org-contrib
+  :pin gnu
   :defer t
   :mode ("\\.org$" . org-mode)
   ;; :bind ("C-'" . org-cycle-agenda-files)
@@ -226,7 +227,6 @@
    'org-babel-load-languages
    '(
      (python . t)
-     ;; (ipython . t)
      (shell . t)
      ;; Include other languages here...
      ))
@@ -280,6 +280,7 @@
 	 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")
   :config
+  ;; then use emacs command package-install-file to install from local .emacs.d/lisp/evil-markdown.el
   (require 'evil-markdown) ;; load .emacs.d/lisp/evil-markdown.el
   (set-face-attribute 'markdown-header-face-1 nil :foreground "#cb4b16" :height 1.3 :family "IBM Plex Mono" )
   (set-face-attribute 'markdown-header-face-2 nil :foreground "#859902" :height 1.2 :family "IBM Plex Mono" )
@@ -350,7 +351,7 @@
   (setq column-number-mode t)
   (display-time-mode 1)
   ;; Here height is the scale of the font, 0.8 means 80%
-  (set-face-attribute 'doom-modeline-buffer-modified nil :foreground "#d33682")
+  (set-face-attribute 'doom-modeline-buffer-modified nil :foreground "indian red")
   (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3" :height 1)
   (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3" :height 1)
   (set-face-attribute 'doom-modeline-evil-motion-state nil :background "#268bd2" :foreground "#fdf6e3" :height 1)

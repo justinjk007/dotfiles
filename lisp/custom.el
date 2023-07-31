@@ -51,7 +51,7 @@
    '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
  '(package-enable-at-startup t)
  '(package-selected-packages
-   '(org-roam ansible org flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
+   '(evil-markdown cmake-project cmake-mode clang-format modern-cpp-font-lock auto-virtualenvwrapper perltidy org-contrib orgalist ansible flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
  '(powerline-height nil)
  '(projectile-globally-ignored-directories
    '(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build"))
