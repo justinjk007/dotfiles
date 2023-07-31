@@ -323,8 +323,6 @@
 	  ))
   )
 
-(use-package multiple-cursors)
-
 (use-package nerd-icons
   ;; 
   ;; Need to run nerd-icons-install-fonts
@@ -352,6 +350,7 @@
   (setq column-number-mode t)
   (display-time-mode 1)
   ;; Here height is the scale of the font, 0.8 means 80%
+  (set-face-attribute 'doom-modeline-buffer-modified nil :foreground "#d33682")
   (set-face-attribute 'doom-modeline-evil-emacs-state nil :background "#6c71c4" :foreground "#fdf6e3" :height 1)
   (set-face-attribute 'doom-modeline-evil-insert-state nil :background "#859902" :foreground "#fdf6e3" :height 1)
   (set-face-attribute 'doom-modeline-evil-motion-state nil :background "#268bd2" :foreground "#fdf6e3" :height 1)
@@ -443,7 +442,7 @@
   ; Better to install on project basis like this, and then add a config file
   ; npm install --save-dev --save-exact prettier
   ; https://github.com/prettier/prettier
-  ; https://github.com/jscheid/prettier.el
+  ; https://github.com/jscheid/prettier.el
   :defer t
   :after web-mode
   :bind (:map web-mode-map ("C-c u" . prettier-prettify))
