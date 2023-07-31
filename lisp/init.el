@@ -241,22 +241,6 @@
   (load-file "~/.emacs.d/ox-mediawiki.el")
   )
 
-(use-package org-roam
-  ;; Need manual install on Windows, this will automatically compile a
-  ;; custom SQLite DB for us on Mac and Linux
-  ;; Check variable 'org-roam--sqlite-available-p' to see if db is installed
-  :if (eq (string-equal system-type "windows-nt") nil) ; Don't run on windows
-  :init
-  (setq org-roam-v2-ack t)
-  :custom
-  (org-roam-directory "~/Repos/RoamNotes")
-  :bind (("C-c n l" . org-roam-buffer-toggle)
-         ("C-c n f" . org-roam-node-find)
-         ("C-c n i" . org-roam-node-insert))
-  :config
-  (org-roam-setup)
-  )
-
 (use-package org-bullets
   :after org
   :init
@@ -340,7 +324,14 @@
   )
 
 (use-package multiple-cursors)
-(use-package all-the-icons)
+
+(use-package nerd-icons
+  ;; :custom
+  ;; The Nerd Font you want to use in GUI
+  ;; "Symbols Nerd Font Mono" is the default and is recommended
+  ;; but you can use any other Nerd Font if you want
+  ;; (nerd-icons-font-family "Symbols Nerd Font Mono")
+  )
 
 (use-package minions
   :config (minions-mode 1)
@@ -348,11 +339,13 @@
 
 (use-package doom-modeline
   :hook (after-init . doom-modeline-mode)
+  :init
+  (setq doom-modeline-icon t)
   :config
-  (setq doom-modeline-buffer-file-name-style 'file-name)
-  (setq doom-modeline-major-mode-icon nil)
   ;; This line slows emacs down a lot in big org files on OS X alone
   ;; (setq doom-modeline-enable-word-count t)
+  (setq doom-modeline-buffer-file-name-style 'file-name)
+  (setq doom-modeline-major-mode-icon nil)
   (setq doom-modeline-indent-info t)
   (setq doom-modeline-minor-modes t) ;; Adds the gear icon with minions
   (setq doom-modeline-height 30)
@@ -920,7 +913,7 @@
 (use-package clang-format
   :init
   (require 'cc-mode)
-  (add-hook 'c-mode-common-hook '(lambda ()(ignore-errors (clang-format))))
+  (add-hook 'c-mode-common-hook #'(lambda ()(ignore-errors (clang-format))))
   :config
   (setq clang-format-style-option "file")
   (define-key c-mode-base-map (kbd "C-c r") 'clang-format-region)
@@ -947,35 +940,35 @@
   (setq cmake-project-architecture "Win64")
   )
 
-(use-package ggtags
-  ;; Get gnu global
-  ;; sudo apt install global
-  ;; http://adoxa.altervista.org/global
-  :init
-  (add-hook 'c-mode-common-hook
-	    (lambda ()
-	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-		(ggtags-mode 1))))
-  (add-to-list 'company-backends 'company-gtags)
-  )
+;; (use-package ggtags
+;;   ;; Get gnu global
+;;   ;; sudo apt install global
+;;   ;; http://adoxa.altervista.org/global
+;;   :init
+;;   (add-hook 'c-mode-common-hook
+;; 	    (lambda ()
+;; 	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+;; 		(ggtags-mode 1))))
+;;   (add-to-list 'company-backends 'company-gtags)
+;;   )
 
-(use-package counsel-gtags
-  :after ggtags
-  :init
-  (add-hook 'c-mode-common-hook
-	    (lambda ()
-	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-		(counsel-gtags-mode))))
-  :bind (("M-t" . counsel-gtags-find-definition)
-	 ("M-r" . counsel-gtags-find-reference)
-	 ("M-s" . counsel-gtags-find-symbol)
-	 ("M-," . counsel-gtags-go-backward))
-  )
+;; (use-package counsel-gtags
+;;   :after ggtags
+;;   :init
+;;   (add-hook 'c-mode-common-hook
+;; 	    (lambda ()
+;; 	      (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+;; 		(counsel-gtags-mode))))
+;;   :bind (("M-t" . counsel-gtags-find-definition)
+;; 	 ("M-r" . counsel-gtags-find-reference)
+;; 	 ("M-s" . counsel-gtags-find-symbol)
+;; 	 ("M-," . counsel-gtags-go-backward))
+;;   )
 
 (use-package ansible
   :defer t
   :init
-  (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+  (add-hook 'yaml-mode-hook #'(lambda () (ansible 1)))
   :config
   (setq ansible-vault-password-file "~/ansible_vault_password.txt")
   ;; (global-set-key (kbd "C-c b") 'ansible-decrypt-buffer)
@@ -998,12 +991,12 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
-(global-set-key (kbd "C-c k t") '(lambda ()
+(global-set-key (kbd "C-c k t") #'(lambda ()
 				   (interactive )
 				   (tramp-cleanup-all-buffers)
 				   (tramp-cleanup-all-connections)
 				   (message "Cleaned all tramp connections...")))
-(global-set-key (kbd "C-c k w") '(lambda ()
+(global-set-key (kbd "C-c k w") #'(lambda ()
 				   (interactive)
 				   (yafolding-show-all)
 				   (delete-trailing-whitespace)
