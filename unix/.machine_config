@@ -63,3 +63,15 @@ export COLUMNS=1000
 set -o vi
 PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
 export PATH="$PATH":"/gsa/pokgsa/projects/x/xlcmpbld/build/tools":"/build/tools"
+
+export HISTCONTROL=ignoredups:erasedups # no duplicate entries
+export HISTSIZE=100000 # big big history
+export HISTFILESIZE=100000 # big big history
+shopt -s histappend # append to history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
+function which () {
+    for path in $(echo "$PATH" | sed -e 's/:/ /g'); do
+	[ -x "$path/$1" ] && echo "$path/$1";
+    done | uniq
+}
