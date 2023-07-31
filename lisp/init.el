@@ -338,11 +338,11 @@
   :init
   (setq doom-modeline-icon t)
   :config
-  ;; This line slows emacs down a lot in big org files on OS X alone
-  ;; (setq doom-modeline-enable-word-count t)
   (setq doom-modeline-buffer-file-name-style 'file-name)
-  (setq doom-modeline-major-mode-icon nil)
+  (setq doom-modeline-buffer-state-icon nil)
+  (setq doom-modeline-major-mode-color-icon t)
   (setq doom-modeline-indent-info t)
+  (setq doom-modeline-project-detection 'auto)
   (setq doom-modeline-minor-modes t) ;; Adds the gear icon with minions
   (setq doom-modeline-height 30)
   (setq doom-modeline-bar-width 1)

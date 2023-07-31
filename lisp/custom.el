@@ -22,6 +22,7 @@
  '(global-flycheck-mode t)
  '(global-hl-line-mode t)
  '(inhibit-startup-screen t)
+ '(inhibit-compacting-font-caches t)
  '(ledger-reports
    '(("bal cleared" "%(binary) [[ledger-mode-flags]] -f %(ledger-file) bal --cleared --real")
      (#("bal" 0 1
