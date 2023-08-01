@@ -279,6 +279,26 @@ foofoofoo  bar"
    ?e ?e ?e ?l ?d ?i backspace ?  ?@ ?  escape ?j ?V ?j ?d ?k ?k
    ?d ?d ?d ?d ?k ?k ?P ?i backspace escape ?j ?\C-c ?u] 0 "%d"))
 
+(cl-defun my-vc-install (&key (fetcher "github") repo name rev backend)
+  "Install a package from a remote if it's not already installed.
+This is a thin wrapper around `package-vc-install' in order to
+make non-interactive usage more ergonomic.  Takes the following
+named arguments:
+
+- FETCHER the remote where to get the package (e.g., \"gitlab\").
+  If omitted, this defaults to \"github\".
+
+- REPO should be the name of the repository (e.g.,
+  \"slotThe/arXiv-citation\".
+
+- NAME, REV, and BACKEND are as in `package-vc-install' (which
+  see)."
+  (let* ((url (format "https://www.%s.com/%s" fetcher repo))
+         (iname (when name (intern name)))
+         (pac-name (or iname (intern (file-name-base repo)))))
+    (unless (package-installed-p pac-name)
+      (package-vc-install url iname rev backend))))
+
 
 (provide 'custom-functions)
 ;;; custom-functions.el ends here

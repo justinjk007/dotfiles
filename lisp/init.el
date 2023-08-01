@@ -112,6 +112,13 @@
   (add-hook 'org-mode-hook #'add-pcomplete-to-capf)
   )
 
+(use-package treesit-auto
+  :init
+  (setq treesit-auto-install 'prompt)
+  :config
+  (global-treesit-auto-mode)
+  )
+
 (use-package eldoc)
 
 (use-package magit
@@ -409,6 +416,21 @@
   (add-hook 'web-mode-hook  'highlight-numbers-mode)
   )
 
+(use-package indent-bars
+  :init (my-vc-install :fetcher "github" :repo "jdtsmith/indent-bars")
+  :hook ((python-mode yaml-mode) . indent-bars-mode)
+  :config
+  (setq
+    indent-bars-color '(highlight :face-bg t :blend 0.2)
+    indent-bars-pattern "."
+    indent-bars-width-frac 0.1
+    indent-bars-pad-frac 0.1
+    indent-bars-zigzag nil
+    indent-bars-color-by-depth nil
+    indent-bars-highlight-current-depth nil
+    indent-bars-display-on-blank-lines nil)
+  )
+
 ;; https://patrickskiba.com/emacs/2019/09/07/emacs-for-react-dev.html
 ;; (use-package tide
 ;;   :defer t
@@ -505,11 +527,6 @@
   )
 
 (use-package htmlize
-  :defer t
-  )
-
-(use-package aggressive-indent
-  :commands (aggressive-indent-mode)
   :defer t
   )
 
@@ -873,7 +890,7 @@
 
 (use-package auto-virtualenvwrapper
   :init
-  (add-hook 'python-mode-hook #'auto-virtualenvwrapper-activate)
+  (add-hook 'python-ts-mode-hook #'auto-virtualenvwrapper-activate)
   )
 
 (use-package modern-cpp-font-lock
