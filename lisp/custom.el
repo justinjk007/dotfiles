@@ -51,9 +51,10 @@
    '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
  '(package-enable-at-startup t)
  '(package-selected-packages
-   '(indent-bars treesit-auto evil-markdown cmake-project cmake-mode clang-format modern-cpp-font-lock auto-virtualenvwrapper perltidy org-contrib orgalist ansible flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
+   '(ox-mediawiki orgmode-mediawiki indent-bars treesit-auto evil-markdown cmake-project cmake-mode clang-format modern-cpp-font-lock auto-virtualenvwrapper perltidy org-contrib orgalist ansible flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
  '(package-vc-selected-packages
-   '((indent-bars :vc-backend Git :url "https://www.github.com/jdtsmith/indent-bars")))
+   '((orgmode-mediawiki :vc-backend Git :url "https://www.github.com/tomalexander/orgmode-mediawiki")
+     (indent-bars :vc-backend Git :url "https://www.github.com/jdtsmith/indent-bars")))
  '(powerline-height nil)
  '(projectile-globally-ignored-directories
    '(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build"))

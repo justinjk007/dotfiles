@@ -162,6 +162,8 @@
       ring-bell-function 'ignore)
 
 ;;Put backup files neatly away -- saved me many times
+  ;; Fix an incompatibility between the ob-async and ob-ipython packages
+  ;; (setq ob-async-no-async-languages-alist '("ipython"))
 (let ((backup-dir "~/.emacs.d/Emacs/backups")
       (auto-saves-dir "~/.emacs.d/Emacs/autosavedir/")
       )
@@ -241,11 +243,11 @@
   (setq org-src-fontify-natively t)
   ;; Don't prompt before running code in org
   (setq org-confirm-babel-evaluate nil)
-  ;; Fix an incompatibility between the ob-async and ob-ipython packages
-  ;; (setq ob-async-no-async-languages-alist '("ipython"))
-  ;; Load org to media wiki lisp file
-  ;; https://github.com/tomalexander/orgmode-mediawiki
-  (load-file "~/.emacs.d/ox-mediawiki.el")
+  )
+
+(use-package ox-mediawiki
+  :after org
+  :init (my-vc-install :fetcher "github" :repo "tomalexander/orgmode-mediawiki")
   )
 
 (use-package org-bullets
