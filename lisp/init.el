@@ -289,8 +289,6 @@
 	 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")
   :config
-  ;; then use emacs command package-install-file to install from local .emacs.d/lisp/evil-markdown.el
-  (require 'evil-markdown) ;; load .emacs.d/lisp/evil-markdown.el
   (set-face-attribute 'markdown-header-face-1 nil :foreground "#cb4b16" :height 1.3 :family "IBM Plex Mono" )
   (set-face-attribute 'markdown-header-face-2 nil :foreground "#859902" :height 1.2 :family "IBM Plex Mono" )
   (set-face-attribute 'markdown-header-face-3 nil :foreground "#6c71c4" :height 1.15 :family "IBM Plex Mono" )
@@ -306,6 +304,12 @@
 			    ("\\<\\(DONE\\)" . font-lock-keyword-face)
 			    ("\\<\\(✓\\)" . font-lock-keyword-face))
 			  )
+  )
+
+
+(use-package evil-markdown
+  :after markdown-mode
+  :init (my-vc-install :fetcher "github" :repo "Somelauw/evil-markdown")
   )
 
 (use-package academic-phrases

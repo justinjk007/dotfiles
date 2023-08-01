@@ -27,9 +27,7 @@ setup_link $cwd/lisp/custom-functions.el ~/.emacs.d/custom-functions.el
 setup_link $cwd/snippets ~/.emacs.d/snippets
 setup_link $cwd/fluff/blackhole.png ~/.emacs.d/blackhole.png
 setup_link $cwd/fluff/meditate.png ~/.emacs.d/meditate.png
-setup_link $cwd/lisp/ox-mediawiki.el ~/.emacs.d/lisp/ox-mediawiki.el
 setup_link $cwd/lisp/perltidy.el ~/.emacs.d/lisp/perltidy.el
-setup_link $cwd/lisp/evil-markdown.el ~/.emacs.d/lisp/evil-markdown.el
 setup_link $cwd/unix/.clang-format ~/.clang-format
 setup_link $cwd/unix/.aliases ~/.aliases
 setup_link $cwd/unix/.bashrc ~/.bashrc

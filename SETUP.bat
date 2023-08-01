@@ -13,6 +13,4 @@ Xcopy snippets %home%\.emacs.d\snippets /e /y /f /q
 
 rem Lisp not on melpa
 IF NOT EXIST "%home%\.emacs.d\lisp" md %home%\.emacs.d\lisp
-Xcopy lisp\ox-mediawiki.el %home%\.emacs.d\lisp\ox-mediawiki.el /e /y /f /q
 Xcopy lisp\perltidy.el %home%\.emacs.d\lisp\perltidy.el /e /y /f /q
-Xcopy lisp\evil-markdown.el %home%\.emacs.d\lisp\evil-markdown.el /e /y /f /q
