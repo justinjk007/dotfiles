@@ -720,97 +720,99 @@
   )
 (use-package company-go)
 
-;; https://github.com/joaotavora/eglot
-;; brew install marksman
-;; pip install python-lsp-server
-;; brew install bash-language-server
-;; brew install yaml-language-server
-;; npm install -g dockerfile-language-server-nodejs
-(use-package eglot
-  :defer t
-  :hook ((python-ts-mode
-	  markdown-mode
-	  ) . eglot-ensure)
-  	  ;; yaml-ts-mode
-	  ;; bash-ts-mode
+;; ;; https://github.com/joaotavora/eglot
+;; (use-package eglot
+;;   :defer t
+;;   :hook ((python-ts-mode
+;; 	  markdown-mode
+;; 	  ) . eglot-ensure)
+;;   	  ;; yaml-ts-mode
+;; 	  ;; bash-ts-mode
+;;   )
+
+;; ;; brew install marksman
+;; ;; pip install python-lsp-server
+;; ;; brew install bash-language-server
+;; ;; brew install yaml-language-server
+;; ;; npm install -g dockerfile-language-server-nodejs
+
+(use-package lsp-mode
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :commands (lsp lsp-deferred)
+  :config
+  ;; This variable determines how often lsp-mode will refresh the highlights, lenses, links, etc
+  ;; while you type. Slow it down so emacs don't get stuck.
+  (setq lsp-idle-delay 0.500)
+  (setq lsp-prefer-capf t) ;; company-capf, use this instead of company lsp, better performance
+  :hook
+  ((go-mode) . lsp)
+  ((python-ts-mode) . lsp)
+  ((markdown-mode) . lsp)
   )
 
-;; (use-package lsp-mode
-;;   :init
-;;   (setq lsp-keymap-prefix "C-c l")
-;;   :commands (lsp lsp-deferred)
-;;   ;; :hook (nxml-mode . lsp-deferred)
-;;   :config
-;;   ;; This variable determines how often lsp-mode will refresh the highlights, lenses, links, etc
-;;   ;; while you type. Slow it down so emacs don't get stuck.
-;;   (setq lsp-idle-delay 0.500)
-;;   (setq lsp-prefer-capf t) ;; company-capf, use this instead of company lsp, better performance
-;;   :hook
-;;   ((go-mode) . lsp)
-;;   )
+(use-package lsp-ui
+  :commands lsp-ui-mode
+  :bind ("M-g f" . lsp-ui-sideline-apply-code-actions)
+  :init
+  (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
+  (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+  :config
+  (setq lsp-ui-doc-position 'top ;; top right
+	lsp-signature-auto-activate t
+	lsp-ui-sideline-delay 5 ;; 5 seconds
+	lsp-signature-doc-lines 1 )
+  )
 
-;; (use-package lsp-ui
-;;   :commands lsp-ui-mode
-;;   :bind ("M-g f" . lsp-ui-sideline-apply-code-actions)
-;;   :init
-;;   (add-hook 'lsp-after-open-hook 'lsp-enable-imenu)
-;;   (add-hook 'lsp-mode-hook 'lsp-ui-mode)
-;;   :config
-;;   (setq lsp-ui-doc-position 'top ;; top right
-;; 	lsp-signature-auto-activate t
-;; 	lsp-ui-sideline-delay 5 ;; 5 seconds
-;; 	lsp-signature-doc-lines 1 )
-;;   )
+(use-package lsp-dart
+  :init
+  (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
+      (add-hook 'dart-mode-hook #'lsp)
+    )
+  :config
+  ;;;;;;;;;;;;;;;;;
+  ;; Dart config ;;
+  ;;;;;;;;;;;;;;;;;
+  (setq lsp-dart-sdk-dir "~/Dev/flutter/bin/cache/dart-sdk")
+  (setq lsp-dart-flutter-widget-guides 'nil)
+  (setq lsp-auto-guess-root t)
+  (with-eval-after-load "projectile"
+    (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+    (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+  (defun project-try-dart (dir)
+    (let ((project (or (locate-dominating-file dir "pubspec.yaml")
+		       (locate-dominating-file dir "BUILD"))))
+      (if project
+	  (cons 'dart project)
+	(cons 'transient dir))))
+  (cl-defmethod project-roots ((project (head dart)))
+    (list (cdr project)))
+  (add-hook 'project-find-functions #'project-try-dart)
+  )
 
-;; (use-package lsp-dart
-;;   :init
-;;   (if (or (eq system-type 'darwin) (eq system-type 'gnu/linux))
-;;       (add-hook 'dart-mode-hook #'lsp)
-;;     )
-;;   :config
-;;   ;;;;;;;;;;;;;;;;;
-;;   ;; Dart config ;;
-;;   ;;;;;;;;;;;;;;;;;
-;;   (setq lsp-dart-sdk-dir "~/Dev/flutter/bin/cache/dart-sdk")
-;;   (setq lsp-dart-flutter-widget-guides 'nil)
-;;   (setq lsp-auto-guess-root t)
-;;   (with-eval-after-load "projectile"
-;;     (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-;;     (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
-;;   (defun project-try-dart (dir)
-;;     (let ((project (or (locate-dominating-file dir "pubspec.yaml")
-;; 		       (locate-dominating-file dir "BUILD"))))
-;;       (if project
-;; 	  (cons 'dart project)
-;; 	(cons 'transient dir))))
-;;   (cl-defmethod project-roots ((project (head dart)))
-;;     (list (cdr project)))
-;;   (add-hook 'project-find-functions #'project-try-dart)
-;;   )
+(use-package dart-mode
+  :init
+  (add-hook 'dart-mode-hook (lambda () (eldoc-mode -1))) ; This feature is given by lsp ui anyways
+  )
 
-;; (use-package dart-mode
-;;   :init
-;;   (add-hook 'dart-mode-hook (lambda () (eldoc-mode -1))) ; This feature is given by lsp ui anyways
-;;   )
+(use-package dart-server
+  ;; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
+  :bind (:map dart-mode-map ("C-c u" . dart-server-format))
+  :init
+  (add-hook 'dart-mode-hook 'dart-server)
+  )
 
-;; (use-package dart-server
-;;   ;; Added this to path D:\Dev\flutter\bin\cache\dart-sdk\bin\
-;;   :bind (:map dart-mode-map ("C-c u" . dart-server-format))
-;;   :init
-;;   (add-hook 'dart-mode-hook 'dart-server)
-;;   )
-
-;; (use-package flutter
-;;   :after dart-mode
-;;   :bind
-;;   (:map dart-mode-map
-;; 	("S-SPC" . #'flutter-run-or-hot-reload)
-;; 	("C-M-z" . #'flutter-hot-restart)
-;; 	)
-;;   :custom
-;;   ;; file mode specification error means environment var is not set
-;;   (flutter-sdk-path "~/Dev/flutter/")
-;;   )
+(use-package flutter
+  :after dart-mode
+  :bind
+  (:map dart-mode-map
+	("S-SPC" . #'flutter-run-or-hot-reload)
+	("C-M-z" . #'flutter-hot-restart)
+	)
+  :custom
+  ;; file mode specification error means environment var is not set
+  (flutter-sdk-path "~/Dev/flutter/")
+  )
 
 (use-package hydra
   :config
