@@ -19,7 +19,7 @@ PERL_MB_OPT="--install_base \"/Users/Justin.Kaipada@ibm.com/perl5\""; export PER
 PERL_MM_OPT="INSTALL_BASE=/Users/Justin.Kaipada@ibm.com/perl5"; export PERL_MM_OPT;
 
 # python stuff
-PATH="/Users/Justin.Kaipada@ibm.com/Library/Python/3.8/bin${PATH:+:${PATH}}"; export PATH;
+PATH="/Users/Justin.Kaipada@ibm.com/Library/Python/3.11/bin${PATH:+:${PATH}}"; export PATH;
 
 # go stuff
 export PATH="$PATH":"$HOME/go/bin":"/usr/local/go/bin/"
