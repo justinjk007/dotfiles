@@ -730,13 +730,19 @@
 ;; 	  ;; bash-ts-mode
 ;;   )
 
-;; ;; brew install marksman
-;; ;; pip install python-lsp-server
-;; ;; brew install bash-language-server
-;; ;; brew install yaml-language-server
-;; ;; npm install -g dockerfile-language-server-nodejs
+;; brew install marksman
+;; pip install python-lsp-server
+;; pip install python-lsp-server
+;; pip install flake8
+;; brew install bash-language-server
+;; brew install yaml-language-server
+;; npm install -g dockerfile-language-server-nodejs
 
 (use-package lsp-mode
+  :hook
+  ((go-mode) . lsp)
+  ((python-ts-mode) . lsp)
+  ((markdown-mode) . lsp)
   :init
   (setq lsp-keymap-prefix "C-c l")
   :commands (lsp lsp-deferred)
@@ -744,11 +750,12 @@
   ;; This variable determines how often lsp-mode will refresh the highlights, lenses, links, etc
   ;; while you type. Slow it down so emacs don't get stuck.
   (setq lsp-idle-delay 0.500)
-  (setq lsp-prefer-capf t) ;; company-capf, use this instead of company lsp, better performance
-  :hook
-  ((go-mode) . lsp)
-  ((python-ts-mode) . lsp)
-  ((markdown-mode) . lsp)
+  ;; (setq lsp-prefer-capf nil) ;; company-capf, use this instead of company lsp, better performance
+  (setq company-minimum-prefix-length 1
+	company-idle-delay 0.0) ;; default is 0.2
+  (setq lsp-modeline-diagnostics-scope :workspace)
+  (setq lsp-modeline-diagnostics-enable nil)
+  (setq lsp-headerline-breadcrumb-enable nil)
   )
 
 (use-package lsp-ui
@@ -760,7 +767,7 @@
   :config
   (setq lsp-ui-doc-position 'top ;; top right
 	lsp-signature-auto-activate t
-	lsp-ui-sideline-delay 5 ;; 5 seconds
+	lsp-ui-sideline-delay 3 ;; 3 seconds
 	lsp-signature-doc-lines 1 )
   )
 
