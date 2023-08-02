@@ -424,7 +424,7 @@
 
 (use-package indent-bars
   :init (my-vc-install :fetcher "github" :repo "jdtsmith/indent-bars")
-  :hook ((python-mode yaml-mode) . indent-bars-mode)
+  :hook ((python-ts-mode yaml-ts-mode) . indent-bars-mode)
   :config
   (setq
     indent-bars-color '(highlight :face-bg t :blend 0.2)
@@ -978,6 +978,14 @@
 				   (yafolding-show-all)
 				   (delete-trailing-whitespace)
 				   (message "Deleted all whitespaces...")))
+(setq major-mode-remap-alist
+      '((yaml-mode . yaml-ts-mode)
+	(bash-mode . bash-ts-mode)
+	(js2-mode . js-ts-mode)
+	(typescript-mode . typescript-ts-mode)
+	(json-mode . json-ts-mode)
+	(css-mode . css-ts-mode)
+	(python-mode . python-ts-mode)))
 
 (provide 'init.el)
 ;;; init.el ends here
