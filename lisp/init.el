@@ -732,8 +732,9 @@
 
 ;; brew install marksman
 ;; pip install python-lsp-server
-;; pip install python-lsp-server
 ;; pip install flake8
+;; pip install ruff
+;; pip install ruff-lsp
 ;; brew install bash-language-server
 ;; brew install yaml-language-server
 ;; npm install -g dockerfile-language-server-nodejs
