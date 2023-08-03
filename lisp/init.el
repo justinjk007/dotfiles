@@ -51,8 +51,6 @@
   (setq use-package-always-ensure t))
 
 (setq-default frame-title-format '("%f [%m%*mode]"))
-;; (add-to-list 'default-frame-alist '(width  . 110))
-;; (add-to-list 'default-frame-alist '(height . 37))
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
