@@ -64,7 +64,6 @@
 (use-package evil
   :config
   (evil-mode 1)
-  (evil-ex-define-cmd "do[ne-archive]" 'my-org-archive-done-tasks)
   (define-key evil-normal-state-map "n" 'scroll-up)
   (define-key evil-normal-state-map "N" 'scroll-down)
   (define-key evil-normal-state-map "J" 'evil-scroll-line-up)
@@ -116,6 +115,7 @@
   )
 
 (use-package treesit-auto
+  :functions global-treesit-auto-mode
   :init
   (setq treesit-auto-install 'prompt)
   :config
@@ -127,6 +127,7 @@
 (use-package magit
   :defer t
   :bind ("C-x g" . magit-status)
+  :defines magit-add-section-hook
   :config
   ;; Add a default commit message to clipboard when opening magit status
   (defadvice magit-status
@@ -149,20 +150,14 @@
   (progn (message "Machine specific customizations exits")
 	 (load-file "~/.emacs.d/machine-specific.el")))
 
-;;-------------------------------------Eshell------------------
-(setq eshell-prompt-function
-      (lambda ()
-	(concat
-	 (propertize "┌─[" 'face `(:foreground "#b58900"))
-	 (propertize (concat (eshell/pwd)) 'face `(:foreground "#93a1a1"))
-	 (propertize "]\n" 'face `(:foreground "#b58900"))
-	 (propertize "└─>" 'face `(:foreground "#b58900"))
-	 (propertize (if (= (user-uid) 0) " # " " $ ") 'face `(:foreground "#859902"))
-	 )))
-;;-------------------------------------Eshell------------------
-
 (setq visible-bell nil
       ring-bell-function 'ignore)
+
+;; Tramp setup ---------------
+(require 'tramp)
+(setq tramp-default-method "ssh")
+;; Settings for tramp that are machine specific are loaded from machine-specific.el see line 40
+;; Tramp setup ---------------
 
 ;;Put backup files neatly away -- saved me many times
   ;; Fix an incompatibility between the ob-async and ob-ipython packages
@@ -197,6 +192,9 @@
   :defer t
   :mode ("\\.org$" . org-mode)
   ;; :bind ("C-'" . org-cycle-agenda-files)
+  :defines org-clock-mode-line-total
+  :defines org-duration-format
+  :defines org-latex-src-block-backend
   :init
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
@@ -233,7 +231,7 @@
   (define-key org-mode-map (kbd "C-c m") 'org-table-mark-field)
   (define-key org-mode-map (kbd "C-c d") 'insert-date)
   (require 'ox-latex)
-  (setq org-latex-listings 't)
+  (setq org-latex-src-block-backend 'listings)
   ;; Run/highlight code using babel in org-mode
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -250,6 +248,7 @@
 
 (use-package ox-mediawiki
   :after org
+  :defines my-vc-install
   :init (my-vc-install :fetcher "github" :repo "tomalexander/orgmode-mediawiki")
   )
 
@@ -478,7 +477,6 @@
   :defer t
   :after web-mode
   :bind (:map web-mode-map ("C-c u" . prettier-prettify))
-  :bind (:map js-mode-map ("C-c u" . prettier-prettify))
   :bind ("C-c {" . global-prettier-mode)
   )
 
@@ -495,6 +493,7 @@
   )
 
 (use-package yasnippet
+  :after company
   :load-path "~/.emacs.d/snippets/"
   :config
   (yas-global-mode 1)
@@ -502,6 +501,7 @@
   :preface
   ;; enable yasnippet everywhere
   ;; https://onze.io/emacs/c++/2017/03/16/emacs-cpp.html
+  (require 'company)
   (defvar company-mode/enable-yas t
     "Enable yasnippet for all backends.")
   (defun company-mode/backend-with-yas (backend)
@@ -913,12 +913,6 @@
   :config
   (add-hook 'groovy-mode-hook 'rainbow-mode)
   )
-
-;; Tramp setup ---------------
-(require 'tramp)
-(setq tramp-default-method "ssh")
-;; Settings for tramp that are machine specific are loaded from machine-specific.el see line 40
-;; Tramp setup ---------------
 
 ;; Perl modifications
 (require 'cperl-mode)
