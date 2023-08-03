@@ -743,13 +743,18 @@
 ;; brew install bash-language-server
 ;; brew install yaml-language-server
 ;; brew install semgrep # needed by yaml-lsp
+;;         need to run in each repo: semgrep scan --config auto
 ;; npm install -g dockerfile-language-server-nodejs
+;; npm install -g @ansible/ansible-language-server
 
 (use-package lsp-mode
   :hook
   ((go-mode) . lsp)
   ((python-ts-mode) . lsp)
+  ((yaml-ts-mode) . lsp)
   ((markdown-mode) . lsp)
+  ((dockerfile-ts-mode-hook) . lsp)
+  ((bash-ts-mode) . lsp)
   :init
   (setq lsp-keymap-prefix "C-c l")
   :commands (lsp lsp-deferred)
@@ -854,10 +859,10 @@
 (use-package yaml-mode
   :mode ("\\.yml\\'" . yaml-mode)
   :init
-  (add-hook 'yaml-mode-hook 'highlight-numbers-mode)
-  (add-hook 'yaml-mode-hook 'display-line-numbers-mode)
-  (add-hook 'yaml-mode-hook 'display-line-numbers-mode)
-  (add-hook 'yaml-mode-hook (lambda () (yafolding-mode)))
+  (add-hook 'yaml-ts-mode-hook 'highlight-numbers-mode)
+  (add-hook 'yaml-ts-mode-hook 'display-line-numbers-mode)
+  (add-hook 'yaml-ts-mode-hook 'display-line-numbers-mode)
+  (add-hook 'yaml-ts-mode-hook (lambda () (yafolding-mode)))
   )
 
 (use-package dashboard
@@ -976,7 +981,7 @@
 (use-package ansible
   :defer t
   :init
-  (add-hook 'yaml-mode-hook #'(lambda () (ansible 1)))
+  (add-hook 'yaml-ts-mode-hook #'(lambda () (ansible 1)))
   :config
   (setq ansible-vault-password-file "~/ansible_vault_password.txt")
   ;; (global-set-key (kbd "C-c b") 'ansible-decrypt-buffer)
