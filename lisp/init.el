@@ -38,6 +38,11 @@
 (add-hook 'tex-mode-hook 'display-line-numbers-mode) ; For latex
 (add-to-list 'load-path "~/.emacs.d/lisp/") ;; Tell emacs where is your personal elisp lib dir
 
+;; Brew, pip and npm install stuff here on mac...so add it to path
+(if (eq system-type 'darwin)
+    (setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
+  )
+
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -422,20 +427,20 @@
   (add-hook 'web-mode-hook  'highlight-numbers-mode)
   )
 
-(use-package indent-bars
-  :init (my-vc-install :fetcher "github" :repo "jdtsmith/indent-bars")
-  :hook ((python-ts-mode yaml-ts-mode) . indent-bars-mode)
-  :config
-  (setq
-    indent-bars-color '(highlight :face-bg t :blend 0.2)
-    indent-bars-pattern "."
-    indent-bars-width-frac 0.1
-    indent-bars-pad-frac 0.1
-    indent-bars-zigzag nil
-    indent-bars-color-by-depth nil
-    indent-bars-highlight-current-depth nil
-    indent-bars-display-on-blank-lines nil)
-  )
+;; (use-package indent-bars
+;;   :init (my-vc-install :fetcher "github" :repo "jdtsmith/indent-bars")
+;;   :hook ((python-ts-mode yaml-ts-mode) . indent-bars-mode)
+;;   :config
+;;   (setq
+;;     indent-bars-color '(highlight :face-bg t :blend 0.2)
+;;     indent-bars-pattern "."
+;;     indent-bars-width-frac 0.1
+;;     indent-bars-pad-frac 0.1
+;;     indent-bars-zigzag nil
+;;     indent-bars-color-by-depth nil
+;;     indent-bars-highlight-current-depth nil
+;;     indent-bars-display-on-blank-lines nil)
+;;   )
 
 ;; https://patrickskiba.com/emacs/2019/09/07/emacs-for-react-dev.html
 ;; (use-package tide
@@ -732,11 +737,12 @@
 
 ;; brew install marksman
 ;; pip install python-lsp-server
-;; pip install flake8
+;; pip install flake8 --> this or ruff can can be used...both not needed
 ;; pip install ruff
 ;; pip install ruff-lsp
 ;; brew install bash-language-server
 ;; brew install yaml-language-server
+;; brew install semgrep # needed by yaml-lsp
 ;; npm install -g dockerfile-language-server-nodejs
 
 (use-package lsp-mode

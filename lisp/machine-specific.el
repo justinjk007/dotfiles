@@ -72,8 +72,6 @@
 (setq-default explicit-shell-file-name "/bin/bash")
 (setq-default shell-file-name "/bin/bash")
 
-(setenv "PATH" (concat "/usr/local/bin/:" (getenv "PATH")))
-
 ;; Changes for work macbook
 (if (eq system-type 'darwin)
     (progn
