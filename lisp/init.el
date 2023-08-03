@@ -377,6 +377,7 @@
   )
 
 (use-package engine-mode
+  :functions engine/set-keymap-prefix
   :config
   (engine-mode t)
   (engine/set-keymap-prefix (kbd "M-a"))
@@ -497,7 +498,7 @@
   :load-path "~/.emacs.d/snippets/"
   :config
   (yas-global-mode 1)
-  (add-hook 'term-mode-hook (lambda() (setq yas-dont-activate t)))
+  (add-hook 'term-mode-hook (lambda() (setq yas-dont-activate-functions t)))
   :preface
   ;; enable yasnippet everywhere
   ;; https://onze.io/emacs/c++/2017/03/16/emacs-cpp.html
@@ -627,8 +628,7 @@
 
 (use-package projectile
   :config
-  (projectile-global-mode)
-  (projectile-mode +1)
+  (projectile-mode 1)
   (setq projectile-completion-system 'ivy)
   (global-set-key (kbd "C-c j") 'projectile-grep)
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
@@ -746,6 +746,7 @@
 ;; npm install -g @ansible/ansible-language-server
 
 (use-package lsp-mode
+  :defines lsp-modeline-diagnostics-scope
   :hook
   ((go-mode) . lsp)
   ((python-ts-mode) . lsp)
@@ -802,7 +803,7 @@
       (if project
 	  (cons 'dart project)
 	(cons 'transient dir))))
-  (cl-defmethod project-roots ((project (head dart)))
+  (cl-defmethod project-root ((project (head dart)))
     (list (cdr project)))
   (add-hook 'project-find-functions #'project-try-dart)
   )
@@ -820,6 +821,7 @@
   )
 
 (use-package flutter
+  :functions flutter-hot-restart
   :after dart-mode
   :bind
   (:map dart-mode-map
@@ -942,8 +944,7 @@
 ;; Install MingW - http://mingw-w64.org/doku.php - 32 bit version
 (use-package clang-format
   :init
-  (require 'cc-mode)
-  (add-hook 'c-mode-common-hook #'(lambda ()(ignore-errors (clang-format))))
+  :defines clang-format-style-option
   :config
   (setq clang-format-style-option "file")
   (define-key c-mode-base-map (kbd "C-c r") 'clang-format-region)
