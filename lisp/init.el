@@ -947,8 +947,8 @@
   :defines clang-format-style-option
   :config
   (setq clang-format-style-option "file")
-  (define-key c-mode-base-map (kbd "C-c r") 'clang-format-region)
-  (define-key c-mode-base-map (kbd "C-c u") 'clang-format-buffer)
+  ;; (define-key c-mode-base-map (kbd "C-c r") 'clang-format-region)
+  ;; (define-key c-mode-base-map (kbd "C-c u") 'clang-format-buffer)
   )
 
 (use-package cmake-mode
@@ -983,7 +983,6 @@
   )
 
 ;; Misc Bindings
-(define-key c-mode-base-map (kbd "<M-return>") 'ff-find-other-file)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "M-Z") 'eshell)
 (global-set-key (kbd "M-z") 'shell-command)
