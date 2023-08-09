@@ -1,7 +1,7 @@
 ﻿;;; package --- init-file
 ;;; Author:Justin Kaipada
 ;;; Commentary:
-"Thou shalt notcross 80 columns in thy file"
+"Thou shalt not cross 80 columns in thy file"
 
 ;;; Code:
 (require 'package)
