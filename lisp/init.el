@@ -673,6 +673,7 @@
   ;; deletes all the whitespace when you hit backspace or delete
   :config
   (global-hungry-delete-mode)
+  (add-hook 'minibuffer-setup-hook (lambda () (hungry-delete-mode -1)))
   )
 
 (use-package expand-region
