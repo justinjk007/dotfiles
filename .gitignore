@@ -1,1 +1,2 @@
 *.elc
+/lisp/flycheck_init.el
