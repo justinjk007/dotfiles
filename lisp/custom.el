@@ -90,7 +90,7 @@
  '(evil-goggles-yank-face ((t (:inherit 'diff-changed :weight bold))))
  '(fic-face ((t (:foreground "#ff6a6a" :slant normal :weight bold))))
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
- '(ivy-minibuffer-match-face-2 ((t (:background "light steel blue" :weight bold))))
+ '(ivy-minibuffer-match-face-2 ((t (:background "#6ba8a2" :foreground "#eee8d5"))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
  '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
  '(org-clock-overlay ((t (:background "pale green"))))
@@ -103,6 +103,7 @@
  '(org-warning ((t (:foreground "red" :underline t))))
  '(powerline-inactive1 ((t (:background "dim gray" :foreground "white"))))
  '(powerline-inactive2 ((t (:background "#4a4a4a" :foreground "pink"))))
+ '(region ((t (:extend t :background "#6ba8a2" :foreground "#eee8d5"))))
  '(web-mode-folded-face ((t (:foreground "#d33682" :underline nil)))))
 
 
