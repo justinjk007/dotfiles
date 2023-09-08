@@ -56,7 +56,7 @@ manually, this is only done once really.
   - Install [[https://brew.sh][Brew]].
   - Install Aspell from brew using =brew install aspell=
   - Install Ghostscript to view pdfs in DocView =brew install gs=
-  - Install emacs from https://emacsformacosx.com/
+  - Install emacs from Brew with =brew install --cask emacs=
   - Run the =copy.sh=
 
 
@@ -74,6 +74,7 @@ PS: To get to the startup folder on windows open the run window
   #+begin_src sh
   pip install 'python-language-server[all]' # for lsp support
    #+end_src
+
 - [[https://sourceforge.net/projects/ezwinports/files/][Hunspell]]- Try and match this install path
   #+BEGIN_SRC emacs-lisp
     (add-to-list 'exec-path "c:/Program Files (x86)/Hunspell/bin/")
@@ -82,8 +83,8 @@ PS: To get to the startup folder on windows open the run window
 - [[https://github.com/IBM/plex/releases][IBM Plex fonts]]
 - [[https://github.com/domtronn/all-the-icons.el/tree/master/fonts][All the fonts]]
   #+begin_src emacs-lisp
-  ;; On linux this can easily done by calling
-  (all-the-icons-install-fonts)
+  ;; On linux/mac this can easily done by calling
+  (nerd-icons-install-fonts)
   #+end_src
 - [[https://miktex.org/][MiKTEX]]
 - [[http://releases.llvm.org/download.html][LLVM-ToolChain]]

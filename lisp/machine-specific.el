@@ -97,13 +97,13 @@
 	    "/usr/local/bin"
 	    "/usr/local/gsa/bin"
 	    "/Library/Apple/usr/bin"
-	    "/Users/Justin.Kaipada@ibm.com/perl5/bin"
-	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/bin/"
-	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/.pub-cache/bin/"
-	    "/Users/Justin.Kaipada@ibm.com/Dev/flutter/bin/cache/dart-sdk/bin/"
-	    "/Users/Justin.Kaipada@ibm.com/Library/Python/3.8/bin/"
+	    "/Users/kaipada/perl5/bin"
+	    "/Users/kaipada/Dev/flutter/bin/"
+	    "/Users/kaipada/Dev/flutter/.pub-cache/bin/"
+	    "/Users/kaipada/Dev/flutter/bin/cache/dart-sdk/bin/"
+	    "/Users/kaipada/Library/Python/3.8/bin/"
 	    "/usr/local/go/bin/"
-	    "/Users/Justin.Kaipada@ibm.com/go/bin"
+	    "/Users/kaipada/go/bin"
 	    )
 	  )
 
