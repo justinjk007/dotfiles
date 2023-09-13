@@ -185,9 +185,7 @@
 (defvar electric-pair-pairs '(
 			      (?\{ . ?\})
 			      ) )
-
 (use-package org
-  :ensure org-contrib
   :pin gnu
   :defer t
   :mode ("\\.org$" . org-mode)
@@ -585,7 +583,7 @@
 (cond
  ((string-equal system-type "darwin")
   (progn
-    (setq ispell-program-name "/usr/local/bin/aspell")
+    (setq ispell-program-name "/opt/homebrew/bin/aspell")
     ))
  )
 
@@ -692,7 +690,7 @@
   (add-hook 'ledger-mode-hook 'olivetti-mode)
   (setq compile-command (concat "ledger -f " (file-name-nondirectory buffer-file-name) " bal --cleared" ))
   (if (eq system-type 'darwin)
-      (setq ledger-binary-path "/usr/local/bin/ledger")
+      (setq ledger-binary-path "/opt/homebrew/bin/ledger")
     )
   )
 

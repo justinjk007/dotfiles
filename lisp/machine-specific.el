@@ -101,9 +101,10 @@
 	    "/Users/kaipada/Dev/flutter/bin/"
 	    "/Users/kaipada/Dev/flutter/.pub-cache/bin/"
 	    "/Users/kaipada/Dev/flutter/bin/cache/dart-sdk/bin/"
-	    "/Users/kaipada/Library/Python/3.8/bin/"
-	    "/usr/local/go/bin/"
+	    "/Users/kaipada/Library/Python/3.11/bin/"
 	    "/Users/kaipada/go/bin"
+	    "/usr/local/go/bin/"
+	    "/opt/homebrew/bin/"
 	    )
 	  )
 
