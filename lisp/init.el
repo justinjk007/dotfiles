@@ -733,9 +733,8 @@
 ;;   )
 
 ;; brew install marksman
-;; pip install python-lsp-server
-;; pip install flake8 --> this or ruff can can be used...both not needed
 ;; pip install ruff
+;; Ruff is being used instead of this ===== pip install python-lsp-server
 ;; pip install ruff-lsp
 ;; brew install bash-language-server
 ;; brew install yaml-language-server
