@@ -30,6 +30,7 @@ setup_link $cwd/fluff/meditate.png ~/.emacs.d/meditate.png
 setup_link $cwd/lisp/perltidy.el ~/.emacs.d/lisp/perltidy.el
 setup_link $cwd/unix/.clang-format ~/.clang-format
 setup_link $cwd/unix/.aliases ~/.aliases
+setup_link $cwd/unix/.tmux.conf ~/.tmux.conf
 setup_link $cwd/unix/.bashrc ~/.bashrc
 setup_link $cwd/unix/.perltidyrc ~/.perltidyrc
 setup_link $cwd/unix/.bash_profile ~/.bash_profile
