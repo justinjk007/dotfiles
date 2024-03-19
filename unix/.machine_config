@@ -75,3 +75,5 @@ function which () {
 	[ -x "$path/$1" ] && echo "$path/$1";
     done | uniq
 }
+
+export IVT_CFG=~/GIT_repos/bpi.ivt.scripts
