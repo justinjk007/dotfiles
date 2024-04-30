@@ -2,4 +2,4 @@
 # name: artifactory-download-tarball
 # key: arti
 # --
-jfrog rt dl $0
+jf rt dl $0
