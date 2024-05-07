@@ -40,8 +40,7 @@
       "%(binary) -f %(ledger-file) reg %(account) --real")
      (#("account (even virtual)" 0 1
 	(idx 3))
-      "%(binary) -f %(ledger-file) reg %(account)")
-     ))
+      "%(binary) -f %(ledger-file) reg %(account)")))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
@@ -50,7 +49,7 @@
    '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
  '(package-enable-at-startup t)
  '(package-selected-packages
-   '(groovy-mode crontab-mode xref-js2 js2-refactor js2-mode auctex dashboard yaml-mode wotd smartparens flutter dart-server lsp-dart lsp-ui lsp-mode company-go go-mode anzu dockerfile-mode flycheck-ledger ledger-mode expand-region hungry-delete evil-goggles beacon counsel-projectile ibuffer-projectile projectile avy counsel swiper rainbow-delimiters highlight-numbers key-chord htmlize speed-type ivy-yasnippet yasnippet-snippets yafolding prettier web-mode engine-mode doom-modeline minions nerd-icons shackle olivetti academic-phrases markdown-mode csv-mode ox-hugo ox-reveal ox-twbs org-bullets ox-mediawiki orgmode-mediawiki indent-bars treesit-auto evil-markdown cmake-project cmake-mode clang-format modern-cpp-font-lock auto-virtualenvwrapper perltidy org-contrib orgalist ansible flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
+   '(ob-async groovy-mode crontab-mode xref-js2 js2-refactor js2-mode auctex dashboard yaml-mode wotd smartparens flutter dart-server lsp-dart lsp-ui lsp-mode company-go go-mode anzu dockerfile-mode flycheck-ledger ledger-mode expand-region hungry-delete evil-goggles beacon counsel-projectile ibuffer-projectile projectile avy counsel swiper rainbow-delimiters highlight-numbers key-chord htmlize speed-type ivy-yasnippet yasnippet-snippets yafolding prettier web-mode engine-mode doom-modeline minions nerd-icons shackle olivetti academic-phrases markdown-mode csv-mode ox-hugo ox-reveal ox-twbs org-bullets ox-mediawiki orgmode-mediawiki indent-bars treesit-auto evil-markdown cmake-project cmake-mode clang-format modern-cpp-font-lock auto-virtualenvwrapper perltidy org-contrib orgalist ansible flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
  '(package-vc-selected-packages
    '((evil-markdown :vc-backend Git :url "https://www.github.com/Somelauw/evil-markdown")
      (orgmode-mediawiki :vc-backend Git :url "https://www.github.com/tomalexander/orgmode-mediawiki")

@@ -263,6 +263,11 @@
   :after org
   )
 
+(use-package ob-async
+  ;; async commands from org mode
+  :after org
+  )
+
 (use-package ox-reveal
   :after org
   :config
