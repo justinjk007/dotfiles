@@ -327,6 +327,9 @@
   (add-hook 'dired-mode-hook 'olivetti-mode)
   )
 
+(use-package alarm-clock
+  )
+
 (use-package shackle
   :config
   (shackle-mode t)
@@ -983,6 +986,12 @@
   ;; (global-set-key (kbd "C-c b") 'ansible-decrypt-buffer)
   ;; (global-set-key (kbd "C-c g") 'ansible-encrypt-buffer)
   ;; (add-hook 'ansible-hook 'ansible-auto-decrypt-encrypt)
+  )
+
+(use-package jcl-mode
+  :after org
+  :defines my-vc-install
+  :init (my-vc-install :fetcher "github" :repo "Trisk3lion/jcl-mode")
   )
 
 ;; Misc Bindings
