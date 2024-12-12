@@ -8,6 +8,7 @@
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
 			 ("melpa-s" . "http://stable.melpa.org/packages/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("non-gnu" . "https://elpa.nongnu.org/nongnu/")
 			 ))
 
 (package-initialize)
@@ -343,6 +344,10 @@
 	  (" *Org Todo*"            :select t   :align below :size 0.2)
 	  ("*Man.*"                 :select t   :align below :size 0.5  :regexp t)
 	  ))
+  )
+
+(use-package eat
+  :pin non-gnu
   )
 
 (use-package nerd-icons
