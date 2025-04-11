@@ -222,8 +222,9 @@
 			    ("\\<\\(✗\\)" . font-lock-warning-face)
 			    ("\\<\\(✓\\)" . font-lock-keyword-face))
 			  )
-  (setq org-todo-keywords '((sequence "TODO" "DONE" "CANCELED")))
+  (setq org-todo-keywords '((sequence "TODO" "DONE" "MOVED" "CANCELED")))
   (setq org-todo-keyword-faces '(
+				 ("MOVED" . font-lock-keyword-face)
 				 ("CANCELED" . font-lock-warning-face)
 				 ("DONE" . font-lock-keyword-face)
 				 ))
