@@ -1000,6 +1000,14 @@
   :init (my-vc-install :fetcher "github" :repo "Trisk3lion/jcl-mode")
   )
 
+; https://github.com/SqrtMinusOne/pomm.el
+(use-package pomm
+  :commands (pomm pomm-third-time)
+  :config
+  (pomm-mode-line-mode)
+  (setq pomm-audio-enabled t)
+  )
+
 ;; Misc Bindings
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "M-Z") 'eshell)
