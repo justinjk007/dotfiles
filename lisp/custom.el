@@ -60,6 +60,7 @@
  '(projectile-globally-ignored-directories
    '(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build"))
  '(projectile-use-git-grep t)
+ '(require-final-newline 'visit-save)
  '(ring-bell-function 'ignore)
  '(safe-local-variable-values
    '((flyspell-mode)
