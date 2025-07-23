@@ -131,10 +131,10 @@
   :defines magit-add-section-hook
   :config
   ;; Add a default commit message to clipboard when opening magit status
-  (defadvice magit-status
-      (before magit-status activate)
-    (kill-new (concat "Update " (file-name-nondirectory (if (null buffer-file-name) "" buffer-file-name)))))
-  (ad-activate 'magit-status)
+  ;; (define-advice magit-status
+  ;;     (before magit-status activate)
+  ;;   (kill-new (concat "Update " (file-name-nondirectory (if (null buffer-file-name) "" buffer-file-name)))))
+  ;; (ad-activate 'magit-status)
   ;; Add username section in magit status buffer
   (magit-add-section-hook 'magit-status-sections-hook
 			  'magit-insert-user-header
@@ -877,15 +877,15 @@
   (add-hook 'yaml-ts-mode-hook (lambda () (yafolding-mode)))
   )
 
-(use-package dashboard
-  :config
-  (dashboard-setup-startup-hook)
-  (setq dashboard-startup-banner (expand-file-name "~/.emacs.d/meditate.png"))
-  (setq dashboard-banner-logo-title "Lets start hacking !")
-  (setq dashboard-set-footer nil)
-  (setq dashboard-items '((projects . 5)
-			  (recents  . 3)))
-  )
+;; (use-package dashboard
+;;   :config
+;;   (dashboard-setup-startup-hook)
+;;   (setq dashboard-startup-banner (expand-file-name "~/.emacs.d/meditate.png"))
+;;   (setq dashboard-banner-logo-title "Lets start hacking !")
+;;   (setq dashboard-set-footer nil)
+;;   (setq dashboard-items '((projects . 5)
+;; 			  (recents  . 3)))
+;;   )
 
 (use-package tex
   :ensure auctex
@@ -933,8 +933,8 @@
 (defalias 'perl-mode 'cperl-mode)
 ;; sudo cpan install Perl::Tidy
 ;; then use emacs command package-install-file to install from local perltidy.el
-(require 'perltidy)
-(define-key cperl-mode-map (kbd "C-c u") 'perltidy-dwim)
+;; (require 'perltidy)
+;; (define-key cperl-mode-map (kbd "C-c u") 'perltidy-dwim)
 
 (use-package auto-virtualenvwrapper
   :init
@@ -1015,7 +1015,7 @@
 (global-set-key (kbd "C-x 2") 'my-window-split-v)
 (global-set-key (kbd "C-x 3") 'my-window-split-h)
 (global-set-key (kbd "C-x d") 'dired-jump)
-(define-key dired-mode-map "a" (lambda () (interactive) (find-alternate-file "..")))
+;; (define-key dired-mode-map "a" (lambda () (interactive) (find-alternate-file "..")))
 (global-set-key (kbd "C-x t") 'ansi-term)
 (global-set-key (kbd "S-SPC") 'recompile)
 (global-set-key (kbd "C-c C-r") 'replace-string)

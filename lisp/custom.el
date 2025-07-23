@@ -94,7 +94,7 @@
  '(font-lock-reference-face ((t (:foreground "firebrick1"))))
  '(ivy-minibuffer-match-face-2 ((t (:background "#6ba8a2" :foreground "#eee8d5"))))
  '(lazy-highlight ((t (:background "gray17" :foreground "orange red" :weight bold))))
- '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
+ ;; '(minibuffer-prompt ((t (:inherit nil :box nil :background nil :foreground "red"))))
  '(org-clock-overlay ((t (:background "pale green"))))
  '(org-default ((t (:family "IBM Plex Mono"))))
  '(org-level-1 ((t (:family "IBM Plex Mono"))))
