@@ -994,15 +994,14 @@
   (setq cmake-project-architecture "Win64")
   )
 
-(use-package ansible
+(use-package ansible-vault
   :defer t
   :init
-  (add-hook 'yaml-ts-mode-hook #'(lambda () (ansible 1)))
+  (add-hook 'yaml-mode-hook
+	    (lambda ()
+	      (and (string= (file-name-base) "encrypted") (ansible-vault-mode 1))))
   :config
   (setq ansible-vault-password-file "~/ansible_vault_password.txt")
-  ;; (global-set-key (kbd "C-c b") 'ansible-decrypt-buffer)
-  ;; (global-set-key (kbd "C-c g") 'ansible-encrypt-buffer)
-  ;; (add-hook 'ansible-hook 'ansible-auto-decrypt-encrypt)
   )
 
 (use-package jcl-mode
