@@ -41,7 +41,7 @@
      (#("account (even virtual)" 0 1 (idx 3))
       "%(binary) -f %(ledger-file) reg %(account)")))
  '(lsp-ruff-server-command
-   '("ruff" "server" "--config" "/Users/kaipada/Repos/c390.ivt/ruff.toml"))
+   '("ruff" "server"))
  '(org-agenda-files '("/Users/kaipada/Repos/Notes/notes/work.org"))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
