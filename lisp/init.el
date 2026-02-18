@@ -161,8 +161,8 @@
 ;; Tramp setup ---------------
 
 ;;Put backup files neatly away -- saved me many times
-  ;; Fix an incompatibility between the ob-async and ob-ipython packages
-  ;; (setq ob-async-no-async-languages-alist '("ipython"))
+;; Fix an incompatibility between the ob-async and ob-ipython packages
+;; (setq ob-async-no-async-languages-alist '("ipython"))
 (let ((backup-dir "~/.emacs.d/Emacs/backups")
       (auto-saves-dir "~/.emacs.d/Emacs/autosavedir/")
       )
@@ -203,16 +203,16 @@
   :config
   (defvar org-hide-emphasis-markers t) ;; Stop seeing all the markup symbols in org file, beautiful
   (setq org-file-apps
-      '((auto-mode . emacs)
-	(directory . emacs)
-        ("cron\\." . emacs)
-        ("\\.cron" . emacs)
-        ("\\.bds" . emacs)
-        ("\\.bld" . emacs)
-        ("\\.bvt" . emacs)
-        ("\\.cron" . emacs)
-        ("\\.mkv" . "vlc \"%s\"")
-	))
+	'((auto-mode . emacs)
+	  (directory . emacs)
+          ("cron\\." . emacs)
+          ("\\.cron" . emacs)
+          ("\\.bds" . emacs)
+          ("\\.bld" . emacs)
+          ("\\.bvt" . emacs)
+          ("\\.cron" . emacs)
+          ("\\.mkv" . "vlc \"%s\"")
+	  ))
   (setq org-clock-mode-line-total 'current
 	org-duration-format (quote h:mm)
 	org-src-preserve-indentation 't
@@ -1000,7 +1000,7 @@
   :init (my-vc-install :fetcher "github" :repo "Trisk3lion/jcl-mode")
   )
 
-; https://github.com/SqrtMinusOne/pomm.el
+					; https://github.com/SqrtMinusOne/pomm.el
 (use-package pomm
   :commands (pomm pomm-third-time)
   :config
@@ -1022,15 +1022,15 @@
 (define-key evil-normal-state-map (kbd ",") 'kmacro-call-macro)
 (global-set-key (kbd "C-c k b") 'kill-other-buffers)
 (global-set-key (kbd "C-c k t") #'(lambda ()
-				   (interactive )
-				   (tramp-cleanup-all-buffers)
-				   (tramp-cleanup-all-connections)
-				   (message "Cleaned all tramp connections...")))
+				    (interactive )
+				    (tramp-cleanup-all-buffers)
+				    (tramp-cleanup-all-connections)
+				    (message "Cleaned all tramp connections...")))
 (global-set-key (kbd "C-c k w") #'(lambda ()
-				   (interactive)
-				   (yafolding-show-all)
-				   (delete-trailing-whitespace)
-				   (message "Deleted all whitespaces...")))
+				    (interactive)
+				    (yafolding-show-all)
+				    (delete-trailing-whitespace)
+				    (message "Deleted all whitespaces...")))
 (setq major-mode-remap-alist
       '((yaml-mode . yaml-ts-mode)
 	(bash-mode . bash-ts-mode)
