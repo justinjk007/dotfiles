@@ -197,6 +197,7 @@
   :init
   (add-hook 'org-mode-hook 'turn-on-font-lock)
   (add-hook 'org-mode-hook 'flyspell-mode)
+  (add-hook 'org-mode-hook (lambda () (flycheck-mode -1)))
   (add-hook 'org-mode-hook 'my-abbrev-mode-defs)
   (add-hook 'org-mode-hook 'olivetti-mode)
   ;; (setq org-agenda-files `(,(expand-file-name "org-files/todo.org" (getenv "DROPBOX_DIR"))))
