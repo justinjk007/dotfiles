@@ -963,6 +963,17 @@
   ;; (define-key c-mode-base-map (kbd "C-c u") 'clang-format-buffer)
   )
 
+(use-package apheleia
+  :init
+  (apheleia-global-mode +1)
+  :config
+  (setf (alist-get 'python-mode apheleia-mode-alist)
+	'(ruff-isort ruff))
+  (setf (alist-get 'python-ts-mode apheleia-mode-alist)
+	'(ruff-isort ruff))
+  )
+
+
 (use-package cmake-mode
   :defer t
   :after cmake-project
