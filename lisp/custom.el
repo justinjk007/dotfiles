@@ -11,10 +11,14 @@
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
-   ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
+   ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1"
+    "#e1e1e0"])
  '(cursor-type '(bar . 3))
  '(custom-safe-themes
-   '("13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default))
+   '("13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277"
+     "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3"
+     "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4"
+     default))
  '(electric-pair-mode t)
  '(flycheck-indication-mode nil)
  '(flyspell-abbrev-p t)
@@ -24,24 +28,21 @@
  '(inhibit-compacting-font-caches t t)
  '(inhibit-startup-screen t)
  '(ledger-reports
-   '(("bal cleared" "%(binary) [[ledger-mode-flags]] -f %(ledger-file) bal --cleared --real")
-     (#("bal" 0 1
-	(idx 0))
-      "%(binary) -f %(ledger-file) bal --real")
-     ("budget" "%(binary) --empty -S -T -f %(ledger-file) bal ^assets:budget")
-     (#("reg" 0 1
-	(idx 1))
-      "%(binary) -f %(ledger-file) reg --real")
-     (#("payee" 0 1
-	(idx 2))
+   '(("bal cleared"
+      "%(binary) [[ledger-mode-flags]] -f %(ledger-file) bal --cleared --real")
+     (#("bal" 0 1 (idx 0)) "%(binary) -f %(ledger-file) bal --real")
+     ("budget"
+      "%(binary) --empty -S -T -f %(ledger-file) bal ^assets:budget")
+     (#("reg" 0 1 (idx 1)) "%(binary) -f %(ledger-file) reg --real")
+     (#("payee" 0 1 (idx 2))
       "%(binary) -f %(ledger-file) reg @%(payee) --real")
-     (#("account" 0 1
-	(idx 3))
+     (#("account" 0 1 (idx 3))
       "%(binary) -f %(ledger-file) reg %(account) --real")
-     (#("account (even virtual)" 0 1
-	(idx 3))
+     (#("account (even virtual)" 0 1 (idx 3))
       "%(binary) -f %(ledger-file) reg %(account)")))
- '(org-agenda-files '("~/Repos/Notes/notes/work.org"))
+ '(lsp-ruff-server-command
+   '("ruff" "server" "--config" "/Users/kaipada/Repos/c390.ivt/ruff.toml"))
+ '(org-agenda-files '("/Users/kaipada/Repos/Notes/notes/work.org"))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
  '(org-hide-leading-stars t)
@@ -50,21 +51,47 @@
    '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
  '(package-enable-at-startup t)
  '(package-selected-packages
-   '(pomm eat alarm-clock jcl-mode ob-async groovy-mode crontab-mode xref-js2 js2-refactor js2-mode auctex dashboard yaml-mode wotd smartparens flutter dart-server lsp-dart lsp-ui lsp-mode company-go go-mode anzu dockerfile-mode flycheck-ledger ledger-mode expand-region hungry-delete evil-goggles beacon counsel-projectile ibuffer-projectile projectile avy counsel swiper rainbow-delimiters highlight-numbers key-chord htmlize speed-type ivy-yasnippet yasnippet-snippets yafolding prettier web-mode engine-mode doom-modeline minions nerd-icons shackle olivetti academic-phrases markdown-mode csv-mode ox-hugo ox-reveal ox-twbs org-bullets ox-mediawiki orgmode-mediawiki indent-bars treesit-auto evil-markdown cmake-project cmake-mode clang-format modern-cpp-font-lock auto-virtualenvwrapper perltidy org-contrib orgalist ansible flyspell-popup flyspell-correct evil flycheck rainbow-mode yasnippet emmet-mode))
+   '(academic-phrases alarm-clock ansible ansible-vault anzu apheleia
+		      auctex auto-virtualenvwrapper avy beacon
+		      clang-format cmake-mode cmake-project company-go
+		      counsel counsel-projectile crontab-mode csv-mode
+		      dart-server dashboard dockerfile-mode
+		      doom-modeline eat emmet-mode engine-mode evil
+		      evil-goggles evil-markdown expand-region flutter
+		      flycheck flycheck-ledger flyspell-correct
+		      flyspell-popup go-mode groovy-mode
+		      highlight-numbers htmlize hungry-delete
+		      ibuffer-projectile indent-bars ivy-yasnippet
+		      jcl-mode js2-mode js2-refactor key-chord
+		      ledger-mode lsp-dart lsp-mode lsp-ui
+		      markdown-mode minions modern-cpp-font-lock
+		      nerd-icons ob-async olivetti org-bullets
+		      org-contrib orgalist orgmode-mediawiki ox-hugo
+		      ox-mediawiki ox-reveal ox-twbs perltidy pomm
+		      prettier projectile rainbow-delimiters
+		      rainbow-mode shackle smartparens speed-type
+		      swiper treesit-auto web-mode wotd xref-js2
+		      yafolding yaml-mode yasnippet yasnippet-snippets))
  '(package-vc-selected-packages
-   '((jcl-mode :vc-backend Git :url "https://www.github.com/Trisk3lion/jcl-mode")
-     (evil-markdown :vc-backend Git :url "https://www.github.com/Somelauw/evil-markdown")
-     (orgmode-mediawiki :vc-backend Git :url "https://www.github.com/tomalexander/orgmode-mediawiki")
-     (indent-bars :vc-backend Git :url "https://www.github.com/jdtsmith/indent-bars")))
+   '((jcl-mode :vc-backend Git :url
+	       "https://www.github.com/Trisk3lion/jcl-mode")
+     (evil-markdown :vc-backend Git :url
+		    "https://www.github.com/Somelauw/evil-markdown")
+     (orgmode-mediawiki :vc-backend Git :url
+			"https://www.github.com/tomalexander/orgmode-mediawiki")
+     (indent-bars :vc-backend Git :url
+		  "https://www.github.com/jdtsmith/indent-bars")))
  '(powerline-height nil)
  '(projectile-globally-ignored-directories
-   '(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_" ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build"))
+   '(".idea" ".ensime_cache" ".eunit" ".git" ".hg" ".fslckout" "_FOSSIL_"
+     ".bzr" "_darcs" ".tox" ".svn" ".stack-work" "build" "Build"))
  '(projectile-use-git-grep t)
  '(require-final-newline 'visit-save)
  '(ring-bell-function 'ignore)
  '(safe-local-variable-values
    '((flyspell-mode)
-     (eval add-hook 'before-save-hook 'my-evaluate-time-table-automatically nil t)))
+     (eval add-hook 'before-save-hook
+	   'my-evaluate-time-table-automatically nil t)))
  '(scroll-restore-mode t)
  '(send-mail-function 'mailclient-send-it)
  '(show-paren-mode t)
