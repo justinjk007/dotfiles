@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: ibmuser
+# key: ssh
+# --
+`(let* ((input (read-string "Enter hostname-port: "))
+        (parts (split-string input "-"))
+        (hostname (car parts))
+        (port (cadr parts)))
+   (format "ssh -p %s ibmuser@%s" port hostname))`$0
