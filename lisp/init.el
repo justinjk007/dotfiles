@@ -484,10 +484,10 @@
 ;;   )
 
 (use-package prettier
-  ; Better to install on project basis like this, and then add a config file
-  ; npm install --save-dev --save-exact prettier
-  ; https://github.com/prettier/prettier
-  ; https://github.com/jscheid/prettier.el
+					; Better to install on project basis like this, and then add a config file
+					; npm install --save-dev --save-exact prettier
+					; https://github.com/prettier/prettier
+					; https://github.com/jscheid/prettier.el
   :defer t
   :after web-mode
   :bind (:map web-mode-map ("C-c u" . prettier-prettify))
@@ -964,15 +964,15 @@
   ;; (define-key c-mode-base-map (kbd "C-c u") 'clang-format-buffer)
   )
 
-(use-package apheleia
-  :init
-  (apheleia-global-mode +1)
-  :config
-  (setf (alist-get 'python-mode apheleia-mode-alist)
-	'(ruff-isort ruff))
-  (setf (alist-get 'python-ts-mode apheleia-mode-alist)
-	'(ruff-isort ruff))
-  )
+;; (use-package apheleia
+;;   :init
+;;   (apheleia-global-mode +1)
+;;   :config
+;;   (setf (alist-get 'python-mode apheleia-mode-alist)
+;; 	'(ruff-isort ruff))
+;;   (setf (alist-get 'python-ts-mode apheleia-mode-alist)
+;; 	'(ruff-isort ruff))
+;;   )
 
 
 (use-package cmake-mode
