@@ -142,6 +142,9 @@
   (add-hook 'with-editor-mode-hook 'evil-insert-state)
   )
 
+(use-package forge
+  :after magit)
+
 (load-file "~/.emacs.d/custom-functions.el") ;; Loads my custom-functions
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)

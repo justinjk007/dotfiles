@@ -121,7 +121,24 @@ set -o vi
 
 export PATH=/opt/homebrew/bin:$PATH
 
-PS1='\n\[\e[01;33m\]\u\[\e[0m\]\[\e[00;37m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\e[00;36m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
+# Color definitions
+COLOR_RESET='\[\033[0m\]'
+COLOR_BOLD='\[\033[1m\]'
+COLOR_RED='\[\033[0;31m\]'
+COLOR_GREEN='\[\033[0;32m\]'
+COLOR_YELLOW='\[\033[0;33m\]'
+COLOR_BLUE='\[\033[0;34m\]'
+COLOR_MAGENTA='\[\033[0;35m\]'
+COLOR_CYAN='\[\033[0;36m\]'
+COLOR_WHITE='\[\033[0;37m\]'
+COLOR_BOLD_RED='\[\033[1;31m\]'
+COLOR_BOLD_GREEN='\[\033[1;32m\]'
+COLOR_BOLD_YELLOW='\[\033[1;33m\]'
+COLOR_BOLD_BLUE='\[\033[1;34m\]'
+COLOR_BOLD_MAGENTA='\[\033[1;35m\]'
+COLOR_BOLD_CYAN='\[\033[1;36m\]'
+
+PS1='\n\[\033[1;32m\]\u\[\e[0m\]\[\033[0;35m\]@\[\e[0m\]\[\e[01;36m\]\h\[\e[0m\]\[\e[00;37m\] \t \[\e[0m\]\[\033[0;34m\]\w\[\e[0m\]\[\e[01;37m\] \[\e[0m\]\n$ '
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     setxkbmap -option ctrl:swapcaps # Swap CTRL and Caps Lock key

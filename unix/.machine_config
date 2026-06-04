@@ -33,6 +33,9 @@ export PATH="$PATH:/opt/cisco/anyconnect/bin/"
 
 alias gitforcepull='git fetch --all && git reset --hard origin/main' # pull and overwrite any local changes
 
+# https://spencer.wtf/2026/02/20/cleaning-up-merged-git-branches-a-one-liner-from-the-cias-leaked-dev-docs.html
+alias ciaclean='git branch | grep -vE "^\s*(\*|main|master)" | xargs -n 1 git branch -d'
+
 export PROMPT_COMMAND='printf "\033k\033\134"' # stop GNU Screen from changing the set title
 
 # if on pok domain start hostnames with POK otherwise stick to TOR

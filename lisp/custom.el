@@ -40,8 +40,7 @@
       "%(binary) -f %(ledger-file) reg %(account) --real")
      (#("account (even virtual)" 0 1 (idx 3))
       "%(binary) -f %(ledger-file) reg %(account)")))
- '(lsp-ruff-server-command
-   '("ruff" "server"))
+ '(lsp-ruff-server-command '("ruff" "server"))
  '(org-agenda-files '("/Users/kaipada/Repos/Notes/notes/work.org"))
  '(org-agenda-todo-ignore-deadlines nil)
  '(org-agenda-todo-ignore-schedules nil)
@@ -59,7 +58,7 @@
 		      doom-modeline eat emmet-mode engine-mode evil
 		      evil-goggles evil-markdown expand-region flutter
 		      flycheck flycheck-ledger flyspell-correct
-		      flyspell-popup go-mode groovy-mode
+		      flyspell-popup forge go-mode groovy-mode
 		      highlight-numbers htmlize hungry-delete
 		      ibuffer-projectile indent-bars ivy-yasnippet
 		      jcl-mode js2-mode js2-refactor key-chord
