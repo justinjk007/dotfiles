@@ -1,4 +1,4 @@
-﻿;;; package --- init-file
+;;; package --- init-file
 ;;; Author:Justin Kaipada
 ;;; Commentary:
 "Thou shalt not cross 80 columns in thy file"
@@ -1053,6 +1053,39 @@
 	(json-mode . json-ts-mode)
 	(css-mode . css-ts-mode)
 	(python-mode . python-ts-mode)))
+
+(defvar my/keep-awake-timer nil
+  "Timer that nudges screen brightness to simulate user activity, or nil.")
+
+(defun my/keep-awake-nudge ()
+  "Press brightness-down then brightness-up via System Events."
+  ;; key code 145 = brightness down, 144 = brightness up
+  (start-process
+   "keep-awake-nudge" nil "osascript"
+   "-e" "tell application \"System Events\" to key code 145"
+   "-e" "delay 0.3"
+   "-e" "tell application \"System Events\" to key code 144"))
+
+(defun my/toggle-keep-awake (&optional interval)
+  "Toggle simulated brightness key presses to keep the Mac awake.
+INTERVAL is the number of seconds between nudges (default 60).
+Emacs needs Accessibility permission in System Settings > Privacy &
+Security for the key presses to be sent."
+  (interactive "P")
+  (if (timerp my/keep-awake-timer)
+      (progn
+	(cancel-timer my/keep-awake-timer)
+	(setq my/keep-awake-timer nil)
+	(message "Keep-awake OFF."))
+    (unless (eq system-type 'darwin)
+      (user-error "Keep-awake only works on macOS"))
+    (let ((secs (if (numberp interval) interval 60)))
+      (setq my/keep-awake-timer
+	    (run-at-time 0 secs #'my/keep-awake-nudge))
+      (message "Keep-awake ON: brightness nudge every %ds." secs))))
+
+
+
 
 (provide 'init.el)
 ;;; init.el ends here
