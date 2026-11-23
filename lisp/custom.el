@@ -1,4 +1,4 @@
-;;; package --- custom-file
+;;; package --- custom-file -*- lexical-binding: t; -*-
 ;;; Author:Justin Kaipada
 ;;; Commentary:
 ;;; Code:

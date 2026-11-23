@@ -1,4 +1,4 @@
-;;; package --- myhydras
+;;; package --- myhydras -*- lexical-binding: t; -*-
 ;;; Author:Justin Kaipada
 ;;; Commentary:
 ;;; This is the file that contains all my hydras

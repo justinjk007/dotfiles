@@ -1,4 +1,4 @@
-;;; package --- init-file
+;;; package --- init-file -*- lexical-binding: t; -*-
 ;;; Author:Justin Kaipada
 ;;; Commentary:
 "Thou shalt not cross 80 columns in thy file"

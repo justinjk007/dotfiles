@@ -1,4 +1,4 @@
-;;; package --- Extra settings to aid emacs that are specific to each machine
+;;; package --- Extra settings to aid emacs that are specific to each machine -*- lexical-binding: t; -*-
 ;;; Author:Justin Kaipada
 ;;; Commentary:
 ;; These are extra settings to make tramp easier to use with work servers and proxy servers
