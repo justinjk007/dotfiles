@@ -2,13 +2,15 @@
 
 if [[ $1 == 'copy' ]]; then
     function setup_link() {
-	rm -rf $2
-	cp -r $1 $2
+	mkdir -p "$(dirname "$2")"
+	rm -rf "$2"
+	cp -r "$1" "$2"
     }
 else
     function setup_link() {
-	rm -rf $2
-	ln -s $1 $2
+	mkdir -p "$(dirname "$2")"
+	rm -rf "$2"
+	ln -s "$1" "$2"
     }
 fi
 
@@ -35,3 +37,13 @@ setup_link $cwd/unix/.bashrc ~/.bashrc
 setup_link $cwd/unix/.perltidyrc ~/.perltidyrc
 setup_link $cwd/unix/.bash_profile ~/.bash_profile
 setup_link $cwd/hacks/emacs.service ~/.config/systemd/user/emacs.service
+
+mkdir -p ~/.config/ghostty
+setup_link $cwd/ghostty/config ~/.config/ghostty/config
+setup_link $cwd/ghostty/themes ~/.config/ghostty/themes
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+    setup_link $cwd/ghostty/config "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+    setup_link $cwd/ghostty/themes "$HOME/Library/Application Support/com.mitchellh.ghostty/themes"
+fi
