@@ -158,3 +158,10 @@ ENV_FILE=".machine_config" # Load machine specific config if they exist
 if [ -f $ENV_FILE ]; then
     source $HOME/$ENV_FILE
 fi
+ghe-token() {
+  open "https://github.ibm.com/settings/tokens/new?scopes=repo,read:org,gist,workflow&description=gh-cli-$(date +%F)"
+  read "?Token generated and copied? Press Enter..."
+  pbpaste | gh auth login -h github.ibm.com --git-protocol https --with-token \
+    && gh auth setup-git -h github.ibm.com \
+    && gh auth status -h github.ibm.com
+}
